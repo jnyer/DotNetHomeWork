@@ -1,5 +1,0 @@
-D:\VSProject\C#\Homework2\Homework2.4\bin\Debug\Homework2.4.exe.config
-D:\VSProject\C#\Homework2\Homework2.4\bin\Debug\Homework2.4.exe
-D:\VSProject\C#\Homework2\Homework2.4\bin\Debug\Homework2.4.pdb
-D:\VSProject\C#\Homework2\Homework2.4\obj\Debug\Homework2.4.exe
-D:\VSProject\C#\Homework2\Homework2.4\obj\Debug\Homework2.4.pdb
