@@ -3,4 +3,3 @@ D:\VSProject\C#\Homework2\Homework2.2\bin\Debug\Homework2.2.exe
 D:\VSProject\C#\Homework2\Homework2.2\bin\Debug\Homework2.2.pdb
 D:\VSProject\C#\Homework2\Homework2.2\obj\Debug\Homework2.2.exe
 D:\VSProject\C#\Homework2\Homework2.2\obj\Debug\Homework2.2.pdb
-D:\VSProject\C#\Homework2\Homework2.2\obj\Debug\Homework2.2.csprojAssemblyReference.cache
