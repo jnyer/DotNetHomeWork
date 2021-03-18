@@ -32,9 +32,9 @@ namespace Homework2._4
         }
         static void isToeplitzMatrix(int[,] matrix, int rowNumber, int colNumber, out Boolean flag)
         {
-            for (int row = 0; row < rowNumber; ++row)
+            for (int row = 1; row < rowNumber; ++row)
             {
-                for (int col = 0; col < colNumber; ++col)
+                for (int col = 1; col < colNumber; ++col)
                 {
                     if (row > 0 && col > 0 && matrix[row, col] != matrix[row - 1, col - 1])
                         flag = false;
