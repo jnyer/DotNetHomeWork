@@ -10,9 +10,9 @@ namespace Homework5
     {
         static void Main(string[] args)
         {
-            Goods goods1 = new Goods("football", 1);                                          //测试数据
-            Goods goods2 = new Goods("basketball", 2);
-            Goods goods3 = new Goods("volleyball", 3);
+            Goods goods1 = new Goods("milk", 1);                                          //测试数据
+            Goods goods2 = new Goods("bread", 2);
+            Goods goods3 = new Goods("juice", 3);
             Goods goods4 = new Goods("water", 4);
             Goods goods5 = new Goods("chocolate", 5);
 
@@ -26,9 +26,9 @@ namespace Homework5
             OrderDetails OrderDetails4 = new OrderDetails(goods4, 4);
             OrderDetails OrderDetails5 = new OrderDetails(goods5, 5);
 
-            OrderDetails[] OrderDetailss1 = { OrderDetails1, OrderDetails5 };
-            OrderDetails[] OrderDetailss2 = { OrderDetails2, OrderDetails3 };
-            OrderDetails[] OrderDetailss3 = { OrderDetails2, OrderDetails3, OrderDetails4 };
+            OrderDetails[] OrderDetailss1 = { OrderDetails1, OrderDetails3 };
+            OrderDetails[] OrderDetailss2 = { OrderDetails2, OrderDetails4 };
+            OrderDetails[] OrderDetailss3 = { OrderDetails2, OrderDetails3, OrderDetails5 };
 
             Order order1 = new Order(1, client1, OrderDetailss1);
             Order order2 = new Order(2, client2, OrderDetailss2);
