@@ -1,6 +1,0 @@
-D:\VSProject\C#\Homework3\Homework3.1\bin\Debug\Homework3.1.exe.config
-D:\VSProject\C#\Homework3\Homework3.1\bin\Debug\Homework3.1.exe
-D:\VSProject\C#\Homework3\Homework3.1\bin\Debug\Homework3.1.pdb
-D:\VSProject\C#\Homework3\Homework3.1\obj\Debug\Homework3.1.csprojAssemblyReference.cache
-D:\VSProject\C#\Homework3\Homework3.1\obj\Debug\Homework3.1.exe
-D:\VSProject\C#\Homework3\Homework3.1\obj\Debug\Homework3.1.pdb
