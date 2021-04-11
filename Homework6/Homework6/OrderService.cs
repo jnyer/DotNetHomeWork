@@ -107,7 +107,7 @@ namespace Homework6
             }
             return orderid;
         }
-        public void Export()
+        public void Export(string path) //TODO
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
             using (FileStream fs = new FileStream("orderlist.xml", FileMode.Create))
@@ -116,7 +116,7 @@ namespace Homework6
             Console.WriteLine(File.ReadAllText("orderlist.xml"));
 
         }
-        public void Import()
+        public void Import(string path) //TODO
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
             try

@@ -31,6 +31,8 @@ namespace Homework6.Tests
         static Order order1 = new Order(1, client1, orderdetailss1);
         static Order order2 = new Order(2, client2, orderdetailss2);
         static Order order3 = new Order(3, client3, orderdetailss3);
+        [TestInitialize] //TODO
+
         [TestMethod()]
         public void OrderServiceTest()
         {
