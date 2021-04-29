@@ -17,7 +17,7 @@ namespace Homework5
         }
         public override string ToString()
         {
-            return $"{Goods}, ";
+            return $"{Goods}, {GoodsNumber}";
         }
 
         public override bool Equals(object obj)
