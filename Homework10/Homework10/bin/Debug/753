@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="1.&amp;#160;子网掩码 子网掩码(subnet mask)又叫网络掩码、地址掩码、子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能" />
+    <meta property="og:description" content="1.&amp;#160;子网掩码 子网掩码(subnet mask)又叫网络掩码、地址掩码、子网络遮罩，它是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>子网掩码的作用 - 向往蓝天的伟 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/sea/bundle-sea.min.css?v=oF2SvRIFQNTLcLgn66nPy-bOeZ-5NDS8tPrc0Kt42ys" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/sea/bundle-sea-mobile.min.css?v=t5pWHm7Zavhfg65859uF8OmEaotpCjyYSbKN5RbMv6E" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/tpcwlilacfover/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/tpcwlilacfover/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/tpcwlilacfover/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 465855;
+        var currentBlogApp = 'tpcwlilacfover';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'sea';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-06 05:29';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/tpcwlilacfover/">向往蓝天的伟</a>
+<br>
+		
+	</div>
+</div>
+
+
+</div>
+
+<div id="mytopmenu">
+	
+		<div id="mylinks">
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+ &nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/tpcwlilacfover/">
+首页</a>
+ &nbsp;
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+ &nbsp;
+
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%90%91%E5%BE%80%E8%93%9D%E5%A4%A9%E7%9A%84%E4%BC%9F">
+联系</a> &nbsp;
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/tpcwlilacfover/rss/">
+订阅</a>
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/tpcwlilacfover/rss/">
+    <img src="/skins/sea/images/xml.gif" alt="订阅" />
+</a>&nbsp;
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+</div>
+		<DIV id="mystats"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></DIV>
+	
+</div>
+<div id="centercontent">
+	<div id="post_detail">
+<div class="post">
+	<h1 class = "postTitle">
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/tpcwlilacfover/p/14736106.html">
+    <span>子网掩码的作用</span>
+    
+
+
+
+</a>
+</h1>
+	<div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<h1><strong>1.&nbsp;子网掩码</strong></h1>
+<p><span style="font-family: 宋体">　　子网掩码</span><span style="font-family: Calibri">(subnet mask)</span><span style="font-family: 宋体">又叫</span><a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%8E%A9%E7%A0%81/7862514"><span style="font-family: 宋体">网络掩码</span></a><span style="font-family: 宋体">、</span><a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E6%8E%A9%E7%A0%81/8623995"><span style="font-family: 宋体">地址掩码</span></a><span style="font-family: 宋体">、子网络遮罩，它是一种用来指明一个</span><a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80">IP<span style="font-family: 宋体">地址</span></a><span style="font-family: 宋体">的哪些位标识的是</span><a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151"><span style="font-family: 宋体">主机</span></a><span style="font-family: 宋体">所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能单独存在，它必须结合</span>IP<span style="font-family: 宋体">地址一起使用。子网掩码只有一个作用，就是将某个</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址划分成</span><a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80/9765459"><span style="font-family: 宋体">网络地址</span></a><span style="font-family: 宋体">和</span><a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80/9765500"><span style="font-family: 宋体">主机地址</span></a><span style="font-family: 宋体">两部分</span>。</p>
+<p><span style="font-family: 宋体">　　子网掩码是一个</span><span style="font-family: Calibri">32</span><span style="font-family: 宋体">位地址，用于屏蔽</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址的一部分以区别网络标识和主机标识，并说明该</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址是在</span><a href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91/98626"><span style="font-family: 宋体">局域网</span></a><span style="font-family: 宋体">上，还是在</span><a href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91/422004"><span style="font-family: 宋体">广域网</span></a><span style="font-family: 宋体">上</span></p>
+<p>子网掩码告知<a href="https://baike.baidu.com/item/%E8%B7%AF%E7%94%B1%E5%99%A8/108294"><span style="font-family: 宋体">路由器</span></a><span style="font-family: 宋体">，地址的哪一部分是网络地址，哪一部分是主机地址，使路由器正确判断任意</span>IP<span style="font-family: 宋体">地址是否是本</span><a href="https://baike.baidu.com/item/%E7%BD%91%E6%AE%B5/11026985"><span style="font-family: 宋体">网段</span></a><span style="font-family: 宋体">的，从而正确地进行路由。网络上，数据从一个地方传到另外一个地方，是依靠</span>IP<span style="font-family: 宋体">寻址。从逻辑上来讲，是两步的。第一步，从</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">中找到所属的网络，好比是去找这个人是哪个小区的；第二步，再从</span><span style="font-family: Calibri">IP </span><span style="font-family: 宋体">中找到主机在这个网络中的位置，好比是在小区里面找到这个人。</span></p>
+<p><span style="font-family: 宋体">　　通过计算机的子网掩码判断两台计算机是否属于同一网段的方法是，将计算机十进制的</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址和子网掩码转换为二进制的形式，然后进行二进制“与”</span><span style="font-family: Calibri">(AND)</span><span style="font-family: 宋体">计算（全</span><span style="font-family: Calibri">1</span><span style="font-family: 宋体">则得</span><span style="font-family: Calibri">1</span><span style="font-family: 宋体">，不全</span><span style="font-family: Calibri">1</span><span style="font-family: 宋体">则得</span><span style="font-family: Calibri">0</span><span style="font-family: 宋体">），如果得出的结果是相同的，那么这两台计算机就属于同一网段</span></p>
+<h1><strong>2.子网掩码计算</strong></h1>
+<h2>1.1.&nbsp;<strong><span style="font-family: 黑体">根据子网数</span></strong></h2>
+<p><span style="font-family: 宋体">利用子网数来计算</span></p>
+<p><span style="font-family: 宋体">在求子网掩码之前必须先搞清楚要划分的子网数目，以及每个子网内的所需主机数目。</span></p>
+<p>1)<span style="font-family: 宋体">将子网数目转化为</span><a href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6"><span style="font-family: 宋体">二进制</span></a><span style="font-family: 宋体">来表示</span></p>
+<p>2)<span style="font-family: 宋体">取得该</span><a href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6"><span style="font-family: 宋体">二进制</span></a><span style="font-family: 宋体">的位数，为</span> N</p>
+<p>3)<span style="font-family: 宋体">取得该</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址的类子网掩码，将其</span><a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80"><span style="font-family: 宋体">主机地址</span></a><span style="font-family: 宋体">部分的前</span>N<span style="font-family: 宋体">位置</span><span style="font-family: Calibri">1 </span><span style="font-family: 宋体">即得出该</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址划分子网的子网掩码。</span></p>
+<p><span style="font-family: 宋体">如欲将</span>B<span style="font-family: 宋体">类</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址</span><span style="font-family: Calibri">168.195.0.0</span><span style="font-family: 宋体">划分成</span><span style="font-family: Calibri">27</span><span style="font-family: 宋体">个子网：</span></p>
+<p>1)27=11011</p>
+<p>2)<span style="font-family: 宋体">该</span><a href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6"><span style="font-family: 宋体">二进制</span></a><span style="font-family: 宋体">为五位数，</span>N = 5</p>
+<p>3)<span style="font-family: 宋体">将</span><span style="font-family: Calibri">B</span><span style="font-family: 宋体">类地址的子网掩码</span><span style="font-family: Calibri">255.255.0.0</span><span style="font-family: 宋体">的</span><a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80"><span style="font-family: 宋体">主机地址</span></a><span style="font-family: 宋体">前</span>5<span style="font-family: 宋体">位置</span><span style="font-family: Calibri">1</span><span style="font-family: 宋体">（</span><span style="font-family: Calibri">B</span><span style="font-family: 宋体">类地址的主机位包括后两个字节，所以这里要把第三个字节的前</span><span style="font-family: Calibri">5</span><span style="font-family: 宋体">位置</span><span style="font-family: Calibri">1</span><span style="font-family: 宋体">），得到 </span><span style="font-family: Calibri">255.255.248.0</span></p>
+<p><span style="font-family: 宋体">即为划分成</span>27<span style="font-family: 宋体">个子网的</span><span style="font-family: Calibri">B</span><span style="font-family: 宋体">类</span><span style="font-family: Calibri">IP</span><span style="font-family: 宋体">地址 </span><span style="font-family: Calibri">168.195.0.0</span><span style="font-family: 宋体">的子网掩码（实际上是划成了</span><span style="font-family: Calibri">32</span><span style="font-family: 宋体">个子网）</span></p>
+<p>&nbsp;</p>
+<p>下面再举个我们常用的C类IP：</p>
+<p>例如：</p>
+<p>　　需求：我们需要把192.168.0.1这个网络划分为两个子网。</p>
+<p>分析：根据上面的子网数计算 2&nbsp; = 10 占据两位，那么我们需要将第四个字节的前两位职位1如下</p>
+<p>11111111.11111111.11111111.11000000 =》 255.255.255.192</p>
+<p>得到子网掩码后我们需要计算我们的有效网络IP地址。</p>
+<div class="para">我们知道当主机ID为全0时表示网络ID，全1时表示广播地址。在RFC950标准中，不建议使用全0和全1的子网ID。</div>
+<div class="para">例如把最后一个字节的前2位借给网络ID，用后面的6位来表示主机ID，这样就会产生2^2=8个子网，子网ID就分别为00、01、10、11这样4个，</div>
+<div class="para">在RFC950标准中只能使用中间的2个子网ID&nbsp;</div>
+<div class="para">01=》01000000 64&nbsp; 子网号</div>
+<div class="para">10=》10000000 128 子网号</div>
+<div class="para">&nbsp;</div>
+<div class="para">
+<div class="para">未做子网划分的IP地址：网络号+主机号&nbsp;&nbsp;</div>
+<div class="para">例如一个ip：192.168.0.66&nbsp; 网络号为：192.168.0 主机号：66</div>
+<div class="para">做子网划分后的IP地址：网络号+子网号+子网主机号&nbsp;</div>
+<div class="para">按照上面我们做的子网划分的一个ip192.168.0.65&nbsp; 网络号：192.168.0 子网号64&nbsp; 主机号 1</div>
+<div class="para">那么我们可以用的ip范围</div>
+<div class="para">01000001~01111111 =》192.168.0.65~192.168.0.127&nbsp; &nbsp;</div>
+<div class="para">10000001~10111111=》192.168.0.129~192.168.0.191</div>
+<div class="para">&nbsp;</div>
+<div class="para"><img src="https://img2020.cnblogs.com/blog/1116383/202105/1116383-20210506172425837-742174782.png" alt="" loading="lazy">
+<p>&nbsp;</p>
+<p>子网掩码计算还有其他计算方式这里就不一一列举。</p>
+<p>前半部分是百度的说明，后面是根据自己的理解给出一个自己容易明白的方式，如果有错误之处还请谅解和指正，谢谢。</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+	<div class="postDesc">posted on 
+<span id="post-date">2021-05-06 17:29</span>&nbsp;
+<a href="https://www.cnblogs.com/tpcwlilacfover/">向往蓝天的伟</a>&nbsp;
+阅读(<span id="post_view_count">4</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736106" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14736106);return false;">收藏</a></div>
+</div>
+
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 465855, cb_blogApp = 'tpcwlilacfover', cb_blogUserGuid = 'e70ced1f-f1fe-e611-845c-ac853d9f53ac';
+    var cb_entryId = 14736106, cb_entryCreatedDate = '2021-05-06 17:29', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+</div>
+<div id="leftcontent">
+	
+		<DIV id="leftcontentcontainer">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script><br>
+			<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script></DIV>
+	
+</div>
+<!--done-->
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com">博客园</a>
+	Copyright &copy; 2021 向往蓝天的伟
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</div>
+
+
+
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuNcB2JSSsB89CJWf134gBOFgaStyb6nWvzADjYFtwxDoNGGtNUT0aZu2f_4VpCRI8vGpdELQVcMx9VRuaO1gKP_Wh4wrQCX5zdr2Pi_8Hpu89S-pIW1Xg9l-f84JmCPec" />
+</body>
+</html>

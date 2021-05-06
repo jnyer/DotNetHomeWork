@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="1、文本文件写入dataf = open(&amp;#39;name.txt&amp;#39;,mode=&amp;#39;w&amp;#39;) #打开文件，若文件不存在系统自动创建。 #参数name 文件名，mode 模式。 f" />
+    <meta property="og:description" content="1、文本文件写入dataf = open(&amp;#39;name.txt&amp;#39;,mode=&amp;#39;w&amp;#39;) #打开文件，若文件不存在系统自动创建。 #参数name 文件名，mode 模式。 f" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>python对文本文件的读写操作 - 月光之下 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/clover/bundle-clover.min.css?v=gNL1SP-_mT63SdzBZABu3y6W6mHGeh4U6abpdhqghl4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/clover/bundle-clover-mobile.min.css?v=mqNqC_FankkYSF65W2WPdLYJ-oT1c7Z97ct2hw3JgQg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/blog12357/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/blog12357/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/blog12357/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 497040;
+        var currentBlogApp = 'blog12357';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'clover';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-06 10:56';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+    <tr>
+        <td width="299" background="/skins/clover/images/banner1.jpg"></td>
+        <td background="/skins/clover/images/banner.jpg">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/blog12357/">月光之下</a>
+<br>
+		
+	</div>
+</div>
+
+</td>
+        <TtdD width="296" background="/skins/clover/images/banner2.jpg"></TtdD>
+    </tr>
+</table>
+<div id="mylinks"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp; &nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/blog12357/">
+首页</a>
+&nbsp; &nbsp;
+<a href="http://q.cnblogs.com/" class="menu" target="_blank">博问</a>&nbsp; &nbsp;
+<a href="http://home.cnblogs.com/ing/" class="menu" target="_blank">闪存</a>&nbsp; &nbsp;
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp; &nbsp;
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/blog12357/rss/">
+订阅</a>
+
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/blog12357/rss/">
+    <img src="/skins/clover/images/xml.gif" alt="订阅" />
+</a>&nbsp; &nbsp;
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+
+</div>
+<div id="mytopmenu">
+    <div id="mystats">
+        <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+    </div>
+</div>
+<div id="centercontent">
+    <div id="post_detail">
+    <div class="post">
+        <div class="postTitle">
+            
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/14734243.html">
+    <span>python对文本文件的读写操作</span>
+    
+
+
+
+</a>
+
+        </div>
+        <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<pre><span style="color: rgba(255, 0, 0, 1); font-family: &quot;courier new&quot;, courier; font-size: 18px">1、文本文件写入data</span><br><br><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">f = open('name.txt',mode='w')    <span style="color: rgba(0, 204, 255, 1)"> #打开文件，若文件不存在系统自动创建。 </span>
+                                <span style="color: rgba(0, 204, 255, 1)"> #参数name 文件名，mode 模式。</span>
+f.write('hello word 你好 \n')  <span style="color: rgba(0, 204, 255, 1)"># write 写入</span>
+f.writelines(['hello\n','world\n','你好\n','世界\n'])<span style="color: rgba(0, 204, 255, 1)">#writelines()函数 会将列表中的字符串写入文件中，但不会自动换行，如果需要换行，手动添加换行符</span>
+f.close()           <span style="color: rgba(0, 204, 255, 1)">   #关闭文件    </span>    </span><br><br><br><br><br><span style="color: rgba(255, 0, 0, 1); font-family: &quot;courier new&quot;, courier; font-size: 18px">2.读取文本文件data</span><br><br></pre>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px; color: rgba(0, 204, 255, 1)">#使用r模式打开文件，做读取文件操作</span><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px; color: rgba(0, 204, 255, 1)">#打开文件的模式，默认就是r模式，如果只是读文件，可以不填写mode模式</span><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">f=open('name.txt',mode='r')</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">content=f.read(10)&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgba(0, 204, 255, 1)">#read(int)函数,读取文件内容。如果指定读取长度，会按照长度去读取，不指定默认读取所有数据</span></span><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">print(content)</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">content=f.readline(10)&nbsp; &nbsp;<span style="color: rgba(0, 204, 255, 1)">#readline(int)函数 默认读取文件一行数据</span></span><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">print(content)</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">contents=f.readlines()<span style="color: rgba(0, 204, 255, 1)">&nbsp; &nbsp;#readlines()会把每一行的数据作为一个元素放在列表中返回，读取所有行的数据</span></span><br><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">print(contents)</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px">f.close</span></p>
+<pre></pre>
+<p>&nbsp;</p>
+<p><span style="font-size: 18px; font-family: &quot;courier new&quot;, courier">mode参数：</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">w</span> 只能操作写入如果文件中有数据，再次写入内容，会把原来的覆盖掉&nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">r</span> 只能读取 </span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">  a</span> 向文件追加</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">w+</span> 可读可写 </span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">  r+</span>可读可写 </span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><span style="color: rgba(255, 0, 0, 1)">   a+</span>可读可追加</span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><em id="__mceDel"><em id="__mceDel"><span style="color: rgba(255, 0, 0, 1)">wb+</span>写入进制数据</em></em></span></p>
+<p><span style="font-family: &quot;courier new&quot;, courier; font-size: 18px"><em id="__mceDel"><em id="__mceDel"></em></em><span style="color: rgba(255, 0, 0, 1)">w</span>模式打开文件</span></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+        <div class="postDesc">posted on 
+<span id="post-date">2021-05-06 10:56</span>&nbsp;
+<a href="https://www.cnblogs.com/blog12357/">月光之下</a>&nbsp;
+阅读(<span id="post_view_count">7</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14734243" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14734243);return false;">收藏</a></div>
+    </div>
+    <script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 497040, cb_blogApp = 'blog12357', cb_blogUserGuid = 'a1d89618-9575-4fc0-e3be-08d6818f025f';
+    var cb_entryId = 14734243, cb_entryCreatedDate = '2021-05-06 10:56', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+    <a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+</div>
+<div id="leftcontent">
+    <div id="leftcontentcontainer">
+        <div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div><br>
+        <div id="blog-calendar" style="display:none"></div>
+        <script>loadBlogDefaultCalendar();</script>
+        <div id="blog-sidecolumn"></div>
+        <script>loadBlogSideColumn();</script>
+    </div>
+</div>
+<!--done-->
+<div class="footer">
+	Copyright &copy; 2021 月光之下
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+ Powered By<a href="/">博客园</a>
+</div>
+
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuWrt79UKZuvdK6gstpe9PpFHokpNyp4kBxLapWJO9MsOEEbuDPl_AvNNmLH_uGqElYwGTc-PTapsH02IllkktO3FIswok6cc99Atkx9NmAGT89VytsNWk-LoXd5nPOoC8" />
+</body>
+</html>

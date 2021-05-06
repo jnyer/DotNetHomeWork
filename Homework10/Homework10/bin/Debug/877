@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="为什么要做限流 首先让我们先看一看系统架构设计中，为什么要做“限流”。 旅游景点通常都会有最大的接待量，不可能无限制的放游客进入，比如故宫每天只卖八万张票，超过八万的游客，无法买票进入，因为如果超过八" />
+    <meta property="og:description" content="为什么要做限流 首先让我们先看一看系统架构设计中，为什么要做“限流”。 旅游景点通常都会有最大的接待量，不可能无限制的放游客进入，比如故宫每天只卖八万张票，超过八万的游客，无法买票进入，因为如果超过八" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>redis实际应用-限流 - 程序员养成日记 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/darkgreentrip/bundle-darkgreentrip.min.css?v=eoZATbPKwJCL5eWVDTQIYC6CIxJPcFz191dkzN2tSyQ" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/darkgreentrip/bundle-darkgreentrip-mobile.min.css?v=lU86o8mZVn3FOSdFt7nHKYTD8gzeKaiQIIZ6lSjEFyo" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xuehao/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xuehao/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xuehao/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 327688;
+        var currentBlogApp = 'xuehao';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'darkgreentrip';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-04-22 05:05';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xuehao/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xuehao/">饭米粒</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xuehao/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%85%BB%E6%88%90%E6%97%A5%E8%AE%B0">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xuehao/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuehao/p/14690508.html">
+    <span>redis实际应用-限流</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<section id="nice" data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px; padding: 0 10px; word-spacing: 0; word-wrap: break-word; text-align: left; line-height: 1.25; color: rgba(43, 43, 43, 1); font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light; letter-spacing: 2px; background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.04) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.04) 3%, rgba(0, 0, 0, 0) 3%); background-size: 20px 20px; background-position: center"><h1 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); font-size: 25px"><span class="prefix" style="font-weight: bold; color: rgba(64, 184, 250, 1); display: none"></span><span class="content" style="display: inline-block; font-weight: bold; color: rgba(64, 184, 250, 1)">为什么要做限流</span><span class="suffix" style="display: inline-block; font-weight: bold; color: rgba(64, 184, 250, 1)"></span></h1>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">首先让我们先看一看系统架构设计中，为什么要做“限流”。</p>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">旅游景点通常都会有最大的接待量，不可能无限制的放游客进入，比如故宫每天只卖八万张票，超过八万的游客，无法买票进入，因为如果超过八万人，景点的工作人员可能就忙不过来，过于拥挤的景点也会影响游客的体验和心情，并且还会有安全隐患；<strong style="color: rgba(53, 148, 247, 1); font-weight: bold"><span>「</span>只卖N张票，这就是一种限流的手段<span>」</span></strong>。</p>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">软件架构中的服务限流也是类似，也是当系统资源不够的时候，已经不足以应对大量的请求，为了保证服务还能够正常运行，那么按照规则，<strong style="color: rgba(53, 148, 247, 1); font-weight: bold"><span>「</span>系统会把多余的请求直接拒绝掉，以达到限流的效果<span>」</span></strong>；</p>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">不知道大家注意过没有，比如双11，刚过12点有些顾客的网页或APP会显示下单失败的提示，有些就是被限流掉了。</p>
+<h1 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); font-size: 25px"><span class="prefix" style="font-weight: bold; color: rgba(64, 184, 250, 1); display: none"></span><span class="content" style="display: inline-block; font-weight: bold; color: rgba(64, 184, 250, 1)">常见的限流算法</span><span class="suffix" style="display: inline-block; font-weight: bold; color: rgba(64, 184, 250, 1)"></span></h1>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); font-size: 22px; display: block; border-bottom: 4px solid rgba(64, 184, 250, 1)"><span class="prefix" style="display: flex; width: 20px; height: 20px; background-size: 20px 20px; background-image: url(&quot;https://files.mdnice.com/fullstack-1.png&quot;); margin-bottom: -22px"></span><span class="content" style="display: flex; color: rgba(64, 184, 250, 1); font-size: 20px; margin-left: 25px">计数法</span><span class="suffix" style="display: flex; box-sizing: border-box !important; width: 200px; height: 10px; border-top-left-radius: 20px; color: rgba(255, 255, 255, 1); font-size: 16px; letter-spacing: 0.544px; justify-content: flex-end; float: right; margin-top: -10px; overflow-wrap: break-word !important"></span></h2>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">顾名思义就是来一个，记录一个，比如我1分钟只能处理1000个请求，那么我们就可以设置一个计数器，来一个请求就incr+1，当1分钟之内的数量大于等于1000之后不处理了即可，伪代码如下</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px"><code class="hljs" style="overflow-x: auto; padding: 16px; background: rgba(39, 40, 34, 1); color: rgba(221, 221, 221, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; border-radius: 0; font-size: 12px; -webkit-overflow-scrolling: touch; letter-spacing: 0"><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>&nbsp;=&nbsp;new&nbsp;Redis();<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;connect(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">'127.0.0.1'</span>,&nbsp;6379);<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$rate_limit</span>&nbsp;=&nbsp;1000;&nbsp;&nbsp;//限制个数<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$rate_seconds</span>&nbsp;=&nbsp;60;&nbsp;&nbsp;//限制时间<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis_key</span>&nbsp;=&nbsp;<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">"redis_limit"</span>;<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$count</span>&nbsp;=&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;get(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis_key</span>);<br><span class="hljs-keyword" style="color: rgba(249, 38, 114, 1); font-weight: bold; line-height: 26px">if</span>&nbsp;(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$count</span>&nbsp;&gt;=&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$rate_limit</span>){&nbsp;&nbsp;//判断60秒内请求个数是否已经达到上限<br>&nbsp;&nbsp;&nbsp;&nbsp;//直接返回，不处理请求<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-built_in" style="color: rgba(166, 226, 46, 1); line-height: 26px">return</span><br>}<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;incr(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis_key</span>,&nbsp;1);//请求计数<br><span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;expire(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$rate_seconds</span>);&nbsp;//设置过期时间&nbsp;60s<br>//to&nbsp;<span class="hljs-keyword" style="color: rgba(249, 38, 114, 1); font-weight: bold; line-height: 26px">do</span>&nbsp;&nbsp;业务逻辑处理.......<br></code></pre>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">这种计数方式比较简单快捷，但是有很大的缺点，因为请求的访问不一定是很平稳的，如果0:59过来了1000个请求，1:01已经是下一个窗口，又过来了1000个请求，但实际上三秒内来了2000个请求，已经超过我们的限流上限了。所以这种方法是不推荐的。</p>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); font-size: 22px; display: block; border-bottom: 4px solid rgba(64, 184, 250, 1)"><span class="prefix" style="display: flex; width: 20px; height: 20px; background-size: 20px 20px; background-image: url(&quot;https://files.mdnice.com/fullstack-1.png&quot;); margin-bottom: -22px"></span><span class="content" style="display: flex; color: rgba(64, 184, 250, 1); font-size: 20px; margin-left: 25px">滑动窗口算法</span><span class="suffix" style="display: flex; box-sizing: border-box !important; width: 200px; height: 10px; border-top-left-radius: 20px; color: rgba(255, 255, 255, 1); font-size: 16px; letter-spacing: 0.544px; justify-content: flex-end; float: right; margin-top: -10px; overflow-wrap: break-word !important"></span></h2>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">还拿上面的例子，一分钟分6份，每份10秒；每过10秒钟，我们的时间窗口就会往右滑动一格，每个格子都有独立的计数器，我们每次都计算时间窗口内的数量，可以解决计数器法中的问题，而且当滑动窗口的格子越多，那么限流的统计就会越精确。具体可以参考下图，看图比较清晰
+<img src="https://cdn.jsdelivr.net/gh/quven/picture/2021-4-19/1618845202810-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.jpeg" alt="" style="max-width: 100%; border-radius: 6px; display: block; margin: 20px auto; object-fit: contain; box-shadow: 2px 4px 7px rgba(153, 153, 153, 1)">
+伪代码实现如下</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px"><code class="hljs" style="overflow-x: auto; padding: 16px; background: rgba(39, 40, 34, 1); color: rgba(221, 221, 221, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; border-radius: 0; font-size: 12px; -webkit-overflow-scrolling: touch; letter-spacing: 0"><span class="hljs-keyword" style="color: rgba(249, 38, 114, 1); font-weight: bold; line-height: 26px">function</span>&nbsp;api_limit(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$scene</span>,&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$period</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$maxCount</span>){<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>&nbsp;=&nbsp;new&nbsp;Redis();<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;connect(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">'127.0.0.1'</span>,&nbsp;6379);<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$key</span>&nbsp;=&nbsp;sprintf(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">'hist:%s'</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$scene</span>);&nbsp;//限流场景唯一标识<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$now</span>&nbsp;=&nbsp;msectime();&nbsp;&nbsp;&nbsp;//&nbsp;毫秒时间戳,这样更精确<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>=<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$redis</span>-&gt;multi(Redis::PIPELINE);&nbsp;//使用管道提升性能<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>-&gt;zadd(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$key</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$now</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$now</span>);&nbsp;//value&nbsp;和&nbsp;score&nbsp;都使用毫秒时间戳<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>-&gt;zremrangebyscore(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$key</span>,&nbsp;0,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$now</span>&nbsp;-&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$period</span>);&nbsp;//移除时间窗口之前的行为记录，剩下的都是时间窗口内的<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>-&gt;zcard(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$key</span>);&nbsp;&nbsp;//获取窗口内的行为数量<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>-&gt;expire(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$key</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$period</span>/1000&nbsp;+&nbsp;1);&nbsp;&nbsp;//多加一秒过期时间<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$replies</span>&nbsp;=&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$pipe</span>-&gt;<span class="hljs-built_in" style="color: rgba(166, 226, 46, 1); line-height: 26px">exec</span>();<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-built_in" style="color: rgba(166, 226, 46, 1); line-height: 26px">return</span>&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$replies</span>[2]&nbsp;&lt;=&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$maxCount</span>;&nbsp;&nbsp;//<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$replies</span>[2]为zcard返回的个数&nbsp;&nbsp;如果zcard结果大于maxCount，则不处理结果<br>}<br><br><span class="hljs-keyword" style="color: rgba(249, 38, 114, 1); font-weight: bold; line-height: 26px">for</span>&nbsp;(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$i</span>=0;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$i</span>&lt;20;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$i</span>++){&nbsp;&nbsp;//测试限流是否实现代码<br>&nbsp;&nbsp;&nbsp;&nbsp;var_dump(isActionAllowed(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">"uniq_scene"</span>,&nbsp;60*1000,&nbsp;5));&nbsp;//执行可以发现只有前5次是通过的<br>}<br><br>//返回当前的毫秒时间戳<br><span class="hljs-keyword" style="color: rgba(249, 38, 114, 1); font-weight: bold; line-height: 26px">function</span>&nbsp;<span class="hljs-function" style="line-height: 26px"><span class="hljs-title" style="color: rgba(166, 226, 46, 1); font-weight: bold; line-height: 26px">msectime</span></span>()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;list(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$msec</span>,&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$sec</span>)&nbsp;=&nbsp;explode(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">'&nbsp;'</span>,&nbsp;microtime());<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$msectime</span>&nbsp;=&nbsp;(<span class="hljs-built_in" style="color: rgba(166, 226, 46, 1); line-height: 26px">float</span>)sprintf(<span class="hljs-string" style="color: rgba(166, 226, 46, 1); line-height: 26px">'%.0f'</span>,&nbsp;(floatval(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$msec</span>)&nbsp;+&nbsp;floatval(<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$sec</span>))&nbsp;*&nbsp;1000);<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-built_in" style="color: rgba(166, 226, 46, 1); line-height: 26px">return</span>&nbsp;<span class="hljs-variable" style="color: rgba(166, 226, 46, 1); line-height: 26px">$msectime</span>;<br>&nbsp;}<br></code></pre>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">这段代码还是略显复杂，需要读者花一定的时间好好啃。它的整体思路就是：每一个行为到来时，都维护一次时间窗口。将时间窗口外的记录全部清理掉，只保留窗口内的记录。</p>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">因为这几个连续的 Redis 操作都是针对同一个 key 的，使用 pipeline 可以显著提升Redis 存取效率。<strong style="color: rgba(53, 148, 247, 1); font-weight: bold"><span>「</span>但这种方案也有缺点，因为它要记录时间窗口内所有的行为记录，如果这个量很大，比如限定 60s 内操作不得超过 100w 次这样的参数，它是不适合做这样的限流的，因为会消耗大量的存储空间<span>」</span></strong>。</p>
+<p data-tool="mdnice编辑器" style="padding-top: 8px; padding-bottom: 8px; line-height: 26px; color: rgba(43, 43, 43, 1); margin: 10px 0; letter-spacing: 2px; font-size: 14px; word-spacing: 2px">后面还有漏桶算法和令牌桶算法，由于各自的实现比较复杂，所以准备各自新开一篇文章单独描述</p>
+</section>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-04-22 17:05</span>&nbsp;
+<a href="https://www.cnblogs.com/xuehao/">程序员养成日记</a>&nbsp;
+阅读(<span id="post_view_count">878</span>)&nbsp;
+评论(<span id="post_comment_count">1</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14690508" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14690508);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 327688, cb_blogApp = 'xuehao', cb_blogUserGuid = '3a7c5c74-04d8-e611-845c-ac853d9f53ac';
+    var cb_entryId = 14690508, cb_entryCreatedDate = '2021-04-22 17:05', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 程序员养成日记
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjugYpAnwcXXcT57M41lwFaDmxF4f-AgTVsfplYUchsYVk1GWN5M3cH5hFlYmrV-ZQcm2pHjjggLLcb2NgKfY4DIMiLB7eXapgRexvBME4NZ9sYeMNzQy8y_eDm0kfY7jEg" />
+</body>
+</html>

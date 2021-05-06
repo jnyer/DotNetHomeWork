@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="接口自动化测试之数据清洗/隔离/备份/恢复 在得到QQ:1301559180 得代码贡献之后，想到了通过ssh连接上服务器，然后进行数据库备份，数据库恢复， 主要使用了 paramiko库 最终效果 " />
+    <meta property="og:description" content="接口自动化测试之数据清洗/隔离/备份/恢复 在得到QQ:1301559180 得代码贡献之后，想到了通过ssh连接上服务器，然后进行数据库备份，数据库恢复， 主要使用了 paramiko库 最终效果 " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>apiAutoTest: 自动化测试的数据隔离实现 - zy7y - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/zy7y/custom.css?v=6vd15zmdoE&#x2B;ujQ1hzLwPf7pR01c=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zy7y/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zy7y/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zy7y/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 525824;
+        var currentBlogApp = 'zy7y';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-01-19 07:03';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <a href="https://github.com/zy7y" target="_blank">
+　　<img style="position: fixed; top: 0; right: 0; border: 0; z-index: 1;" src="https://images.cnblogs.com/cnblogs_com/jackson0714/779808/o_github.png" >
+</a>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/zy7y/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zy7y/">柒意</a>
+</h1>
+<h2>路漫漫其修远兮，吾将上下而求索。 -《离骚》
+QQ群：851163511（没技术大佬，本站上的个人项目问题都可以在这里咨询）</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zy7y/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/zy7y">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/zy7y/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zy7y/p/14299472.html">
+    <span>apiAutoTest: 自动化测试的数据隔离实现</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="接口自动化测试之数据清洗隔离备份恢复">接口自动化测试之数据清洗/隔离/备份/恢复</h1>
+<blockquote>
+<p>在得到QQ:1301559180 得代码贡献之后，想到了通过ssh连接上服务器，然后进行数据库备份，数据库恢复， 主要使用了 <code>paramiko</code>库</p>
+</blockquote>
+<h1 id="最终效果">最终效果</h1>
+<ol>
+<li>
+<p>测试开始前会进行数据备份，并在下面2个路径存储对应的数据库备份(目前备份的数据库是写死的为，测试连接的mysql数据库).sql文件</p>
+<blockquote>
+<p>数据库服务器: /root/backup_sql/</p>
+<p>本地(运行测试脚本的机器)当前目录下的 <code>backup_sqls</code></p>
+<p><strong>文件命名方式为: 数据库名+时间</strong></p>
+</blockquote>
+<p><img src="https://gitee.com/zy7y/blog_images/raw/master/img/20210119183759.png" alt="本地目录" loading="lazy"></p>
+<p><img src="https://gitee.com/zy7y/blog_images/raw/master/img/20210119183933.png" alt="linux服务器" loading="lazy"></p>
+</li>
+</ol>
+<h1 id="如何使用">如何使用</h1>
+<ol>
+<li>
+<p>通过在<code>config.yaml</code>中配置对应得数据库信息，服务器必要得账号密码等信息(支持私钥文件登录，但个人未尝试)，大致文件格式如下</p>
+<pre><code class="language-yaml"># 数据库校验- mysql
+database:
+  host: localhost
+  port: 3306
+  user: root
+  # 不用''会被解析成int类型数据
+  password: '123456'
+  db_name:  test
+  charset:  utf8mb4
+
+  # 数据库所在的服务器配置
+  ssh_server:
+    port: 22
+    username: root
+    password: '123456'
+    # 私有密钥文件路径
+    private_key_file:
+    # 如果使用的docker容器部署mysql服务，需要传入mysql的容器id/name
+    mysql_container: mysql8
+    # 数据库备份文件导出的本地路径, 需要保证存在该文件夹
+    sql_data_file: backup_sqls/
+</code></pre>
+</li>
+<li>
+<p>然后在<code>test/conftest.py</code>做如下操作</p>
+<pre><code class="language-python">#!/usr/bin/env/python3
+# -*- coding:utf-8 -*-
+"""
+@project: apiAutoTest
+@author: zy7y
+@file: conftest.py
+@ide: PyCharm
+@time: 2020/12/8
+@desc:
+"""
+
+import pytest
+
+from tools.data_clearing import DataClearing
+from tools.db import DB
+from tools.read_file import ReadFile
+
+
+@pytest.fixture(scope="session")
+def data_clearing():
+    """数据清洗"""
+    DataClearing.server_init()
+    # 1. 备份数据库
+    DataClearing.backup_mysql()
+    yield
+    # 2. 恢复数据库
+    DataClearing.recovery_mysql()
+    DataClearing.close_client()
+
+
+# 若不需要数据清洗功能，请把get_db()入参拿掉
+@pytest.fixture(scope="session")
+def get_db(data_clearing):
+    """关于其作用域请移步查看官方文档"""
+    try:
+        db = DB()
+        yield db
+    finally:
+        db.close()
+
+
+@pytest.fixture(params=ReadFile.read_testcase())
+def cases(request):
+    """用例数据，测试方法参数入参该方法名 cases即可，实现同样的参数化
+    目前来看相较于@pytest.mark.parametrize 更简洁。
+    """
+    return request.param
+</code></pre>
+</li>
+</ol>
+<h1 id="实现代码">实现代码</h1>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+@Time : 2021/1/19 11:44
+@Author : zy7y
+@ProjectName : apiAutoTest
+@File : data_clearing.py
+@Software : PyCharm
+@Github : https://github.com/zy7y
+@Blog : https://www.cnblogs.com/zy7y
+"""
+
+import os
+from datetime import datetime
+import paramiko
+from tools.read_file import ReadFile
+from tools import logger
+
+
+class ServerTools:
+    def __init__(self, host: str, port: int = 22, username: str = "root", password: str = None,
+                 private_key_file: str = None):
+        # 进行SSH连接
+        self.trans = paramiko.Transport((host, port))
+        self.host = host
+        if password is None:
+            self.trans.connect(username=username, pkey=paramiko.RSAKey.from_private_key_file(private_key_file))
+        else:
+            self.trans.connect(username=username, password=password)
+        # 将sshclient的对象的transport指定为以上的trans
+        self.ssh = paramiko.SSHClient()
+        logger.success("SSH客户端创建成功.")
+        self.ssh._transport = self.trans
+        # 创建SFTP客户端
+        self.ftp_client = paramiko.SFTPClient.from_transport(self.trans)
+        logger.success("SFTP客户端创建成功.")
+
+    def execute_cmd(self, cmd: str):
+        """
+        :param cmd: 服务器下对应的命令, 可以是list，或者str
+        """
+        stdin, stdout, stderr = self.ssh.exec_command(cmd)
+        error = stderr.read().decode()
+        logger.info(f"输入命令: {cmd} -&gt; 输出结果: {stdout.read().decode()}")
+        logger.error(f"异常信息: {error}")
+        return error
+
+    def files_action(self, post: bool, local_path: str = os.getcwd(), remote_path: str = "/root"):
+        """
+        :param post: 动作 为 True 就是上传， False就是下载
+        :param local_path: 本地的文件路径， 默认当前脚本所在的工作目录
+        :param remote_path: 服务器上的文件路径，默认在/root目录下
+        """
+        if post:  # 上传文件
+            self.ftp_client.put(localpath=local_path, remotepath=f"{remote_path}{os.path.split(local_path)[1]}")
+            logger.info(f"文件上传成功: {local_path} -&gt; {self.host}:{remote_path}{os.path.split(local_path)[1]}")
+        else:  # 下载文件
+            file_path = local_path + os.path.split(remote_path)[1]
+            self.ftp_client.get(remotepath=remote_path, localpath=file_path)
+            logger.info(f"文件下载成功: {self.host}:{remote_path} -&gt; {file_path}")
+
+    def ssh_close(self):
+        """关闭连接"""
+        self.trans.close()
+        logger.info("已关闭SSH连接...")
+
+
+class DataClearing:
+    settings = ReadFile.read_config('$.database')
+    server_settings = settings.get('ssh_server')
+    server = None
+
+    # 导出的sql文件名称及后缀
+    file_name = f"{settings.get('db_name')}_{datetime.now().strftime('%Y-%m-%dT%H_%M_%S')}.sql"
+
+    @classmethod
+    def server_init(cls, settings=settings, server_settings=server_settings):
+        cls.server = ServerTools(host=settings.get('host'), port=server_settings.get('port'),
+                    username=server_settings.get('username'),
+                    password=server_settings.get('password'),
+                    private_key_file=server_settings.get('private_key_file'))
+        # 新建backup_sql文件夹在服务器上，存放导出的sql文件
+        cls.server.execute_cmd("mkdir backup_sql")
+
+    @classmethod
+    def backup_mysql(cls):
+        """
+        备份数据库, 会分别备份在数据库所在服务器的/root/backup_sql/目录下, 与当前项目文件目录下的 backup_sqls
+        每次备份生成一个数据库名_当前年_月_日T_时_分_秒, 支持linux 服务器上安装的mysql服务(本人未调试),以及linux中docker部署的mysql备份
+        """
+        if cls.server_settings.get('mysql_container') is None:
+            cmd = f"mysqldump -h127.0.0.1 -u{cls.settings.get('username')} -p{cls.settings.get('password')} {cls.settings.get('db_name')} &gt; {cls.file_name}"
+        else:
+            # 将mysql服务的容器中的指定数据库导出， 参考文章 https://www.cnblogs.com/wangsongbai/p/12666368.html
+            cmd = f"docker exec -i {cls.server_settings.get('mysql_container')} mysqldump -h127.0.0.1 -u{cls.settings.get('user')} -p{cls.settings.get('password')} {cls.settings.get('db_name')} &gt; /root/backup_sql/{cls.file_name}"
+        cls.server.execute_cmd(cmd)
+        cls.server.files_action(0, f"{cls.server_settings.get('sql_data_file')}", f"/root/backup_sql/{cls.file_name}")
+
+    @classmethod
+    def recovery_mysql(cls, sql_file: str = file_name, database: str = settings.get('db_name')):
+
+        """
+        恢复数据库, 从服务器位置(/root/backup_sql/) 或者本地(../backup_sqls)上传, 传入的需要是.sql文件
+        :param sql_file: .sql数据库备份文件, 默认就是导出的sql文件名称， 默认文件名称是导出的sql文件
+        :param database: 恢复的数据库名称，默认是备份数据库(config.yaml中的db_name)
+        """
+        result = cls.server.execute_cmd(f"ls -l /root/backup_sql/{sql_file}")
+        if "No such file or directory" in result:
+            # 本地上传
+            cls.server.files_action(1, f"../backup_sqls/{sql_file}", "/root/backup_sql/")
+        cmd = f"docker exec -i {cls.server_settings.get('mysql_container')} mysql -u{cls.settings.get('user')} -p{cls.settings.get('password')} {database} &lt; /root/backup_sql/{sql_file}"
+        cls.server.execute_cmd(cmd)
+
+    @classmethod
+    def close_client(cls):
+        cls.server.ssh_close()
+</code></pre>
+<h1 id="源码地址">源码地址</h1>
+<p>gitee: <a href="https://gitee.com/zy7y/apiAutoTest" target="_blank">https://gitee.com/zy7y/apiAutoTest</a></p>
+<p>github: <a href="https://github.com/zy7y/apiAutoTest" target="_blank">https://github.com/zy7y/apiAutoTest</a></p>
+<h1 id="参考资料">参考资料</h1>
+<pre><code>https://www.cnblogs.com/wangsongbai/p/12666368.html
+https://www.liujiangblog.com/blog/15/
+https://blog.csdn.net/leorx01/article/details/71141643
+http://docs.paramiko.org/en/stable/api/client.html
+https://www.bilibili.com/video/BV1cQ4y1P7dg?p=4
+# 详细的参考资料可以看这里
+https://www.cnblogs.com/zy7y/p/14295902.html
+</code></pre>
+<h1 id="最后">最后</h1>
+<p>感谢遇见，欢迎讨论</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-01-19 19:03</span>&nbsp;
+<a href="https://www.cnblogs.com/zy7y/">zy7y</a>&nbsp;
+阅读(<span id="post_view_count">230</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14299472" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14299472);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 525824, cb_blogApp = 'zy7y', cb_blogUserGuid = '8a430ad0-facd-4ae7-3443-08d5b93323ea';
+    var cb_entryId = 14299472, cb_entryCreatedDate = '2021-01-19 19:03', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 zy7y
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvnGbNCfkFFDU3di1oaWaxuhxH81k2OVtrIqS_z_gcvim_mHMSCiXYna0Qm5iyBZdivHyzNPxUijFkKcHKi4MA6CQEQ1s9x6K1QmEWxekHaz6PreskEoUVNqRsuPJKj2v0" />
+</body>
+</html>

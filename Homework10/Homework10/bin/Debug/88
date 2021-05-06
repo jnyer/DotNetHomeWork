@@ -1,0 +1,756 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="本篇文章会介绍win10中wsl2的安装和使用以及遇到的常见问题比如如何固定wsl2地址等问题的总结。" />
+    <meta property="og:description" content="本篇文章会介绍win10中wsl2的安装和使用以及遇到的常见问题比如如何固定wsl2地址等问题的总结。" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>win10新版wsl2使用指南 - 狂盗一枝梅 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 147792;
+        var currentBlogApp = 'kuangdaoyizhimei';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlueSky';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2020-12-22 08:34';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <!-- ............自定义首部代码开始............ -->
+<!-- 自定义进度条 -->
+<div id="myProgressBar" style="display: none;"></div>
+
+<!-- 自定义导航条 -->
+<div id="mynavbar" style="margin-top: 0px;">
+    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
+    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
+<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
+
+    	</a>
+    	<div id="mynavbar_menu">
+	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
+	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
+	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
+	    	<a id="friendLink" href="#">友情链接</a>
+	    	<a href="https://www.cnblogs.com/">博客园</a>
+            <a href="https://i.cnblogs.com/posts">管理</a>
+	    	<a id="aboutMe" href="#">关于</a>
+	    </div>
+    </div>
+</div>
+
+<!-- 自定义头部锚点 -->
+<a name="mtop"></a>
+
+<!-- 自定义头部 -->
+<div id="myheader">
+	<!-- 背景图片 -->
+    <div id="myheader_bg"></div>
+    <!-- 遮罩层 -->
+    <div id="myheader_cover" title="点我点我">
+        <!-- 博客标题 -->
+        <div id="mypost_title">
+            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
+            <div id="mypost_title_f"></div>
+            <div id="mypost_title_e">
+                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
+            </div> 
+        </div>  
+    </div>
+</div>
+<!-- ............自定义首部代码结束............ -->
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14175143.html">
+    <span>win10新版wsl2使用指南</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        本篇文章会介绍win10中wsl2的安装和使用以及遇到的常见问题比如如何固定wsl2地址等问题的总结。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p>本篇文章会介绍win10中wsl2的安装和使用以及遇到的常见问题比如如何固定wsl2地址等问题的总结。</p>
+<h2 id="一、wsl2简介">一、wsl2简介</h2>
+<p>wsl是适用于 Linux 的 Windows 子系统，安装指南：<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" target="_blank">适用于 Linux 的 Windows 子系统安装指南 (Windows 10)</a></p>
+<p>简单来说，以前想在windows中使用linux，需要安装vmware虚拟机，现在则不比这么麻烦了，直接安装linux子系统，秒开。</p>
+<h2 id="二、使用wsl2">二、使用wsl2</h2>
+<p>按照官方文档安装好wsl2之后，再顺便安装下<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#install-windows-terminal-optional" target="_blank">Windows 终端</a>，一起使用，效果更佳。</p>
+<p>安装好wsl2后，直接在菜单中找到对应的wsl终端直接打开即可，第一次用的时候让你初始化一个用户名和密码，根据提示几秒钟即可初始化完成。</p>
+<p>安装好之后就可以愉快的玩耍了，貌似一切都ok。。。慢着，用久了，你会发现一些问题：</p>
+<h3 id="1-安装软件太慢了">1. 安装软件太慢了</h3>
+<p>比如我使用的ubuntu20，安装和更新软件都特别慢，因为毕竟国内，这时候就要使用国内镜像进行加速<a href="https://www.cnblogs.com/zqifa/p/12910989.html" target="_blank"><sup>[ 0 ]</sup></a>。</p>
+<p>第一步：备份源文件</p>
+<pre><code class="language-bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+</code></pre>
+<p>第二步：编辑/etc/apt/sources.list文件</p>
+<p>在文件最前面添加以下条目，之后保存即可生效(以阿里云镜像为例，操作前请做好相应备份)：</p>
+<pre><code class="language-bash">vi /etc/apt/sources.list
+
+deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+</code></pre>
+<h3 id="2-wsl2地址每次重新开机之后都会发生变化">2. wsl2地址每次重新开机之后都会发生变化</h3>
+<p>一般来说这不是什么大问题，但是别忘了我们要wsl是干啥的，我们总是希望能够在windows中访问wsl中的一些服务，比如安装的mysql、redis等，如果wsl的ip地址总是变化，岂不是每次开机都要在windows中手动设置一次ip地址<a href="https://blog.csdn.net/manbu_cy/article/details/108476859" target="_blank"><sup>[ 1 ]</sup></a>？固定ip地址的方法比较简单，直接运行以下脚本即可，我这里安装了docker，有些小伙伴没安装docker则需要修改下脚本才行。</p>
+<pre><code class="language-bash">@echo off
+setlocal enabledelayedexpansion
+
+wsl -u root service docker start | findstr "Starting Docker" &gt; nul
+if !errorlevel! equ 0 (
+    echo docker start success
+    :: set wsl2 ip
+    wsl -u root ip addr | findstr "192.168.169.2" &gt; nul
+    if !errorlevel! equ 0 (
+        echo wsl ip has set
+    ) else (
+        wsl -u root ip addr add 192.168.169.2/28 broadcast 192.168.169.15 dev eth0 label eth0:1
+        echo set wsl ip success: 192.168.169.2
+    )
+
+    :: set windows ip
+    ipconfig | findstr "192.168.169.1" &gt; nul
+    if !errorlevel! equ 0 (
+        echo windows ip has set
+    ) else (
+        netsh interface ip add address "vEthernet (WSL)" 192.168.169.1 255.255.255.240
+        echo set windows ip success: 192.168.169.1
+    )
+)
+pause
+</code></pre>
+<p>将它保存到文件，比如<code>划分虚拟局域网&amp;启动docker.bat</code>，然后将其放到windows启动目录下<a href="https://www.cnblogs.com/eliteboy/p/7838091.html" target="_blank"><sup>[ 2 ]</sup></a>：</p>
+<pre><code class="language-txt">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+</code></pre>
+<p>之后，每次电脑启动之后就会自动执行该脚本了</p>
+<h3 id="3windows本地ssh登陆wsl2">3.windows本地ssh登陆wsl2</h3>
+<p>首先，wsl中已经安装的ssh是不完整的或者有问题的，所以无论你怎么改都不会生效，甚至ssh服务都无法正常启动，正确的做法是先卸载ssh再重新安装。</p>
+<pre><code class="language-bash">sudo apt-get purge openssh-server  # purge 是卸载并删除配置文件
+sudo apt-get install openssh-server
+</code></pre>
+<p>然后修改配置文件/etc/ssh/sshd_config，新增如下配置</p>
+<pre><code class="language-bash">PermitRootLogin yes
+</code></pre>
+<p>修改<code>PasswordAuthentication</code>配置项为yes，修改<code>Port</code>端口号为<code>2222</code>（22端口比较特殊，windows可能会使用到）</p>
+<p>使用命令<code> service sshd restart</code>重启ssh服务</p>
+<p><strong>做完以上修改之后，解决了第一个问题，即如何在windows使用工具ssh连接wsl2，</strong> 接下来要做的事情是如何在局域网中远程登陆wsl2。</p>
+<h3 id="4局域网远程登陆wsl2">4.局域网远程登陆wsl2</h3>
+<blockquote>
+<p>首先分析下为啥局域网其他机器无法连接wsl2</p>
+<ul>
+<li>第一个原因，windows防火墙没关闭或者没有设置入站规则</li>
+<li>第二个原因，也是最本质的原因,wsl2的地址是虚拟地址，并非是局域网中的物理地址</li>
+</ul>
+</blockquote>
+<p>那怎么解决呢？</p>
+<ol>
+<li>关闭防火墙或者设置入站规则<br>
+其中设置入站规则是推荐的方式，网上教程较多，不赘述。</li>
+<li>设置端口转发，让windows转发来自特定端口的请求到wsl2<br>
+设置端口转发的方法如下：</li>
+</ol>
+<pre><code class="language-bash">interface portproxy add v4tov4 listenport=【宿主机windows平台监听端口】 listenaddress=0.0.0.0 connectport=【wsl2平台监听端口】 connectaddress=【wsl2平台ip】
+</code></pre>
+<p>比如，我这里使用如下命令配置了win10 IpV4协议端口号2222转发到地址为192.168.169.2的wsl端口号2222</p>
+<pre><code class="language-bash">netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=192.168.169.2
+</code></pre>
+<ol start="3">
+<li>查看端口转发</li>
+</ol>
+<pre><code class="language-bash">netsh interface portproxy show all
+</code></pre>
+<ol start="4">
+<li>删除端口转发</li>
+</ol>
+<pre><code class="language-bash">netsh interface portproxy delete v4tov4 listenport=9696 listenaddress=0.0.0.0
+</code></pre>
+<p>完成以上四步设置，即可在局域网使用securityCRT工具或者putty远程连接wsl了。</p>
+<h2 id="三、在wsl中使用docker">三、在wsl中使用docker</h2>
+<h3 id="1安装docker">1.安装docker</h3>
+<p>正常来说，应当上docker官网按照安装文档来安装，但是你会发现及时你更新了源，安装速度仍然特别慢，高速打开方式<a href="https://blog.csdn.net/manbu_cy/article/details/108476859" target="_blank"><sup>[ 3 ]</sup></a>为</p>
+<pre><code class="language-bash">sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+
+sudo add-apt-repository \
+    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+
+
+    sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre>
+<h3 id="2安装docker-compose">2.安装docker-compose</h3>
+<p>同理，正常来说，docker-compose的安装方式应该遵循官方网站的指导 <a href="https://docs.docker.com/compose/install/" target="_blank">https://docs.docker.com/compose/install/</a> ，但是会非常慢，还是要另辟蹊径<a href="https://www.jianshu.com/p/1fd03bf4998d" target="_blank"><sup>[ 4 ]</sup></a></p>
+<pre><code class="language-bash">curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+</code></pre>
+<p>最后，欢迎关注我的私有博客~  <a href="https://blog.kdyzm.cn/" target="_blank">https://blog.kdyzm.cn/</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2020-12-22 20:34</span>&nbsp;
+<a href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>&nbsp;
+阅读(<span id="post_view_count">5058</span>)&nbsp;
+评论(<span id="post_comment_count">3</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14175143" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14175143);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 147792, cb_blogApp = 'kuangdaoyizhimei', cb_blogUserGuid = 'bdaaad45-60a3-e211-82de-84c4f0333004';
+    var cb_entryId = 14175143, cb_entryCreatedDate = '2020-12-22 20:34', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 狂盗一枝梅
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <!-- ............自定义尾部代码开始............ -->
+<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
+	<div class="bottom-bar-inner">
+		<!-- 左边 -->
+        <div class="bottom-bar-items social-share" style="float: left;">
+            <span class="bottom-bar-item bottom-bar-facebook">
+                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-twitter">
+                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-qrcode">
+                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
+            </span>
+        </div>
+        <!-- 右边 -->
+        <div class="bottom-bar-items right" style="float: right;">
+            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
+            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
+            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
+            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
+        </div>
+	</div> 
+</div>
+<a name="mfooter"></a>
+
+<!-- 遮罩层（用于图片点击放大），
+    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
+<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
+    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
+    <img id="bigimg" style="height: auto;width: auto;border: 0; 
+        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
+</div>
+<!-- ............自定义尾部代码结束............ -->
+
+
+<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
+<script type="text/javascript">
+
+    //博主名称 可不改，默认取博客园提供的
+    var nickName = null;
+    //slogan
+    var slogan = '立德立言，无闻西东';
+    //icon
+    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
+    //默认博客背景图片
+    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
+    //icon(浏览器标题栏上的)
+    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
+    //友情链接地址
+    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
+    //关于地址
+    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
+    //Github地址,假如博客username与Github username相同，不用改。
+    //如 cnblogs.com/username github.com/username 这样就不用改
+    var myGayhubUrl = "https://github.com/kdyzm";
+</script>
+<script type="text/javascript">
+	/**
+		用来设置初始时需要执行的js
+	*/
+	$(document).ready(function(){
+
+        //获取博主名字
+        if (nickName == null){
+            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
+            nickName = footerOverTestArray[footerOverTestArray.length - 1];
+        }
+
+		//加载顶部进度条
+	    NProgress.start();
+	    NProgress.done();
+	    $("#myProgressBar").hide();
+
+	    //设置背景图片地址
+	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
+	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
+	    }else{
+    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
+	    }
+
+	    //设置标题
+        if($("#cb_post_title_url").html()){
+            $("#mypost_title_h").html($("#cb_post_title_url").html());
+        }else{
+            $("#mypost_title_h").html(nickName);
+        }
+
+	    //正文和标题淡入
+	    $("#mainContent").css("opacity","1");
+	    $("#mainContent").css("margin-top","0");
+	    $("#mypost_title").css("opacity","1");
+	    $("#mypost_title").css("top","75pt");
+
+        /* --根据个人配置修改页面 start-- */
+        //修改a链接
+        var ccList = $(".c-c");
+        for(var cc of ccList){
+            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
+        }
+        //设置Github链接
+        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
+        //设置友链的链接
+        $("#friendLink").attr("href",friendLink);
+        //设置关于的链接
+        $("#aboutMe").attr("href",aboutMe);
+        //设置两个iocn图标
+        $("#nv-icon").attr("src",icon);
+        var linkObject = document.createElement("link");
+        linkObject.rel = "shortcut icon";
+        linkObject.href = iconB;
+        document.getElementsByTagName("head")[0].appendChild(linkObject);
+        //设置底部栏按钮
+        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+            $("#bottom-d").html("友情链接");
+            $("#bottom-d").attr("href",friendLink);
+        }else{
+            var url = window.location.href;
+            var lastUrl = url.substring(url.lastIndexOf("/")+1);
+            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
+            $("#bottom-d").click(function(){
+                DiggIt(mpageId,cb_blogId,1);
+                green_channel_success(this,'谢谢推荐！');
+            })
+        }
+        /* --根据个人配置修改页面 end-- */
+	})
+
+	/**
+		设置ajax请求加载完所有数据时执行的js
+	*/
+	setTimeout(afterAjax,1000);
+	function afterAjax(){
+		//假如是首页
+		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
+		}else{
+		    var classification = null;
+		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
+		    	classification = $("#BlogPostCategory").html();
+		    	classification = classification.substring(3,classification.length);
+		    }else{
+		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
+		    }
+		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
+		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
+		    //设置副标题标题
+		    $("#mypost_title_f").html(ftitle);
+		    //设置标题分类按钮
+		    $("#mypost_title_e").html(classification);
+		    //设置底部导航条上一篇下一篇文章
+		    var pnp = $("#post_next_prev a");
+		    $("#mbottom-left").attr("href",pnp[1].href);
+		    if (pnp.length>2) {
+		    	$("#mbottom-right").attr("href",pnp[3].href);
+		    }
+		}
+		$("#myheader_bg").css("filter","blur(0px)");
+
+        //优化评论区样式
+        $("#comment_form_container p:last").hide();
+        $("#commentbox_opt a:last").hide();
+        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
+	}
+
+
+	/** 
+		自定义的js方法
+	*/
+	//设置底部导航条点击关注按钮事件
+	$("#bottom-g").click(function(){
+		$('#green_channel_follow').click()
+		return false
+	})
+	$("#bottom-s").click(function(){
+		AddToWz(cb_entryId);
+		return false;
+	})
+
+
+	//通过滚动条控制导航条的展现隐藏
+	var oldScrollNum = 0;
+	window.onscroll = function(){
+		var t = document.documentElement.scrollTop || document.body.scrollTop;
+		//下滑
+		if (t>oldScrollNum) {
+			if (t>120) {
+				$("#mynavbar").css("margin-top","-70px");//顶部导航
+				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
+			}
+			if (t>300) {
+				$("#right_meun").css("display","inline-block");//右侧导航
+			}
+		//上拉
+		}else{
+			//防止用a链接跳转也触发效果
+			if (oldScrollNum-t<20) {
+				$("#mynavbar").css("margin-top","0px");//顶部导航
+				$("#post-bottom-bar").css("bottom","0");//底部导航
+			}
+			if (t<=300) {
+				$("#right_meun").css("display","none");//右侧导航
+			}
+		}
+		oldScrollNum = t;
+	}
+
+	//背景大图点击模糊||清晰
+	$("#myheader_cover").click(function(){
+		if ($("#myheader_bg").css("filter") == "blur(3px)") {
+			$("#myheader_bg").css("filter","blur(0px)");
+		}else{
+			$("#myheader_bg").css("filter","blur(3px)");
+		}
+	})
+
+
+    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
+        $(this).fadeOut("fast");    
+    }); 
+
+ </script>
+
+ <script type="text/javascript">  
+    var setMyBlog = {
+        setCopyright: function() {
+            //设置版权信息，转载出处自动根据页面url生成
+            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
+                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
+                info = $(info_str),
+                info_a = info.find("a"),
+                url = window.location.href;
+            $(info_a[0]).attr("href","https://github.com/gzdaijie");
+            $(info_a[1]).attr("href",url).text(url);
+            $("#cnblogs_post_body").prepend(info);
+        },
+        setCodeRow: function(){
+            // 代码行号显示
+            var pre = $("pre.sourceCode"); //选中需要更改的部分
+            if(pre && pre.length){
+                pre.each(function() {
+                    var item = $(this);
+                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
+                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
+                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
+                    SyntaxHighlighter.all();
+                })
+            }
+        },
+        setAtarget: function() {
+            // 博客内的链接在新窗口打开
+            $("#cnblogs_post_body a").each(function(){
+                this.target = "_blank";
+            }) 
+        },
+        setContent: function() {
+            // 根据h2、h3标签自动生成目录
+            var captions_ori = $("#cnblogs_post_body h2"),
+            	captions_ori2 = $("#cnblogs_post_body h3"),
+                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
+                content = $("<ul id='right_meun'></ul>");
+            $("#cnblogs_post_body").prepend(content.append(captions));
+            var index = -1,index2 = -1;
+            captions.replaceWith(function(){
+                var self = this;
+                if(self.tagName == "H2" || self.tagName == "h2"){
+                    // 设置点击目录跳转
+                    index += 1;
+                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
+                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
+                } else {
+                	// add by summertime-wu 增加h3链接跳转
+                	index2 += 1;
+                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
+                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
+                    return ;
+                }
+            });
+        },
+        runAll: function() {
+            /* 运行所有方法
+             * setAtarget() 博客园内标签新窗口打开
+             * setContent() 设置目录
+             * setCopyright() 设置版权信息
+             * setCodeRow() 代码行号显示
+             */ 
+            this.setAtarget(); 
+            //假如为手机端不显示目录
+            if(document.body.clientWidth>=1000){
+                this.setContent();
+            }
+            // this.setCopyright();
+            this.setCodeRow();
+        }
+    }
+    setMyBlog.runAll();
+</script>
+
+<!-- 代码行号 -->
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsrCtvkhaM7Xe24SBASF8Dk74yM5NoAu5JtpVytNOlg3L4LqhgtVh9ahEqTVwEM_27Ux6ioE8PQRUPoJH8Pq_BOs8-pJtNDlUxj5A6jpamiO4PSMeB8Lb93nU_536bv7QQ" />
+</body>
+</html>

@@ -56,6 +56,11 @@ namespace Homework8
 
         private void revise_button_Click(object sender, EventArgs e)
         {
+            new Form2().ShowDialog();
+        }
+
+        private void import_button_Click(object sender, EventArgs e)
+        {
 
         }
     }

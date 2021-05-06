@@ -1,0 +1,960 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="Vue Router Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌 https://router.vuejs.org/zh" />
+    <meta property="og:description" content="Vue Router Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌 https://router.vuejs.org/zh" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Vue: Vue Router - zy7y - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/zy7y/custom.css?v=6vd15zmdoE&#x2B;ujQ1hzLwPf7pR01c=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zy7y/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zy7y/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zy7y/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 525824;
+        var currentBlogApp = 'zy7y';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-03-07 09:50';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <a href="https://github.com/zy7y" target="_blank">
+　　<img style="position: fixed; top: 0; right: 0; border: 0; z-index: 1;" src="https://images.cnblogs.com/cnblogs_com/jackson0714/779808/o_github.png" >
+</a>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/zy7y/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zy7y/">柒意</a>
+</h1>
+<h2>路漫漫其修远兮，吾将上下而求索。 -《离骚》
+QQ群：851163511（没技术大佬，本站上的个人项目问题都可以在这里咨询）</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zy7y/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/zy7y">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/zy7y/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zy7y/p/14496707.html">
+    <span>Vue: Vue Router</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="vue-router">Vue Router</h1>
+<blockquote>
+<p>Vue Router 是 <a href="http://cn.vuejs.org/" target="_blank">Vue.js</a> 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌</p>
+<p><a href="https://router.vuejs.org/zh/" target="_blank">https://router.vuejs.org/zh/</a></p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<pre><code class="language-shell">npm install vue-router --save
+</code></pre>
+<h2 id="配置">配置</h2>
+<h3 id="routerindexjs"><code>router/index.js</code></h3>
+<pre><code class="language-javascript">import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+
+// 1. 安装插件
+Vue.use(VueRouter)
+
+
+// 3. 配置路由
+const routes = [
+  {
+    // 前端路由地址 (不含http信息)
+    path: '/',
+    name: 'Home',
+    // 绑定对应组件
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/index',
+    // 重定向, 意味着当访问 xx/index时，将自动重定向到 xx/ 路由
+    redirect: '/'
+  }
+]
+
+// 3. 创建VueRouter对象
+const router = new VueRouter({
+  routes,
+  // 去除路由过程中间的 # 号
+  mode: 'history'
+})
+
+export default router
+
+// 4. 去main.js中导入 该router对象
+</code></pre>
+<h3 id="mainjs"><code>main.js</code></h3>
+<pre><code class="language-javascript">import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+
+Vue.config.productionTip = false
+
+new Vue({
+  // 导入roter对象
+  router,
+  render: h =&gt; h(App)
+}).$mount('#app')
+
+</code></pre>
+<h2 id="使用">使用</h2>
+<blockquote>
+<p>router-link (路由切换) 、 router-view(对应组件内容占位)</p>
+</blockquote>
+<p><strong><code>App.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;
+      &lt;!-- 点击跳转路由 --&gt;
+      &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |
+      &lt;router-link to="/about"&gt;About&lt;/router-link&gt;
+    &lt;/div&gt;
+    &lt;!-- 实现router-link 切换后 占位显示的内容 --&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+&lt;/style&gt;
+
+</code></pre>
+<h2 id="router-link">router-link</h2>
+<blockquote>
+<p>router-link 默认渲染出来的是<code>a</code>标签</p>
+</blockquote>
+<p><strong><code>App.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;
+      &lt;!-- 点击跳转路由 --&gt;
+      &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |
+      &lt;!-- tag 修改router-link 渲染的标签类型--&gt;
+      &lt;!-- replace 点了之后不能回退左上角 --&gt;
+      &lt;!-- active-class 指定 router-link 的类 --&gt;
+      &lt;router-link to="/about" tag="button" replace active-class="active"&gt;About&lt;/router-link&gt;
+    &lt;/div&gt;
+    &lt;!-- 实现router-link 切换后 占位显示的内容 --&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.active {
+  color: red;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="通过代码跳转路由">通过代码跳转路由</h2>
+<p><strong><code>App.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;
+      &lt;!-- 点击跳转路由 --&gt;
+      &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |
+      &lt;!-- tag 修改router-link 渲染的标签类型--&gt;
+      &lt;!-- replace 点了之后不能回退左上角 --&gt;
+      &lt;!-- active-class 指定 router-link 的类 --&gt;
+      &lt;router-link to="/about" tag="button" replace active-class="active"&gt;About&lt;/router-link&gt;
+
+      &lt;button @click="toAbout"&gt;toAbout&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;!-- 实现router-link 切换后 占位显示的内容 --&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  methods: {
+    toAbout: function() {
+      // this.$router.push('/about')
+      this.$router.replace('/about')
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.active {
+  color: red;
+}
+&lt;/style&gt;
+
+</code></pre>
+<h2 id="动态路由">动态路由</h2>
+<blockquote>
+<p>路径不确定： user/:id , :id 为不确定值</p>
+</blockquote>
+<p><strong><code>User.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;&lt;h1&gt;user Page {{ userId }}&lt;/h1&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: 'User',
+    computed: {
+        userId() {
+            // $route, 当前活跃路由, params.属性 该属性为router/index.js中定义的动态路由 :userId userId为属性名
+            return this.$route.params.userId
+        }
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+
+&lt;/style&gt;
+</code></pre>
+<p><strong><code>router/index.js</code></strong></p>
+<pre><code class="language-javascript">import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+import User from '../views/User'
+
+// 1. 安装插件
+Vue.use(VueRouter)
+
+
+// 3. 配置路由
+const routes = [
+  {
+    // 前端路由地址 (不含http信息)
+    path: '/',
+    name: 'Home',
+    // 绑定对应组件
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/index',
+    // 重定向, 意味着当访问 xx/index时，将自动重定向到 xx/ 路由
+    redirect: '/'
+  },
+  //  动态路由
+  {
+    // :id 表示该路由id 部分是可变的
+    path: '/user/:userId',
+    name: 'User',
+    component: User
+  }
+]
+
+// 3. 创建VueRouter对象
+const router = new VueRouter({
+  routes,
+  // 去除路由过程中间的 # 号
+  mode: 'history'
+})
+
+export default router
+
+// 4. 去main.js中导入 该router对象
+</code></pre>
+<p><strong><code>App.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;
+      &lt;!-- 点击跳转路由 --&gt;
+      &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |
+      &lt;!-- tag 修改router-link 渲染的标签类型--&gt;
+      &lt;!-- replace 点了之后不能回退左上角 --&gt;
+      &lt;!-- active-class 指定 router-link 的类 --&gt;
+      &lt;router-link to="/about" tag="button" replace active-class="active"&gt;About&lt;/router-link&gt;
+
+      &lt;button @click="toAbout"&gt;toAbout&lt;/button&gt;
+      
+      &lt;!-- 动态绑定 需要变化的路由，  --&gt;
+      &lt;router-link :to="`/user/${userId}`"&gt;User&lt;/router-link&gt;
+    &lt;/div&gt;
+    &lt;!-- 实现router-link 切换后 占位显示的内容 --&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      userId: 1
+    }
+  },                             
+  methods: {
+    toAbout: function() {
+      // this.$router.push('/about')
+      this.$router.replace('/about')
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.active {
+  color: red;
+}
+&lt;/style&gt;
+
+</code></pre>
+<h2 id="路由懒加载">路由懒加载</h2>
+<blockquote>
+<p>当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。</p>
+</blockquote>
+<p><strong><code>router/index.js</code></strong></p>
+<pre><code class="language-javascript">import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+
+// 1. 安装插件
+Vue.use(VueRouter)
+
+
+const User = () =&gt; import(/* webpackChunkName: "about" */ '../views/User.vue')
+
+
+// 3. 配置路由
+const routes = [
+  {
+    // 前端路由地址 (不含http信息)
+    path: '/',
+    name: 'Home',
+    // 绑定对应组件
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    
+    // 路由懒加载
+    component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/index',
+    // 重定向, 意味着当访问 xx/index时，将自动重定向到 xx/ 路由
+    redirect: '/'
+  },
+  //  动态路由
+  {
+    // :id 表示该路由id 部分是可变的
+    path: '/user/:userId',
+    name: 'User',
+    component: User
+  }
+]
+
+// 3. 创建VueRouter对象
+const router = new VueRouter({
+  routes,
+  // 去除路由过程中间的 # 号
+  mode: 'history'
+})
+
+export default router
+
+// 4. 去main.js中导入 该router对象
+</code></pre>
+<h2 id="嵌套路由">嵌套路由</h2>
+<p><strong>1. <code>News.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;&lt;ul&gt;
+      &lt;li&gt;1&lt;/li&gt;
+      &lt;li&gt;1&lt;/li&gt;
+    &lt;/ul&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: "News"
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+
+&lt;/style&gt;
+</code></pre>
+<p><strong>2. <code>router/inde.js</code> 定义子路由</strong></p>
+<pre><code class="language-javascript">import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+import User from '../views/User'
+
+// 1. 安装插件
+Vue.use(VueRouter)
+
+// 3. 配置路由
+const routes = [
+  {
+    // 前端路由地址 (不含http信息)
+    path: '/',
+    name: 'Home',
+    // 绑定对应组件
+    component: Home,
+    // 子路由
+    children: [
+      {
+        // 子路由不需要加 /
+        path: "news",
+        component: () =&gt; import('../views/News')
+      }
+    ]
+},
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+
+    // 路由懒加载
+    component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
+    path: '/index',
+    // 重定向, 意味着当访问 xx/index时，将自动重定向到 xx/ 路由
+    redirect: '/'
+  },
+  //  动态路由
+  {
+    // :id 表示该路由id 部分是可变的
+    path: '/user/:userId',
+    name: 'User',
+    component: User
+  }
+]
+
+// 3. 创建VueRouter对象
+const router = new VueRouter({
+  routes,
+  // 去除路由过程中间的 # 号
+  mode: 'history'
+})
+
+export default router
+
+// 4. 去main.js中导入 该router对象
+</code></pre>
+<p><strong>3. <code>Home.vue</code> 使用子路由</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class="home"&gt;
+    &lt;img alt="Vue logo" src="../assets/logo.png"&gt;
+    &lt;HelloWorld msg="Welcome to Your Vue.js App"/&gt;
+        &lt;router-link to="/news"&gt; 子路由 user&lt;/router-link&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    HelloWorld
+  }
+}
+&lt;/script&gt;
+
+</code></pre>
+<h2 id="参数传递">参数传递</h2>
+<blockquote>
+<ol>
+<li>params类型 <code>user/:id  -&gt; user/100</code>
+<ul>
+<li><code>this.$route.params</code></li>
+</ul>
+</li>
+<li>query类型<code>user?id=100</code>
+<ul>
+<li><code>this.$route.query</code></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h2 id="route-与-router"><code>$route</code> 与 <code>$router</code></h2>
+<ul>
+<li><code>$router</code>:  Vue-Router对象</li>
+<li><code>$route</code>:  当前活跃(页面所在)路由</li>
+</ul>
+<h2 id="导航守卫全局">导航守卫(全局)</h2>
+<p><strong><code>router/index.js</code></strong></p>
+<pre><code class="language-javascript">import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+import User from '../views/User'
+
+// 1. 安装插件
+Vue.use(VueRouter)
+
+// 3. 配置路由
+const routes = [
+  {
+    // 前端路由地址 (不含http信息)
+    path: '/',
+    name: 'Home',
+    // 绑定对应组件
+    component: Home,
+    // 子路由
+    children: [
+      {
+        // 子路由不需要加 /
+        path: "news",
+        component: () =&gt; import('../views/News')
+      }
+    ]
+},
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+
+    // 路由懒加载
+    component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    //  定义元类数据，用于实现根据路由变换title
+    meta:{
+      title: "关于"
+    }
+  },
+  {
+    path: '/index',
+    // 重定向, 意味着当访问 xx/index时，将自动重定向到 xx/ 路由
+    redirect: '/'
+  },
+  //  动态路由
+  {
+    // :id 表示该路由id 部分是可变的
+    path: '/user/:userId',
+    name: 'User',
+    component: User
+  }
+]
+
+// 3. 创建VueRouter对象
+const router = new VueRouter({
+  routes,
+  // 去除路由过程中间的 # 号
+  mode: 'history'
+})
+
+// 导航守卫, 前置钩子
+router.beforeEach((to, from, next) =&gt; {
+  //  实现标题根据路由进行变化
+  document.title = to.matched[0].meta.title
+  next()
+})
+// 后置钩子
+router.afterEach((to, from) =&gt; {
+  console.log(to, from)
+})
+export default router
+
+// 4. 去main.js中导入 该router对象
+</code></pre>
+<h2 id="keep-alive">keep-alive</h2>
+<blockquote>
+<p>缓存，使组件保留状态，避免重新渲染</p>
+<ul>
+<li>include:  只有匹配的组件被缓存</li>
+<li>exclude:  匹配的组件将不被缓存</li>
+</ul>
+</blockquote>
+<p><strong><code>App.vue</code></strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;div id="nav"&gt;
+      &lt;!-- 点击跳转路由 --&gt;
+      &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |
+      &lt;!-- tag 修改router-link 渲染的标签类型--&gt;
+      &lt;!-- replace 点了之后不能回退左上角 --&gt;
+      &lt;!-- active-class 指定 router-link 的类 --&gt;
+      &lt;router-link to="/about" tag="button" replace active-class="active"&gt;About&lt;/router-link&gt;
+
+      &lt;button @click="toAbout"&gt;toAbout&lt;/button&gt;
+      
+      &lt;!-- 动态绑定 需要变化的路由，  --&gt;
+      &lt;router-link :to="`/user/${userId}`"&gt;User&lt;/router-link&gt;
+    &lt;/div&gt;
+    &lt;!-- keep-live 缓存 --&gt;
+    &lt;keep-alive exclude="About,User"&gt;
+      &lt;!-- 实现router-link 切换后 占位显示的内容 --&gt;
+      &lt;router-view/&gt;
+    &lt;/keep-alive&gt;
+
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      userId: 1
+    }
+  },                             
+  methods: {
+    toAbout: function() {
+      // this.$router.push('/about')
+      this.$router.replace('/about')
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.active {
+  color: red;
+}
+&lt;/style&gt;
+
+</code></pre>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-03-07 21:50</span>&nbsp;
+<a href="https://www.cnblogs.com/zy7y/">zy7y</a>&nbsp;
+阅读(<span id="post_view_count">16</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14496707" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14496707);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 525824, cb_blogApp = 'zy7y', cb_blogUserGuid = '8a430ad0-facd-4ae7-3443-08d5b93323ea';
+    var cb_entryId = 14496707, cb_entryCreatedDate = '2021-03-07 21:50', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 zy7y
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvMBgwLIQsztwW64YQXCc0U3Qaeb4r-KEG8J2RtLU98nn52mTiIcdZokBNrUu2jl00d7QA2NtFwS7QxLC9YYdV8iH4sMQbnnHhQBDnpEfRvHbkreyldz_T1xLhdcDDWaAY" />
+</body>
+</html>

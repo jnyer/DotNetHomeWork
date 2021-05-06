@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="上一篇我们讨论了UWP和Desktop Extension交互中，Desktop Extension执行后立即退出的场景。下图是提到的四种场景分类： 执行后立即退出 等待request，处理完后退出 " />
+    <meta property="og:description" content="上一篇我们讨论了UWP和Desktop Extension交互中，Desktop Extension执行后立即退出的场景。下图是提到的四种场景分类： 执行后立即退出 等待request，处理完后退出 " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>2020年的UWP(4)——UWP和等待Request的Desktop Extension - 楼上那个蜀黍 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/manupstairs/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/manupstairs/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/manupstairs/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 105048;
+        var currentBlogApp = 'manupstairs';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'CodingLife';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2020-11-30 11:42';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/manupstairs/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/manupstairs/">楼上那个蜀黍</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/manupstairs/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%A5%BC%E4%B8%8A%E9%82%A3%E4%B8%AA%E8%9C%80%E9%BB%8D">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/manupstairs/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/manupstairs/p/14065673.html">
+    <span>2020年的UWP(4)——UWP和等待Request的Desktop Extension</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>上一篇我们讨论了UWP和Desktop Extension交互中，Desktop Extension执行后立即退出的场景。下图是提到的四种场景分类：</p>
+<ul>
+<li>执行后立即退出</li>
+<li>等待request，处理完后退出</li>
+<li>一或多个request/response周期</li>
+<li>和UWP程序相同生命周期</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/362529/202011/362529-20201130233626531-1957337161.png" alt="" width="577" height="348" loading="lazy"></p>
+<p>本篇我们讨论第二种，Desktop Extension等待request后，根据传参完成操作后退出的，短生命周期场景。该类型有以下特征：</p>
+<ol>
+<li>可能存在多次的单向调用</li>
+<li>通过request接收参数</li>
+<li>不关心返回结果</li>
+<li>Desktop Extension等待request，完成操作后退出</li>
+</ol>
+<p>该场景的示意图如下：</p>
+<p><img src="https://img2020.cnblogs.com/blog/362529/202011/362529-20201130233710719-914148669.png" alt="" width="477" height="484" loading="lazy"></p>
+<p>我们依然以Desktop Extension启动mspaint.exe和control.exe来举例。和上一篇不同的是，这次我们会通过UWP端发起的request来传递参数。</p>
+<p>本篇Sample Code中的AppServiceHandler，以及App.xaml.cs中的OnBackgroundActivated方法。请参考《<a href="https://www.cnblogs.com/manupstairs/p/13853418.html" target="_blank">2020年的UWP(2)——In Process App Service</a>》，相同部分不再介绍。</p>
+<p>本篇新增的AppServiceConnectionConnectedEventArgs对象及Connected事件，是当AppServiceConnection通过OpenAsync方法成功连接时，传递当前活动的AppServiceConnection对象，以便调用SendMessageAsync等方法。</p>
+<div class="cnblogs_code">
+<pre>    <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> AppServiceConnectionConnectedEventArgs : EventArgs
+    {
+        </span><span style="color: rgba(0, 0, 255, 1)">public</span> AppServiceConnection Connection { <span style="color: rgba(0, 0, 255, 1)">get</span><span style="color: rgba(0, 0, 0, 1)">; }
+
+        </span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> AppServiceConnectionConnectedEventArgs(AppServiceConnection connection)
+        {
+            Connection </span>=<span style="color: rgba(0, 0, 0, 1)"> connection;
+        }
+    }
+
+   </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">event</span> EventHandler&lt;AppServiceConnectionConnectedEventArgs&gt; Connected;</pre>
+</div>
+<p>在AppServiceHandler中的OnBackgroundActivated方法中，我们首要做的，即是通知订阅对象，有AppServiceConnection被成功Open了，请及时响应。</p>
+<div class="cnblogs_code">
+<pre>        <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnBackgroundActivated(AppServiceTriggerDetails details)
+        {
+            Connected</span>?.Invoke(<span style="color: rgba(0, 0, 255, 1)">this</span>, <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> AppServiceConnectionConnectedEventArgs(details.AppServiceConnection));
+            Connection </span>=<span style="color: rgba(0, 0, 0, 1)"> details.AppServiceConnection;
+            Connection.RequestReceived </span>+=<span style="color: rgba(0, 0, 0, 1)"> Connection_RequestReceived;
+        }</span></pre>
+</div>
+<p>订阅这个Connected事件的，一般都是Desktop Extension的发起方。比如说UWP端的某个Button。</p>
+<div class="cnblogs_code">
+<pre>        <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">async</span> <span style="color: rgba(0, 0, 255, 1)">void</span> ButtonLaunchApp_Click(<span style="color: rgba(0, 0, 255, 1)">object</span><span style="color: rgba(0, 0, 0, 1)"> sender, RoutedEventArgs e)
+        {
+            </span><span style="color: rgba(0, 0, 255, 1)">if</span> (ApiInformation.IsApiContractPresent(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Windows.ApplicationModel.FullTrustAppContract</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(128, 0, 128, 1)">1</span>, <span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">))
+            {
+                AppServiceHandler.Instance.Connected </span>+=<span style="color: rgba(0, 0, 0, 1)"> Instance_Connected;
+                </span><span style="color: rgba(0, 0, 255, 1)">await</span><span style="color: rgba(0, 0, 0, 1)"> FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+            }
+        }
+
+        </span><span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">async</span> <span style="color: rgba(0, 0, 255, 1)">void</span> Instance_Connected(<span style="color: rgba(0, 0, 255, 1)">object</span><span style="color: rgba(0, 0, 0, 1)"> sender, AppServiceConnectionConnectedEventArgs e)
+        {
+            AppServiceHandler.Instance.Connected </span>-=<span style="color: rgba(0, 0, 0, 1)"> Instance_Connected;
+            </span><span style="color: rgba(0, 0, 255, 1)">var</span> valueSet = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> ValueSet();
+            valueSet.Add(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">FileName</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">, ComboBoxFileName.SelectionBoxItem);
+            </span><span style="color: rgba(0, 0, 255, 1)">var</span> response = <span style="color: rgba(0, 0, 255, 1)">await</span><span style="color: rgba(0, 0, 0, 1)"> e.Connection.SendMessageAsync(valueSet);
+        }</span></pre>
+</div>
+<p>之所以需要这个Connect事件，是因为通过SendMessageAsync传参，需要依赖当前活动的AppServiceConnection对象。我们正是通过Connected事件，将AppServiceConnection对象传递给订阅者，使其能够访问SendMessageAsync等方法进行数据交互。</p>
+<p>在Instance_Connected方法中，在每次点击按钮时，均启动一个新的Desktop Extension进程。在Desktop Extension进程中，会通过OpenAsync方法来连接AppServiceConnection。之后便是由OnBackgroundActivated方法触发Connected事件，接下来就是发起request。</p>
+<p>该场景中，Desktop Extension仅需维持一个较短的生命周期，在等到request后，根据传参完成相应操作，就可以释放资源安全退出了。对整个APP而言，既不会长期占用过多资源，也不会导致UWP端无法Suspend。</p>
+<p>下图中的绿色叶子图标，在Desktop Extension运行时，是不会出现的。</p>
+<p><img src="https://img2020.cnblogs.com/blog/362529/202011/362529-20201130234008247-876685628.png" alt="" width="578" height="421" loading="lazy"></p>
+<p>同时我们要知道AppService的生命周期是不可控的，在UWP端程序最小化以后，Windows会在一段时间后停止AppService，AppServiceConnection也会被dispose。所以存储一个AppServiceConnection长期对象，用来和永不退出的Desktop Extension通讯并不是个好主意。</p>
+<p>以下是Desktop Extension端的部分代码，为了方便观察应用程序的行为，我在Sample中将Enrivonment.Exit给注释掉了。</p>
+<div class="cnblogs_code">
+<pre>        <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">async</span><span style="color: rgba(0, 0, 0, 1)"> Task InitializeAsync()
+        {
+            Connection </span>= <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> AppServiceConnection();
+            Connection.PackageFamilyName </span>=<span style="color: rgba(0, 0, 0, 1)"> Package.Current.Id.FamilyName;
+            Connection.AppServiceName </span>= <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">ParameterAppService</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;
+            AppServiceConnectionStatus status </span>= <span style="color: rgba(0, 0, 255, 1)">await</span><span style="color: rgba(0, 0, 0, 1)"> Connection.OpenAsync();
+            </span><span style="color: rgba(0, 0, 255, 1)">if</span> (status !=<span style="color: rgba(0, 0, 0, 1)"> AppServiceConnectionStatus.Success)
+            {
+                Console.WriteLine(status);
+            }
+            </span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)">
+            {
+                Console.WriteLine(status);
+                Connection.RequestReceived </span>+=<span style="color: rgba(0, 0, 0, 1)"> Connection_RequestReceived;
+            }
+        }
+
+        </span><span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Connection_RequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
+        {
+            </span><span style="color: rgba(0, 0, 255, 1)">var</span> content = args.Request.Message[<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">FileName</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">].ToString();
+            Process.Start(content);
+            Console.WriteLine(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Will exit after received.</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+            </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">Environment.Exit(0);</span>
+        }</pre>
+</div>
+<p>本篇简单介绍了“等待request，处理完后退出”，这一UWP和Desktop Extension数据交互的场景。感谢看到这里的同学，单纯的文字其实很难讲清楚AppService的使用，还请参考Github上的实例代码，欢迎评论及提问。</p>
+<p><a href="https://github.com/manupstairs/UWPSamples/tree/master/UWPSamples/DataExchangeUWP/ExitAfterHandleRequest" target="_blank">UWPSamples/UWPSamples/DataExchangeUWP/ExitAfterHandleRequest at master · manupstairs/UWPSamples (github.com)</a></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2020-11-30 23:42</span>&nbsp;
+<a href="https://www.cnblogs.com/manupstairs/">楼上那个蜀黍</a>&nbsp;
+阅读(<span id="post_view_count">287</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14065673" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14065673);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 105048, cb_blogApp = 'manupstairs', cb_blogUserGuid = '87c8ad1f-442a-e111-b988-842b2b196315';
+    var cb_entryId = 14065673, cb_entryCreatedDate = '2020-11-30 23:42', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 楼上那个蜀黍
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt9hk1WJ58B3dk9qyPXdUBdGcNuI6s0Dd0cA7YrXbAi2wL-4sSKm8KWfE0BUo2QxBqVPtiPVO_FiTvB9D0BS44b7okLC3Rehq5F99qBdZsVXjUtsDJAlbXn3Juq8m1hf2c" />
+</body>
+</html>

@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>老玉米 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simpleblue/bundle-simpleblue.min.css?v=2hjghzSZyhYA1HxvSxKnXih3JbC120DBjeO9V9T_nSs" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/simpleblue/bundle-simpleblue-mobile.min.css?v=3tvwgOOqUo3RpS6gGzEdK0LbptOPv4Bx7M85_UAnFGs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/laoyumi/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/laoyumi/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/laoyumi/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 60614;
+        var currentBlogApp = 'laoyumi';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleBlue';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/laoyumi/">经常思考,沉淀思想</a>
+</div>
+<div class="subtitle">老玉米的杂货柜</div>
+
+        </div>
+        <div id="navigator">
+            
+<ul id="navList">
+    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+    <li id="nav_myhome">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/laoyumi/">
+首页</a>
+</li>
+    <li id="nav_newpost">
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+    <li id="nav_contact">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%80%81%E7%8E%89%E7%B1%B3">
+联系</a></li>
+    <li id="nav_rss">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/laoyumi/rss/">
+订阅</a></li>
+    <li id="nav_admin">
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+            <div class="blogStats">
+                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                
+
+
+
+
+
+
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/14734348.html">
+    <span>
+        Linux下MySQL所在磁盘,线程,内存的配置
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="cnblogs-post-body" id="postlist_postbody_14734348">
+        正文内容加载中...
+    </div>
+    <script type="text/javascript">getBlogPostBody(14734348);</script>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-05-06 11:13
+老玉米
+<span data-post-id="14734348" class="post-view-count">阅读(16)</span> 
+<span data-post-id="14734348" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14734348" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14734348" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2021/04/30.html">2021年4月30日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/14721538.html">
+    <span>
+        SQL Server 2008 PREEMPTIVE_OS_GETPROCADDRESS 等待类型
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：背景 操作系统： Windows Server 2008 R2 DataCenter 数据库版本： SQL Server 2008 R2 现象 使用 SSMS 连接数据库实例，左侧菜单树刷新缓慢，需要4秒以上的时间才能出来 使用 sys.dm_exec_requests DMV 视图观察会话等待类型        <a href="https://www.cnblogs.com/laoyumi/p/14721538.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-30 11:55
+老玉米
+<span data-post-id="14721538" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14721538" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14721538" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14721538" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2021/04/29.html">2021年4月29日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/14717771.html">
+    <span>
+        数据库使用 jemalloc 内存优化算法
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：cd /tmp/ wget https://github.com/jemalloc/jemalloc/archive/5.2.1.tar.gz yum groupinstall -y &#39;Development Tools&#39; tar -xzvf 5.2.1.tar.gz cd jemalloc-5.2        <a href="https://www.cnblogs.com/laoyumi/p/14717771.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-29 14:14
+老玉米
+<span data-post-id="14717771" class="post-view-count">阅读(17)</span> 
+<span data-post-id="14717771" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14717771" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14717771" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2021/04/28.html">2021年4月28日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/14711847.html">
+    <span>
+        my.cnf 推荐配置
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：disable transparent hugepages #!/bin/sh ### BEGIN INIT INFO # Provides: disable-transparent-hugepages # Required-Start: $local_fs # Required-Stop: # X        <a href="https://www.cnblogs.com/laoyumi/p/14711847.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-28 09:27
+老玉米
+<span data-post-id="14711847" class="post-view-count">阅读(5)</span> 
+<span data-post-id="14711847" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14711847" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14711847" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2015/01/26.html">2015年1月26日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/4249984.html">
+    <span>
+        MySQL扩展功能 - 重复插入
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：replace into为什么不好？先删除，后插曲，删除时会全表扫描吗？参考来自MySQL官方网络的文档:http://dev.mysql.com/doc/refman/5.0/en/replace.htmlMySQL uses the following algorithm forREPLACE(...        <a href="https://www.cnblogs.com/laoyumi/p/4249984.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2015-01-26 12:32
+老玉米
+<span data-post-id="4249984" class="post-view-count">阅读(204)</span> 
+<span data-post-id="4249984" class="post-comment-count">评论(0)</span> 
+<span data-post-id="4249984" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4249984" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2014/10/23.html">2014年10月23日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/4045241.html">
+    <span>
+        表变量,临时表
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：9.2 表变量、临时表临时表分为局部临时表和全局临时表，分别以#以及##为表名前缀。局部临时表在会话间不能共享，在会话结束后，临时表会被删除；全局临时表在会话间是可共享的，当创建的会话关闭时，全局临时表也会被删除。表变量，发现过许多误解，以为表变量是内存表，是存储在内存中的，其实表变量与临时表一样，都是存储在Tempdb中的，表变量是在SQL Server 2000时加入的，当初是为了解决临时...        <a href="https://www.cnblogs.com/laoyumi/p/4045241.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2014-10-23 10:54
+老玉米
+<span data-post-id="4045241" class="post-view-count">阅读(182)</span> 
+<span data-post-id="4045241" class="post-comment-count">评论(0)</span> 
+<span data-post-id="4045241" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4045241" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/4045231.html">
+    <span>
+        Tempdb的并发阻塞
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：9.3 Tempdb的并发阻塞在介绍Tempdb的并发问题前，先介绍几个比较特殊的数据页。PFS（Page Free Space），用于标识数据页空间的使用情况，以字节标识，可以表示数据页使用百分比，例如使用百分五十，百分八十，百分九十五以及完全被使用，同时，还有一个字节位表示数据页的类型，例如IAM页等。一个PFS页，可以标识64MB的数据页空间使用情况。GAM（Global Alloca...        <a href="https://www.cnblogs.com/laoyumi/p/4045231.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2014-10-23 10:51
+老玉米
+<span data-post-id="4045231" class="post-view-count">阅读(577)</span> 
+<span data-post-id="4045231" class="post-comment-count">评论(0)</span> 
+<span data-post-id="4045231" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4045231" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2014/10/16.html">2014年10月16日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/4028254.html">
+    <span>
+        SQL Server分布式数据库技术(LinkedServer,CT,SSB)
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：SQL Server自定义业务功能的数据同步在不同业务需求的驱动下，数据库的模块化拆分将会面临一些比较特殊的业务逻辑处理需求。例如，在数据库层面的数据同步需求。同步过程中，可能会有一些比较复杂的业务逻辑判断。简单介绍几个SQL Server提供的数据同步功能。已链接服务（Linked Server） 通过链接数据库可以实现不同实例间数据的访问和更新操作。通常会与OPENQUERY行集函数...        <a href="https://www.cnblogs.com/laoyumi/p/4028254.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2014-10-16 10:48
+老玉米
+<span data-post-id="4028254" class="post-view-count">阅读(14746)</span> 
+<span data-post-id="4028254" class="post-comment-count">评论(0)</span> 
+<span data-post-id="4028254" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4028254" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/4028145.html">
+    <span>
+        SQL Server添加MDW性能监控报表
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：10.2 Data Collector与MDWData Collection功能是SQL SERVER 2005版本提供的数据库监控报表的功能，通过定时地对数据库的语句运行情况，服务器各种资源的监控等信息的记录收集起来，并将数据保存在MDW（Management Data Warehouse，管理数据仓库）中，MDW为用户们提供了非常方便的性能分配报表。 10.2.1 MDW的配置开启SQ...        <a href="https://www.cnblogs.com/laoyumi/p/4028145.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2014-10-16 10:14
+老玉米
+<span data-post-id="4028145" class="post-view-count">阅读(1602)</span> 
+<span data-post-id="4028145" class="post-comment-count">评论(0)</span> 
+<span data-post-id="4028145" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=4028145" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/laoyumi/archive/2014/02/08.html">2014年2月8日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/laoyumi/p/3540261.html">
+    <span>
+        使用证书创建数据库镜像
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：数据库镜像设置的几个简单示例代码.        <a href="https://www.cnblogs.com/laoyumi/p/3540261.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2014-02-08 11:37
+老玉米
+<span data-post-id="3540261" class="post-view-count">阅读(340)</span> 
+<span data-post-id="3540261" class="post-comment-count">评论(0)</span> 
+<span data-post-id="3540261" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=3540261" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/laoyumi/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+                <div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                <script>loadBlogDefaultCalendar();</script>
+                <div id="leftcontentcontainer">
+                    <!-- begin:SingleColumn -->
+                    <div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+                    <!-- end:  SingleColumn -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright &copy; 2021 老玉米
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+    </div>
+</div>
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuTqzL1UzsTqL5t3kYj8Ts8JmcLbkjGN_Igq2Xh87KbhMuG7gu9vosa9iNxD1yZApctznrGwgw9inSEWQVP_8mVjiIgVLMRqjac1-lu3voh8aCgQVAMrRgAtV_MRWRe9J0" />
+</body>
+</html>

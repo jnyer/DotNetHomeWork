@@ -79,12 +79,13 @@
             this.orderSumPriceDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.orderBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(345, 225);
+            this.dataGridView1.Size = new System.Drawing.Size(460, 281);
             this.dataGridView1.TabIndex = 2;
             // 
             // orderIdDataGridViewTextBoxColumn
@@ -131,11 +132,12 @@
             this.totalPriceDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.orderDetailBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(354, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(472, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(443, 225);
+            this.dataGridView2.Size = new System.Drawing.Size(591, 281);
             this.dataGridView2.TabIndex = 3;
             // 
             // goodsIdDataGridViewTextBoxColumn
@@ -193,10 +195,11 @@
             this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 231);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1067, 289);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
@@ -204,9 +207,10 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 231);
+            this.panel1.Location = new System.Drawing.Point(0, 289);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 286);
+            this.panel1.Size = new System.Drawing.Size(1067, 358);
             this.panel1.TabIndex = 5;
             // 
             // groupBox1
@@ -214,9 +218,11 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel4);
             this.groupBox1.Controls.Add(this.tableLayoutPanel3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 100);
+            this.groupBox1.Location = new System.Drawing.Point(0, 125);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 89);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1067, 111);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找订单";
@@ -229,29 +235,32 @@
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 22);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(794, 32);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1059, 40);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 10);
+            this.label1.Location = new System.Drawing.Point(427, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.Size = new System.Drawing.Size(97, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "查询关键字：";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(398, 5);
+            this.textBox1.Location = new System.Drawing.Point(532, 7);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.Size = new System.Drawing.Size(132, 25);
             this.textBox1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -259,27 +268,28 @@
             this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.24528F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.75472F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.tableLayoutPanel3.Controls.Add(this.searchByOrderPrice_button, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.searchByNumber_button, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.searchByGoodsName_button, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.searchByClient_button, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 49);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 61);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 37);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1059, 46);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // searchByOrderPrice_button
             // 
             this.searchByOrderPrice_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchByOrderPrice_button.Location = new System.Drawing.Point(602, 7);
+            this.searchByOrderPrice_button.Location = new System.Drawing.Point(802, 8);
+            this.searchByOrderPrice_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchByOrderPrice_button.Name = "searchByOrderPrice_button";
-            this.searchByOrderPrice_button.Size = new System.Drawing.Size(186, 23);
+            this.searchByOrderPrice_button.Size = new System.Drawing.Size(248, 29);
             this.searchByOrderPrice_button.TabIndex = 3;
             this.searchByOrderPrice_button.Text = "按订单总价格查询";
             this.searchByOrderPrice_button.UseVisualStyleBackColor = true;
@@ -287,9 +297,10 @@
             // searchByNumber_button
             // 
             this.searchByNumber_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchByNumber_button.Location = new System.Drawing.Point(3, 7);
+            this.searchByNumber_button.Location = new System.Drawing.Point(4, 8);
+            this.searchByNumber_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchByNumber_button.Name = "searchByNumber_button";
-            this.searchByNumber_button.Size = new System.Drawing.Size(188, 23);
+            this.searchByNumber_button.Size = new System.Drawing.Size(251, 29);
             this.searchByNumber_button.TabIndex = 0;
             this.searchByNumber_button.Text = "按订单号查询";
             this.searchByNumber_button.UseVisualStyleBackColor = true;
@@ -297,9 +308,10 @@
             // searchByGoodsName_button
             // 
             this.searchByGoodsName_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchByGoodsName_button.Location = new System.Drawing.Point(398, 7);
+            this.searchByGoodsName_button.Location = new System.Drawing.Point(531, 8);
+            this.searchByGoodsName_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchByGoodsName_button.Name = "searchByGoodsName_button";
-            this.searchByGoodsName_button.Size = new System.Drawing.Size(193, 23);
+            this.searchByGoodsName_button.Size = new System.Drawing.Size(257, 29);
             this.searchByGoodsName_button.TabIndex = 1;
             this.searchByGoodsName_button.Text = "按商品名称查询";
             this.searchByGoodsName_button.UseVisualStyleBackColor = true;
@@ -307,9 +319,10 @@
             // searchByClient_button
             // 
             this.searchByClient_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchByClient_button.Location = new System.Drawing.Point(197, 7);
+            this.searchByClient_button.Location = new System.Drawing.Point(263, 8);
+            this.searchByClient_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchByClient_button.Name = "searchByClient_button";
-            this.searchByClient_button.Size = new System.Drawing.Size(194, 23);
+            this.searchByClient_button.Size = new System.Drawing.Size(258, 29);
             this.searchByClient_button.TabIndex = 2;
             this.searchByClient_button.Text = "按客户名查询";
             this.searchByClient_button.UseVisualStyleBackColor = true;
@@ -325,19 +338,21 @@
             this.tableLayoutPanel2.Controls.Add(this.delete_button, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 125);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // create_button
             // 
             this.create_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.create_button.Location = new System.Drawing.Point(162, 13);
+            this.create_button.Location = new System.Drawing.Point(216, 16);
+            this.create_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.create_button.Name = "create_button";
-            this.create_button.Size = new System.Drawing.Size(75, 23);
+            this.create_button.Size = new System.Drawing.Size(100, 29);
             this.create_button.TabIndex = 0;
             this.create_button.Text = "新建订单";
             this.create_button.UseVisualStyleBackColor = true;
@@ -346,9 +361,10 @@
             // revise_button
             // 
             this.revise_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.revise_button.Location = new System.Drawing.Point(162, 63);
+            this.revise_button.Location = new System.Drawing.Point(216, 79);
+            this.revise_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.revise_button.Name = "revise_button";
-            this.revise_button.Size = new System.Drawing.Size(75, 23);
+            this.revise_button.Size = new System.Drawing.Size(100, 29);
             this.revise_button.TabIndex = 2;
             this.revise_button.Text = "修改订单";
             this.revise_button.UseVisualStyleBackColor = true;
@@ -357,19 +373,22 @@
             // import_button
             // 
             this.import_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.import_button.Location = new System.Drawing.Point(562, 63);
+            this.import_button.Location = new System.Drawing.Point(750, 79);
+            this.import_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.import_button.Name = "import_button";
-            this.import_button.Size = new System.Drawing.Size(75, 23);
+            this.import_button.Size = new System.Drawing.Size(100, 29);
             this.import_button.TabIndex = 3;
             this.import_button.Text = "导入订单";
             this.import_button.UseVisualStyleBackColor = true;
+            this.import_button.Click += new System.EventHandler(this.import_button_Click);
             // 
             // delete_button
             // 
             this.delete_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.delete_button.Location = new System.Drawing.Point(562, 13);
+            this.delete_button.Location = new System.Drawing.Point(750, 16);
+            this.delete_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.delete_button.Name = "delete_button";
-            this.delete_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_button.Size = new System.Drawing.Size(100, 29);
             this.delete_button.TabIndex = 1;
             this.delete_button.Text = "删除订单";
             this.delete_button.UseVisualStyleBackColor = true;
@@ -377,11 +396,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 557);
+            this.ClientSize = new System.Drawing.Size(1067, 696);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

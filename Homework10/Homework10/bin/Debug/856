@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>月光之下 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/clover/bundle-clover.min.css?v=gNL1SP-_mT63SdzBZABu3y6W6mHGeh4U6abpdhqghl4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/clover/bundle-clover-mobile.min.css?v=mqNqC_FankkYSF65W2WPdLYJ-oT1c7Z97ct2hw3JgQg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/blog12357/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/blog12357/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/blog12357/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 497040;
+        var currentBlogApp = 'blog12357';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'clover';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+    <tr>
+        <td width="299" background="/skins/clover/images/banner1.jpg"></td>
+        <td background="/skins/clover/images/banner.jpg">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/blog12357/">月光之下</a>
+<br>
+		
+	</div>
+</div>
+
+</td>
+        <TtdD width="296" background="/skins/clover/images/banner2.jpg"></TtdD>
+    </tr>
+</table>
+<div id="mylinks"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp; &nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/blog12357/">
+首页</a>
+&nbsp; &nbsp;
+<a href="http://q.cnblogs.com/" class="menu" target="_blank">博问</a>&nbsp; &nbsp;
+<a href="http://home.cnblogs.com/ing/" class="menu" target="_blank">闪存</a>&nbsp; &nbsp;
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp; &nbsp;
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/blog12357/rss/">
+订阅</a>
+
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/blog12357/rss/">
+    <img src="/skins/clover/images/xml.gif" alt="订阅" />
+</a>&nbsp; &nbsp;
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+
+</div>
+<div id="mytopmenu">
+    <div id="mystats">
+        <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+    </div>
+</div>
+<div id="centercontent">
+    
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/14734243.html">
+    <span>
+        python对文本文件的读写操作
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：1、文本文件写入dataf = open(&#39;name.txt&#39;,mode=&#39;w&#39;) #打开文件，若文件不存在系统自动创建。 #参数name 文件名，mode 模式。 f.write(&#39;hello word 你好 \n&#39;) # write 写入 f.writelines([&#39;hello\n&#39;,&#39;wor        <a href="https://www.cnblogs.com/blog12357/p/14734243.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2021-05-06 10:56
+月光之下
+<span data-post-id="14734243" class="post-view-count">阅读(8)</span> 
+<span data-post-id="14734243" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14734243" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14734243" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/10/02.html">2019年10月2日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11616795.html">
+    <span>
+        WRK的使用-lua脚本POST请求（静态数据）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：HTTP_prot = { &quot;/gateway/services&quot;, &quot;/gateway/services&quot;, } --接口类型 HTTP_type = { &quot;POST&quot;, &quot;POST&quot;, } --参数 HTTP_body = { &#39;{&quot;phone&quot;: &quot;19012000335&quot;}&#39;, &#39;{&quot;pho        <a href="https://www.cnblogs.com/blog12357/p/11616795.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-10-02 09:16
+月光之下
+<span data-post-id="11616795" class="post-view-count">阅读(1729)</span> 
+<span data-post-id="11616795" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11616795" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11616795" rel="nofollow">
+    编辑
+</a>
+</div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11616794.html">
+    <span>
+        WRK的使用-lua脚本GET请求
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：原理：在脚本开始之前将准备好的数据添加至数组内，每次请求根据顺序调用 wrk.method = &quot;GET&quot; -- 循环列表 local queries = { -- API与参数 &quot;/app/getConDetails?ConttId=38163230&amp;Type=2&quot;, &quot;/app/getContD        <a href="https://www.cnblogs.com/blog12357/p/11616794.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-10-02 09:15
+月光之下
+<span data-post-id="11616794" class="post-view-count">阅读(799)</span> 
+<span data-post-id="11616794" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11616794" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11616794" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/09/11.html">2019年9月11日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11509368.html">
+    <span>
+        测试随笔（二）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：其一、前言： 先发个牢骚，上一边不知道为啥上了首页，又不知道为啥，被管理员给下了。 其二、测试的心理学： 大多数的人在心里都是这么认为的，“测试是一个保证程序不会出BUG而存在的职业”、“测试的任务就是保证程序能够正确的在预期之内运行。”，但是一个很不幸的现实是，测试并不能做到这些问题。 对于测试来        <a href="https://www.cnblogs.com/blog12357/p/11509368.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-09-11 22:58
+月光之下
+<span data-post-id="11509368" class="post-view-count">阅读(76)</span> 
+<span data-post-id="11509368" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11509368" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11509368" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/09/09.html">2019年9月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11491188.html">
+    <span>
+        测试随笔（一）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：其一、前言： 最近买了一本书，看的过程中引发的思考，以作记录。 其二、内容 有一个问题：开发这样一个程序，用户从输入数字，程序取得三个数字，然后判断他是什么种类的三角形。 作为一个测试，我们首先要做的，并不是去动手，直接开始测试，输入数字看得到的结果。 我们首先要知道的是，三角形的定义，什么是三角形        <a href="https://www.cnblogs.com/blog12357/p/11491188.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-09-09 13:25
+月光之下
+<span data-post-id="11491188" class="post-view-count">阅读(124)</span> 
+<span data-post-id="11491188" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11491188" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11491188" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/08/16.html">2019年8月16日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11362909.html">
+    <span>
+        关于Ubunto在VMwark中无法全屏。
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：1、右键点击Ubunto桌面，进入终端 输入： 1、sudo apt-get install open-vm* 安装依赖项 2、sudo apt-get install open-vm-tools 下载安装 3、reboot 重启 完成。 （有些人输入这三行代码并不能解决问题，具体原因反正我不知道）        <a href="https://www.cnblogs.com/blog12357/p/11362909.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-08-16 11:38
+月光之下
+<span data-post-id="11362909" class="post-view-count">阅读(199)</span> 
+<span data-post-id="11362909" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11362909" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11362909" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/08/09.html">2019年8月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/11328426.html">
+    <span>
+        接口压测工具WRK的学习与使用
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：之前一直在使用jmeter，第一次接触wrk，记录下使用过程以便自己再次使用。 首先，WRK是linux系统上才可以使用的工具，我也不想剑走偏锋的去研究如何让wrk可以在windows系统上使用。 临时中断。。。 这是基于有网的情况下才可以使用，如果想问没有网的情况该怎么办？没有网当然是下班了！ 首        <a href="https://www.cnblogs.com/blog12357/p/11328426.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-08-09 17:09
+月光之下
+<span data-post-id="11328426" class="post-view-count">阅读(298)</span> 
+<span data-post-id="11328426" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11328426" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11328426" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/05/15.html">2019年5月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/10868140.html">
+    <span>
+        Linux 命令
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：结束所有正在执行命令： Ctrl+C 显示当前路径 pwd 清空当前屏幕 clear 创建文件夹 mkdir 创建文件 touch 复制 cp 1 2 删除 rm -rf 向屏幕输出字符 echo “1111111111111111” 文件修改名称与移动 mv        <a href="https://www.cnblogs.com/blog12357/p/10868140.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-05-15 11:00
+月光之下
+<span data-post-id="10868140" class="post-view-count">阅读(74)</span> 
+<span data-post-id="10868140" class="post-comment-count">评论(0)</span> 
+<span data-post-id="10868140" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10868140" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/blog12357/archive/2019/03/05.html">2019年3月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/blog12357/p/10477064.html">
+    <span>
+        Unity 3D，地形属性
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        
+
+    <div class="c_b_p_desc">
+摘要：Terrain Width 地形高度 Terrain Height 地形宽度 Terrain Lenght 地形长度 HeughtMap Resolution 地形高度图的分辨率 Detail Resolution 细节分辨率，控制地图单元细节，会对处理器造成压力，根子自己情况自行调节 Contro        <a href="https://www.cnblogs.com/blog12357/p/10477064.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        <div class="postDesc">posted @ 2019-03-05 15:23
+月光之下
+<span data-post-id="10477064" class="post-view-count">阅读(169)</span> 
+<span data-post-id="10477064" class="post-comment-count">评论(0)</span> 
+<span data-post-id="10477064" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10477064" rel="nofollow">
+    编辑
+</a>
+</div>
+
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+</div>
+<div id="leftcontent">
+    <div id="leftcontentcontainer">
+        <div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div><br>
+        <div id="blog-calendar" style="display:none"></div>
+        <script>loadBlogDefaultCalendar();</script>
+        <div id="blog-sidecolumn"></div>
+        <script>loadBlogSideColumn();</script>
+    </div>
+</div>
+<!--done-->
+<div class="footer">
+	Copyright &copy; 2021 月光之下
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+ Powered By<a href="/">博客园</a>
+</div>
+
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuCN294Bp1DpG9L1s28Pwz5dRJeSsdQUEc0TpI9beDLyMSlwoaWhDTd7_067anmkqibpzn8gU13XJ5NSKCFJzrEF8eIY-CAiXvfRuHiC1YI7-uZsrrQ-579NBVfe_k-ee0" />
+</body>
+</html>

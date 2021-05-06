@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="1、安装Java环境 由于JMeter是纯Java的桌面应用程序，因此它的运行环境需要Java环境，即需要安装JDK或JRE。（也就是安装JDK环境） 步骤简要说明： 下载并安装JDK 配置环境变量 " />
+    <meta property="og:description" content="1、安装Java环境 由于JMeter是纯Java的桌面应用程序，因此它的运行环境需要Java环境，即需要安装JDK或JRE。（也就是安装JDK环境） 步骤简要说明： 下载并安装JDK 配置环境变量 " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>『动善时』JMeter基础 — 2、JMeter的安装和启动 - 繁华似锦Fighting - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/liuyuelinfighting/custom.css?v=HHbBCjbv1RTEmEibSvuNAB1IYv8=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/liuyuelinfighting/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/liuyuelinfighting/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/liuyuelinfighting/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 271969;
+        var currentBlogApp = 'liuyuelinfighting';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-05 05:58';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/liuyuelinfighting/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/liuyuelinfighting/">繁华似锦Fighting</a>
+</h1>
+<h2>老子不老，庄子不装。</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/liuyuelinfighting/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%B9%81%E5%8D%8E%E4%BC%BC%E9%94%A6Fighting">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/liuyuelinfighting/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732261.html">
+    <span>『动善时』JMeter基础 — 2、JMeter的安装和启动</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h3 id="1、安装java环境">1、安装Java环境</h3>
+<p>由于JMeter是纯Java的桌面应用程序，因此它的运行环境需要Java环境，即需要安装JDK或JRE。（也就是安装JDK环境）</p>
+<p>步骤简要说明：</p>
+<ul>
+<li>下载并安装JDK</li>
+<li>配置环境变量</li>
+</ul>
+<p>详细说明可以参考之前的文章：<a href="https://blog.csdn.net/Liuyuelinjiayou/article/details/109890170" target="_blank">https://blog.csdn.net/Liuyuelinjiayou/article/details/109890170</a>，第（二）部分。</p>
+<h3 id="2、jmeter下载">2、JMeter下载</h3>
+<p>JMeter官网地址：<a href="https://jmeter.apache.org/" target="_blank">https://jmeter.apache.org/</a><br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175036584-529747763.png" alt="image" loading="lazy"></p>
+<p>点击<code>Download Releases</code>进入JMeter下载页面：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175100399-945458589.png" alt="image" loading="lazy"></p>
+<p>接下来点击<code>Apache JMeter archives...</code>，我们下载一个5.0版本的JMeter。<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175128129-1308015696.png" alt="image" loading="lazy"></p>
+<p>如下图，点击下载：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175141293-1496777145.png" alt="image" loading="lazy"></p>
+<blockquote>
+<p>提示：工具下载成功后，直接解压就可以使用了，不用进行安装。</p>
+</blockquote>
+<p><strong>注意</strong>：</p>
+<p>我们不要点击在<code>Apache JMeter archives...</code>的页面中点击<code>source</code>下载JMeter</p>
+<p>如下图：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175228716-1116704353.png" alt="image" loading="lazy"></p>
+<p>进入下载页面：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175255576-654272128.png" alt="image" loading="lazy"></p>
+<p>不要下载这个安<code>src.zip</code>的JMeter安装包。因为这包中的<code>bin</code>目录下并没有<code>ApacheJMeter.jar</code>文件，所以JMeter是无法启动的，双击bin目录中的<code>jmeter.bat</code>文件，会出现下图情况：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175310764-213171568.png" alt="image" loading="lazy"></p>
+<p>所以记住，要下载<code>binarles</code>页面中的JMeter安装包。</p>
+<h3 id="3、jmeter启动">3、JMeter启动</h3>
+<p>JMeter解压后的文件夹，进入bin目录中，双击<code>jmeter.bat</code>文件，即可打开JMeter。</p>
+<p>JMeter开启会出现如下两个窗口：<br>
+<img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175340247-1223536101.png" alt="image" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175357788-1251718566.png" alt="image" loading="lazy"></p>
+<blockquote>
+<p>注意：打开的时候会有两个窗口，JMeter的命令窗口和JMeter的图形操作界面，不可以关闭命令窗口。</p>
+</blockquote>
+<p>这样我们就成功启动了JMeter。</p>
+<h3 id="4、jmeter切换中文语言">4、JMeter切换中文语言</h3>
+<p>JMeter工具默认是支持简体中文的，需要我们手动切换一下。</p>
+<p>如下图：安装完JMeter第一次进入的时候，默认是英文语言显示的。</p>
+<p><img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175416726-1469836080.png" alt="image" loading="lazy"></p>
+<p>我们可以切换成中文语言：</p>
+<p><code>Options</code>—&gt;<code>Choose Language</code>—&gt;<code>Chinese(Simplified)</code></p>
+<p>就这样很简单，中文显示如下图：</p>
+<p><img src="https://img2020.cnblogs.com/blog/909968/202105/909968-20210505175433139-1802064622.png" alt="image" loading="lazy"></p>
+<p>这样设置只是暂时把JMeter切换成中文语言，但是当我们下次再打开JMeter时又恢复了英文，还需要再次进行设置，这样一来就很麻烦。</p>
+<p><strong>直接更改JMeter的默认语言</strong></p>
+<p>修改JMeter的<code>bin</code>目录下，有一个<code>jmeter.properties</code>文件，这个是JMeter的核心配置文件。</p>
+<p>打开文件后，找到<code>language</code>，将<code>language=en</code>改成<code>language=zh或者zh_CN</code>即可，如下。</p>
+<pre><code># 首选的GUI语言。 注释掉以使用JVM默认语言环境的语言。
+#Preferred GUI language. Comment out to use the JVM default locale's language.
+#language=en
+language=zh_CN
+</code></pre>
+<p>这样每次打开JMeter时，就默认就是中文语言了。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-05 17:58</span>&nbsp;
+<a href="https://www.cnblogs.com/liuyuelinfighting/">繁华似锦Fighting</a>&nbsp;
+阅读(<span id="post_view_count">14</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732261" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14732261);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 271969, cb_blogApp = 'liuyuelinfighting', cb_blogUserGuid = 'f205ded5-70e6-e511-9fc1-ac853d9f53cc';
+    var cb_entryId = 14732261, cb_entryCreatedDate = '2021-05-05 17:58', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 繁华似锦Fighting
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        
+
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuzOdER1IWzQkVZtLOa4E8Gortr1jPM2jOK--DSSJWkuy3KnUAgNnF7heqtSC7GKVhUCDpn45-rC2In-DwpNTyuAcKwkReZmZ-x9-_OuVYVRWQ2Y_74ABNylQlV1-QR_Bo" />
+</body>
+</html>

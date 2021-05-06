@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="本文按照操作流程的时间顺序，分别介绍了Gitlab的Docker容器部署、Gitlab平台的基本配置以及基于Git的代码仓基本管理与同步方法。通过掌握这一套的流程，就可以实现在本地构建一个类似于Git" />
+    <meta property="og:description" content="本文按照操作流程的时间顺序，分别介绍了Gitlab的Docker容器部署、Gitlab平台的基本配置以及基于Git的代码仓基本管理与同步方法。通过掌握这一套的流程，就可以实现在本地构建一个类似于Git" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>基于Docker配置本地Gitlab - 陆言君 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=uknaX_hejnSu-njQgx4Hj1R0JiPLwUhFPUlwWNmWyB4" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/dechinphy/custom.css?v=U3QQD7r4GRlwHtt5EmOA5hd9jFo=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dechinphy/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dechinphy/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dechinphy/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 657846;
+        var currentBlogApp = 'dechinphy';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-05 07:48';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/dechinphy/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dechinphy/">陆言君的博客</a>
+</h1>
+<h2>研究兴趣：量子计算、python编程、深度学习</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dechinphy/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%99%86%E8%A8%80%E5%90%9B">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dechinphy/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dechinphy/p/gitlab.html">
+    <span>基于Docker配置本地Gitlab</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        本文按照操作流程的时间顺序，分别介绍了Gitlab的Docker容器部署、Gitlab平台的基本配置以及基于Git的代码仓基本管理与同步方法。通过掌握这一套的流程，就可以实现在本地构建一个类似于Github的代码托管系统，在企业内网更好的管理私有代码仓库，避免因为在Github上进行代码开发而被其他企业窃取核心技术。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="技术背景">技术背景</h1>
+<p><a href="https://github.com/" target="_blank">Github</a>和<a href="https://gitee.com/" target="_blank">Gitee</a>（码云）是最常见的基于git的代码托管平台，现在基于svn的代码管理仓库已经相对比较少见了，大部分还都是企业内部的代码仓。但是基于开源的Gitlab，我们在企业内网也可以立马搭建一个代码托管平台，并且自带集成有各种代码自动化测试工具，实现持续集成和持续测试。</p>
+<p>关于Docker容器的使用，这里我们主要是为了规避不同的OS发行版所带来的安装困扰，而Gitlab官方也提供了Docker的支持。也就是说，只要本地环境中有Docker，就可以很方便的去构造一个本地的Gitlab环境。本文也是基于Docker，讲解和展示本地Gitlab的配置和使用方法。</p>
+<h1 id="基于docker的gitlab环境部署">基于Docker的Gitlab环境部署</h1>
+<p>关于更多的docker的使用和操作方法和使用案例，读者可以参考这些博客（<a href="https://www.cnblogs.com/dechinphy/p/ortools.html" target="_blank">博客1</a>，<a href="https://www.cnblogs.com/dechinphy/p/cplex.html" target="_blank">博客2</a>，<a href="https://www.cnblogs.com/dechinphy/p/pdflatex.html" target="_blank">博客3</a>，<a href="https://www.cnblogs.com/dechinphy/p/mindspore.html" target="_blank">博客4</a>），这里我们就直接使用docker的一些功能。比如首先我们要做的是从dockerhub中拉取Gitlab官方提供的镜像：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker pull gitlab/gitlab-ce
+</code></pre>
+<p>这个下载的速度还是不错的，下载完成后可以在使用<code>docker images</code>查看相关镜像是否在本地仓库列表中。需要注意的是，这些基本的docker操作都需要root权限来执行。下载完镜像后，在本地找一个空的目录，创建几个文件夹用于绑定容器内的相关目录，使得容器中所生成的配置文件和日志文件数据文件等可以同步到本地的目录（而不仅仅是保存在容器内部的目录）。</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# ll
+总用量 0
+[dechin-manjaro gitlab]# mkdir -p config
+[dechin-manjaro gitlab]# mkdir -p logs
+[dechin-manjaro gitlab]# mkdir -p data
+</code></pre>
+<p>这里创建了<code>config</code>、<code>logs</code>和<code>data</code>目录，分别用<code>-v</code>指令绑定到容器内的<code>/etc/gitlab</code>、<code>/var/log/gitlab</code>和<code>/var/opt/gitlab</code>目录，具体的运行指令如下所示（参考了参考链接1）：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker run -d -p 5443:443 -p 82:82 -p 2222:22 --name gitlab -v /home/dechin/projects/2021-softwares/gitlab/config:/etc/gitlab -v /home/dechin/projects/2021-softwares/gitlab/logs:/var/log/gitlab -v /home/dechin/projects/2021-softwares/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
+c12732a4acfb4835b8d1353b62cf85868edc2466eb0669bbabc2059f7932c309
+</code></pre>
+<p>执行之后容器开始进入后台运行，我们可以看到当前的运行状态是<code>health: starting</code>：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker ps -n 3
+CONTAINER ID   IMAGE              COMMAND             CREATED          STATUS                            PORTS                                                                                                                       NAMES
+c12732a4acfb   gitlab/gitlab-ce   "/assets/wrapper"   6 seconds ago    Up 5 seconds (health: starting)   80/tcp, 0.0.0.0:82-&gt;82/tcp, :::82-&gt;82/tcp, 0.0.0.0:2222-&gt;22/tcp, :::2222-&gt;22/tcp, 0.0.0.0:5443-&gt;443/tcp, :::5443-&gt;443/tcp   gitlab
+36fc44248800   gitlab/gitlab-ce   "/assets/wrapper"   45 minutes ago   Exited (137) 5 minutes ago                                                                                                                                    hardcore_poitras
+d9e431790dfa   gitlab/gitlab-ce   "--help"            45 minutes ago   Created                           22/tcp, 80/tcp, 443/tcp                                                                                                     intelligent_hopper
+</code></pre>
+<p>接下来我们要做的事情就是等待，一段时间（大约2～3分钟）之后，可以重新查看刚才的容器镜像的运行状态，此时我们可以发现状态变成了<code>healthy</code>：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker ps -n 3
+CONTAINER ID   IMAGE              COMMAND             CREATED          STATUS                        PORTS                                                                                                                       NAMES
+c12732a4acfb   gitlab/gitlab-ce   "/assets/wrapper"   4 minutes ago    Up 4 minutes (healthy)
+36fc44248800   gitlab/gitlab-ce   "/assets/wrapper"   49 minutes ago   Exited (137) 10 minuteitras
+d9e431790dfa   gitlab/gitlab-ce   "--help"            49 minutes ago   Created               _hopper
+</code></pre>
+<p>这表示Gitlab容器的初始化已经完成了，接下来我们可以在本地的目录下（而不是容器内部的目录）找到名为<code>gitlab.rb</code>的配置文件，需要对其进行修改：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# vi config/gitlab.rb 
+</code></pre>
+<p>要修改的地方主要有以下几点：</p>
+<pre><code>external_url 'http://192.168.0.105:82' # 大约在32行，注意替换本地ip地址
+gitlab_rails['gitlab_shell_ssh_port'] = 2222 # 大约在631行
+# nginx['redirect_http_to_https_port'] = 82 # 大约在1312行
+nginx['listen_port'] = 82 # 大约在1354行
+</code></pre>
+<p>修改完成后，重启gitlab的容器镜像（在上一次的run中，我们将其命名为<code>gitlab</code>）：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker restart gitlab
+gitlab
+</code></pre>
+<p>跟刚才一样的，需要看容器状态以确定是否启动成功：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker ps -n 3
+CONTAINER ID   IMAGE              COMMAND             CREATED          STATUS                
+c12732a4acfb   gitlab/gitlab-ce   "/assets/wrapper"   13 minutes ago   Up 12 seconds (health:
+36fc44248800   gitlab/gitlab-ce   "/assets/wrapper"   57 minutes ago   Exited (137) 18 minutere_poitras
+d9e431790dfa   gitlab/gitlab-ce   "--help"            58 minutes ago   Created               igent_hopper
+</code></pre>
+<p>当状态变成了<code>healthy</code>之后，就可以进入下一步的工作：</p>
+<pre><code class="language-bash">[dechin-manjaro gitlab]# docker ps -n 3
+CONTAINER ID   IMAGE              COMMAND             CREATED             STATUS             
+c12732a4acfb   gitlab/gitlab-ce   "/assets/wrapper"   15 minutes ago      Up 2 minutes (healt
+36fc44248800   gitlab/gitlab-ce   "/assets/wrapper"   About an hour ago   Exited (137) 20 min_poitras
+d9e431790dfa   gitlab/gitlab-ce   "--help"            About an hour ago   Created            ent_hopper
+</code></pre>
+<h1 id="gitlab配置">Gitlab配置</h1>
+<p>在前面的步骤都执行成功后，我们应该可以在浏览器中输入<code>http://192.168.0.105:82/</code>（这里注意替换本地ip地址，Linux系统可以通过ifconfig获取）打开Gitlab的管理界面如下：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505185537251-1728703866.png" alt="" loading="lazy"><br>
+首次登录会被要求重设密码，帐号是root。重设完密码之后，就可以进入Gitlab的登录页面：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505185641523-953350743.png" alt="" loading="lazy"><br>
+输入root帐号和刚才设定的密码之后，就可以登录进入Gitlab主页：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505185722008-240154489.png" alt="" loading="lazy"><br>
+在主页上点击创建项目，可以新建一个本地的项目：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505185827137-1163497133.png" alt="" loading="lazy"><br>
+创建好项目后的项目主页如下：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505190041985-1130836784.png" alt="" loading="lazy"><br>
+这里因为我们略过了一个步骤，在第一次使用Gitlab平台的时候，需要使用RSA加密生成密钥对，点击刚才界面上的添加ssh key进入添加密钥对的界面：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505190148610-126806051.png" alt="" loading="lazy"><br>
+此时我们需要在本地终端窗口中执行如下的指令来产生密钥对：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro projects]$ ssh-keygen -t rsa -b 2048
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/dechin/.ssh/id_rsa): private_gitlab.pub # 文件名，可以不加pub
+Enter passphrase (empty for no passphrase):  # 输入自定义密码
+Enter same passphrase again:  # 再次输入自定义密码
+Your identification has been saved in private_gitlab.pub
+Your public key has been saved in private_gitlab.pub.pub
+The key fingerprint is:
+SHA256:Xr3DhNi+8ZMJ×××××××××××××××××××0w dechin@dechin-manjaro
+The key's randomart image is:
++---[RSA 2048]----+
+|o..              |
+|.. o. . .        |
+|..+o + *         |
+|   . E o.oo++o   |
+|    o   . .++.   |
+|     o..  . ..   |
++----[SHA256]-----+
+</code></pre>
+<p>执行完该指令会在当前目录下产生两个密钥文件：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro projects]$ ll
+总用量 8
+-rw------- 1 dechin dechin 1876  5月  5 16:43 private_gitlab.pub
+-rw-r--r-- 1 dechin dechin  403  5月  5 16:43 private_gitlab.pub.pub
+</code></pre>
+<p>其中少一个pub的文件是私钥，不应该暴露出来，而多一个pub的文件是公钥，需要复制这个文件中的字符串，输入到刚才Gitlab的配置中：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro projects]$ cat private_gitlab.pub.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDt6VXrvTPhWr5iUy3KpIzRryX3SGBUAYietTMSqEOuZjRXr1u14lFk1cT5jwAHw7BtnfBOrwptTIYaWztoWR94gG1W1KFc6HRY0SWrUHtwXwOypWcqMv7Z2AT6TFIgNf/2ZZAlYisC0G9xTO5qTcYDyJe/88zcIm/5B6NQ7safAkGkGYY+WrFxBpnNU2bEdSbx4Sem2v2TD9GRxSg9RpLSXQaULi1bpDgGfxLJZBxj2Eeo11j9ayjipWFqJ43pJ dechin@dechin-manjaro
+</code></pre>
+<p>一般是以<code>ssh-rsa</code>开头的字符串，输入完成后点击<code>Add Key</code>，即可完成密钥对的配置：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505190812008-1103656163.png" alt="" loading="lazy"></p>
+<h1 id="代码仓基本操作">代码仓基本操作</h1>
+<p>在完成前面章节的基本配置之后，就可以使用https的方式将需要托管的代码仓库clone下来同步操作，首先复制仓库链接：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505190743379-1755905579.png" alt="" loading="lazy"><br>
+到本地终端窗口执行<code>git clone</code>指令：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro projects]$ git clone http://192.168.0.105:82/root/myfirstproject.git
+正克隆到 'myfirstproject'...
+Username for 'http://192.168.0.105:82': root
+Password for 'http://root@192.168.0.105:82': 
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+接收对象中: 100% (3/3), 完成.
+</code></pre>
+<p>完成克隆操作后，可以在当前目录下看到一个新生成的与仓库同名的文件夹，里面仅有一个项目初始化的readme文件，这也是创建项目时候所选择的配置：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro projects]$ ll
+总用量 12
+drwxr-xr-x 3 dechin dechin 4096  5月  5 16:50 myfirstproject
+-rw------- 1 dechin dechin 1876  5月  5 16:43 private_gitlab.pub
+-rw-r--r-- 1 dechin dechin  403  5月  5 16:43 private_gitlab.pub.pub
+[dechin@dechin-manjaro projects]$ cd myfirstproject/
+[dechin@dechin-manjaro myfirstproject]$ ll
+总用量 4
+-rw-r--r-- 1 dechin dechin 44  5月  5 16:50 README.md
+</code></pre>
+<p>关于更多的git相关操作，读者可以参考这一篇<a href="https://www.cnblogs.com/dechinphy/p/git.html" target="_blank">博客</a>，这里我们仅为了展示本地部署的gitlab的使用场景演示：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro myfirstproject]$ mkdir src # 创建一个src目录
+[dechin@dechin-manjaro myfirstproject]$ cd src/
+[dechin@dechin-manjaro src]$ touch .gitkeep # 创建一个gitkeep文件，可以使得目录不被简化，空目录无法被git识别
+[dechin@dechin-manjaro src]$ git status # 查看修改状态
+位于分支 master
+您的分支与上游分支 'origin/master' 一致。
+
+未跟踪的文件:
+  （使用 "git add &lt;文件&gt;..." 以包含要提交的内容）
+        ./
+
+提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
+[dechin@dechin-manjaro src]$ git add ./ # 添加当前目录下的所有修改
+[dechin@dechin-manjaro src]$ git commit -m 'Create a folder from localhost' 提交修改说明
+[master 211278b] Create a folder from localhost
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 src/.gitkeep
+[dechin@dechin-manjaro src]$ git push # 推送修改
+Username for 'http://192.168.0.105:82': root # 输入gitlab的用户名
+Password for 'http://root@192.168.0.105:82': # 输入gitlab的密码
+枚举对象中: 5, 完成.
+对象计数中: 100% (5/5), 完成.
+使用 8 个线程进行压缩
+压缩对象中: 100% (2/2), 完成.
+写入对象中: 100% (4/4), 327 字节 | 327.00 KiB/s, 完成.
+总共 4（差异 0），复用 0（差异 0），包复用 0
+To http://192.168.0.105:82/root/myfirstproject.git
+   5ee2b12..211278b  master -&gt; master
+</code></pre>
+<p>提交修改前后对比：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505192925548-1710852064.png" alt="" loading="lazy"><br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505193019498-352593708.png" alt="" loading="lazy"><br>
+我们可以看到push完成后，Gitlab项目界面上多了一个src目录出来，这就说明变更提交成功了，而且每一次变更的说明信息都会被保存，最近一次的变更说明会在主页上显示出来。接下来再试试Gitlab的分支管理，新建一个分支，然后直接提交：</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro myfirstproject]$ git checkout -b dev
+切换到一个新分支 'dev'
+[dechin@dechin-manjaro myfirstproject]$ git push
+fatal: 当前分支 dev 没有对应的上游分支。
+为推送当前分支并建立与远程上游的跟踪，使用
+
+    git push --set-upstream origin dev
+
+[dechin@dechin-manjaro myfirstproject]$ git push --set-upstream origin dev
+Username for 'http://192.168.0.105:82': root
+Password for 'http://root@192.168.0.105:82': 
+总共 0（差异 0），复用 0（差异 0），包复用 0
+remote: 
+remote: To create a merge request for dev, visit:
+remote:   http://192.168.0.105:82/root/myfirstproject/-/merge_requests/new?merge_request%5Bsource_branch%5D=dev
+remote: 
+To http://192.168.0.105:82/root/myfirstproject.git
+ * [new branch]      dev -&gt; dev
+分支 'dev' 设置为跟踪来自 'origin' 的远程分支 'dev'。
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505194139264-1248917186.png" alt="" loading="lazy"><br>
+上传新的分支之后，就会在分支列表中看到不同的分支。那么除了这些提交修改同步的功能之外，Gitlab也有类似于Github的工作管理界面，比如个人活跃度：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505194101814-1402520860.png" alt="" loading="lazy"><br>
+比如基于Merge Request和Issue的任务提交与下发系统：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505194317366-1710303281.png" alt="" loading="lazy"><br>
+在同一个无线网络的局域网下，使用手机等终端设备也可以访问该私有的Gitlab仓库：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202105/2277440-20210505195528396-638682891.jpg" alt="" loading="lazy"><br>
+基本上功能还是比较完善的。而关于自动化集成的方案，会在后续介绍Jenkins的博客中再展开说明。</p>
+<h1 id="总结概要">总结概要</h1>
+<p>本文按照操作流程的时间顺序，分别介绍了Gitlab的Docker容器部署、Gitlab平台的基本配置以及基于Git的代码仓基本管理与同步方法。通过掌握这一套的流程，就可以实现在本地构建一个类似于Github的代码托管系统，在企业内网更好的管理私有代码仓库，避免因为在Github上进行代码开发而被其他企业窃取核心技术。</p>
+<h1 id="版权声明">版权声明</h1>
+<p>本文首发链接为：<a href="https://www.cnblogs.com/dechinphy/p/gitlab.html" target="_blank">https://www.cnblogs.com/dechinphy/p/gitlab.html</a><br>
+作者ID：DechinPhy<br>
+更多原著文章请参考：<a href="https://www.cnblogs.com/dechinphy/" target="_blank">https://www.cnblogs.com/dechinphy/</a></p>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="https://blog.csdn.net/shan165310175/article/details/92797199#commentBox" target="_blank">https://blog.csdn.net/shan165310175/article/details/92797199#commentBox</a></li>
+</ol>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-05 19:48</span>&nbsp;
+<a href="https://www.cnblogs.com/dechinphy/">陆言君</a>&nbsp;
+阅读(<span id="post_view_count">216</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14729673" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14729673);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 657846, cb_blogApp = 'dechinphy', cb_blogUserGuid = '1cf551f5-d20b-40f7-a88d-08d8ae5f7194';
+    var cb_entryId = 14729673, cb_entryCreatedDate = '2021-05-05 19:48', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 陆言君
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+// 生成目录索引列表
+// ref: http://www.cnblogs.com/wangqiguo/p/4355032.html
+// modified by: zzq
+function GenerateContentList()
+{
+    var mainContent = $('#cnblogs_post_body');
+    var h1_list = $('#cnblogs_post_body h1');//如果你的章节标题不是h2,只需要将这里的h2换掉即可
+
+    if(mainContent.length < 1)
+        return;
+ 
+    if(h1_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content += '<div id="navCategory" style="color:#152e97;">';
+        content += '<p style="font-size:18px;"><b>目录</b></p>';
+        content += '<ul>';
+        for(var i=0; i<h1_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right;"><a href="#_labelTop" style="color:#f68a33">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(h1_list[i]).before(go_to_top);
+            
+            var h2_list = $(h1_list[i]).nextAll("h2");
+            var li2_content = '';
+            for(var j=0; j<h2_list.length; j++)
+            {
+                var tmp = $(h2_list[j]).prevAll('h1').first();
+                if(!tmp.is(h1_list[i]))
+                    break;
+                var li2_anchor = '<a name="_label' + i + '_' + j + '"></a>';
+                $(h2_list[j]).before(li2_anchor);
+                li2_content += '<li><a href="#_label' + i + '_' + j + '">' + $(h2_list[j]).text() + '</a></li>';
+            }
+            
+            var li1_content = '';
+            if(li2_content.length > 0)
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a><ul>' + li2_content + '</ul></li>';
+            else
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a></li>';
+            content += li1_content;
+        }
+        content += '</ul>';
+        content += '</div><p>&nbsp;</p>';
+        content += '<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }   
+}
+
+GenerateContentList();
+</script>
+
+
+
+
+
+
+
+
+
+<link href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/atelier-lakeside-dark.min.css" rel="stylesheet"/>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvWL7wP3g1ee6WvwN_vrbNpjhG7wEuulHHqzXDyzM4YV4lNluOZt5fjH4NtA7Vp1mphSUGs2TBGA4xLkmJ8uZQgLbJpec301MioZbJovUyDKVm8BVugkkTkoHyz5MDvMnE" />
+</body>
+</html>

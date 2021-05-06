@@ -1,0 +1,899 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="历史文章 Spring Security OAuth2.0认证授权一：框架搭建和认证测试 Spring Security OAuth2.0认证授权二：搭建资源服务 Spring Security OA" />
+    <meta property="og:description" content="历史文章 Spring Security OAuth2.0认证授权一：框架搭建和认证测试 Spring Security OAuth2.0认证授权二：搭建资源服务 Spring Security OA" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Spring Security OAuth2.0认证授权五：用户信息扩展到jwt - 狂盗一枝梅 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 147792;
+        var currentBlogApp = 'kuangdaoyizhimei';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlueSky';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-01-14 11:16';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <!-- ............自定义首部代码开始............ -->
+<!-- 自定义进度条 -->
+<div id="myProgressBar" style="display: none;"></div>
+
+<!-- 自定义导航条 -->
+<div id="mynavbar" style="margin-top: 0px;">
+    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
+    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
+<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
+
+    	</a>
+    	<div id="mynavbar_menu">
+	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
+	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
+	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
+	    	<a id="friendLink" href="#">友情链接</a>
+	    	<a href="https://www.cnblogs.com/">博客园</a>
+            <a href="https://i.cnblogs.com/posts">管理</a>
+	    	<a id="aboutMe" href="#">关于</a>
+	    </div>
+    </div>
+</div>
+
+<!-- 自定义头部锚点 -->
+<a name="mtop"></a>
+
+<!-- 自定义头部 -->
+<div id="myheader">
+	<!-- 背景图片 -->
+    <div id="myheader_bg"></div>
+    <!-- 遮罩层 -->
+    <div id="myheader_cover" title="点我点我">
+        <!-- 博客标题 -->
+        <div id="mypost_title">
+            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
+            <div id="mypost_title_f"></div>
+            <div id="mypost_title_e">
+                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
+            </div> 
+        </div>  
+    </div>
+</div>
+<!-- ............自定义首部代码结束............ -->
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14279979.html">
+    <span>Spring Security OAuth2.0认证授权五：用户信息扩展到jwt</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p>历史文章</p>
+<blockquote>
+<p><a href="https://blog.kdyzm.cn/post/24" target="_blank">Spring Security OAuth2.0认证授权一：框架搭建和认证测试</a><br>
+<a href="https://blog.kdyzm.cn/post/25" target="_blank">Spring Security OAuth2.0认证授权二：搭建资源服务</a><br>
+<a href="https://blog.kdyzm.cn/post/26" target="_blank">Spring Security OAuth2.0认证授权三：使用JWT令牌</a><br>
+<a href="https://blog.kdyzm.cn/post/30" target="_blank">Spring Security OAuth2.0认证授权四：分布式系统认证授权</a></p>
+</blockquote>
+<p>上一篇文章讲解了如何在分布式系统环境下进行认证和鉴权，总体来说就是网关认证，目标服务鉴权，但是存在着一个问题：关于用户信息，目标服务只能获取到网关转发过来的username信息，为啥呢，因为认证服务颁发jwt令牌的时候就只存放了这么多信息，我们到<a href="jwt.io" target="_blank">jwt.io</a>网站上贴出jwt令牌查看下payload中内容就就知道有什么内容了：</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202101/516671-20210114231225756-649470493.png;%20charset=UTF-8" alt="jwt base64 decode结果" loading="lazy"></p>
+<p><strong>本篇文章的目的</strong>就是为了解决该问题，把用户信息（用户名、头像、手机号、邮箱等）放到jwt token中，经过网关解析之后携带用户信息访问目标服务，目标服务将用户信息保存到上下文并保证线程安全性的情况下封装成工具类提供给各种环境下使用。</p>
+<p>注：本文章基于源代码<a href="https://gitee.com/kdyzm/spring-security-oauth-study/tree/v5.0.0" target="_blank">https://gitee.com/kdyzm/spring-security-oauth-study/tree/v5.0.0 </a>分析和改造。</p>
+<h2 id="一、实现userdetailsservice接口">一、实现UserDetailsService接口</h2>
+<h3 id="1问题分析和修改">1.问题分析和修改</h3>
+<p>jwt令牌中用户信息过于少的原因在于认证服务auth-server中<a href="https://gitee.com/kdyzm/spring-security-oauth-study/blob/v5.0.0/auth-server/src/main/java/com/kdyzm/spring/security/auth/center/service/MyUserDetailsServiceImpl.java#L44" target="_blank">com.kdyzm.spring.security.auth.center.service.MyUserDetailsServiceImpl#loadUserByUsername</a> 方法中的这段代码</p>
+<pre><code class="language-java">return User
+                .withUsername(tUser.getUsername())
+                .password(tUser.getPassword())
+                .authorities(array).build();
+</code></pre>
+<p>这里User类实现了<code>UserDetailsService</code>接口，并使用建造者模式生成了需要的<code>UserDetailsService</code>对象，可以看到生成该对象仅仅传了三个参数，而用户信息仅仅有用户名和password两个参数———那么如何扩展用户信息就一目了然了，我们自己也实现<code>UserDetailsService</code>接口然后返回改值不就好了吗？不好！！实现<code>UserDetailsService</code>接口要实现它需要的好几个方法，不如直接继承User类，在改动最小的情况下保持原有的功能基本不变，这里定义<code>UserDetailsExpand</code>继承<code>User</code>类</p>
+<pre><code class="language-java">public class UserDetailsExpand extends User {
+    public UserDetailsExpand(String username, String password, Collection&lt;? extends GrantedAuthority&gt; authorities) {
+        super(username, password, authorities);
+    }
+    //userId
+    private Integer id;
+    //电子邮箱
+    private String email;
+    //手机号
+    private String mobile;
+    private String fullname;
+    //Getter/Setter方法略
+}
+</code></pre>
+<p>之后，修改<a href="https://gitee.com/kdyzm/spring-security-oauth-study/blob/v5.0.0/auth-server/src/main/java/com/kdyzm/spring/security/auth/center/service/MyUserDetailsServiceImpl.java#L29" target="_blank"><code>com.kdyzm.spring.security.auth.center.service.MyUserDetailsServiceImpl#loadUserByUsername</code></a>方法返回该类的对象即可</p>
+<pre><code class="language-java">        UserDetailsExpand userDetailsExpand = new UserDetailsExpand(tUser.getUsername(), tUser.getPassword(), AuthorityUtils.createAuthorityList(array));
+        userDetailsExpand.setId(tUser.getId());
+        userDetailsExpand.setMobile(tUser.getMobile());
+        userDetailsExpand.setFullname(tUser.getFullname());
+        return userDetailsExpand;
+</code></pre>
+<h3 id="2测试修改和源码分析">2.测试修改和源码分析</h3>
+<p>修改了以上代码之后我们启动服务，获取jwt token之后查看其中的内容，会发现用户信息并没有填充进去，测试失败。。。。再分析下，为什么会没有填充进去？关键在于<code>JwtAccessTokenConverter</code>这个类，该类未发起作用的时候，返回请求放的token只是一个uuid类型（好像是uuid）的简单字符串，经过该类的转换之后就将一个简单的uuid转换成了jwt字符串，该类中的<code>org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter#convertAccessToken</code>方法在起作用，顺着该方法找下去：<code>org.springframework.security.oauth2.provider.token.DefaultAccessTokenConverter#convertAccessToken</code>，然后就发现了这行代码</p>
+<pre><code class="language-java">response.putAll(token.getAdditionalInformation());
+</code></pre>
+<p>这个token就是<code>OAuth2AccessToken</code>对象，也就是真正返回给请求者的对象，查看该类中该字段的解释</p>
+<pre><code class="language-java">/**
+	 * The additionalInformation map is used by the token serializers to export any fields used by extensions of OAuth.
+	 * @return a map from the field name in the serialized token to the value to be exported. The default serializers 
+	 * make use of Jackson's automatic JSON mapping for Java objects (for the Token Endpoint flows) or implicitly call 
+	 * .toString() on the "value" object (for the implicit flow) as part of the serialization process.
+	 */
+	Map&lt;String, Object&gt; getAdditionalInformation();
+</code></pre>
+<p>可以看到，该字段是专门用来扩展OAuth字段的属性，万万没想到JWT同时用它扩展jwt串。。。接下来就该想想怎么给<code>OAuth2AccessToken</code>对象填充这个扩展字段了。</p>
+<p>如果仔细看<code>JwtAccessTokenConverter</code>这个类的源码，可以看到有个方法<code>org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter#enhance</code>，该方法有个参数<code>OAuth2AccessToken accessToken</code>，同时它的返回值也是<code>OAuth2AccessToken</code>，也就是说这个方法，传入了<code>OAuth2AccessToken</code>对象，完事儿了之后还传出了<code>OAuth2AccessToken</code>对象，再根据<code>enhance</code>这个名字，可以推测出，它是一个增强方法，修改了或者代理了<code>OAuth2AccessToken</code>对象，查看父接口，是<code>TokenEnhancer</code>接口</p>
+<pre><code class="language-java">public interface TokenEnhancer {
+	/**
+	 * Provides an opportunity for customization of an access token (e.g. through its additional information map) during
+	 * the process of creating a new token for use by a client.
+	 * 
+	 * @param accessToken the current access token with its expiration and refresh token
+	 * @param authentication the current authentication including client and user details
+	 * @return a new token enhanced with additional information
+	 */
+	OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication);
+}
+</code></pre>
+<p>根据该注释可以看出该方法用于定制access_token，那么通过这个方法填充access token的AdditionalInformation属性貌似正合适（别忘了目的是干啥的）。</p>
+<p>看下<code>JwtAccessTokenConverter</code>是如何集成到认证服务的</p>
+<pre><code class="language-java">    @Bean
+    public AuthorizationServerTokenServices tokenServices(){
+        DefaultTokenServices services = new DefaultTokenServices();
+        services.setClientDetailsService(clientDetailsService);
+        services.setSupportRefreshToken(true);
+        services.setTokenStore(tokenStore);
+        services.setAccessTokenValiditySeconds(7200);
+        services.setRefreshTokenValiditySeconds(259200);
+
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Collections.singletonList(jwtAccessTokenConverter));
+        services.setTokenEnhancer(tokenEnhancerChain);
+        return services;
+    }
+</code></pre>
+<p>可以看到这里的<code>tokenEnhancerChain</code>可以传递一个列表，这里只传了一个<code>jwtAccessTokenConverter</code>对象，那么解决方案就有了，实现TokenEnhancer接口并将对象填到该列表中就可以了</p>
+<h3 id="3实现tokenenhancer接口">3.实现TokenEnhancer接口</h3>
+<pre><code class="language-java">@Slf4j
+@Component
+public class CustomTokenEnhancer implements TokenEnhancer {
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Override
+    public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+        Map&lt;String,Object&gt; additionalInfo = new HashMap&lt;&gt;();
+        Object principal = authentication.getPrincipal();
+        try {
+            String s = objectMapper.writeValueAsString(principal);
+            Map map = objectMapper.readValue(s, Map.class);
+            map.remove("password");
+            map.remove("authorities");
+            map.remove("accountNonExpired");
+            map.remove("accountNonLocked");
+            map.remove("credentialsNonExpired");
+            map.remove("enabled");
+            additionalInfo.put("user_info",map);
+            ((DefaultOAuth2AccessToken)accessToken).setAdditionalInformation(additionalInfo);
+        } catch (IOException e) {
+            log.error("",e);
+        }
+        return accessToken;
+    }
+}
+</code></pre>
+<p>以上代码干了以下几件事儿：</p>
+<ul>
+<li>从OAuth2Authentication对象取出principal对象</li>
+<li>转换principal对象为map并删除map对象中的若干个不想要的字段属性</li>
+<li>将map对象填充进入OAuth2AccessToken对象的additionalInfo属性</li>
+</ul>
+<p>实现TokenEnhancer接口后将该对象加入到TokenEnhancerChain中</p>
+<pre><code class="language-java">TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+tokenEnhancerChain.setTokenEnhancers(Arrays.asList(customTokenEnhancer,jwtAccessTokenConverter));
+</code></pre>
+<h3 id="4接口测试">4.接口测试</h3>
+<p>POST请求<a href="http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123" target="_blank">http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123</a>得到结果</p>
+<pre><code class="language-json">{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX2luZm8iOnsidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsImlkIjoxLCJlbWFpbCI6IjEyMzQ1NkBmb3htYWlsLmNvbSIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEyIiwiZnVsbG5hbWUiOiLlvKDkuIkifSwidXNlcl9uYW1lIjoiemhhbmdzYW4iLCJzY29wZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIiwiUk9MRV9BUEkiXSwiZXhwIjoxNjEwNjM4NjQzLCJhdXRob3JpdGllcyI6WyJwMSIsInAyIl0sImp0aSI6IjFkOGY3OGFmLTg1N2EtNGUzMS05ODYxLTZkYWJjNjU4NzcyNiIsImNsaWVudF9pZCI6ImMxIn0.Y9f5psNCgZi_I2KY3PLBLjuK5-U1VhXIB1vjKjMb9fc",
+    "token_type": "bearer",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX2luZm8iOnsidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsImlkIjoxLCJlbWFpbCI6IjEyMzQ1NkBmb3htYWlsLmNvbSIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEyIiwiZnVsbG5hbWUiOiLlvKDkuIkifSwidXNlcl9uYW1lIjoiemhhbmdzYW4iLCJzY29wZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIiwiUk9MRV9BUEkiXSwiYXRpIjoiMWQ4Zjc4YWYtODU3YS00ZTMxLTk4NjEtNmRhYmM2NTg3NzI2IiwiZXhwIjoxNjEwODkwNjQzLCJhdXRob3JpdGllcyI6WyJwMSIsInAyIl0sImp0aSI6IjM1OGFkMzA1LTU5NzUtNGM3MS05ODI4LWQ2N2ZjN2MwNDMyMCIsImNsaWVudF9pZCI6ImMxIn0._bhajMIdqnUL1zgc8d-5xlXSzhsCWbZ2jBWlNb8m_hw",
+    "expires_in": 7199,
+    "scope": "ROLE_ADMIN ROLE_USER ROLE_API",
+    "user_info": {
+        "username": "zhangsan",
+        "id": 1,
+        "email": "123456@foxmail.com",
+        "mobile": "12345678912",
+        "fullname": "张三"
+    },
+    "jti": "1d8f78af-857a-4e31-9861-6dabc6587726"
+}
+</code></pre>
+<p>可以看到结果中多了user_info字段，而且access_token长了很多，我们的目的是为了在jwt也就是access_token中放入用户信息，先不管为何user_info会以明文出现在这里，我们先看下access_token中多了哪些内容</p>
+<p>POST请求h<a href="http://127.0.0.1:30000/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX2luZm8iOnsidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsImlkIjoxLCJlbWFpbCI6IjEyMzQ1NkBmb3htYWlsLmNvbSIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEyIiwiZnVsbG5hbWUiOiLlvKDkuIkifSwidXNlcl9uYW1lIjoiemhhbmdzYW4iLCJzY29wZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIiwiUk9MRV9BUEkiXSwiZXhwIjoxNjEwNjM4NjQzLCJhdXRob3JpdGllcyI6WyJwMSIsInAyIl0sImp0aSI6IjFkOGY3OGFmLTg1N2EtNGUzMS05ODYxLTZkYWJjNjU4NzcyNiIsImNsaWVudF9pZCI6ImMxIn0.Y9f5psNCgZi_I2KY3PLBLjuK5-U1VhXIB1vjKjMb9fc" target="_blank">http://127.0.0.1:30000/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX2luZm8iOnsidXNlcm5hbWUiOiJ6aGFuZ3NhbiIsImlkIjoxLCJlbWFpbCI6IjEyMzQ1NkBmb3htYWlsLmNvbSIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEyIiwiZnVsbG5hbWUiOiLlvKDkuIkifSwidXNlcl9uYW1lIjoiemhhbmdzYW4iLCJzY29wZSI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIiwiUk9MRV9BUEkiXSwiZXhwIjoxNjEwNjM4NjQzLCJhdXRob3JpdGllcyI6WyJwMSIsInAyIl0sImp0aSI6IjFkOGY3OGFmLTg1N2EtNGUzMS05ODYxLTZkYWJjNjU4NzcyNiIsImNsaWVudF9pZCI6ImMxIn0.Y9f5psNCgZi_I2KY3PLBLjuK5-U1VhXIB1vjKjMb9fc</a>，得到相应结果</p>
+<pre><code class="language-json">{
+    "aud": [
+        "res1"
+    ],
+    "user_info": {
+        "username": "zhangsan",
+        "id": 1,
+        "email": "123456@foxmail.com",
+        "mobile": "12345678912",
+        "fullname": "张三"
+    },
+    "user_name": "zhangsan",
+    "scope": [
+        "ROLE_ADMIN",
+        "ROLE_USER",
+        "ROLE_API"
+    ],
+    "exp": 1610638643,
+    "authorities": [
+        "p1",
+        "p2"
+    ],
+    "jti": "1d8f78af-857a-4e31-9861-6dabc6587726",
+    "client_id": "c1"
+}
+</code></pre>
+<p>可以看到user_info也已经填充到了jwt串中，那么为什么这个串还会以明文的形式出现在相应结果的其它字段中呢？还记得本文章中说过的一句话<code>"可以看到，该字段是专门用来扩展OAuth字段的属性，万万没想到JWT同时用它扩展jwt串"</code>，我们给<code>OAuth2AccessToken</code>对象填充了<code>AdditionalInformation</code>字段，而这本来是为了扩展OAuth用的，所以返回结果中自然会出现这个字段。</p>
+<p>到此为止，接口测试已经成功了，接下来修改网关和目标服务（这里是资源服务），将用户信息提取出来并保存到上下文中</p>
+<h2 id="二、修改网关">二、修改网关</h2>
+<p>网关其实不需要做啥大的修改，但是会出现中文乱码问题，这里使用Base64编码之后再将用户数据放到请求头带给目标服务。修改TokenFilter类</p>
+<pre><code class="language-java">//builder.header("token-info", payLoad).build();
+builder.header("token-info", Base64.encode(payLoad.getBytes(StandardCharsets.UTF_8))).build();
+</code></pre>
+<h2 id="三、修改资源服务">三、修改资源服务</h2>
+<h3 id="1修改authfiltercustom">1.修改AuthFilterCustom</h3>
+<p>上一篇文章中床架了该类并将userName填充到了UsernamePasswordAuthenticationToken对象的Principal，这里我们需要将扩展的UserInfo整个填充到Principal，完整代码如下</p>
+<pre><code class="language-java">public class AuthFilterCustom extends OncePerRequestFilter {
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String base64Token = request.getHeader("token-info");
+        if(StringUtils.isEmpty(base64Token)){
+            log.info("未找到token信息");
+            filterChain.doFilter(request,response);
+            return;
+        }
+        byte[] decode = Base64.decode(base64Token);
+        String tokenInfo = new String(decode, StandardCharsets.UTF_8);
+        JwtTokenInfo jwtTokenInfo = objectMapper.readValue(tokenInfo, JwtTokenInfo.class);
+        List&lt;String&gt; authorities1 = jwtTokenInfo.getAuthorities();
+        String[] authorities=new String[authorities1.size()];
+        authorities1.toArray(authorities);
+        //将用户信息和权限填充 到用户身份token对象中
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                        jwtTokenInfo.getUser_info(),
+                null,
+                AuthorityUtils.createAuthorityList(authorities)
+        );
+        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        //将authenticationToken填充到安全上下文
+        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        filterChain.doFilter(request,response);
+    }
+}
+</code></pre>
+<p>这里JwtTokenInfo新增了user_info字段，而其类型正是前面说的<code>UserDetailsExpand</code>类型。</p>
+<p>通过上述修改，我们可以在Controller中使用如下代码获取到上下文中的信息</p>
+<pre><code class="language-java">Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+UserDetailsExpand principal = (UserDetailsExpand)authentication.getPrincipal();
+</code></pre>
+<p>经过测试，结果良好，但是还存在问题，那就是在异步情况下，比如使用线程池或者新开线程的情况下，极有可能出现线程池内缓存或者取不到数据的情况（未测试，瞎猜的），具体可以参考我以前的文章<a href="https://blog.kdyzm.cn/post/14" target="_blank"><code>使用 transmittable-thread-local 组件解决 ThreadLocal 父子线程数据传递问题</code></a></p>
+<h3 id="2解决线程安全性问题">2.解决线程安全性问题</h3>
+<p>这一步是选做，但是还是建议做，如果不考虑线程安全性问题，上一步就可以了。</p>
+<p>首先新增AuthContextHolder类维护我们需要的ThreadLocal，这里一定要使用TransmittableThreadLocal。</p>
+<pre><code class="language-java">public class AuthContextHolder {
+    private TransmittableThreadLocal threadLocal = new TransmittableThreadLocal();
+    private static final AuthContextHolder instance = new AuthContextHolder();
+
+    private AuthContextHolder() {
+    }
+
+    public static AuthContextHolder getInstance() {
+        return instance;
+    }
+
+    public void setContext(UserDetailsExpand t) {
+        this.threadLocal.set(t);
+    }
+
+    public UserDetailsExpand getContext() {
+        return (UserDetailsExpand)this.threadLocal.get();
+    }
+
+    public void clear() {
+        this.threadLocal.remove();
+    }
+}
+</code></pre>
+<p>然后新建拦截器AuthContextIntercepter</p>
+<pre><code class="language-java">@Component
+public class AuthContextIntercepter implements HandlerInterceptor {
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(Objects.isNull(authentication) || Objects.isNull(authentication.getPrincipal())){
+            //无上下文信息，直接放行
+            return true;
+        }
+        UserDetailsExpand principal = (UserDetailsExpand) authentication.getPrincipal();
+        AuthContextHolder.getInstance().setContext(principal);
+        return true;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        AuthContextHolder.getInstance().clear();
+    }
+}
+</code></pre>
+<p>该拦截器在AuthFilter之后执行的，所以一定能获取到SecurityContextHolder中的内容，之后，我们就可以在Controller中使用如下代码获取用户信息了</p>
+<pre><code class="language-java">UserDetailsExpand context = AuthContextHolder.getInstance().getContext();
+</code></pre>
+<p>是不是简单了很多~</p>
+<h3 id="3其他问题">3.其他问题</h3>
+<p>如果走到了上一步，则一定要使用阿里巴巴配套的TransmittableThreadLocal解决方案，否则TransmittableThreadLocal和普通的ThreadLocal没什么区别。具体参考<a href="https://blog.kdyzm.cn/post/14" target="_blank"><code>使用 transmittable-thread-local 组件解决 ThreadLocal 父子线程数据传递问题</code></a></p>
+<h2 id="四、源代码">四、源代码</h2>
+<p>源码地址：<a href="https://gitee.com/kdyzm/spring-security-oauth-study/tree/v6.0.0" target="_blank">https://gitee.com/kdyzm/spring-security-oauth-study/tree/v6.0.0</a></p>
+<p>我的博客原文章地址：<a href="https://blog.kdyzm.cn/post/31" target="_blank">https://blog.kdyzm.cn/post/31</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-01-14 23:16</span>&nbsp;
+<a href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>&nbsp;
+阅读(<span id="post_view_count">594</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14279979" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14279979);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 147792, cb_blogApp = 'kuangdaoyizhimei', cb_blogUserGuid = 'bdaaad45-60a3-e211-82de-84c4f0333004';
+    var cb_entryId = 14279979, cb_entryCreatedDate = '2021-01-14 23:16', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 狂盗一枝梅
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <!-- ............自定义尾部代码开始............ -->
+<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
+	<div class="bottom-bar-inner">
+		<!-- 左边 -->
+        <div class="bottom-bar-items social-share" style="float: left;">
+            <span class="bottom-bar-item bottom-bar-facebook">
+                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-twitter">
+                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-qrcode">
+                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
+            </span>
+        </div>
+        <!-- 右边 -->
+        <div class="bottom-bar-items right" style="float: right;">
+            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
+            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
+            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
+            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
+        </div>
+	</div> 
+</div>
+<a name="mfooter"></a>
+
+<!-- 遮罩层（用于图片点击放大），
+    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
+<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
+    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
+    <img id="bigimg" style="height: auto;width: auto;border: 0; 
+        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
+</div>
+<!-- ............自定义尾部代码结束............ -->
+
+
+<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
+<script type="text/javascript">
+
+    //博主名称 可不改，默认取博客园提供的
+    var nickName = null;
+    //slogan
+    var slogan = '立德立言，无闻西东';
+    //icon
+    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
+    //默认博客背景图片
+    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
+    //icon(浏览器标题栏上的)
+    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
+    //友情链接地址
+    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
+    //关于地址
+    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
+    //Github地址,假如博客username与Github username相同，不用改。
+    //如 cnblogs.com/username github.com/username 这样就不用改
+    var myGayhubUrl = "https://github.com/kdyzm";
+</script>
+<script type="text/javascript">
+	/**
+		用来设置初始时需要执行的js
+	*/
+	$(document).ready(function(){
+
+        //获取博主名字
+        if (nickName == null){
+            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
+            nickName = footerOverTestArray[footerOverTestArray.length - 1];
+        }
+
+		//加载顶部进度条
+	    NProgress.start();
+	    NProgress.done();
+	    $("#myProgressBar").hide();
+
+	    //设置背景图片地址
+	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
+	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
+	    }else{
+    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
+	    }
+
+	    //设置标题
+        if($("#cb_post_title_url").html()){
+            $("#mypost_title_h").html($("#cb_post_title_url").html());
+        }else{
+            $("#mypost_title_h").html(nickName);
+        }
+
+	    //正文和标题淡入
+	    $("#mainContent").css("opacity","1");
+	    $("#mainContent").css("margin-top","0");
+	    $("#mypost_title").css("opacity","1");
+	    $("#mypost_title").css("top","75pt");
+
+        /* --根据个人配置修改页面 start-- */
+        //修改a链接
+        var ccList = $(".c-c");
+        for(var cc of ccList){
+            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
+        }
+        //设置Github链接
+        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
+        //设置友链的链接
+        $("#friendLink").attr("href",friendLink);
+        //设置关于的链接
+        $("#aboutMe").attr("href",aboutMe);
+        //设置两个iocn图标
+        $("#nv-icon").attr("src",icon);
+        var linkObject = document.createElement("link");
+        linkObject.rel = "shortcut icon";
+        linkObject.href = iconB;
+        document.getElementsByTagName("head")[0].appendChild(linkObject);
+        //设置底部栏按钮
+        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+            $("#bottom-d").html("友情链接");
+            $("#bottom-d").attr("href",friendLink);
+        }else{
+            var url = window.location.href;
+            var lastUrl = url.substring(url.lastIndexOf("/")+1);
+            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
+            $("#bottom-d").click(function(){
+                DiggIt(mpageId,cb_blogId,1);
+                green_channel_success(this,'谢谢推荐！');
+            })
+        }
+        /* --根据个人配置修改页面 end-- */
+	})
+
+	/**
+		设置ajax请求加载完所有数据时执行的js
+	*/
+	setTimeout(afterAjax,1000);
+	function afterAjax(){
+		//假如是首页
+		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
+		}else{
+		    var classification = null;
+		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
+		    	classification = $("#BlogPostCategory").html();
+		    	classification = classification.substring(3,classification.length);
+		    }else{
+		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
+		    }
+		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
+		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
+		    //设置副标题标题
+		    $("#mypost_title_f").html(ftitle);
+		    //设置标题分类按钮
+		    $("#mypost_title_e").html(classification);
+		    //设置底部导航条上一篇下一篇文章
+		    var pnp = $("#post_next_prev a");
+		    $("#mbottom-left").attr("href",pnp[1].href);
+		    if (pnp.length>2) {
+		    	$("#mbottom-right").attr("href",pnp[3].href);
+		    }
+		}
+		$("#myheader_bg").css("filter","blur(0px)");
+
+        //优化评论区样式
+        $("#comment_form_container p:last").hide();
+        $("#commentbox_opt a:last").hide();
+        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
+	}
+
+
+	/** 
+		自定义的js方法
+	*/
+	//设置底部导航条点击关注按钮事件
+	$("#bottom-g").click(function(){
+		$('#green_channel_follow').click()
+		return false
+	})
+	$("#bottom-s").click(function(){
+		AddToWz(cb_entryId);
+		return false;
+	})
+
+
+	//通过滚动条控制导航条的展现隐藏
+	var oldScrollNum = 0;
+	window.onscroll = function(){
+		var t = document.documentElement.scrollTop || document.body.scrollTop;
+		//下滑
+		if (t>oldScrollNum) {
+			if (t>120) {
+				$("#mynavbar").css("margin-top","-70px");//顶部导航
+				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
+			}
+			if (t>300) {
+				$("#right_meun").css("display","inline-block");//右侧导航
+			}
+		//上拉
+		}else{
+			//防止用a链接跳转也触发效果
+			if (oldScrollNum-t<20) {
+				$("#mynavbar").css("margin-top","0px");//顶部导航
+				$("#post-bottom-bar").css("bottom","0");//底部导航
+			}
+			if (t<=300) {
+				$("#right_meun").css("display","none");//右侧导航
+			}
+		}
+		oldScrollNum = t;
+	}
+
+	//背景大图点击模糊||清晰
+	$("#myheader_cover").click(function(){
+		if ($("#myheader_bg").css("filter") == "blur(3px)") {
+			$("#myheader_bg").css("filter","blur(0px)");
+		}else{
+			$("#myheader_bg").css("filter","blur(3px)");
+		}
+	})
+
+
+    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
+        $(this).fadeOut("fast");    
+    }); 
+
+ </script>
+
+ <script type="text/javascript">  
+    var setMyBlog = {
+        setCopyright: function() {
+            //设置版权信息，转载出处自动根据页面url生成
+            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
+                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
+                info = $(info_str),
+                info_a = info.find("a"),
+                url = window.location.href;
+            $(info_a[0]).attr("href","https://github.com/gzdaijie");
+            $(info_a[1]).attr("href",url).text(url);
+            $("#cnblogs_post_body").prepend(info);
+        },
+        setCodeRow: function(){
+            // 代码行号显示
+            var pre = $("pre.sourceCode"); //选中需要更改的部分
+            if(pre && pre.length){
+                pre.each(function() {
+                    var item = $(this);
+                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
+                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
+                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
+                    SyntaxHighlighter.all();
+                })
+            }
+        },
+        setAtarget: function() {
+            // 博客内的链接在新窗口打开
+            $("#cnblogs_post_body a").each(function(){
+                this.target = "_blank";
+            }) 
+        },
+        setContent: function() {
+            // 根据h2、h3标签自动生成目录
+            var captions_ori = $("#cnblogs_post_body h2"),
+            	captions_ori2 = $("#cnblogs_post_body h3"),
+                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
+                content = $("<ul id='right_meun'></ul>");
+            $("#cnblogs_post_body").prepend(content.append(captions));
+            var index = -1,index2 = -1;
+            captions.replaceWith(function(){
+                var self = this;
+                if(self.tagName == "H2" || self.tagName == "h2"){
+                    // 设置点击目录跳转
+                    index += 1;
+                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
+                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
+                } else {
+                	// add by summertime-wu 增加h3链接跳转
+                	index2 += 1;
+                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
+                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
+                    return ;
+                }
+            });
+        },
+        runAll: function() {
+            /* 运行所有方法
+             * setAtarget() 博客园内标签新窗口打开
+             * setContent() 设置目录
+             * setCopyright() 设置版权信息
+             * setCodeRow() 代码行号显示
+             */ 
+            this.setAtarget(); 
+            //假如为手机端不显示目录
+            if(document.body.clientWidth>=1000){
+                this.setContent();
+            }
+            // this.setCopyright();
+            this.setCodeRow();
+        }
+    }
+    setMyBlog.runAll();
+</script>
+
+<!-- 代码行号 -->
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjs5qa5IvXVeWNPg_ZnFOTyVbSmC8dasaRIxI9seEEYfpo0qaT0ovvh7YJ76CXit4rukXdvlD7IJA0d-NsjVMxTleLOp3AEXZWpVrwTQRSXDTfe9BENQjRZ5fVt6Bsd4FuQ" />
+</body>
+</html>

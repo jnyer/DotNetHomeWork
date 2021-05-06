@@ -1,0 +1,1087 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>找分享 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=FftQhR2MvKTGGXxV0VXlcGGt4XBM0_1XGJmu6kYD9bg" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=t8lZrYXGRE8kAD_d-besbRXwkXSQmMprnkoJVYlZl-g" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zhaofenxiang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zhaofenxiang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zhaofenxiang/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 669920;
+        var currentBlogApp = 'zhaofenxiang';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'iMetro_HD';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/zhaofenxiang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zhaofenxiang/">找分享官方博客</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zhaofenxiang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%89%BE%E5%88%86%E4%BA%AB">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/zhaofenxiang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/18.html">2021年4月18日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14673698.html">
+    <span>
+            <span>[置顶]</span>
+        面试现场,斩获大厂offer
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：应聘者往往因为准备不足，急于求成，能力不能清晰表达，最终导致面试效果不如人意。 如果你都不能充分展示自己的能力，甚至不能清楚理解问题，面试官怎么会买账呢？ 从面试官的视角为你剖析面试，带你识别面试问题背后的意图，用清晰的结构回答技术和非技术问题，用价值和亮点展现自己在项目和团队中的作用，让面试官轻松        <a href="https://www.cnblogs.com/zhaofenxiang/p/14673698.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-18 15:59
+找分享
+<span data-post-id="14673698" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14673698" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14673698" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14673698" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/15.html">2021年4月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14663234.html">
+    <span>
+            <span>[置顶]</span>
+        每一位程序员都有一颗成为架构师的心
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：很多人对于架构的理解，还停留在产品经理出需求，架构师依据产品设计给出实现这一阶段。架构也关乎用户需求，作为架构师，我们不仅要知道当前用户的需求是什么，还要对需求未来可能出现的变化做出合理预判。 透过层层代码的业务层级，窥见整个信息世界的来龙去脉的能力，才是架构师的终极能力。我们现在所在包罗万象的信息        <a href="https://www.cnblogs.com/zhaofenxiang/p/14663234.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-15 16:46
+找分享
+<span data-post-id="14663234" class="post-view-count">阅读(108)</span> 
+<span data-post-id="14663234" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14663234" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14663234" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/01.html">2021年4月1日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14608440.html">
+    <span>
+            <span>[置顶]</span>
+        MySQL实战45讲,丁奇带你搞懂
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：之前，你大概都是通过搜索别人的经验来解决问题。如果能够理解MySQL的工作原理，那么在遇到问题的时候，是不是就能更快地直戳问题的本质？ 以实战中的常见问题为切入点，带你剖析现象背后的本质原因。为你串起各个零散的知识点，再由线到面带你构建MySQL知识体系。旨在给你一个从理论到实战的系统性指导，让你少        <a href="https://www.cnblogs.com/zhaofenxiang/p/14608440.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-01 22:04
+找分享
+<span data-post-id="14608440" class="post-view-count">阅读(177)</span> 
+<span data-post-id="14608440" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14608440" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14608440" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14735848.html">
+    <span>
+        Java核心技术面试精讲,前Oracle首席工程师带你修炼内功
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Java以其语法简单，开发者可以快速上手，适应众多领域，具有跨平台能力等特性，吸引了无数程序员学习和使用。 基于Java优秀的特性和庞大的使用基础，各大公司对Java工程师的需求也是源源不断。 作为面试者，想进入BAT并成长为一名高级Java工程师却没那么容易。面试时，面对刨根问底的提问，经常感觉g        <a href="https://www.cnblogs.com/zhaofenxiang/p/14735848.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 16:44
+找分享
+<span data-post-id="14735848" class="post-view-count">阅读(5)</span> 
+<span data-post-id="14735848" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14735848" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735848" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/05/01.html">2021年5月1日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14723867.html">
+    <span>
+        趣谈网络协议,像看小说一样的入门
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：网络协议是每个程序员入门的必修课，但是彻底掌握并应用网络协议知识却并非易事，比如常见的TCP/IP、HTTP。 刘超老师将结合自己从业15年的“泣血”经验，对网络协议的底层概念及其在热门领域的应用进行剖析。 他选取了从底层到上层，最基础、最常用、最重要的网络协议进行一一解析，并将深入分析网络协议在云        <a href="https://www.cnblogs.com/zhaofenxiang/p/14723867.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-01 10:03
+找分享
+<span data-post-id="14723867" class="post-view-count">阅读(17)</span> 
+<span data-post-id="14723867" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14723867" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14723867" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/30.html">2021年4月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14721403.html">
+    <span>
+        从0开始学游戏开发,游戏开发入门
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：游戏行业一直是公认的吸金行业，游戏行业的高回报，也吸引着越来越多的人跃跃欲试。 而一款游戏的诞生，需要诸如策划、原画、UI设计等多领域的合作，涉及的内容十分繁杂。没有系统的理论学习 和一定的编程基础，是没有办法开发出一款真正意义上的游戏的。 蔡能老师结合自己二十余年的游戏领域实战经验，手把手带你梳理        <a href="https://www.cnblogs.com/zhaofenxiang/p/14721403.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-30 11:30
+找分享
+<span data-post-id="14721403" class="post-view-count">阅读(18)</span> 
+<span data-post-id="14721403" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14721403" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14721403" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/29.html">2021年4月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14718102.html">
+    <span>
+        零基础学Python,AI时代必备编程语言
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：越来越多的人开始意识到学习编程的重要性，即使将来不做工程师，学会编程也能帮助我们更高效地处理一些日常工作。 同时，由于 Python 在深度学习、机器学习等领域的广泛使用，Python 一跃成为人工智能时代的网红语言。 《零基础学 Python》，帮助更多想学习编程却不得其门而入的小白从写出自己的第        <a href="https://www.cnblogs.com/zhaofenxiang/p/14718102.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-29 15:16
+找分享
+<span data-post-id="14718102" class="post-view-count">阅读(23)</span> 
+<span data-post-id="14718102" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14718102" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14718102" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14717604.html">
+    <span>
+        React实战进阶45讲,热门前端利器
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：目前最为流行的前端 UI 开发框架之一，React 不仅让你能够从容应对大型复杂前端应用的开发，其编程思想 还能应用到 React Native 原生 App 开发，服务器端渲染的后端开发。 学习 React 不仅能让你丰富自身的技能库，掌握当下最热门的前端开发利器，同时还能大大提升职场竞争力， 迈        <a href="https://www.cnblogs.com/zhaofenxiang/p/14717604.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-29 13:28
+找分享
+<span data-post-id="14717604" class="post-view-count">阅读(17)</span> 
+<span data-post-id="14717604" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14717604" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14717604" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/28.html">2021年4月28日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14714260.html">
+    <span>
+        从小工到专家的软件测试心法
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：软件测试看似简单，但要把软件测试做到极致，却并非易事。你需要不断地用知识武装自己，才能跟随技术发展 的趋势，成为一名优秀的测试人。 通俗易懂的语言，以知其然知其所以然的思路，为你系统梳理软件测试的知识体系，深入讲解自动化测试、性能 测试和测试架构设计的核心原理，助你从软件测试的小工进阶为专家。 适合        <a href="https://www.cnblogs.com/zhaofenxiang/p/14714260.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-28 15:19
+找分享
+<span data-post-id="14714260" class="post-view-count">阅读(22)</span> 
+<span data-post-id="14714260" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14714260" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14714260" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14713726.html">
+    <span>
+        持续交付36讲,量身定制你的持续交付体系
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：持续交付就是通过提升软件交付效率、统一标准、规范流程、工具化等方式，来提升软件研发效能，并解决 软件研发进度不可控、版本混乱难控无法回滚和回溯、无法快速定位发布问题、研发团队互相等待以及互相依赖等问题。 为你系统梳理持续交付的核心知识，带你拓展持续交付知识的深度和广度，全面立体地看待和解决问题。 适        <a href="https://www.cnblogs.com/zhaofenxiang/p/14713726.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-28 13:38
+找分享
+<span data-post-id="14713726" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14713726" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14713726" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713726" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14713507.html">
+    <span>
+        快速上手Kotlin开发,Java Android开发者的实战指南
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：2017 年， Kotlin 成为 Android 开发的官方编程语言。 Kotlin 不仅仅可以用于 Android 应用开发，它简洁和表现力强地代码，与 Java 完全兼容和平滑的学习曲线， 足以让程序员选择 Kotlin 在服务器端编程。 无论是想提高自己的技术水平，还是想获得更好的职业发展，        <a href="https://www.cnblogs.com/zhaofenxiang/p/14713507.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-28 11:51
+找分享
+<span data-post-id="14713507" class="post-view-count">阅读(25)</span> 
+<span data-post-id="14713507" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14713507" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713507" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/27.html">2021年4月27日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14710141.html">
+    <span>
+        邱岳的产品实战,每个互联网人必备的心得
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：身处互联网的时代，你已经被产品包围，它们与你的工作和生活都密不可分。如何去观察它、思考它、进而去利 用它，不仅仅是产品经理，每一位产品环节的参与者都需要修炼的能力。 在第二季中，邱岳将会系统全面地为你搭建出产品的完整知识框架。并且，他会实际地去分析产品案例，手把手 带你观察小程序产品的前世今生。 适        <a href="https://www.cnblogs.com/zhaofenxiang/p/14710141.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-27 17:48
+找分享
+<span data-post-id="14710141" class="post-view-count">阅读(14)</span> 
+<span data-post-id="14710141" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14710141" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14710141" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14709598.html">
+    <span>
+        程序员进阶攻略,通往骨灰级程序员必经之路
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：如何才能持续成长，是每一个程序员都绕不开的话题。 职业倦怠了，如何去面对？技术停滞了，如何去解决？人到中年，是选择工作还是选择生活？换工作？换城市？ 换方向？是放任自流还是逆流而上？ 作者思索、剖析、拆解程序员不同阶段可能面临的实际困惑和问题，并给出可供参考的答案。提供为程序员量 身定做的进阶路径，        <a href="https://www.cnblogs.com/zhaofenxiang/p/14709598.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-27 16:33
+找分享
+<span data-post-id="14709598" class="post-view-count">阅读(28)</span> 
+<span data-post-id="14709598" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14709598" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14709598" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14709166.html">
+    <span>
+        Go语言核心技术,资深技术专家3个月带你通关
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：如果你认真地跟我一起走完这个专栏，那么基本掌握Go语言是肯定的，成为你学习Go语言最重要的敲门砖和垫脚石。 许多大厂都已经拥抱Go语言，高人才需求也就意味着高额的回报，如今掌握Go语言已经成为了简历上的一项亮点， 不但优先录取，薪资也随之一路攀升。 从大厂面试考察的Go语言核心知识点和能力出发， 专        <a href="https://www.cnblogs.com/zhaofenxiang/p/14709166.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-27 15:27
+找分享
+<span data-post-id="14709166" class="post-view-count">阅读(28)</span> 
+<span data-post-id="14709166" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14709166" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14709166" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/26.html">2021年4月26日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14706340.html">
+    <span>
+        技术管理实战36讲,为你解惑团队leader的常见问题
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：统计显示，超过80%的互联网技术管理者都是被“不由分说”推到管理岗位的。与其说管理是一个职位，倒不如说 管理是一种能力，是每个人职业发展中都绕不开的话题。 想做管理，但领导不认可你怎么办？带团队过程中遇到挫折了，纠结于要不要转回技术，怎么选？以前单枪匹马 天地任我闯，现在要带领一帮人“开疆拓土”，怎        <a href="https://www.cnblogs.com/zhaofenxiang/p/14706340.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-26 20:28
+找分享
+<span data-post-id="14706340" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14706340" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14706340" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14706340" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/25.html">2021年4月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14701044.html">
+    <span>
+        从0开始学微服务,微博技术专家为你讲解微服务关键技术
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：近年微服务架构迅速在整个技术社区窜红，它被认为是 IT 软件架构的未来方向。热度虽高，但对于很多 中小公司来说微服务却是遥不可及。 本专栏希望能够用通俗易懂的语言帮助你理解以上几个问题，同时也是希望能够由浅入深、由表及里系统 为你讲解微服务的各个关键环节，帮你上手微服务。 胡忠想，微博技术专家。 学        <a href="https://www.cnblogs.com/zhaofenxiang/p/14701044.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-25 17:02
+找分享
+<span data-post-id="14701044" class="post-view-count">阅读(10)</span> 
+<span data-post-id="14701044" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14701044" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14701044" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14700903.html">
+    <span>
+        深入剖析Kubernetes,大厂标配原来可以如此简单
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Kubernetes已经成为容器领域当之无愧的事实标准。除了国外巨擘们，国内的技术大厂，也都已将容器和Kubernetes 列入未来的战略重心，无数中小型企业也正走在容器化的道路上。 从长远角度来看，Kubernetes项目将会成为企业服务器端技术栈中标准的一环，并连同它所推崇的容器化理念， 成为广        <a href="https://www.cnblogs.com/zhaofenxiang/p/14700903.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-25 16:37
+找分享
+<span data-post-id="14700903" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14700903" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14700903" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14700903" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/24.html">2021年4月24日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14696787.html">
+    <span>
+        数据结构与算法之美,轻松搞定BAT的面试通关秘籍
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：踏上了编程之路，也就意味着你选择了一种终身学习的生活方式。每一个程序员都要练就十八般武艺，而掌握数据结构与算法就像修炼了九阳神功。 无论你是从事业务开发，还是从事架构设计，想要优化设计模式；或者想要快速玩转热门技术，都要先搞定数据结构与算法。 那怎样才能真正掌握数据结构与算法呢？是把常用的数据结构与        <a href="https://www.cnblogs.com/zhaofenxiang/p/14696787.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-24 14:11
+找分享
+<span data-post-id="14696787" class="post-view-count">阅读(13)</span> 
+<span data-post-id="14696787" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14696787" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14696787" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14696500.html">
+    <span>
+        如何设计一个秒杀系统,大并发高可用的设计之道
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：秒杀，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写。 秒杀对于程序员来讲也意味着巨大的挑战。如何让系统面对百万级的请求流量不出故障？如何保证高并发情况下数据的一致性写？ 希望带你透彻理解秒杀系统的各个关键技术点，带你了解如何打造一个超大流量并发读写、高        <a href="https://www.cnblogs.com/zhaofenxiang/p/14696500.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-24 11:24
+找分享
+<span data-post-id="14696500" class="post-view-count">阅读(13)</span> 
+<span data-post-id="14696500" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14696500" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14696500" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14696438.html">
+    <span>
+        算法面试通关,前Facebook面试官带你脱颖而出
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：无论是阿里巴巴、腾讯、百度这些国内一线互联网企业，还是硅谷知名互联网公司，在招聘工程师的过程中，对算法和数据结构能力的考察都是重中之重。 很多程序员往往就倒在了算法面试这个关口，从而与梦想中的工作失之交臂。 帮助求职者在短时间内掌握面试中最常见的算法与数据结构相关知识点，学会面试中高频算法题目的分析        <a href="https://www.cnblogs.com/zhaofenxiang/p/14696438.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-24 11:02
+找分享
+<span data-post-id="14696438" class="post-view-count">阅读(17)</span> 
+<span data-post-id="14696438" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14696438" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14696438" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/23.html">2021年4月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14695245.html">
+    <span>
+        从0开始学大数据
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：随着近些年大数据技术的发展，以Hadoop、Spark为代表的大数据开源项目早已迭代成熟，构建起生态化系统。在这个智能的时代， 不论是否从事大数据开发，掌握大数据的原理和架构也早已成为每个工程师的必备技能。 不论是大数据的技术还是应用，都始终处于动态变化的过程中。对于很多刚开始接触大数据、考虑使用大        <a href="https://www.cnblogs.com/zhaofenxiang/p/14695245.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-23 18:51
+找分享
+<span data-post-id="14695245" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14695245" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14695245" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14695245" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/zhaofenxiang/archive/2021/04/22.html">2021年4月22日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14691042.html">
+    <span>
+        Nginx核心知识100讲,百万并发下的性能优化之道
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Nginx很火，因为它就像一个万能药，在任何存在性能需求的场合总能找见它的身影，它可以轻松在百万并发连接下实现高吞吐量的 Web 服务。 从 HTTP 应用层的视角、分布式集群的视角、硬件及操作系统内核优化的视角为大家体系化地解读Nginx 的核心知识， 帮助大家从 Nginx 的初级使用者成长为高        <a href="https://www.cnblogs.com/zhaofenxiang/p/14691042.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-22 19:03
+找分享
+<span data-post-id="14691042" class="post-view-count">阅读(29)</span> 
+<span data-post-id="14691042" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14691042" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14691042" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zhaofenxiang/p/14690664.html">
+    <span>
+        Linux性能优化实战,十分钟帮你找到系统瓶颈
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Linux性能问题一直是程序员头上的“紧箍咒”，哪怕很多工作多年的资深工程师也不例外。似乎性能问题总是不那么简单。那如何才能搞定性能优化呢？ 啃下所有的大块头原理书籍？即便是学了很多底层原理，碰到问题时依然会不知所措、无从下手。向牛人请教有效的方法？但管得了一时管不了永远，你很难形成系统的知识体系。        <a href="https://www.cnblogs.com/zhaofenxiang/p/14690664.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-22 17:33
+找分享
+<span data-post-id="14690664" class="post-view-count">阅读(37)</span> 
+<span data-post-id="14690664" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14690664" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14690664" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/zhaofenxiang/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 找分享
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuZJZCGlx67_VyiIIrO9a6EK7O1jtNwsJnWfZTv35vWWmCApRXzz3FAj0OaC155yXyZ7WATovgC_SnmPyQq4trVnTIm1rnF_XxqMwNQPiAmG9f_Df6JaaMakj2KPNltyC8" />
+</body>
+</html>

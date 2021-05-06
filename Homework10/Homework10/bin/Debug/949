@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="前言 在Java8中引入的流API可能仍然是Java在过去几年中包含的最重要的新特性。我认为每个Java开发人员在其职业生涯中都有机会使用JAVA STRAM API。或者我更愿意说，你可能每天都在使" />
+    <meta property="og:description" content="前言 在Java8中引入的流API可能仍然是Java在过去几年中包含的最重要的新特性。我认为每个Java开发人员在其职业生涯中都有机会使用JAVA STRAM API。或者我更愿意说，你可能每天都在使" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>非常好用的三款Java Stream API扩展库 - coding途中 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001.min.css?v=9x2ZP2K8SSBJowZA6xv0D5FvOmlvd5g21u0NBEAEwfQ" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001-mobile.min.css?v=xFiYH0_zTHqf_pk9Nf2PvR4VdQ1qJnJcRVcot-VdM-8" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/1ssqq1lxr/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/1ssqq1lxr/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/1ssqq1lxr/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 451911;
+        var currentBlogApp = '1ssqq1lxr';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'AnotherEon001';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-06 05:48';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <div id="wrapper">
+<div id="header">
+
+<div id="top">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/1ssqq1lxr/">陆陆起飞啦</a>
+</h1>
+<div id="subtitle"></div>
+</div>
+<div id="sub"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></div>
+
+
+
+
+</div>
+<div id="main_container">
+<div id="main_content">
+<div id="content">
+	<div id="post_detail">
+    <div class="post">
+        <h2>
+            
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14736209.html">
+    <span>非常好用的三款Java Stream API扩展库</span>
+    
+
+
+
+</a>
+
+        </h2>
+        <div class="postbody">
+            <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<section id="nice" data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px; color: rgba(0, 0, 0, 1); padding: 0 10px; line-height: 1.6; word-spacing: 0; letter-spacing: 0; word-wrap: break-word; text-align: left; font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif"><h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">前言</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">在Java8中引入的流API可能仍然是Java在过去几年中包含的最重要的新特性。我认为每个Java开发人员在其职业生涯中都有机会使用JAVA STRAM API。或者我更愿意说，你可能每天都在使用它。但是，如果将函数式编程的内置特性与其他一些语言（例如Kotlin）进行比较，您会很快意识到streamapi提供的方法数量非常有限。因此，社区创建了几个库，这些库仅用于扩展纯Java提供的API。今天，我将展示三个流行库提供的最有趣的Java流API扩展：StreamEx、jOOλ 还有Guava。</p>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">依赖</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">下面是本文中比较的三个库的当前版本列表。</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; padding: 15px 16px 16px; color: rgba(56, 58, 66, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; font-size: 12px; -webkit-overflow-scrolling: touch; background: rgba(250, 250, 250, 1); border-radius: 5px">&lt;dependencies&gt;<br>&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;one.util&lt;/groupId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;streamex&lt;/artifactId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;0.7.0&lt;/version&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.jooq&lt;/groupId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;jool&lt;/artifactId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;0.9.13&lt;/version&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.google.guava&lt;/groupId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;guava&lt;/artifactId&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;28.1-jre&lt;/version&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>&lt;/dependencies&gt;<br><br></code></pre>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">使用Java Stream扩展压缩流</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">在更高级的应用程序中使用Java Streams时，您通常会处理多个流。而且它们通常可以包含不同的对象。在这种情况下，有用的操作之一就是压缩。压缩操作将返回一个流，该流在给定的两个流中包含一对对应的元素，这意味着它们在这些流中的相同位置。让我们考虑两个对象Person和PersonAddress。假设我们有两个流，第一个流仅包含Person对象，第二个带PersonAddress对象，并且元素的顺序清楚地表明了它们的关联，我们可以压缩它们以创建一个新的对象流，其中包含来自Person和的所有字段PersonAddress。这是说明所描述方案的屏幕。</p>
+<figure data-tool="mdnice编辑器" style="margin: 10px 0; display: flex; flex-direction: column; justify-content: center; align-items: center"><img src="https://files.mdnice.com/user/11463/85b9efe1-0f03-43df-944d-0ef5b1090d3e.png" alt="合并压缩" style="display: block; margin: 0 auto; max-width: 100%"><figcaption style="margin-top: 5px; text-align: center; color: rgba(136, 136, 136, 1); font-size: 14px">合并压缩</figcaption></figure>
+<ul data-tool="mdnice编辑器" style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: rgba(0, 0, 0, 1); list-style-type: disc">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">guava使用</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">当前描述的所有三个库均支持压缩。让我们从Guava示例开始。它提供了唯一专用于zip的zip方法-静态方法，该方法具有三个参数：第一流，第二流和映射功能。</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">Stream&lt;Person&gt;&nbsp;s1&nbsp;=&nbsp;Stream.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>)<br>);<br>Stream&lt;PersonAddress&gt;&nbsp;s2&nbsp;=&nbsp;Stream.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>)<br>);<br>Stream&lt;PersonDTO&gt;&nbsp;s3&nbsp;=&nbsp;Streams.zip(s1,&nbsp;s2,&nbsp;(p,&nbsp;pa)&nbsp;-&gt;&nbsp;PersonDTO.builder()<br>&nbsp;&nbsp;&nbsp;.id(p.getId())<br>&nbsp;&nbsp;&nbsp;.firstName(p.getFirstName())<br>&nbsp;&nbsp;&nbsp;.lastName(p.getLastName())<br>&nbsp;&nbsp;&nbsp;.city(pa.getCity())<br>&nbsp;&nbsp;&nbsp;.street(pa.getStreet())<br>&nbsp;&nbsp;&nbsp;.houseNo(pa.getHouseNo()).build());<br>s3.forEach(dto&nbsp;-&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getId());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getFirstName());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getCity());<br>});<br></code></pre>
+</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">StreamEx</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">StreamEx提供比guava上更多的可能性。我们可以在给定的流上调用某些静态方法或非静态方法。让我们看一下如何使用StreamExzipWith方法执行它。</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">StreamEx&lt;Person&gt;&nbsp;s1&nbsp;=&nbsp;StreamEx.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>)<br>);<br>StreamEx&lt;PersonAddress&gt;&nbsp;s2&nbsp;=&nbsp;StreamEx.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>)<br>);<br>StreamEx&lt;PersonDTO&gt;&nbsp;s3&nbsp;=&nbsp;s1.zipWith(s2,&nbsp;(p,&nbsp;pa)&nbsp;-&gt;&nbsp;PersonDTO.builder()<br>&nbsp;&nbsp;&nbsp;.id(p.getId())<br>&nbsp;&nbsp;&nbsp;.firstName(p.getFirstName())<br>&nbsp;&nbsp;&nbsp;.lastName(p.getLastName())<br>&nbsp;&nbsp;&nbsp;.city(pa.getCity())<br>&nbsp;&nbsp;&nbsp;.street(pa.getStreet())<br>&nbsp;&nbsp;&nbsp;.houseNo(pa.getHouseNo()).build());<br>s3.forEach(dto&nbsp;-&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getId());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getFirstName());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getCity());<br>});<br></code></pre>
+</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">jOOλ 使用</p>
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">这个例子几乎是相同的。我们有一个zip在给定流上调用的方法。</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">Seq&lt;Person&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(<br>new&nbsp;Person(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>),<br>new&nbsp;Person(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>),<br>new&nbsp;Person(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>));<br>Seq&lt;PersonAddress&gt;&nbsp;s2&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>),<br>&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>));<br>Seq&lt;PersonDTO&gt;&nbsp;s3&nbsp;=&nbsp;s1.zip(s2,&nbsp;(p,&nbsp;pa)&nbsp;-&gt;&nbsp;PersonDTO.builder()<br>&nbsp;&nbsp;&nbsp;.id(p.getId())<br>&nbsp;&nbsp;&nbsp;.firstName(p.getFirstName())<br>&nbsp;&nbsp;&nbsp;.lastName(p.getLastName())<br>&nbsp;&nbsp;&nbsp;.city(pa.getCity())<br>&nbsp;&nbsp;&nbsp;.street(pa.getStreet())<br>&nbsp;&nbsp;&nbsp;.houseNo(pa.getHouseNo()).build());<br>s3.forEach(dto&nbsp;-&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getId());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getFirstName());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getCity());<br>});<br><br></code></pre>
+</section></li></ul>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">Join扩展</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">压缩操作根据两个不同流中的元素在这些流中的顺序来合并它们。如果我们想根据元素的字段（例如id）而不是流中的顺序关联元素，该怎么办。两个实体之间的LEFT JOIN或RIGHT JOIN之类的东西。操作的结果应与上一部分相同–包含来自Person和的所有字段的新对象流PersonAddress。下图说明了所描述的操作。</p>
+<figure data-tool="mdnice编辑器" style="margin: 10px 0; display: flex; flex-direction: column; justify-content: center; align-items: center"><img src="https://files.mdnice.com/user/11463/20045826-7b32-408d-be87-3ef12ff3085d.png" alt="" style="display: block; margin: 0 auto; max-width: 100%"></figure>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">当涉及联接操作时，只有jOOλ提供了一些方法。由于它专用于面向对象的查询，因此我们可以在许多联接选项之间进行选择。例如有innerJoin，leftOuterJoin，rightOuterJoin和crossJoin方法。在下面可见的源代码中，您可以看到一个示例innerJoin用法。此方法采用两个参数：要加入的流和谓词以匹配来自第一个流和加入流的元素。如果要基于innerJoin结果创建新对象，则应另外调用mapoperation。</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; padding: 15px 16px 16px; color: rgba(56, 58, 66, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; font-size: 12px; -webkit-overflow-scrolling: touch; background: rgba(250, 250, 250, 1); border-radius: 5px">Seq&lt;Person&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Person(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Person(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Person(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>));<br>Seq&lt;PersonAddress&gt;&nbsp;s2&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;PersonAddress(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>));<br>Seq&lt;PersonDTO&gt;&nbsp;s3&nbsp;=&nbsp;s1.innerJoin(s2,&nbsp;(p,&nbsp;pa)&nbsp;-&gt;&nbsp;p.getId().equals(pa.getId())).map(t&nbsp;-&gt;&nbsp;PersonDTO.builder()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.id(t.v1.getId())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.firstName(t.v1.getFirstName())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.lastName(t.v1.getLastName())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.city(t.v2.getCity())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.street(t.v2.getStreet())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.houseNo(t.v2.getHouseNo()).build());<br>s3.forEach(dto&nbsp;-&gt;&nbsp;{<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getId());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getFirstName());<br>&nbsp;&nbsp;&nbsp;Assertions.assertNotNull(dto.getCity());<br>});<br></code></pre>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">Stream扩展分组</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">Java流API仅通过Java.util.Stream.Collectors中的静态方法groupingBy支持的下一个有用操作是分组（s1.collect（Collectors.groupingBy（PersonDTO:：getCity）））。在流上执行这样一个操作的结果是，您得到一个带有键的映射，这些键是将分组函数应用于输入元素后得到的值，其对应的值是包含输入元素的列表。这个操作是某种聚合，因此得到java.util.List，结果是没有java.util.stream.stream。
+StreamEx和jOOλ 提供一些分组流的方法。让我们从StreamEx groupingBy操作示例开始。假设我们有一个PersonDTO对象的输入流，我们将按个人的家乡城市对它们进行分组。</p>
+<ul data-tool="mdnice编辑器" style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: rgba(0, 0, 0, 1); list-style-type: disc">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">StreamEx 使用</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">StreamEx&lt;PersonDTO&gt;&nbsp;s1&nbsp;=&nbsp;StreamEx.of(<br>&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(1).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>).build(),<br>&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(2).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>).build(),<br>&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(3).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>).build(),<br>&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(4).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Joan"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Collins"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"201"</span>).build()<br>);<br>Map&lt;String,&nbsp;List&lt;PersonDTO&gt;&gt;&nbsp;m&nbsp;=&nbsp;s1.groupingBy(PersonDTO::getCity);<br>Assertions.assertNotNull(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>));<br>Assertions.assertTrue(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).size()&nbsp;==&nbsp;2);<br>Assertions.assertNotNull(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>));<br>Assertions.assertTrue(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).size()&nbsp;==&nbsp;2);<br></code></pre>
+</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">jOOλ 使用</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">Seq&lt;PersonDTO&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(1).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(2).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(3).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(4).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Joan"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Collins"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"201"</span>).build()<br>);<br>Map&lt;String,&nbsp;List&lt;PersonDTO&gt;&gt;&nbsp;m&nbsp;=&nbsp;s1.groupBy(PersonDTO::getCity);<br>Assertions.assertNotNull(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>));<br>Assertions.assertTrue(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).size()&nbsp;==&nbsp;2);<br>Assertions.assertNotNull(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>));<br>Assertions.assertTrue(m.get(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).size()&nbsp;==&nbsp;2);<br></code></pre>
+</section></li></ul>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">多重串联</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">这是一个非常简单的场景。javastreamapi提供了一种用于连接的静态方法，但只适用于两个流。有时在一个步骤中浓缩多个流是很方便的。guava跟jOOλ为此提供专用方法。</p>
+<ul data-tool="mdnice编辑器" style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: rgba(0, 0, 0, 1); list-style-type: disc">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">下面是用jOOλ调用concat方法的示例</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">Seq&lt;Integer&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(1,&nbsp;2,&nbsp;3);<br>Seq&lt;Integer&gt;&nbsp;s2&nbsp;=&nbsp;Seq.of(4,&nbsp;5,&nbsp;6);<br>Seq&lt;Integer&gt;&nbsp;s3&nbsp;=&nbsp;Seq.of(7,&nbsp;8,&nbsp;9);<br>Seq&lt;Integer&gt;&nbsp;s4&nbsp;=&nbsp;Seq.concat(s1,&nbsp;s2,&nbsp;s3);<br>Assertions.assertEquals(9,&nbsp;s4.count());<br></code></pre>
+</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">guava方法的示例</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">Stream&lt;Integer&gt;&nbsp;s1&nbsp;=&nbsp;Stream.of(1,&nbsp;2,&nbsp;3);<br>Stream&lt;Integer&gt;&nbsp;s2&nbsp;=&nbsp;Stream.of(4,&nbsp;5,&nbsp;6);<br>Stream&lt;Integer&gt;&nbsp;s3&nbsp;=&nbsp;Stream.of(7,&nbsp;8,&nbsp;9);<br>Stream&lt;Integer&gt;&nbsp;s4&nbsp;=&nbsp;Streams.concat(s1,&nbsp;s2,&nbsp;s3);<br>Assertions.assertEquals(9,&nbsp;s4.count());<br></code></pre>
+</section></li></ul>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">分区扩展</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">分区操作与分组非常相似，但将输入流分为两个列表或流，其中第一个列表中的元素满足给定的谓词，而第二个列表中的元素则不满足。</p>
+<ul data-tool="mdnice编辑器" style="margin-top: 8px; margin-bottom: 8px; padding-left: 25px; color: rgba(0, 0, 0, 1); list-style-type: disc">
+<li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">StreamEx partitioning by方法将返回地图中的两个列表对象。</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">StreamEx&lt;PersonDTO&gt;&nbsp;s1&nbsp;=&nbsp;StreamEx.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(1).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(2).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(3).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(4).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Joan"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Collins"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"201"</span>).build()<br>);<br>Map&lt;Boolean,&nbsp;List&lt;PersonDTO&gt;&gt;&nbsp;m&nbsp;=&nbsp;s1.partitioningBy(dto&nbsp;-&gt;&nbsp;dto.getStreet().equals(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>));<br>Assertions.assertTrue(m.get(<span class="hljs-literal" style="color: rgba(1, 132, 187, 1); line-height: 26px">true</span>).size()&nbsp;==&nbsp;2);<br>Assertions.assertTrue(m.get(<span class="hljs-literal" style="color: rgba(1, 132, 187, 1); line-height: 26px">false</span>).size()&nbsp;==&nbsp;2);<br></code></pre>
+</section></li><li><section style="margin-top: 5px; margin-bottom: 5px; line-height: 26px; text-align: left; color: rgba(1, 1, 1, 1); font-weight: 500"><p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">与StreamEx相反，jOOλ 在Tuple2对象内返回两个流（Seq）。与StreamEx相比，这种方法有一个很大的优势—您仍然可以在不进行任何转换的情况下对结果调用流操作。</p>
+<pre class="custom" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 14px; word-wrap: break-word; padding: 15px 4px 2px; margin: 0 2px; background: rgba(250, 250, 250, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1); border-radius: 5px">&nbsp;Seq&lt;PersonDTO&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(1).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"100"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(2).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"101"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(3).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"London"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"200"</span>).build(),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PersonDTO.builder().id(4).firstName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Joan"</span>).lastName(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Collins"</span>).city(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Manchester"</span>).street(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street2"</span>).houseNo(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"201"</span>).build());<br>&nbsp;Tuple2&lt;Seq&lt;PersonDTO&gt;,&nbsp;Seq&lt;PersonDTO&gt;&gt;&nbsp;t&nbsp;=&nbsp;s1.partition(dto&nbsp;-&gt;&nbsp;dto.getStreet().equals(<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Street1"</span>));<br>&nbsp;Assertions.assertTrue(t.v1.count()&nbsp;==&nbsp;2);<br>&nbsp;Assertions.assertTrue(t.v2.count()&nbsp;==&nbsp;2);<br></code></pre>
+</section></li></ul>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">汇总扩展</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">只有jOOλ提供一些流聚合方法。例如，我们可以计算总和、平均值或中位数。自从乔λ是jOOQ的一部分，它的目标是用于面向对象的查询，实际上，它提供了许多与sqlselect子句相对应的操作。</p>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">下面可见的源代码片段以所有人的年龄为例，说明了我们如何轻松地计算对象流中选定字段的总和。</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; padding: 15px 16px 16px; color: rgba(56, 58, 66, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; font-size: 12px; -webkit-overflow-scrolling: touch; background: rgba(250, 250, 250, 1); border-radius: 5px">Seq&lt;Person&gt;&nbsp;s1&nbsp;=&nbsp;Seq.of(<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(1,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"John"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Smith"</span>,&nbsp;35),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(2,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Tom"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Hamilton"</span>,&nbsp;45),<br>&nbsp;&nbsp;&nbsp;new&nbsp;Person(3,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Paul"</span>,&nbsp;<span class="hljs-string" style="color: rgba(80, 161, 79, 1); line-height: 26px">"Walker"</span>,&nbsp;20)<br>);<br>Optional&lt;Integer&gt;&nbsp;sum&nbsp;=&nbsp;s1.sum(Person::getAge);<br>Assertions.assertEquals(100,&nbsp;sum.get());<br></code></pre>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">配对扩展</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<p data-tool="mdnice编辑器" style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; line-height: 26px; color: rgba(0, 0, 0, 1)">StreamEx允许您处理流中的相邻对象对，并对它们应用给定的函数。它可以通过使用pairMap函数来实现。在下面可见的代码片段中，我计算流中每对相邻数字的和。</p>
+<pre class="custom" data-tool="mdnice编辑器" style="margin-top: 10px; margin-bottom: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55)"><span style="display: block; background: url(&quot;https://files.mdnice.com/user/3441/876cad08-0422-409d-bb5a-08afec5da8ee.svg&quot;) 10px 10px / 40px no-repeat rgba(250, 250, 250, 1); height: 30px; width: 100%; margin-bottom: -7px; border-radius: 5px"></span><code class="hljs" style="overflow-x: auto; padding: 15px 16px 16px; color: rgba(56, 58, 66, 1); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; font-size: 12px; -webkit-overflow-scrolling: touch; background: rgba(250, 250, 250, 1); border-radius: 5px">StreamEx&lt;Integer&gt;&nbsp;s1&nbsp;=&nbsp;StreamEx.of(1,&nbsp;2,&nbsp;1,&nbsp;2,&nbsp;1);<br>StreamEx&lt;Integer&gt;&nbsp;s2&nbsp;=&nbsp;s1.pairMap(Integer::sum);<br>s2.forEach(i&nbsp;-&gt;&nbsp;Assertions.assertEquals(3,&nbsp;i));<br></code></pre>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">END</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+<blockquote class="multiquote-1" data-tool="mdnice编辑器" style="border-top: none; border-right: none; border-bottom: none; border-left: 3px solid rgba(239, 112, 96, 1); display: block; font-size: 0.9em; overflow: auto; overflow-scrolling: touch; color: rgba(106, 115, 125, 1); padding: 10px 10px 10px 20px; margin-bottom: 20px; margin-top: 20px; background: rgba(255, 249, 249, 1)">
+<p style="font-size: 16px; padding-top: 8px; padding-bottom: 8px; margin: 0; color: rgba(0, 0, 0, 1); line-height: 26px">欢迎关注公众号！
+公众号回复:<code style="font-size: 14px; word-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0 2px; background-color: rgba(27, 31, 35, 0.05); font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; word-break: break-all; color: rgba(239, 112, 96, 1)">入群</code> ，扫码加入我们交流群！
+<img src="https://files.mdnice.com/user/11463/7a825791-831f-4385-9176-7522511ea629.png" alt="扫码关注公众号获取更多学习资料" style="display: block; margin: 0 auto; max-width: 100%"></p>
+</blockquote>
+<h2 data-tool="mdnice编辑器" style="margin-top: 30px; margin-bottom: 15px; padding: 0; font-weight: bold; color: rgba(0, 0, 0, 1); border-bottom: 2px solid rgba(239, 112, 96, 1); font-size: 1.3em"><span class="prefix" style="display: none"></span><span class="content" style="display: inline-block; font-weight: bold; background: rgba(239, 112, 96, 1); color: rgba(255, 255, 255, 1); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px">阅读更多文章</span><span class="suffix"></span><span style="display: inline-block; vertical-align: bottom; border-bottom: 36px solid rgba(239, 235, 233, 1); border-right: 20px solid rgba(0, 0, 0, 0)"> </span></h2>
+</section>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+        </div>
+        <p class="postfoot">
+            posted on 
+<span id="post-date">2021-05-06 17:48</span>&nbsp;
+<a href="https://www.cnblogs.com/1ssqq1lxr/">coding途中</a>&nbsp;
+阅读(<span id="post_view_count">4</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736209" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14736209);return false;">收藏</a>
+        </p>
+    </div>
+</div>
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 451911, cb_blogApp = '1ssqq1lxr', cb_blogUserGuid = '493317fe-7549-40f5-2645-08d60122fa12';
+    var cb_entryId = 14736209, cb_entryCreatedDate = '2021-05-06 17:48', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+
+
+</div>
+</div>
+<div id="leftmenu">
+
+
+<h3>导航</h3>
+<ul>
+    <li>
+        <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/1ssqq1lxr/">
+首页</a>
+
+    </li>
+    <li>
+        
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/coding%E9%80%94%E4%B8%AD">
+联系</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/1ssqq1lxr/rss/">
+订阅</a>
+        
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/1ssqq1lxr/rss/">
+    <img src="/skins/anothereon001/images/xml.gif" alt="订阅" />
+</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+    </li>
+</ul>
+
+
+<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+
+</div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
+	<br />
+	Copyright &copy; 2021 coding途中
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</p>
+
+
+</div>
+</div>
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuL4hY27_WcLvcDO6U35CA9eQ-cgUwggL43V1AlI4eX34mqaXLIgW3idVXZDyiG3Xq5ST--pZlepRqWfB0uLAStu98LfxGJ09KWlai5c_ZrBL6WYcbxYBtMeXvr_7Z3oe8" />
+</body>
+</html>

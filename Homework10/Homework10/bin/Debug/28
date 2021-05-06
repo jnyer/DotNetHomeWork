@@ -1,0 +1,555 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="原始版本 简书：https://www.jianshu.com/p/6bfaca87a93b 博客园：https://www.cnblogs.com/zy7y/p/13426816.html test" />
+    <meta property="og:description" content="原始版本 简书：https://www.jianshu.com/p/6bfaca87a93b 博客园：https://www.cnblogs.com/zy7y/p/13426816.html test" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>apiAutoTest：自动化测试中的数据依赖处理 - zy7y - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/zy7y/custom.css?v=6vd15zmdoE&#x2B;ujQ1hzLwPf7pR01c=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zy7y/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zy7y/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zy7y/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 525824;
+        var currentBlogApp = 'zy7y';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2020-11-23 12:00';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <a href="https://github.com/zy7y" target="_blank">
+　　<img style="position: fixed; top: 0; right: 0; border: 0; z-index: 1;" src="https://images.cnblogs.com/cnblogs_com/jackson0714/779808/o_github.png" >
+</a>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/zy7y/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zy7y/">柒意</a>
+</h1>
+<h2>路漫漫其修远兮，吾将上下而求索。 -《离骚》
+QQ群：851163511（没技术大佬，本站上的个人项目问题都可以在这里咨询）</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zy7y/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/zy7y">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/zy7y/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/zy7y/p/14022398.html">
+    <span>apiAutoTest：自动化测试中的数据依赖处理</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="原始版本">原始版本</h1>
+<p>简书：<a href="https://www.jianshu.com/p/6bfaca87a93b" target="_blank">https://www.jianshu.com/p/6bfaca87a93b</a><br>
+博客园：<a href="https://www.cnblogs.com/zy7y/p/13426816.html" target="_blank">https://www.cnblogs.com/zy7y/p/13426816.html</a><br>
+testerhome：<a href="https://testerhome.com/topics/25003" target="_blank">https://testerhome.com/topics/25003</a></p>
+<h2 id="最新用例截图以及用例填写格式">最新用例截图以及用例填写格式</h2>
+<p><img src="http://ww1.sinaimg.cn/large/0082PEVYly1gkyd2v2jy2j31z40u0jza.jpg" alt="case.png" loading="lazy"></p>
+<p><img src="http://ww1.sinaimg.cn/large/0082PEVYly1gkyd44xv0vj30q40mggrv.jpg" alt="Snipaste_2020-11-23_07-21-53.png" loading="lazy"></p>
+<h2 id="数据依赖路径参数依赖">数据依赖/路径参数依赖</h2>
+<p>我理解的参数依赖/接口依赖就是接口进行关联操作，比如有些查询接口需要登录之后才可以操作，那么我们就需要拿到token之类的东西，这一部分东西是放到header中的，apiAutoTest围绕的只有路径参数依赖，请求数据依赖</p>
+<ul>
+<li>
+<p>路径参数依赖</p>
+<p>譬如说现在的restful，一个users接口，路由一般这样的<code>users</code>他的请求方式是get，这个路由我们把他认为是查所有用户，如果查某一个用户可能是这样的<code>users/:id</code>也是个get请求，这里这个id想表达的意思是这里有个需要个用户id的参数，比如1-500里面的任意1个，也就是说这个id是可变的，可以从登录接口的返回响应取一个叫userId的值</p>
+</li>
+<li>
+<p>请求参数依赖</p>
+<p>这个应该好理解些，就是说支付接口需要的订单id，是从上一步提交订单接口返回的响应订单id</p>
+</li>
+</ul>
+<p><strong>举个例子</strong></p>
+<p>假设现在有个实际响应结果字典如下</p>
+<pre><code class="language-json">{"case_002": {
+        "data": {
+            "id": 500,
+            "username": "admin",
+            "mobile": "12345678",
+        }},
+  "case_005": {
+        "data": {
+            "id": 511,
+            "create_time": 1605711095
+        },
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>excel中接口路径内容：<code>users/&amp;$.case_005.data.id&amp;/state/&amp;$.case_005.data.careate_time&amp;</code></p>
+<p>代码内部解析后如下:<code>users/511/state/1605711095</code></p>
+<p><code>&amp;$.case_005.data.id&amp;</code> 代表从响应字典中提取case_005字典中data字典中的id的值，提取出来的结果是511</p>
+</li>
+<li>
+<p>excel中请求参数内容如下:</p>
+<pre><code class="language-json">{
+ "pagenum": 1, 
+ "pagesize": "12",
+ "data": &amp;$.case_005.data&amp;, 
+ "userId": &amp;$.case_002.data.id&amp;
+}
+</code></pre>
+<p>代码内部解析后如下:</p>
+<pre><code class="language-json">{
+ "pagenum": 1, 
+ "pagesize": "12",
+ "data": {
+            "id": 511,
+            "create_time": 1605711095
+        }, 
+ "userId": 500
+}
+</code></pre>
+</li>
+</ul>
+<p><strong>其实不难看出其中规则<code>&amp;jsonpath提取语法&amp;</code>，如果你需要的内容是字符串类型，只需要这样<code>"&amp;jsonpath提取语法&amp;"</code></strong></p>
+<h2 id="上传文件">上传文件</h2>
+<p><strong>用例中书写格式，在上传文件栏</strong></p>
+<pre><code class="language-python"># 单文件上传在excel中写法
+{"接口中接受文件对象的参数名": "文件路径地址"}
+
+# 多文件上传在excel中写法
+{"接口中接受文件对象的参数名": ["文件路径1", "文件路径2"]}
+</code></pre>
+<h1 id="预期结果">预期结果</h1>
+<p><strong>用例书写格式</strong></p>
+<pre><code class="language-python"># 断言一个内容
+{"jsonpath提取表达式": 预期结果内容}
+# 多个断言
+{"jsonpath提取表达式1": 预期结果内容1,"jsonpath提取表达式2": 预期结果内容2}
+</code></pre>
+<h1 id="其他优化">其他优化</h1>
+<ul>
+<li>config.yaml文件中新增可配置初始header，整体代码优化，相比之前，同样测试用例执行下，快了2s左右</li>
+<li>将配置文件读取，用例读取整合在<code>read_file.py</code>下</li>
+<li>移除报告压缩方法</li>
+<li>减少日志信息</li>
+</ul>
+<h1 id="现依赖处理代码">现依赖处理代码</h1>
+<p><strong>tools/<strong>init</strong>.py</strong></p>
+<pre><code class="language-python">#!/usr/bin/env/python3
+# -*- coding:utf-8 -*-
+"""
+@project: apiAutoTest
+@author: zy7y
+@file: __init__.py
+@ide: PyCharm
+@time: 2020/7/31
+"""
+import json
+import re
+
+import allure
+
+from jsonpath import jsonpath
+from loguru import logger
+
+
+def extractor(obj: dict, expr: str = '.') -&gt; object:
+    """
+    根据表达式提取字典中的value，表达式, . 提取字典所有内容， $.case 提取一级字典case， $.case.data 提取case字典下的data
+    :param obj :json/dict类型数据
+    :param expr: 表达式, . 提取字典所有内容， $.case 提取一级字典case， $.case.data 提取case字典下的data
+    $.0.1 提取字典中的第一个列表中的第二个的值
+    """
+    try:
+        result = jsonpath(obj, expr)[0]
+    except Exception as e:
+        logger.error(f'提取不到内容，丢给你一个错误！{e}')
+        result = None
+    return result
+
+
+def rep_expr(content: str, data: dict, expr: str = '&amp;(.*?)&amp;') -&gt; str:
+    """从请求参数的字符串中，使用正则的方法找出合适的字符串内容并进行替换
+    :param content: 原始的字符串内容
+    :param data: 在该项目中一般为响应字典，从字典取值出来
+    :param expr: 查找用的正则表达式
+    return content： 替换表达式后的字符串
+    """
+    for ctt in re.findall(expr, content):
+        content = content.replace(f'&amp;{ctt}&amp;', str(extractor(data, ctt)))
+    return content
+
+
+def convert_json(dict_str: str) -&gt; dict:
+    """
+    :param dict_str: 长得像字典的字符串
+    return json格式的内容
+    """
+    try:
+        if 'None' in dict_str:
+            dict_str = dict_str.replace('None', 'null')
+        elif 'True' in dict_str:
+            dict_str = dict_str.replace('True', 'true')
+        elif 'False' in dict_str:
+            dict_str = dict_str.replace('False', 'false')
+        dict_str = json.loads(dict_str)
+    except Exception as e:
+        if 'null' in dict_str:
+            dict_str = dict_str.replace('null', 'None')
+        elif 'true' in dict_str:
+            dict_str = dict_str.replace('true', 'True')
+        elif 'False' in dict_str:
+            dict_str = dict_str.replace('false', 'False')
+        dict_str = eval(dict_str)
+        logger.error(e)
+    return dict_str
+
+
+def allure_title(title: str) -&gt; None:
+    """allure中显示的用例标题"""
+    allure.dynamic.title(title)
+
+
+def allure_step(step: str, var: str) -&gt; None:
+    """
+    :param step: 步骤及附件名称
+    :param var: 附件内容
+    """
+    with allure.step(step):
+        allure.attach(json.dumps(var, ensure_ascii=False, indent=4), step, allure.attachment_type.TEXT)
+</code></pre>
+<p><strong>tools/data_process.py</strong></p>
+<pre><code class="language-python">#!/usr/bin/env/python3
+# -*- coding:utf-8 -*-
+"""
+@project: apiAutoTest
+@author: zy7y
+@file: data_process.py
+@ide: PyCharm
+@time: 2020/11/18
+"""
+from tools import logger, extractor, convert_json, rep_expr, allure_step
+from tools.read_file import ReadFile
+
+
+class DataProcess:
+    response_dict = {}
+    header = ReadFile.read_config('$.request_headers')
+    have_token = header.copy()
+
+    @classmethod
+    def save_response(cls, key: str, value: object) -&gt; None:
+        """
+        保存实际响应
+        :param key: 保存字典中的key，一般使用用例编号
+        :param value: 保存字典中的value，使用json响应
+        """
+        cls.response_dict[key] = value
+        logger.info(f'添加key: {key}, 对应value: {value}')
+
+    @classmethod
+    def handle_path(cls, path_str: str) -&gt; str:
+        """路径参数处理
+        :param path_str: 带提取表达式的字符串 /&amp;$.case_005.data.id&amp;/state/&amp;$.case_005.data.create_time&amp;
+        上述内容表示，从响应字典中提取到case_005字典里data字典里id的值，假设是500，后面&amp;$.case_005.data.create_time&amp; 类似，最终提取结果
+        return  /511/state/1605711095
+        """
+        # /&amp;$.case.data.id&amp;/state/&amp;$.case_005.data.create_time&amp;
+        return rep_expr(path_str, cls.response_dict)
+
+    @classmethod
+    def handle_header(cls, token: str) -&gt; dict:
+        """处理header
+        :param token: 写： 写入token到header中， 读： 使用带token的header， 空：使用不带token的header
+        return
+        """
+        if token == '读':
+            return cls.have_token
+        else:
+            return cls.header
+
+    @classmethod
+    def handler_files(cls, file_obj: str) -&gt; object:
+        """file对象处理方法
+        :param file_obj: 上传文件使用，格式：接口中文件参数的名称:"文件路径地址"/["文件地址1", "文件地址2"]
+        实例- 单个文件: &amp;file&amp;D:
+        """
+        if file_obj == '':
+            return
+        for k, v in convert_json(file_obj).items():
+            # 多文件上传
+            if isinstance(v, list):
+                files = []
+                for path in v:
+                    files.append((k, (open(path, 'rb'))))
+            else:
+                # 单文件上传
+                files = {k: open(v, 'rb')}
+        return files
+
+    @classmethod
+    def handle_data(cls, variable: str) -&gt; dict:
+        """请求数据处理
+        :param variable: 请求数据，传入的是可转换字典/json的字符串,其中可以包含变量表达式
+        return 处理之后的json/dict类型的字典数据
+        """
+        if variable == '':
+            return
+        data = rep_expr(variable, cls.response_dict)
+        variable = convert_json(data)
+        return variable
+
+    @classmethod
+    def assert_result(cls, response: dict, expect_str: str):
+        """ 预期结果实际结果断言方法
+        :param response: 实际响应字典
+        :param expect_str: 预期响应内容，从excel中读取
+        return None
+        """
+        expect_dict = convert_json(expect_str)
+        index = 0
+        for k, v in expect_dict.items():
+            actual = extractor(response, k)
+            index += 1
+            logger.info(f'第{index}个断言,实际结果:{actual} | 预期结果:{v} \n断言结果 {actual == v}')
+            allure_step(f'第{index}个断言',  f'实际结果:{actual} = 预期结果:{v}')
+            assert actual == v
+</code></pre>
+<h1 id="源码地址">源码地址</h1>
+<p><strong>master: 分支为最新代码</strong></p>
+<p><strong>version1.0: 分支为之前开源的代码（通过字典迭代的方式来处理数据依赖）</strong></p>
+<p><a href="Https://gitee.com/zy7y/apiAutoTest.git" target="_blank">Https://gitee.com/zy7y/apiAutoTest.git</a></p>
+<p><a href="Https://github.com/zy7y/apiAutoTest.git" target="_blank">Https://github.com/zy7y/apiAutoTest.git</a></p>
+<h1 id="后续打算">后续打算</h1>
+<p>目前在公司正在做接口测试，说实话也是摸索着来，以上的优化项都是实际做的过程中突然想到的，然后就更新了</p>
+<ul>
+<li>接入用例前后置SQL， 前置SQL目前想的是现在项目中遇到的问题，有些接口没有返回需要的数据，这里就要用前置SQL查询的结果传到请求数据里面了，后置SQL主要是请求后查看数据库中的数据是否变动，形成数据库断言  2020/12/08 完成 ， 至此 apiAutoTest 应该不会 再有大更新~~~ 谢谢 看这个Demo的人</li>
+<li>企业微信推送：目前项目中预想的效果，是后端人员提交代码，自动部署之后，通过gitlab-ci 启动测试代码，进行接口测试完成之后采集allure中的测试结果一有异常/失败用例就发送邮件并进行企业微信推送给领导   这个其实就是重新发送请求~</li>
+<li>.... 就不说了还有很多优化项，能力不够好好充电吧，～～</li>
+</ul>
+<h1 id="致谢">致谢</h1>
+<p>谢谢各位对apiAutoTest的帮助，谢谢～～～</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2020-11-23 00:00</span>&nbsp;
+<a href="https://www.cnblogs.com/zy7y/">zy7y</a>&nbsp;
+阅读(<span id="post_view_count">644</span>)&nbsp;
+评论(<span id="post_comment_count">4</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14022398" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14022398);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 525824, cb_blogApp = 'zy7y', cb_blogUserGuid = '8a430ad0-facd-4ae7-3443-08d5b93323ea';
+    var cb_entryId = 14022398, cb_entryCreatedDate = '2020-11-23 00:00', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 zy7y
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtw4DCsOoB_CCYAf8KcLCGe_b3GROgI5AbJRyjcOJh4wyZUOC07X1KxIT6H-zl0WxZd3mSnBEKcrsPmpjp5fqRrWGcLnZM-bRbvhjBTMetXniXvwzB6zaHAKCP5DIinAS4" />
+</body>
+</html>

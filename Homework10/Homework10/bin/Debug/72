@@ -1,0 +1,1164 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="本篇文章将会详细讲解若依管理系统的权限分类、代码分析以及实战" />
+    <meta property="og:description" content="本篇文章将会详细讲解若依管理系统的权限分类、代码分析以及实战" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>若依管理系统RuoYi-Vue（二）：权限系统设计详解 - 狂盗一枝梅 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 147792;
+        var currentBlogApp = 'kuangdaoyizhimei';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlueSky';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-02-20 09:33';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <!-- ............自定义首部代码开始............ -->
+<!-- 自定义进度条 -->
+<div id="myProgressBar" style="display: none;"></div>
+
+<!-- 自定义导航条 -->
+<div id="mynavbar" style="margin-top: 0px;">
+    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
+    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
+<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
+
+    	</a>
+    	<div id="mynavbar_menu">
+	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
+	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
+	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
+	    	<a id="friendLink" href="#">友情链接</a>
+	    	<a href="https://www.cnblogs.com/">博客园</a>
+            <a href="https://i.cnblogs.com/posts">管理</a>
+	    	<a id="aboutMe" href="#">关于</a>
+	    </div>
+    </div>
+</div>
+
+<!-- 自定义头部锚点 -->
+<a name="mtop"></a>
+
+<!-- 自定义头部 -->
+<div id="myheader">
+	<!-- 背景图片 -->
+    <div id="myheader_bg"></div>
+    <!-- 遮罩层 -->
+    <div id="myheader_cover" title="点我点我">
+        <!-- 博客标题 -->
+        <div id="mypost_title">
+            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
+            <div id="mypost_title_f"></div>
+            <div id="mypost_title_e">
+                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
+            </div> 
+        </div>  
+    </div>
+</div>
+<!-- ............自定义首部代码结束............ -->
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14419180.html">
+    <span>若依管理系统RuoYi-Vue（二）：权限系统设计详解</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        本篇文章将会详细讲解若依管理系统的权限分类、代码分析以及实战
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p>若依Vue系统中的权限管理部分的功能都集中在了系统管理菜单模块中，如下图所示。其中权限部分主要涉及到了用户管理、角色管理、菜单管理、部门管理这四个部分。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092909494-167358491.png;%20charset=UTF-8" alt="image-20210218152741496" loading="lazy"></p>
+<h2 id="一、若依vue系统中的权限分类">一、若依Vue系统中的权限分类</h2>
+<p>根据观察，若依Vue系统中的权限分为以下几类</p>
+<ul>
+<li>菜单权限：用户登录系统之后能看到哪些菜单</li>
+<li>按钮权限：用户在一个页面上能看到哪些按钮，比如新增、删除等按钮</li>
+<li>接口权限：用户带着认证信息请求后端接口，是否有权限访问，该接口和前端页面上的按钮一一对应</li>
+<li>数据权限：用户有权限访问后端某个接口，但是不同的用户相同的接口相同的入参，根据权限大小不同，返回的结果应当不一样——权限大的能够看到的数据更多。</li>
+</ul>
+<h3 id="1菜单权限">1.菜单权限</h3>
+<p>这个比较好理解，拥有不同权限的用户登录系统之后看到的菜单是不一样的，从新建菜单到给一个用户分配菜单权限，上一篇文章已经讲过，不赘述。</p>
+<p>用户登录之后会请求后端的<code>com.ruoyi.web.controller.system.SysLoginController#getRouters</code>接口获取登录用户的菜单数据：</p>
+<pre><code class="language-sql">select distinct m.menu_id, m.parent_id, m.menu_name, m.path, m.component, m.visible, m.status, ifnull(m.perms,'') as perms, m.is_frame, m.is_cache, m.menu_type, m.icon, m.order_num, m.create_time
+		from sys_menu m
+			 left join sys_role_menu rm on m.menu_id = rm.menu_id
+			 left join sys_user_role ur on rm.role_id = ur.role_id
+			 left join sys_role ro on ur.role_id = ro.role_id
+			 left join sys_user u on ur.user_id = u.user_id
+		where u.user_id = #{userId} and m.menu_type in ('M', 'C') and m.status = 0  AND ro.status = 0
+		order by m.parent_id, m.order_num
+</code></pre>
+<p>菜单类型（M目录 C菜单 F按钮）；菜单状态（0显示 1隐藏）</p>
+<p>这是典型的用户-角色-菜单模型。</p>
+<p>前端会根据该接口返回的数据渲染出不同的菜单。</p>
+<h3 id="2按钮权限">2.按钮权限</h3>
+<p>新增按钮权限和新增菜单差不多，下图是我在新闻列表页面上新增了一个按钮叫做<code>新闻新增</code>，该按钮的权限分配和菜单的权限分配方法是一样的。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092911897-871865201.png;%20charset=UTF-8" alt="image-20210218164124429" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092912311-49634302.png;%20charset=UTF-8" alt="image-20210218164412579" loading="lazy"></p>
+<h3 id="3接口权限">3.接口权限</h3>
+<p>每一个按钮基本上都会对应着一个后端的接口，前端会根据权限标志显示或者隐藏按钮，但是如果用户不点击按钮，直接通过http请求工具请求后端咋办？所以接口权限也是要有的，该权限和按钮上权限完全一致。</p>
+<p>若依系统使用了SpringSecurity框架，接口权限都是基于注解<code>@PreAuthorize</code>实现的，比如，用户管理页面中的修改用户按钮对应的后端接口长这个样子</p>
+<pre><code class="language-java">    @PreAuthorize("@ss.hasPermi('system:user:edit')")
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @PutMapping
+    public AjaxResult edit(@Validated @RequestBody SysUser user)
+    {
+        ...
+    }
+</code></pre>
+<p>和其对应的前端按钮权限标志一样</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092912565-1420307202.png;%20charset=UTF-8" alt="image-20210218165254074" loading="lazy"></p>
+<p>如果没有权限访问接口，则会返回类似如下信息：</p>
+<pre><code class="language-json">{
+"msg": "请求访问：/system/user/list，认证失败，无法访问系统资源",
+"code": 401
+}
+</code></pre>
+<h3 id="4数据权限">4.数据权限</h3>
+<p>用户有权限访问后端某个接口，但是不同的用户相同的接口相同的入参，根据权限大小不同，返回的结果应当不一样——权限大的能够看到的数据更多。</p>
+<p>体现在若依Vue系统中，举个例子，现在若以系统中有两个用户，一个是超级管理员admin，一个是普通用户kdyzm</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092912780-849185298.png;%20charset=UTF-8" alt="image-20210218173156066" loading="lazy"></p>
+<p>它们两者均有用户管理、菜单管理、角色管理权限，所以它们能够看到相应的菜单并作出相应的操作，比如删除、新增、修改等。这里有个问题，kdyzm应当只能看到一部分数据，而超级管理员应当能够看到所有数据，在若依系统中，是通过对角色<code>数据权限</code>修改进行控制的。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092913044-2087596525.png;%20charset=UTF-8" alt="image-20210218173632200" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092913260-1489587122.png;%20charset=UTF-8" alt="image-20210218173725363" loading="lazy"></p>
+<p>所以，相同的权限，超级管理员能够看到的用户数量和普通用户kdyzm能够看到的用户数量是不一样的。</p>
+<p>超级管理员看到的用户管理页面：</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092913461-95587307.png;%20charset=UTF-8" alt="image-20210218174025420" loading="lazy"></p>
+<p>普通用户kdyzm看到的用户管理页面：</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092913711-1306359143.png;%20charset=UTF-8" alt="image-20210218174122328" loading="lazy"></p>
+<h2 id="二、各种类型权限实现原理">二、各种类型权限实现原理</h2>
+<h3 id="1菜单权限-1">1.菜单权限</h3>
+<p>菜单权限很简单，实际上就是简单的用户-角色-菜单模型，那么菜单是什么时候加载的呢？<code>ruoyi-ui\src\permission.js</code>，加载的逻辑在这个文件中。</p>
+<p><code>permission.js</code>文件中设置了<a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank">导航守卫</a>，每次路由发生变化的时候就会触发router.beforeEach的回调函数。</p>
+<pre><code class="language-js">router.beforeEach((to, from, next) =&gt; {
+  NProgress.start()
+  if (getToken()) {
+    /* has token*/
+    if (to.path === '/login') {
+      next({ path: '/' })
+      NProgress.done()
+    } else {
+      if (store.getters.roles.length === 0) {
+        // 判断当前用户是否已拉取完user_info信息
+        store.dispatch('GetInfo').then(res =&gt; {
+          // 拉取user_info
+          const roles = res.roles
+          store.dispatch('GenerateRoutes', { roles }).then(accessRoutes =&gt; {
+            // 根据roles权限生成可访问的路由表
+            router.addRoutes(accessRoutes) // 动态添加可访问路由表
+            next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
+          })
+        }).catch(err =&gt; {
+            store.dispatch('LogOut').then(() =&gt; {
+              Message.error(err)
+              next({ path: '/' })
+            })
+          })
+      } else {
+        next()
+      }
+    }
+  } else {
+    // 没有token
+    if (whiteList.indexOf(to.path) !== -1) {
+      // 在免登录白名单，直接进入
+      next()
+    } else {
+      next(`/login?redirect=${to.fullPath}`) // 否则全部重定向到登录页
+      NProgress.done()
+    }
+  }
+})
+</code></pre>
+<p>注意<code>if (store.getters.roles.length === 0) {</code>这段逻辑，可以看出，如果不刷新当前页面，就算给用户添加了新的菜单权限，用户也看不到新的菜单。</p>
+<h3 id="2按钮权限-1">2.按钮权限</h3>
+<p>按钮权限设置上和菜单权限基本上是一样的，是附着于页面中的细粒度权限。按钮权限体现在如果用户没有相应的权限，则看不到相关的按钮。这个是咋实现的呢？</p>
+<p>先看下系统管理下的菜单管理中的修改、新增和删除按钮前端vue代码</p>
+<pre><code class="language-vue">&lt;el-table-column label="操作" align="center" class-name="small-padding fixed-width"&gt;
+        &lt;template slot-scope="scope"&gt;
+          &lt;el-button size="mini" 
+            type="text" 
+            icon="el-icon-edit" 
+            @click="handleUpdate(scope.row)"
+            v-hasPermi="['system:menu:edit']"
+          &gt;修改&lt;/el-button&gt;
+          &lt;el-button 
+            size="mini" 
+            type="text" 
+            icon="el-icon-plus" 
+            @click="handleAdd(scope.row)"
+            v-hasPermi="['system:menu:add']"
+          &gt;新增&lt;/el-button&gt;
+          &lt;el-button
+            size="mini"
+            type="text"
+            icon="el-icon-delete"
+            @click="handleDelete(scope.row)"
+            v-hasPermi="['system:menu:remove']"
+          &gt;删除&lt;/el-button&gt;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+</code></pre>
+<p>el-button上有个属性<code>v-hasPermi</code>，这实际上是vue的自定义指令，属性值就是创建按钮的时候定义的那个<code>权限标志</code>。其定义在<code>src/directive/permission/index.js</code>文件</p>
+<pre><code class="language-js">import hasRole from './hasRole'
+import hasPermi from './hasPermi'
+
+const install = function(Vue) {
+  Vue.directive('hasRole', hasRole)
+  Vue.directive('hasPermi', hasPermi)
+}
+
+if (window.Vue) {
+  window['hasRole'] = hasRole
+  window['hasPermi'] = hasPermi
+  Vue.use(install); // eslint-disable-line
+}
+
+export default install
+</code></pre>
+<p>其具体实现逻辑就在同目录的<code>hasPermi.js</code>文件中</p>
+<pre><code class="language-js">import store from '@/store'
+
+export default {
+  inserted(el, binding, vnode) {
+    const { value } = binding
+    const all_permission = "*:*:*";
+    const permissions = store.getters &amp;&amp; store.getters.permissions
+
+    if (value &amp;&amp; value instanceof Array &amp;&amp; value.length &gt; 0) {
+      const permissionFlag = value
+
+      const hasPermissions = permissions.some(permission =&gt; {
+        return all_permission === permission || permissionFlag.includes(permission)
+      })
+
+      if (!hasPermissions) {
+        el.parentNode &amp;&amp; el.parentNode.removeChild(el)
+      }
+    } else {
+      throw new Error(`请设置操作权限标签值`)
+    }
+  }
+}
+</code></pre>
+<p>注意代码<code>        el.parentNode &amp;&amp; el.parentNode.removeChild(el)</code>，可以看到，如果没有按钮权限，则会将按钮本身从dom中移除。</p>
+<h3 id="3接口权限-1">3.接口权限</h3>
+<p>接口权限和前端的按钮权限一一对应。为的是防止用户绕过按钮直接请求后端接口获取数据。在若依Vue系统中，是使用SpringSecurity的注解<code>@PreAuthorize</code>实现的。</p>
+<p>虽然只是一个注解，但是它是SpringSecurity+JWT集成的结晶~这个之后再细谈。</p>
+<h3 id="4数据权限-1">4.数据权限</h3>
+<p>数据权限实现的关键在于<code>com.ruoyi.framework.aspectj.DataScopeAspect</code>类。该类是一个切面类，凡是加上<code>com.ruoyi.common.annotation.DataScope</code>注解的方法，在执行的时候都会被它拦截。</p>
+<p>该切面定义了五种权限范围</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>code</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATA_SCOPE_ALL</td>
+<td>1</td>
+<td>全部数据权限</td>
+</tr>
+<tr>
+<td>DATA_SCOPE_CUSTOM</td>
+<td>2</td>
+<td>自定数据权限</td>
+</tr>
+<tr>
+<td>DATA_SCOPE_DEPT</td>
+<td>3</td>
+<td>部门数据权限</td>
+</tr>
+<tr>
+<td>DATA_SCOPE_DEPT_AND_CHILD</td>
+<td>4</td>
+<td>部门及以下数据权限</td>
+</tr>
+<tr>
+<td>DATA_SCOPE_SELF</td>
+<td>5</td>
+<td>仅本人数据权限</td>
+</tr>
+</tbody>
+</table>
+<p>该切面的核心逻辑是“拼SQL”，方法执行之前，会给参数的一个params属性添加一个dataScope键值对，key为"dataScope"，值为<code>AND (" + sqlString.substring(4) + ")"</code>样式的一段SQL，这段SQL会根据当前用户所在的部门以及当前用户角色的权限范围发生变化。</p>
+<pre><code class="language-java">StringBuilder sqlString = new StringBuilder();
+        for (SysRole role : user.getRoles())
+        {
+            String dataScope = role.getDataScope();
+            if (DATA_SCOPE_ALL.equals(dataScope))
+            {
+                sqlString = new StringBuilder();
+                break;
+            }
+            else if (DATA_SCOPE_CUSTOM.equals(dataScope))
+            {
+                sqlString.append(StringUtils.format(
+                        " OR {}.dept_id IN ( SELECT dept_id FROM sys_role_dept WHERE role_id = {} ) ", deptAlias,
+                        role.getRoleId()));
+            }
+            else if (DATA_SCOPE_DEPT.equals(dataScope))
+            {
+                sqlString.append(StringUtils.format(" OR {}.dept_id = {} ", deptAlias, user.getDeptId()));
+            }
+            else if (DATA_SCOPE_DEPT_AND_CHILD.equals(dataScope))
+            {
+                sqlString.append(StringUtils.format(
+                        " OR {}.dept_id IN ( SELECT dept_id FROM sys_dept WHERE dept_id = {} or find_in_set( {} , ancestors ) )",
+                        deptAlias, user.getDeptId(), user.getDeptId()));
+            }
+            else if (DATA_SCOPE_SELF.equals(dataScope))
+            {
+                if (StringUtils.isNotBlank(userAlias))
+                {
+                    sqlString.append(StringUtils.format(" OR {}.user_id = {} ", userAlias, user.getUserId()));
+                }
+                else
+                {
+                    // 数据权限为仅本人且没有userAlias别名不查询任何数据
+                    sqlString.append(" OR 1=0 ");
+                }
+            }
+        }
+</code></pre>
+<p>简单来说，这段代码的逻辑就是用户所在的部门权限越高，数据权限范围越大，查出来的结果集将会越大。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092913910-2039003075.png;%20charset=UTF-8" alt="image-20210219105946524" loading="lazy"></p>
+<p>DataScope注解分别加到了部门列表查询、角色列表查询、用户列表查询的接口上，很明显，这几个接口需要根据不同的人查出不同的结果。</p>
+<p>以用户列表查询为例，执行sql为</p>
+<pre><code class="language-sql">    &lt;select id="selectUserList" parameterType="SysUser" resultMap="SysUserResult"&gt;
+		select u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from sys_user u
+		left join sys_dept d on u.dept_id = d.dept_id
+		where u.del_flag = '0'
+		&lt;if test="userName != null and userName != ''"&gt;
+			AND u.user_name like concat('%', #{userName}, '%')
+		&lt;/if&gt;
+		&lt;if test="status != null and status != ''"&gt;
+			AND u.status = #{status}
+		&lt;/if&gt;
+		&lt;if test="phonenumber != null and phonenumber != ''"&gt;
+			AND u.phonenumber like concat('%', #{phonenumber}, '%')
+		&lt;/if&gt;
+		&lt;if test="params.beginTime != null and params.beginTime != ''"&gt;&lt;!-- 开始时间检索 --&gt;
+			AND date_format(u.create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+		&lt;/if&gt;
+		&lt;if test="params.endTime != null and params.endTime != ''"&gt;&lt;!-- 结束时间检索 --&gt;
+			AND date_format(u.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+		&lt;/if&gt;
+		&lt;if test="deptId != null and deptId != 0"&gt;
+			AND (u.dept_id = #{deptId} OR u.dept_id IN ( SELECT t.dept_id FROM sys_dept t WHERE find_in_set(#{deptId}, ancestors) ))
+		&lt;/if&gt;
+		&lt;!-- 数据范围过滤 --&gt;
+		${params.dataScope}
+	&lt;/select&gt;
+</code></pre>
+<p>其中，有这么一段代码</p>
+<pre><code class="language-sql">&lt;!-- 数据范围过滤 --&gt;
+${params.dataScope}
+</code></pre>
+<p>实际上<code>DataScopeAspect</code>切面就只干了填充params的dataScope属性这么一件事情。</p>
+<h2 id="三、若依vue系统springsecurityjwt">三、若依Vue系统SpringSecurity+JWT</h2>
+<p>若依Vue系统中从用户登录到后端接口权限校验，都是基于SpringSecurity+JWT实现的，其中，SpringSecurity是核心，jwt只是为了保证token合法性的一种手段（签名防止篡改）。spring security集成的相关代码在<code>ruoyi-framework</code>模块的<code>com.ruoyi.framework.security</code>包以及<code>com.ruoyi.framework.config.SecurityConfig</code>类中。</p>
+<p><code>SecurityConfig</code>是核心配置类，所有的配置均在该类中。</p>
+<h3 id="1用户登录">1.用户登录</h3>
+<p>用户登录的逻辑在方法<code>com.ruoyi.web.controller.system.SysLoginController#login</code>中，一个典型的登录请求体如下所示</p>
+<pre><code class="language-json">{
+	"username": "admin",
+	"password": "admin123",
+	"code": "0",
+	"uuid": "a9fdbcbcb28748b796b5b77ad71bbb97"
+}
+</code></pre>
+<p>username和password分别是用户名和密码，code为验证码，uuid为验证码的唯一标识。登录成功之后会返回前端一个jwt令牌</p>
+<pre><code class="language-json">{
+	"msg": "操作成功",
+	"code": 200,
+	"token": "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjIzZjRhNjJjLTY5NzMtNDcxZS04ZmU4LWJmYWQ4YzllNWFkMiJ9.9d3iIaNq62CkjTXlxFOQgdDMOAZiu5tAsEn0cEuV23opT6PAqu_CiaN7kQY8_XhlQrHX5RgZ2bH7LpsiKLLcSw"
+}
+</code></pre>
+<p>在登录方法中，做了以下几件事情</p>
+<ul>
+<li>根据uuid获取redis中的验证码并对请求的验证码做验证</li>
+<li>如果验证码没问题，则对用户名和密码进行校验</li>
+<li>如果用户名和密码校验成功，则使用token作为key将用户信息保存到redis</li>
+<li>使用jwt对token签名并返回前端</li>
+</ul>
+<p>在整个过程中，会抛出一些自定义异常，比如</p>
+<pre><code class="language-java">throw new CaptchaExpireException();
+throw new CaptchaException();
+throw new UserPasswordNotMatchException();
+throw new CustomException(e.getMessage());
+</code></pre>
+<p>这些异常最终会被全局异常处理器处理掉：<code>com.ruoyi.framework.web.exception.GlobalExceptionHandler</code></p>
+<h3 id="2接口权限校验">2.接口权限校验</h3>
+<p>前端请求完成登录接口之后会将token存储到cookie，key为Admin-Token，value是jwt令牌。登录逻辑：<code>user.actions.Login</code>。</p>
+<p>之后，每次请求后端接口的时候都会带上Authentication Header</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092914108-1243552764.png;%20charset=UTF-8" alt="image-20210219140417903" loading="lazy"></p>
+<p>这实际上是通过axios的请求拦截器实现的：详情可见<code>src/utils/request.js</code>文件</p>
+<p>带着Authentication Header的请求打到后端的时候会经过过滤器<code>com.ruoyi.framework.security.filter.JwtAuthenticationTokenFilter</code>，该过滤器做了以下几件事情</p>
+<ul>
+<li>从请求头中取出jwt令牌，并对其进行jwt验签，验签若是成功，则取出原始token</li>
+<li>根据token从redis中取出用户数据</li>
+<li>将用户信息封装成<code>UsernamePasswordAuthenticationToken</code>对象，并将该对象填充到Spring Security上下文中</li>
+</ul>
+<p>填充到SpringSecurity上下文才能让Controller接口上的<code>@PreAuthorize</code>注解发挥作用（<strong>存疑，这里若依作者并非使用原生的SpringSecurity提供的spel表达式，也没有用authorities，而是使用了PermissionService类</strong>）。</p>
+<p>接着，Controller接口正式执行之前会进入<code>com.ruoyi.framework.web.service.PermissionService#hasPermi</code>方法判定权限，这里重新从redis中取出用户数据并进行权限校验，权限校验失败则不再执行接口中逻辑（<strong>存疑，这里并没有使用SpringSecurity上下文中的用户数据，那么<code>JwtAuthenticationTokenFilter</code>中的用户信息填充上下文中的代码是干啥用的</strong>）。</p>
+<h2 id="四、实战">四、实战</h2>
+<p>上一篇文章讲解了如何创建一个菜单并创建页面，但是是个空页面</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092914285-1553601342.png;%20charset=UTF-8" alt="新闻列表" loading="lazy"></p>
+<p>这篇文章将会讲解如何实现增删查改功能。</p>
+<p>一切开始之前，新建表news，建表SQL如下</p>
+<pre><code class="language-sql">CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `title` varchar(128) NOT NULL COMMENT '新闻标题',
+  `brief` varchar(256) DEFAULT NULL COMMENT '新闻概述',
+  `content` text COMMENT '新闻正文',
+  `create_time` datetime DEFAULT NULL,
+  `create_by` varchar(64) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `update_by` varchar(64) DEFAULT NULL,
+  `delete_flag` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+</code></pre>
+<h3 id="1前端页面修改">1.前端页面修改</h3>
+<p>可以仿照角色管理的页面写，直接将角色管理页面的代码直接拷贝到news文件中，效果如下</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092914489-244471663.png;%20charset=UTF-8" alt="image-20210219145313946" loading="lazy"></p>
+<p>没错，新闻列表的标题，角色管理的页面。。。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092914694-893380236.png;%20charset=UTF-8" alt="还有这种操作？" loading="lazy"></p>
+<p>之后对页面中元素进行修改，使其和上面创建的表结构一致，修改后的页面样子</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092914948-2028729040.png;%20charset=UTF-8" alt="image-20210219154251035" loading="lazy"></p>
+<p>这是预期中的样子，但是内容还是角色管理页面的内容。</p>
+<h3 id="2创建按钮权限">2.创建按钮权限</h3>
+<p>上一步已经完成了页面外观的改造，接下来需要修改页面内容了，首先需要把按钮权限给加上</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092915138-1025251050.png;%20charset=UTF-8" alt="image-20210219154710009" loading="lazy"></p>
+<p>按照这个样子添加按钮权限，之后把权限标志分配到前端页面中</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092915331-1670317335.png;%20charset=UTF-8" alt="image-20210219160705122" loading="lazy"></p>
+<h3 id="3使用代码生成代码">3.使用代码生成代码</h3>
+<p>在系统工具-代码生成页面中生成news表对应的相关实体类、mapper、xml对象等，可以极大的简化开发过程。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092915606-1157802840.png;%20charset=UTF-8" alt="image-20210219173625548" loading="lazy"></p>
+<h3 id="4准备后端接口">4.准备后端接口</h3>
+<p>将上一步代码生成器生成的<code>NewsController</code>拿过来改一改就行，修改后的代码如下所示：</p>
+<pre><code class="language-java">package com.ruoyi.web.controller.business;
+
+import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.system.domain.News;
+import com.ruoyi.system.mapper.NewsMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * @author kdyzm
+ */
+@RestController
+@RequestMapping("/business/news")
+public class NewsController extends BaseController {
+
+
+    @Autowired
+    private NewsMapper newsMapper;
+
+    /**
+     * 获取新闻列表
+     */
+    @PreAuthorize("@ss.hasPermi('business:news:list')")
+    @GetMapping("/list")
+    public TableDataInfo list(News post) {
+        startPage();
+        List&lt;News&gt; list = newsMapper.selectNewsList(post);
+        return getDataTable(list);
+    }
+
+    @Log(title = "新闻管理", businessType = BusinessType.EXPORT)
+    @PreAuthorize("@ss.hasPermi('business:news:export')")
+    @GetMapping("/export")
+    public AjaxResult export(News post) {
+        List&lt;News&gt; list = newsMapper.selectNewsList(post);
+        ExcelUtil&lt;News&gt; util = new ExcelUtil&lt;&gt;(News.class);
+        return util.exportExcel(list, "新闻数据");
+    }
+
+    /**
+     * 根据新闻编号获取详细信息
+     */
+    @PreAuthorize("@ss.hasPermi('business:news:query')")
+    @GetMapping(value = "/{postId}")
+    public AjaxResult getInfo(@PathVariable Long postId) {
+        return AjaxResult.success(newsMapper.selectNewsById(postId));
+    }
+
+    /**
+     * 新增新闻
+     */
+    @PreAuthorize("@ss.hasPermi('business:news:add')")
+    @Log(title = "新闻管理", businessType = BusinessType.INSERT)
+    @PostMapping
+    public AjaxResult add(@Validated @RequestBody News post) {
+        post.setCreateBy(SecurityUtils.getUsername());
+        post.setCreateTime(new Date());
+        return toAjax(newsMapper.insertNews(post));
+    }
+
+    /**
+     * 修改新闻
+     */
+    @PreAuthorize("@ss.hasPermi('business:news:update')")
+    @Log(title = "新闻管理", businessType = BusinessType.UPDATE)
+    @PutMapping
+    public AjaxResult edit(@Validated @RequestBody News post) {
+        post.setUpdateBy(SecurityUtils.getUsername());
+        return toAjax(newsMapper.updateNews(post));
+    }
+
+    /**
+     * 删除新闻
+     */
+    @PreAuthorize("@ss.hasPermi('business:news:delete')")
+    @Log(title = "新闻管理", businessType = BusinessType.DELETE)
+    @DeleteMapping("/{postIds}")
+    public AjaxResult remove(@PathVariable Long[] postIds) {
+        return toAjax(newsMapper.deleteNewsByIds(postIds));
+    }
+}
+</code></pre>
+<h3 id="5修改前端页面请求地址">5.修改前端页面请求地址</h3>
+<p>将生成的代码中的news.js文件放到api目录，并修改其中的接口路径与后端接口地址一一对应。</p>
+<pre><code class="language-js">import request from '@/utils/request'
+
+// 查询角色列表
+export function listNews(query) {
+  return request({
+    url: '/business/news/list',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询角色详细
+export function getNews(roleId) {
+  return request({
+    url: '/business/news/' + roleId,
+    method: 'get'
+  })
+}
+
+// 新增角色
+export function addNews(data) {
+  return request({
+    url: '/business/news',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改角色
+export function updateNews(data) {
+  return request({
+    url: '/business/news',
+    method: 'put',
+    data: data
+  })
+}
+
+
+// 删除角色
+export function delNews(roleId) {
+  return request({
+    url: '/business/news/' + roleId,
+    method: 'delete'
+  })
+}
+
+// 导出角色
+export function exportNews(query) {
+  return request({
+    url: '/business/news/export',
+    method: 'get',
+    params: query
+  })
+}
+</code></pre>
+<p>然后修改页面中的请求地址使用这里的地址。</p>
+<h2 id="五、测试">五、测试</h2>
+<h3 id="1超级管理员测试">1.超级管理员测试</h3>
+<p>超级管理员拥有最大权限，所有权限校验都会跳过对超级管理员的权限校验。这里先使用超级管理员进行测试可以规避权限问题，大体上先看看能否跑的通。</p>
+<p>下面是演示超级管理员的CRUD操作。</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092915844-1904245767.gif;%20charset=UTF-8" alt="超级管理员演示CRUD操作" loading="lazy"></p>
+<h3 id="2普通用户测试">2.普通用户测试</h3>
+<p>这里用用户kdyzm进行测试，在测试之前，先看下kdyzm的角色</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092918588-303247302.png;%20charset=UTF-8" alt="image-20210220090846893" loading="lazy"></p>
+<p>可以看到该用户是运营角色，那么修改角色权限，只给查询、修改、新增权限，不给导出和删除权限，如下所示</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092918795-1100979659.png;%20charset=UTF-8" alt="image-20210220091032435" loading="lazy"></p>
+<p>这时候切换登录用户为kdyzm，看看新闻列表页面</p>
+<p><img src="https://img2020.cnblogs.com/blog/516671/202102/516671-20210220092919018-468519097.png;%20charset=UTF-8" alt="image-20210220091233894" loading="lazy"></p>
+<p>可以看到，kdyzm在新闻列表页面中，看不到导出导出按钮和删除按钮，符合预期设想。</p>
+<p>好了，若依Vue权限详解部分到此结束了，下一篇文章将会讲解若依代码生成器生成原理和代码分析</p>
+<p>我的博客原文地址：<a href="https://blog.kdyzm.cn/post/45" target="_blank">若依管理系统RuoYi-Vue（二）：权限系统设计详解</a> ，欢迎大家关注呀</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-02-20 09:33</span>&nbsp;
+<a href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>&nbsp;
+阅读(<span id="post_view_count">3201</span>)&nbsp;
+评论(<span id="post_comment_count">2</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14419180" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14419180);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 147792, cb_blogApp = 'kuangdaoyizhimei', cb_blogUserGuid = 'bdaaad45-60a3-e211-82de-84c4f0333004';
+    var cb_entryId = 14419180, cb_entryCreatedDate = '2021-02-20 09:33', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 狂盗一枝梅
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <!-- ............自定义尾部代码开始............ -->
+<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
+	<div class="bottom-bar-inner">
+		<!-- 左边 -->
+        <div class="bottom-bar-items social-share" style="float: left;">
+            <span class="bottom-bar-item bottom-bar-facebook">
+                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-twitter">
+                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-qrcode">
+                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
+            </span>
+        </div>
+        <!-- 右边 -->
+        <div class="bottom-bar-items right" style="float: right;">
+            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
+            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
+            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
+            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
+        </div>
+	</div> 
+</div>
+<a name="mfooter"></a>
+
+<!-- 遮罩层（用于图片点击放大），
+    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
+<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
+    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
+    <img id="bigimg" style="height: auto;width: auto;border: 0; 
+        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
+</div>
+<!-- ............自定义尾部代码结束............ -->
+
+
+<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
+<script type="text/javascript">
+
+    //博主名称 可不改，默认取博客园提供的
+    var nickName = null;
+    //slogan
+    var slogan = '立德立言，无闻西东';
+    //icon
+    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
+    //默认博客背景图片
+    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
+    //icon(浏览器标题栏上的)
+    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
+    //友情链接地址
+    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
+    //关于地址
+    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
+    //Github地址,假如博客username与Github username相同，不用改。
+    //如 cnblogs.com/username github.com/username 这样就不用改
+    var myGayhubUrl = "https://github.com/kdyzm";
+</script>
+<script type="text/javascript">
+	/**
+		用来设置初始时需要执行的js
+	*/
+	$(document).ready(function(){
+
+        //获取博主名字
+        if (nickName == null){
+            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
+            nickName = footerOverTestArray[footerOverTestArray.length - 1];
+        }
+
+		//加载顶部进度条
+	    NProgress.start();
+	    NProgress.done();
+	    $("#myProgressBar").hide();
+
+	    //设置背景图片地址
+	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
+	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
+	    }else{
+    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
+	    }
+
+	    //设置标题
+        if($("#cb_post_title_url").html()){
+            $("#mypost_title_h").html($("#cb_post_title_url").html());
+        }else{
+            $("#mypost_title_h").html(nickName);
+        }
+
+	    //正文和标题淡入
+	    $("#mainContent").css("opacity","1");
+	    $("#mainContent").css("margin-top","0");
+	    $("#mypost_title").css("opacity","1");
+	    $("#mypost_title").css("top","75pt");
+
+        /* --根据个人配置修改页面 start-- */
+        //修改a链接
+        var ccList = $(".c-c");
+        for(var cc of ccList){
+            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
+        }
+        //设置Github链接
+        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
+        //设置友链的链接
+        $("#friendLink").attr("href",friendLink);
+        //设置关于的链接
+        $("#aboutMe").attr("href",aboutMe);
+        //设置两个iocn图标
+        $("#nv-icon").attr("src",icon);
+        var linkObject = document.createElement("link");
+        linkObject.rel = "shortcut icon";
+        linkObject.href = iconB;
+        document.getElementsByTagName("head")[0].appendChild(linkObject);
+        //设置底部栏按钮
+        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+            $("#bottom-d").html("友情链接");
+            $("#bottom-d").attr("href",friendLink);
+        }else{
+            var url = window.location.href;
+            var lastUrl = url.substring(url.lastIndexOf("/")+1);
+            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
+            $("#bottom-d").click(function(){
+                DiggIt(mpageId,cb_blogId,1);
+                green_channel_success(this,'谢谢推荐！');
+            })
+        }
+        /* --根据个人配置修改页面 end-- */
+	})
+
+	/**
+		设置ajax请求加载完所有数据时执行的js
+	*/
+	setTimeout(afterAjax,1000);
+	function afterAjax(){
+		//假如是首页
+		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
+		}else{
+		    var classification = null;
+		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
+		    	classification = $("#BlogPostCategory").html();
+		    	classification = classification.substring(3,classification.length);
+		    }else{
+		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
+		    }
+		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
+		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
+		    //设置副标题标题
+		    $("#mypost_title_f").html(ftitle);
+		    //设置标题分类按钮
+		    $("#mypost_title_e").html(classification);
+		    //设置底部导航条上一篇下一篇文章
+		    var pnp = $("#post_next_prev a");
+		    $("#mbottom-left").attr("href",pnp[1].href);
+		    if (pnp.length>2) {
+		    	$("#mbottom-right").attr("href",pnp[3].href);
+		    }
+		}
+		$("#myheader_bg").css("filter","blur(0px)");
+
+        //优化评论区样式
+        $("#comment_form_container p:last").hide();
+        $("#commentbox_opt a:last").hide();
+        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
+	}
+
+
+	/** 
+		自定义的js方法
+	*/
+	//设置底部导航条点击关注按钮事件
+	$("#bottom-g").click(function(){
+		$('#green_channel_follow').click()
+		return false
+	})
+	$("#bottom-s").click(function(){
+		AddToWz(cb_entryId);
+		return false;
+	})
+
+
+	//通过滚动条控制导航条的展现隐藏
+	var oldScrollNum = 0;
+	window.onscroll = function(){
+		var t = document.documentElement.scrollTop || document.body.scrollTop;
+		//下滑
+		if (t>oldScrollNum) {
+			if (t>120) {
+				$("#mynavbar").css("margin-top","-70px");//顶部导航
+				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
+			}
+			if (t>300) {
+				$("#right_meun").css("display","inline-block");//右侧导航
+			}
+		//上拉
+		}else{
+			//防止用a链接跳转也触发效果
+			if (oldScrollNum-t<20) {
+				$("#mynavbar").css("margin-top","0px");//顶部导航
+				$("#post-bottom-bar").css("bottom","0");//底部导航
+			}
+			if (t<=300) {
+				$("#right_meun").css("display","none");//右侧导航
+			}
+		}
+		oldScrollNum = t;
+	}
+
+	//背景大图点击模糊||清晰
+	$("#myheader_cover").click(function(){
+		if ($("#myheader_bg").css("filter") == "blur(3px)") {
+			$("#myheader_bg").css("filter","blur(0px)");
+		}else{
+			$("#myheader_bg").css("filter","blur(3px)");
+		}
+	})
+
+
+    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
+        $(this).fadeOut("fast");    
+    }); 
+
+ </script>
+
+ <script type="text/javascript">  
+    var setMyBlog = {
+        setCopyright: function() {
+            //设置版权信息，转载出处自动根据页面url生成
+            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
+                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
+                info = $(info_str),
+                info_a = info.find("a"),
+                url = window.location.href;
+            $(info_a[0]).attr("href","https://github.com/gzdaijie");
+            $(info_a[1]).attr("href",url).text(url);
+            $("#cnblogs_post_body").prepend(info);
+        },
+        setCodeRow: function(){
+            // 代码行号显示
+            var pre = $("pre.sourceCode"); //选中需要更改的部分
+            if(pre && pre.length){
+                pre.each(function() {
+                    var item = $(this);
+                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
+                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
+                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
+                    SyntaxHighlighter.all();
+                })
+            }
+        },
+        setAtarget: function() {
+            // 博客内的链接在新窗口打开
+            $("#cnblogs_post_body a").each(function(){
+                this.target = "_blank";
+            }) 
+        },
+        setContent: function() {
+            // 根据h2、h3标签自动生成目录
+            var captions_ori = $("#cnblogs_post_body h2"),
+            	captions_ori2 = $("#cnblogs_post_body h3"),
+                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
+                content = $("<ul id='right_meun'></ul>");
+            $("#cnblogs_post_body").prepend(content.append(captions));
+            var index = -1,index2 = -1;
+            captions.replaceWith(function(){
+                var self = this;
+                if(self.tagName == "H2" || self.tagName == "h2"){
+                    // 设置点击目录跳转
+                    index += 1;
+                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
+                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
+                } else {
+                	// add by summertime-wu 增加h3链接跳转
+                	index2 += 1;
+                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
+                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
+                    return ;
+                }
+            });
+        },
+        runAll: function() {
+            /* 运行所有方法
+             * setAtarget() 博客园内标签新窗口打开
+             * setContent() 设置目录
+             * setCopyright() 设置版权信息
+             * setCodeRow() 代码行号显示
+             */ 
+            this.setAtarget(); 
+            //假如为手机端不显示目录
+            if(document.body.clientWidth>=1000){
+                this.setContent();
+            }
+            // this.setCopyright();
+            this.setCodeRow();
+        }
+    }
+    setMyBlog.runAll();
+</script>
+
+<!-- 代码行号 -->
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAju9CpfpPwMK9f9DdA4qhgQd4Xm4faRchPzRAhsd9L1cWxwZmj3V1oGUolFiVo4L6u4cuCvWuTpxz1AdIqV2uoNukoIzIkoa3IF6mr7GucPQgBjnxHtq_xZodr1SUGvm9i4" />
+</body>
+</html>

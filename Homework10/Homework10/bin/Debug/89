@@ -1,0 +1,1193 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="springboot天生支持使用hibernate validation对参数的优雅校验，如果不使用它，只能对参数挨个进行如下方式的手工校验，不仅难看，使用起来还很不方便： if(StringUtil" />
+    <meta property="og:description" content="springboot天生支持使用hibernate validation对参数的优雅校验，如果不使用它，只能对参数挨个进行如下方式的手工校验，不仅难看，使用起来还很不方便： if(StringUtil" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>spring-boot 使用hibernate validation对参数进行优雅的校验 - 狂盗一枝梅 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 147792;
+        var currentBlogApp = 'kuangdaoyizhimei';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlueSky';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2020-12-29 01:43';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <!-- ............自定义首部代码开始............ -->
+<!-- 自定义进度条 -->
+<div id="myProgressBar" style="display: none;"></div>
+
+<!-- 自定义导航条 -->
+<div id="mynavbar" style="margin-top: 0px;">
+    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
+    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
+<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
+
+    	</a>
+    	<div id="mynavbar_menu">
+	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
+	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
+	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
+	    	<a id="friendLink" href="#">友情链接</a>
+	    	<a href="https://www.cnblogs.com/">博客园</a>
+            <a href="https://i.cnblogs.com/posts">管理</a>
+	    	<a id="aboutMe" href="#">关于</a>
+	    </div>
+    </div>
+</div>
+
+<!-- 自定义头部锚点 -->
+<a name="mtop"></a>
+
+<!-- 自定义头部 -->
+<div id="myheader">
+	<!-- 背景图片 -->
+    <div id="myheader_bg"></div>
+    <!-- 遮罩层 -->
+    <div id="myheader_cover" title="点我点我">
+        <!-- 博客标题 -->
+        <div id="mypost_title">
+            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
+            <div id="mypost_title_f"></div>
+            <div id="mypost_title_e">
+                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
+            </div> 
+        </div>  
+    </div>
+</div>
+<!-- ............自定义首部代码结束............ -->
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14205992.html">
+    <span>spring-boot 使用hibernate validation对参数进行优雅的校验</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p>springboot天生支持使用hibernate validation对参数的优雅校验，如果不使用它，只能对参数挨个进行如下方式的手工校验，不仅难看，使用起来还很不方便：</p>
+<pre><code class="language-java">if(StringUtils.isEmpty(userName)){
+	throw new RuntimeException("用户名不能为空");
+}
+</code></pre>
+<p>下面将介绍hibernate validation的基本使用方法。</p>
+<h2 id="一、引入依赖">一、引入依赖</h2>
+<p>这里在springboot 2.4.1中进行实验，引入以下依赖：</p>
+<pre><code class="language-xml">&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;2.4.1&lt;/version&gt;
+    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+&lt;/parent&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;version&gt;1.18.16&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;
+        &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+        &lt;version&gt;6.1.6.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<h2 id="二、基本请求参数校验">二、基本请求参数校验</h2>
+<p>如下的一个spring mvc的请求调用中有一个id参数（Integer类型），如果不允许它为空，该怎么做</p>
+<ol>
+<li>在Controller上加上<code>@Validated</code>注解</li>
+<li>在需要校验的字段前面加上<code>@NotNull(message = "用户id不能为空")</code>注解</li>
+<li>定义全局异常处理类，定制化返回结果</li>
+</ol>
+<pre><code class="language-java">   @RestControllerAdvice
+   @Slf4j
+   public class ValidationAdvice {
+       
+       @ExceptionHandler(Exception.class)
+       @ResponseBody
+       public WrapperResult handler(Exception e) {
+           //获取异常信息,获取异常堆栈的完整异常信息
+           StringWriter sw = new StringWriter();
+           PrintWriter pw = new PrintWriter(sw);
+           e.printStackTrace(pw);
+           //日志输出异常详情
+           log.error(sw.toString());
+           return WrapperResult.faild("服务异常，请稍后再试");
+       }
+   
+       @ExceptionHandler(ConstraintViolationException.class)
+       @ResponseBody
+       public WrapperResult handler(ConstraintViolationException e) {
+           StringBuffer errorMsg = new StringBuffer();
+           Set&lt;ConstraintViolation&lt;?&gt;&gt; violations = e.getConstraintViolations();
+           violations.forEach(x -&gt; errorMsg.append(x.getMessage()).append(";"));
+           return WrapperResult.faild(errorMsg.toString());
+       }
+   }
+</code></pre>
+<p>Controller层代码如下所示：</p>
+<pre><code class="language-java">   @RestController
+   @Slf4j
+   @RequestMapping("/user")
+   @Validated
+   public class UserController {
+   
+       /**
+        * 根据id查询用户信息
+        *
+        * @param id
+        * @return
+        */
+       @GetMapping
+       public WrapperResult&lt;UserModel&gt; findUser(@NotNull(message = "用户id不能为空")
+                                                @RequestParam(value = "id")
+                                                String id) {
+           return WrapperResult.success(new UserModel());
+       }
+   }
+</code></pre>
+<p>如果发起请求<code>127.0.0.1:8080/user?id=</code> 则会返回结果</p>
+<pre><code class="language-json">   {
+       "status": 1,
+       "data": "用户id不能为空;",
+       "msg": "FAIL",
+       "success": false
+   }
+</code></pre>
+<h2 id="三、对象内参数校验">三、对象内参数校验</h2>
+<p>上面是GET请求，下面介绍POST请求，请求对象内的参数校验。</p>
+<h3 id="1controller类上加上validated注解">1.Controller类上加上@Validated注解</h3>
+<pre><code class="language-java">@RestController
+@Slf4j
+@RequestMapping("/user")
+**@Validated**
+public class UserController {
+}
+</code></pre>
+<h3 id="2在post请求方法参数前面加上validated-注解">2.在POST请求方法参数前面加上<code>@Validated </code>注解</h3>
+<pre><code class="language-java">    @PostMapping("/mobile-regist")
+    public WrapperResult&lt;Boolean&gt; mobileRegit(@Validated @RequestBody UserModel userModel) {
+        return WrapperResult.success(true);
+    }
+</code></pre>
+<h3 id="3在上面介绍的validationadvice类中加上对象参数校验异常捕获">3.在上面介绍的<code>ValidationAdvice</code>类中加上对象参数校验异常捕获</h3>
+<pre><code class="language-java">//处理校验异常，对于对象类型的数据的校验异常
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseBody
+    public WrapperResult handler(MethodArgumentNotValidException e) {
+        StringBuffer sb = new StringBuffer();
+        List&lt;ObjectError&gt; allErrors = e.getBindingResult().getAllErrors();
+        allErrors.forEach(msg -&gt; sb.append(msg.getDefaultMessage()).append(";"));
+        return WrapperResult.faild(sb.toString());
+    }
+</code></pre>
+<p>UserModel类的定义如下：</p>
+<pre><code class="language-java">@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class UserModel {
+
+    @NotEmpty(message = "姓名不能为空")
+    private String name;
+
+    @NotEmpty(message = "手机号不能为空")
+//    @Mobile(message = "手机号格式不正确")
+    private String mobile;
+
+    @NotEmpty(message = "电子邮箱不能为空")
+	@Email(message = "电子邮箱格式不正确")
+    private String email;
+
+    private String password;
+
+    private String address;
+
+    @NotNull(message = "年龄不能为空")
+    @Min(value = 12, message = "允许注册年龄最小为12岁")
+    @Max(value = 24, message = "允许年龄最大为24岁")
+    private Integer age;
+
+    @NotEmpty(message = "联系人不允许为空")
+    @Size(min = 1, max = 3, message = "联系人长度只允许1到3之间")
+    private List&lt;String&gt; contacts;
+}
+</code></pre>
+<p>如果POST请求如下所示</p>
+<pre><code class="language-json">{
+    "name":"",
+    "mobile":"12666666666",
+    "email":"",
+    "password":"",
+    "address":"",
+    "age": null,
+    "contacts":[
+
+    ]
+}
+</code></pre>
+<p>则会返回如下定制化返回结果：</p>
+<pre><code class="language-json">{
+    "status": 1,
+    "data": "电子邮箱不能为空;联系人长度只允许1到3之间;年龄不能为空;联系人不允许为空;姓名不能为空;手机号格式不正确;",
+    "msg": "FAIL",
+    "success": false
+}
+</code></pre>
+<h2 id="四、自定义校验器">四、自定义校验器</h2>
+<p>像是@NotNull、@Email等注解都是hibernate validation 内置的注解，我们想开发像是@Email注解一样功能的注解，如何做呢，比如@Mobile，它的使用方法将和@Email一模一样。</p>
+<p>首先，先定义一个工具类存放<code>ValidationUtil</code>两个常量值</p>
+<pre><code class="language-java">public class ValidationUtil {
+    //手机号校验正则
+    public static final String MOBILE_REGX = "^[1][3-9][0-9]{9}$";
+
+    public static final String MOBILE_MSG = "手机号格式错误";
+}
+</code></pre>
+<h3 id="1定义注解mobile">1.定义注解<code>Mobile</code></h3>
+<p>具体代码可以参考@Email的实现，直接将Email名字改成Mobile即可，如下所示：</p>
+<pre><code class="language-java">@Documented
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
+@Retention(RUNTIME)
+public @interface Mobile {
+
+    String message() default ValidationUtil.MOBILE_MSG;
+
+    Class&lt;?&gt;[] groups() default {};
+
+    Class&lt;? extends Payload&gt;[] payload() default {};
+
+    String regexp() default ValidationUtil.MOBILE_REGX;
+
+    Pattern.Flag[] flags() default {};
+
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
+    @Retention(RUNTIME)
+    @Documented
+    public @interface List {
+        Mobile[] value();
+    }
+}
+</code></pre>
+<h3 id="2定义mobilevalidator实现对参数的校验逻辑">2.定义<code>MobileValidator</code>实现对参数的校验逻辑</h3>
+<pre><code class="language-java">public class MobileValidator implements ConstraintValidator&lt;Mobile, String&gt; {
+
+    private String regexp;
+
+    @Override
+    public void initialize(Mobile constraintAnnotation) {
+        //获取校验的手机号的格式
+        this.regexp = constraintAnnotation.regexp();
+    }
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (!StringUtils.hasText(value)) {
+            return true;
+        }
+        return value.matches(regexp);
+    }
+}
+</code></pre>
+<h3 id="3使用方法和email一模一样">3.使用方法和<code>@Email</code>一模一样</h3>
+<p>不赘述</p>
+<h2 id="五、分组校验">五、分组校验</h2>
+<p>假设一个用户注册的场景，用户注册有三种方式</p>
+<ol>
+<li>用户名+图形验证码注册</li>
+<li>邮箱+邮箱验证码注册</li>
+<li>手机号+短信验证码注册</li>
+</ol>
+<p>用户注册的时候除了方式不一样，其他用户信息基本相同，后端开了三个接口对应着着三种注册方式，请求体中我们使用一个Model封装了以上所有信息，包含着用户名、邮箱、手机号等信息，这时候不同的接口被调用，model中需要校验的参数就不一样了：</p>
+<p>用户名注册的时候邮箱地址和手机号可以为空，但是用户名不能为空；通过邮箱注册的时候，邮箱地址不能为空，但是用户名和手机号可以为空；......</p>
+<p>分组校验专门应对这种情况。</p>
+<h3 id="1首先定义三个接口，表示三种组类别">1.首先定义三个接口，表示三种组类别</h3>
+<pre><code class="language-java">public interface ValidEmail {
+}
+
+public interface ValidMobile {
+}
+
+public interface ValidUserName {
+}
+
+</code></pre>
+<h3 id="2在usermodel实体类上指名组类别">2.在UserModel实体类上指名组类别</h3>
+<pre><code class="language-java">@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class UserModel {
+
+    @NotEmpty(message = "姓名不能为空", groups = {ValidUserName.class})
+    @UserName(groups = {ValidUserName.class})
+    private String name;
+
+    @NotEmpty(message = "手机号不能为空", groups = {ValidMobile.class})
+    @Mobile(groups = {ValidMobile.class})
+    private String mobile;
+
+    @NotEmpty(message = "电子邮箱不能为空", groups = {ValidEmail.class})
+    @Email(message = "电子邮箱格式不正确", groups = {ValidEmail.class})
+    private String email;
+
+    private String password;
+
+    private String address;
+
+    @NotNull(message = "年龄不能为空")
+    @Min(value = 12, message = "允许注册年龄最小为12岁", groups = {ValidEmail.class,ValidMobile.class,ValidUserName.class})
+    @Max(value = 24, message = "允许年龄最大为24岁",groups = {ValidEmail.class,ValidMobile.class,ValidUserName.class})
+    private Integer age;
+
+    @NotEmpty(message = "联系人不允许为空",groups = {ValidEmail.class,ValidMobile.class,ValidUserName.class})
+    @Size(min = 1, max = 3, message = "联系人长度只允许1到3之间",groups = {ValidEmail.class,ValidMobile.class,ValidUserName.class})
+    private List&lt;String&gt; contacts;
+}
+</code></pre>
+<h3 id="3controller方法上指名验证组别">3.Controller方法上指名验证组别</h3>
+<pre><code class="language-java">    /**
+     * 手机号注册
+     *
+     * @param userModel
+     * @return
+     */
+    @PostMapping("/mobile-regist")
+    public WrapperResult&lt;Boolean&gt; mobileRegit(@Validated(ValidMobile.class) @RequestBody UserModel userModel) {
+        return WrapperResult.success(true);
+    }
+</code></pre>
+<p>这时候进行如下请求：</p>
+<p>POST <a href="http://127.0.0.1:8080/user/mobile-regist" target="_blank">http://127.0.0.1:8080/user/mobile-regist</a></p>
+<pre><code class="language-json">{
+    "mobile":"12666666666",
+    "password":"",
+    "address":"",
+    "age": null,
+    "contacts":[
+
+    ]
+
+}
+</code></pre>
+<p>则会返回结果：</p>
+<pre><code class="language-json">{
+    "status": 1,
+    "data": "联系人长度只允许1到3之间;手机号格式错误;联系人不允许为空;",
+    "msg": "FAIL",
+    "success": false
+}
+</code></pre>
+<p>该请求中并没有传递email和username字段，而且结果中也未校验出这两个字段，符合预期结果。</p>
+<h2 id="六、手动校验">六、手动校验</h2>
+<p>此处的手动校验并非是使用if/else进行简单的手动校验，而是使用Validation自带的校验工具对使用了@NotNull等注解的实体对象进行属性校验。</p>
+<p>首先先获取Valiation对象：</p>
+<pre><code class="language-java">private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+</code></pre>
+<h3 id="1-全属性校验">1. 全属性校验</h3>
+<pre><code class="language-java">/**
+  * 验证某个对象所有字段
+  *
+  * @param obj
+  * @param &lt;T&gt;
+  * @return
+  */
+public static &lt;T&gt; ValidationResult validateEntity(T obj) {
+    ValidationResult result = new ValidationResult();
+    Set&lt;ConstraintViolation&lt;T&gt;&gt; set = validator.validate(obj, Default.class);
+    if (!CollectionUtils.isEmpty(set)) {
+        result.setHasErrors(true);
+        Map&lt;String, String&gt; errorMsg = new HashMap&lt;&gt;();
+        for (ConstraintViolation&lt;T&gt; cv : set) {
+            errorMsg.put(cv.getPropertyPath().toString(), cv.getMessage());
+        }
+        result.setErrorMsg(errorMsg);
+    }
+    return result;
+}
+</code></pre>
+<h3 id="2某个字段的单独校验">2.某个字段的单独校验</h3>
+<pre><code class="language-java">/**
+* 验证某个对象某个字段
+*
+* @param obj
+* @param propertyName
+* @param &lt;T&gt;
+* @return
+*/
+public static &lt;T&gt; ValidationResult validateProperty(T obj, String propertyName) {
+    ValidationResult result = new ValidationResult();
+    Set&lt;ConstraintViolation&lt;T&gt;&gt; set = validator.validateProperty(obj, propertyName, Default.class);
+    if (!CollectionUtils.isEmpty(set)) {
+        result.setHasErrors(true);
+        Map&lt;String, String&gt; errorMsg = new HashMap&lt;&gt;();
+        for (ConstraintViolation&lt;T&gt; cv : set) {
+            errorMsg.put(propertyName, cv.getMessage());
+        }
+        result.setErrorMsg(errorMsg);
+    }
+    return result;
+}
+</code></pre>
+<p>ValidationResult的定义如下：</p>
+<pre><code class="language-java">@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class ValidationResult {
+    private Boolean hasErrors;
+    private Map&lt;String, String&gt; errorMsg;
+}
+</code></pre>
+<h2 id="七、文件上传校验">七、文件上传校验</h2>
+<h3 id="1tomcat容器下文件上传校验">1.tomcat容器下文件上传校验</h3>
+<p>在springboot+tomcat架构下的文件上传校验，假如已经有了如下的配置：</p>
+<pre><code class="language-yaml">spring:
+    servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+</code></pre>
+<p>这表示只允许上传小于1MB大小的文件，如果不指定异常处理器，默认会报前端400，在<code>ValidationAdvice</code>类中添加如下代码可以自定义返回结果：</p>
+<pre><code class="language-java">    //文件上传文件大小超出限制
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    @ResponseBody
+    public WrapperResult&lt;Map&lt;String,Object&gt;&gt; fileSizeException(MaxUploadSizeExceededException exception) {
+        log.error("文件太大，上传失败",exception);
+        return WrapperResult.faild("只允许上传不大于"+exception.getMaxUploadSize()+"的文件");
+    }
+</code></pre>
+<h3 id="2其它容器">2.其它容器</h3>
+<p>在Jetty容器中1中的方法可能会失效，未验证；在undertow容器中是一定会失效，已经验证。undertow容器毕竟和spring-boot没有完全打磨好，不建议现阶段使用。</p>
+<h2 id="八、附录">八、附录</h2>
+<h3 id="1所有校验规则注解说明">1.所有校验规则注解说明</h3>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Null</td>
+<td>被注解的元素必须为空</td>
+</tr>
+<tr>
+<td>@NotNull</td>
+<td>被注解的元素必须不为空</td>
+</tr>
+<tr>
+<td>@AssertTrue</td>
+<td>被注解的元素必须为true</td>
+</tr>
+<tr>
+<td>@AssertFlase</td>
+<td>被注解的元素必须为false</td>
+</tr>
+<tr>
+<td>@Min(value)</td>
+<td>被注解的元素必须是数字，且必须大于指定的最小值</td>
+</tr>
+<tr>
+<td>@Max(value)</td>
+<td>被注解的元素必须是数字，且必须小于指定的最大值</td>
+</tr>
+<tr>
+<td>@DecimalMin(value)</td>
+<td>被注解的元素必须是数字，且必须大于指定的最小值</td>
+</tr>
+<tr>
+<td>@DecaimalMax(value)</td>
+<td>被注解的元素必须是数字，且必须小于指定的最大值</td>
+</tr>
+<tr>
+<td>@Size(max=,min=)</td>
+<td>被注解元素的大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td>@Digit(integer,fraction)</td>
+<td>被注解元素必须是数字，且其值必须在可接受的范围内</td>
+</tr>
+<tr>
+<td>@Past</td>
+<td>被注解元素必须是一个过去的日期</td>
+</tr>
+<tr>
+<td>@Futrue</td>
+<td>被注解元素必须是一个将来的日期</td>
+</tr>
+<tr>
+<td>@Pattern(regex=,flag=)</td>
+<td>被注解元素必须符合指定的正则表达式</td>
+</tr>
+<tr>
+<td>@NotBlank</td>
+<td>验证非空，且长度必须大于0</td>
+</tr>
+<tr>
+<td>@Email</td>
+<td>被注解的元素必须是电子邮件地址</td>
+</tr>
+<tr>
+<td>@Length(max=,min=)</td>
+<td>被注解的字符串大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td>@NotEmpty</td>
+<td>被注解的字符串必须非空</td>
+</tr>
+<tr>
+<td>@Range(max=,min=)</td>
+<td>被注解的元素必须在指定范围内</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2校验规则注解例子">2.校验规则注解例子</h3>
+<pre><code class="language-java">// 空和非空检查: @Null、@NotNull、@NotBlank、@NotEmpty
+@Null(message = "验证是否为 null")
+private Integer isNull;
+
+@NotNull(message = "验证是否不为 null, 但无法查检长度为0的空字符串")
+private Integer id;
+
+@NotBlank(message = "检查字符串是不是为 null，以及去除空格后长度是否大于0")
+private String name;
+          
+@NotEmpty(message = "检查是否为 NULL 或者是 EMPTY")
+private List&lt;String&gt; stringList;
+          
+// Boolean值检查: @AssertTrue、@AssertFalse
+@AssertTrue(message = " 验证 Boolean参数是否为 true")
+private Boolean isTrue;
+          
+@AssertFalse(message = "验证 Boolean 参数是否为 false ")
+private Boolean isFalse;
+          
+// 长度检查: @Size、@Length
+@Size(min = 1, max = 2, message = "验证（Array,Collection,Map,String）长度是否在给定范围内")
+private List&lt;Integer&gt; integerList;
+      
+@Length(min = 8, max = 30, message = "验证字符串长度是否在给定范围内")
+private String address;
+      
+// 日期检查: @Future、@FutureOrPresent、@Past、@PastOrPresent
+@Future(message = "验证日期是否在当前时间之后")
+private Date futureDate;
+      
+@FutureOrPresent(message = "验证日期是否为当前时间或之后")
+private Date futureOrPresentDate;
+      
+@Past(message = "验证日期是否在当前时间之前")
+private Date pastDate;
+      
+@PastOrPresent(message = "验证日期是否为当前时间或之前")
+private Date pastOrPresentDate;
+      
+// 其它检查: @Email、@CreditCardNumber、@URL、@Pattern、
+@ScriptAssert、@UniqueElements
+@Email(message = "校验是否为正确的邮箱格式")
+private String email;
+      
+@CreditCardNumber(message = "校验是否为正确的信用卡号")
+private String creditCardNumber;
+      
+@URL(protocol = "http", host = "127.0.0.1", port = 8080, message= "校验是否为正确的URL地址")
+private String url;
+      
+@Pattern(regexp = "^1[3|4|5|7|8][0-9]{9}$", message = "正则校验是否为正确的手机号")
+private String phone;
+         
+// 对关联对象元素进行递归校验检查
+@Valid
+@UniqueElements(message = "校验集合中的元素是否唯一")
+private List&lt;CalendarEvent&gt; calendarEvent;
+
+@Data
+@ScriptAssert(lang = "javascript", script ="_this.startDate.before(_this.endDate)",message = "通过脚本表达式校验参数")
+private class CalendarEvent {
+&nbsp;&nbsp;private Date startDate;
+&nbsp;&nbsp;private Date endDate;
+}
+
+// 数值检查: @Min、@Max、@Range、@DecimalMin、@DecimalMax、@Digits
+@Min(value = 0, message = "验证数值是否大于等于指定值")
+@Max(value = 100, message = "验证数值是否小于等于指定值")
+@Range(min = 0, max = 100, message = "验证数值是否在指定值区间范围内")
+private Integer score;
+
+@DecimalMin(value = "10.01", inclusive = false, message = "验证数值是否大于等于指定值")
+@DecimalMax(value = "199.99", message = "验证数值是否小于等于指定值")
+@Digits(integer = 3, fraction = 2, message = "限制整数位最多为3，小数位最多为2")
+private BigDecimal money;
+</code></pre>
+<h2 id="九、源代码地址">九、源代码地址</h2>
+<p><a href="https://gitee.com/kdyzm/validation-spring-boot-demo" target="_blank">https://gitee.com/kdyzm/validation-spring-boot-demo</a></p>
+<p>我的博客地址：<a href="https://blog.kdyzm.cn" target="_blank">https://blog.kdyzm.cn</a> 欢迎留言指教~</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2020-12-29 13:43</span>&nbsp;
+<a href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>&nbsp;
+阅读(<span id="post_view_count">424</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14205992" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14205992);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 147792, cb_blogApp = 'kuangdaoyizhimei', cb_blogUserGuid = 'bdaaad45-60a3-e211-82de-84c4f0333004';
+    var cb_entryId = 14205992, cb_entryCreatedDate = '2020-12-29 13:43', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 狂盗一枝梅
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <!-- ............自定义尾部代码开始............ -->
+<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
+	<div class="bottom-bar-inner">
+		<!-- 左边 -->
+        <div class="bottom-bar-items social-share" style="float: left;">
+            <span class="bottom-bar-item bottom-bar-facebook">
+                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-twitter">
+                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
+            </span>
+            <span class="bottom-bar-item bottom-bar-qrcode">
+                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
+            </span>
+        </div>
+        <!-- 右边 -->
+        <div class="bottom-bar-items right" style="float: right;">
+            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
+            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
+            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
+            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
+        </div>
+	</div> 
+</div>
+<a name="mfooter"></a>
+
+<!-- 遮罩层（用于图片点击放大），
+    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
+<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
+    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
+    <img id="bigimg" style="height: auto;width: auto;border: 0; 
+        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
+</div>
+<!-- ............自定义尾部代码结束............ -->
+
+
+<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
+<script type="text/javascript">
+
+    //博主名称 可不改，默认取博客园提供的
+    var nickName = null;
+    //slogan
+    var slogan = '立德立言，无闻西东';
+    //icon
+    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
+    //默认博客背景图片
+    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
+    //icon(浏览器标题栏上的)
+    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
+    //友情链接地址
+    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
+    //关于地址
+    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
+    //Github地址,假如博客username与Github username相同，不用改。
+    //如 cnblogs.com/username github.com/username 这样就不用改
+    var myGayhubUrl = "https://github.com/kdyzm";
+</script>
+<script type="text/javascript">
+	/**
+		用来设置初始时需要执行的js
+	*/
+	$(document).ready(function(){
+
+        //获取博主名字
+        if (nickName == null){
+            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
+            nickName = footerOverTestArray[footerOverTestArray.length - 1];
+        }
+
+		//加载顶部进度条
+	    NProgress.start();
+	    NProgress.done();
+	    $("#myProgressBar").hide();
+
+	    //设置背景图片地址
+	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
+	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
+	    }else{
+    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
+	    }
+
+	    //设置标题
+        if($("#cb_post_title_url").html()){
+            $("#mypost_title_h").html($("#cb_post_title_url").html());
+        }else{
+            $("#mypost_title_h").html(nickName);
+        }
+
+	    //正文和标题淡入
+	    $("#mainContent").css("opacity","1");
+	    $("#mainContent").css("margin-top","0");
+	    $("#mypost_title").css("opacity","1");
+	    $("#mypost_title").css("top","75pt");
+
+        /* --根据个人配置修改页面 start-- */
+        //修改a链接
+        var ccList = $(".c-c");
+        for(var cc of ccList){
+            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
+        }
+        //设置Github链接
+        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
+        //设置友链的链接
+        $("#friendLink").attr("href",friendLink);
+        //设置关于的链接
+        $("#aboutMe").attr("href",aboutMe);
+        //设置两个iocn图标
+        $("#nv-icon").attr("src",icon);
+        var linkObject = document.createElement("link");
+        linkObject.rel = "shortcut icon";
+        linkObject.href = iconB;
+        document.getElementsByTagName("head")[0].appendChild(linkObject);
+        //设置底部栏按钮
+        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+            $("#bottom-d").html("友情链接");
+            $("#bottom-d").attr("href",friendLink);
+        }else{
+            var url = window.location.href;
+            var lastUrl = url.substring(url.lastIndexOf("/")+1);
+            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
+            $("#bottom-d").click(function(){
+                DiggIt(mpageId,cb_blogId,1);
+                green_channel_success(this,'谢谢推荐！');
+            })
+        }
+        /* --根据个人配置修改页面 end-- */
+	})
+
+	/**
+		设置ajax请求加载完所有数据时执行的js
+	*/
+	setTimeout(afterAjax,1000);
+	function afterAjax(){
+		//假如是首页
+		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
+			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
+			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
+		}else{
+		    var classification = null;
+		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
+		    	classification = $("#BlogPostCategory").html();
+		    	classification = classification.substring(3,classification.length);
+		    }else{
+		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
+		    }
+		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
+		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
+		    //设置副标题标题
+		    $("#mypost_title_f").html(ftitle);
+		    //设置标题分类按钮
+		    $("#mypost_title_e").html(classification);
+		    //设置底部导航条上一篇下一篇文章
+		    var pnp = $("#post_next_prev a");
+		    $("#mbottom-left").attr("href",pnp[1].href);
+		    if (pnp.length>2) {
+		    	$("#mbottom-right").attr("href",pnp[3].href);
+		    }
+		}
+		$("#myheader_bg").css("filter","blur(0px)");
+
+        //优化评论区样式
+        $("#comment_form_container p:last").hide();
+        $("#commentbox_opt a:last").hide();
+        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
+	}
+
+
+	/** 
+		自定义的js方法
+	*/
+	//设置底部导航条点击关注按钮事件
+	$("#bottom-g").click(function(){
+		$('#green_channel_follow').click()
+		return false
+	})
+	$("#bottom-s").click(function(){
+		AddToWz(cb_entryId);
+		return false;
+	})
+
+
+	//通过滚动条控制导航条的展现隐藏
+	var oldScrollNum = 0;
+	window.onscroll = function(){
+		var t = document.documentElement.scrollTop || document.body.scrollTop;
+		//下滑
+		if (t>oldScrollNum) {
+			if (t>120) {
+				$("#mynavbar").css("margin-top","-70px");//顶部导航
+				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
+			}
+			if (t>300) {
+				$("#right_meun").css("display","inline-block");//右侧导航
+			}
+		//上拉
+		}else{
+			//防止用a链接跳转也触发效果
+			if (oldScrollNum-t<20) {
+				$("#mynavbar").css("margin-top","0px");//顶部导航
+				$("#post-bottom-bar").css("bottom","0");//底部导航
+			}
+			if (t<=300) {
+				$("#right_meun").css("display","none");//右侧导航
+			}
+		}
+		oldScrollNum = t;
+	}
+
+	//背景大图点击模糊||清晰
+	$("#myheader_cover").click(function(){
+		if ($("#myheader_bg").css("filter") == "blur(3px)") {
+			$("#myheader_bg").css("filter","blur(0px)");
+		}else{
+			$("#myheader_bg").css("filter","blur(3px)");
+		}
+	})
+
+
+    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
+        $(this).fadeOut("fast");    
+    }); 
+
+ </script>
+
+ <script type="text/javascript">  
+    var setMyBlog = {
+        setCopyright: function() {
+            //设置版权信息，转载出处自动根据页面url生成
+            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
+                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
+                info = $(info_str),
+                info_a = info.find("a"),
+                url = window.location.href;
+            $(info_a[0]).attr("href","https://github.com/gzdaijie");
+            $(info_a[1]).attr("href",url).text(url);
+            $("#cnblogs_post_body").prepend(info);
+        },
+        setCodeRow: function(){
+            // 代码行号显示
+            var pre = $("pre.sourceCode"); //选中需要更改的部分
+            if(pre && pre.length){
+                pre.each(function() {
+                    var item = $(this);
+                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
+                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
+                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
+                    SyntaxHighlighter.all();
+                })
+            }
+        },
+        setAtarget: function() {
+            // 博客内的链接在新窗口打开
+            $("#cnblogs_post_body a").each(function(){
+                this.target = "_blank";
+            }) 
+        },
+        setContent: function() {
+            // 根据h2、h3标签自动生成目录
+            var captions_ori = $("#cnblogs_post_body h2"),
+            	captions_ori2 = $("#cnblogs_post_body h3"),
+                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
+                content = $("<ul id='right_meun'></ul>");
+            $("#cnblogs_post_body").prepend(content.append(captions));
+            var index = -1,index2 = -1;
+            captions.replaceWith(function(){
+                var self = this;
+                if(self.tagName == "H2" || self.tagName == "h2"){
+                    // 设置点击目录跳转
+                    index += 1;
+                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
+                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
+                } else {
+                	// add by summertime-wu 增加h3链接跳转
+                	index2 += 1;
+                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
+                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
+                    return ;
+                }
+            });
+        },
+        runAll: function() {
+            /* 运行所有方法
+             * setAtarget() 博客园内标签新窗口打开
+             * setContent() 设置目录
+             * setCopyright() 设置版权信息
+             * setCodeRow() 代码行号显示
+             */ 
+            this.setAtarget(); 
+            //假如为手机端不显示目录
+            if(document.body.clientWidth>=1000){
+                this.setContent();
+            }
+            // this.setCopyright();
+            this.setCodeRow();
+        }
+    }
+    setMyBlog.runAll();
+</script>
+
+<!-- 代码行号 -->
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvrUfwR4fMwbt0VYJEzS5kPELQAKng1eR33107TprJIhHW9XSZNHtueU-C2rSUPsvtqY2dzYDG-39T8nY49EYakzp_sjGeqVk4NDX6xJC0qARJUhPhSA-8b2I15vZVytDI" />
+</body>
+</html>

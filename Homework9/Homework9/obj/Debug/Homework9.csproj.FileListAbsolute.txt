@@ -1,0 +1,9 @@
+D:\VSProject\C#\Homework9\Homework9\bin\Debug\Homework9.exe.config
+D:\VSProject\C#\Homework9\Homework9\bin\Debug\Homework9.exe
+D:\VSProject\C#\Homework9\Homework9\bin\Debug\Homework9.pdb
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.csprojAssemblyReference.cache
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.Form1.resources
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.Properties.Resources.resources
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.csproj.GenerateResource.cache
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.exe
+D:\VSProject\C#\Homework9\Homework9\obj\Debug\Homework9.pdb

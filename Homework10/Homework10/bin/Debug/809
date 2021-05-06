@@ -1,0 +1,1562 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>一匹夫 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd.min.css?v=FftQhR2MvKTGGXxV0VXlcGGt4XBM0_1XGJmu6kYD9bg" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro_hd/bundle-imetro_hd-mobile.min.css?v=t8lZrYXGRE8kAD_d-besbRXwkXSQmMprnkoJVYlZl-g" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/happybirthdaytoyou/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/happybirthdaytoyou/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/happybirthdaytoyou/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 339971;
+        var currentBlogApp = 'happybirthdaytoyou';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'iMetro_HD';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/happybirthdaytoyou/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/happybirthdaytoyou/">一匹夫</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/happybirthdaytoyou/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E4%B8%80%E5%8C%B9%E5%A4%AB">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/happybirthdaytoyou/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/16.html">2021年3月16日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14545629.html">
+    <span>
+            <span>[置顶]</span>
+        别只知道策略模式+简单工厂，试试更香的策略模式+抽象工厂！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我的相关博文 三种工厂模式详解 策略模式 在GOF的《设计模式:可复用面向对象软件的基础》一书中对策略模式是这样说的： 定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。该模式使得算法可独立于使用它的客户而变化。 策略模式为了适应不同的需求，只把变化点封装了，这个变化点就是实现不同需求的        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14545629.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-16 20:20
+一匹夫
+<span data-post-id="14545629" class="post-view-count">阅读(445)</span> 
+<span data-post-id="14545629" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14545629" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14545629" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2020/11/30.html">2020年11月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14065294.html">
+    <span>
+            <span>[置顶]</span>
+        图解连接阿里云(一)创建阿里云物联网平台产品和设备,使用MQTT.fx快速体验
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前沿提要： MQTT是什么不知道？ 看这一篇：https://www.cnblogs.com/happybirthdaytoyou/p/10362336.html 阿里云官网玩不转？ 看这一篇：&#160;https://www.cnblogs.com/happybirthdaytoyou/p/1406529        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14065294.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-30 23:06
+一匹夫
+<span data-post-id="14065294" class="post-view-count">阅读(691)</span> 
+<span data-post-id="14065294" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14065294" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14065294" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2020/08/25.html">2020年8月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/13558041.html">
+    <span>
+            <span>[置顶]</span>
+        嵌入式交叉编译GDB,结合vscode图形化调试C和C++代码 coredump定位段错误
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：第一部分：交叉编译GDB GDB源码下载路径:http://ftp.gnu.org/gnu/gdb/ 遇到的主要难点： 选择合适的GDB源码版本 我的mips-linux交叉编译器不支持C++11特性，所以我选择较老的GDB版本 //是不是不太明白我在说啥？自己去试错就知道了。我之前选择了GDB9.        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/13558041.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-08-25 09:54
+一匹夫
+<span data-post-id="13558041" class="post-view-count">阅读(432)</span> 
+<span data-post-id="13558041" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13558041" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13558041" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2020/08/20.html">2020年8月20日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/13538155.html">
+    <span>
+            <span>[置顶]</span>
+        内核链表之list_for_eacy_entry手绘图解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Linux内核链表，也叫侵入式链表，这可以说是最基础最实用的一种数据结构了。 实际上，不仅大量被使用在Linux内核和RTOS内核中，很多的开源应用代码里也常常见到其身影。 能把list_for_entry_entry搞明白，自然就可以把相关的其他API搞明白。 .        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/13538155.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-08-20 22:06
+一匹夫
+<span data-post-id="13538155" class="post-view-count">阅读(111)</span> 
+<span data-post-id="13538155" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13538155" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13538155" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2019/08/07.html">2019年8月7日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/11316782.html">
+    <span>
+            <span>[置顶]</span>
+        makefile实验三  理解make工作的基本原则
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：代码简单，但测试花样多，若能回答对本博客的每个步骤的预期结果，可以说对makefile的基础掌握是扎实的。 一，当前的makefile代码 root@ubuntu:~/Makefile_Test# root@ubuntu:~/Makefile_Test# root@ubuntu:~/Makefile        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/11316782.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2019-08-07 17:48
+一匹夫
+<span data-post-id="11316782" class="post-view-count">阅读(306)</span> 
+<span data-post-id="11316782" class="post-comment-count">评论(0)</span> 
+<span data-post-id="11316782" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11316782" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2019/08/05.html">2019年8月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/11301612.html">
+    <span>
+            <span>[置顶]</span>
+        玩转Libmodbus（一） 搭建开发环境
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：先转载一片文章先，主要是参考了其搭建环境的部分： https://blog.csdn.net/qq_40452910/article/details/88560310 你可以直接看本文，本文经过更好地整理、实操、记录。 一、源码下载 1、libmodbus官网 https://libmodbus.o        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/11301612.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2019-08-05 10:45
+一匹夫
+<span data-post-id="11301612" class="post-view-count">阅读(9907)</span> 
+<span data-post-id="11301612" class="post-comment-count">评论(2)</span> 
+<span data-post-id="11301612" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11301612" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2019/02/19.html">2019年2月19日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/10403987.html">
+    <span>
+            <span>[置顶]</span>
+        RT-Thread的C语言多态风格展示 
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：// RT-Thread对象模型采用结构封装中使用指针的形式达到面向对象中多态的效果，例如： // 抽象父类 #include &lt;stdio.h&gt; #include &lt;assert.h&gt; struct parent { int a; //反映不同类别属性的方法 void (*vfunc)(int a        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/10403987.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2019-02-19 23:09
+一匹夫
+<span data-post-id="10403987" class="post-view-count">阅读(251)</span> 
+<span data-post-id="10403987" class="post-comment-count">评论(0)</span> 
+<span data-post-id="10403987" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10403987" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2019/02/09.html">2019年2月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/10358137.html">
+    <span>
+            <span>[置顶]</span>
+        C++函数默认参数 详解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：C++中允许为函数提供默认参数，又名缺省参数。 使用默认参数时的注意事项： ① 有函数声明(原型)时,默认参数可以放在函数声明或者定义中，但只能放在二者之一 double sqrt(double f = 1.0); //函数声明 double sqrt(double f) //函数定义 { // .        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/10358137.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2019-02-09 22:04
+一匹夫
+<span data-post-id="10358137" class="post-view-count">阅读(15698)</span> 
+<span data-post-id="10358137" class="post-comment-count">评论(0)</span> 
+<span data-post-id="10358137" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10358137" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14674537.html">
+    <span>
+        系统编程-网络-服务器并发编程模型
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：之前介绍的服务器端代码只是基础功能，在支持多客户端访问时将面临困局。因为，我们来介绍服务器并发编程模型。 server.c #include &lt;errno.h&gt; #include &lt;sys/socket.h&gt; #include &lt;netinet/in.h&gt; #include &lt;arpa/inet.h        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14674537.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 16:59
+一匹夫
+<span data-post-id="14674537" class="post-view-count">阅读(3)</span> 
+<span data-post-id="14674537" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14674537" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14674537" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/04/12.html">2021年4月12日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14650959.html">
+    <span>
+        编写自己的简易版网络协议栈(1)--arp协议，使用wireshark抓包分析
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：实验环境： 略。 实验背景：已编写好基于以太网接口的输入处理，能够解析到以太网数据包内的帧类型。 1. 协议栈底层采用轮询方式，即轮询以太网数据包。 2. 若收到数据，则交由以太网输入处理模块进行解析 3. 同时在这里打上断点，我们后续的操作是向此工程所在网卡发送一个arp数据包，以便代码执行能够进        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14650959.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-12 22:54
+一匹夫
+<span data-post-id="14650959" class="post-view-count">阅读(40)</span> 
+<span data-post-id="14650959" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14650959" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14650959" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14643074.html">
+    <span>
+        系统编程-网络-tcp客户端服务器编程模型(续)、连接断开、获取连接状态场景
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：相关博文： 系统编程-网络-tcp客户端服务器编程模型、socket、htons、inet_ntop等各API详解、使用telnet测试基本服务器功能 接着该上篇博文，咱们继续，首先，为了内容的完整性和连续性，我们首要的是立马补充、展示客户端的示例代码。 在此之后，之后咱们有两个方向： 一是介绍客户        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14643074.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-12 22:33
+一匹夫
+<span data-post-id="14643074" class="post-view-count">阅读(246)</span> 
+<span data-post-id="14643074" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14643074" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14643074" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/04/09.html">2021年4月9日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14620161.html">
+    <span>
+        --系统编程-网络-tcp客户端服务器编程模型、socket、htons、inet_ntop等各API详解、使用telnet测试基本服务器功能
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：PART1 基础知识 1. 字节序 网络字节序是大端字节序(低地址存放更高位的字节)， 所以，对于字节序为小端的机器需要收发网络数据的场景，要对这些数据进行字节序转换。 字节序转换函数，常用的有四个： 很好记，n表示network， h表示host, l表示long, s表示short。 举例， h        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14620161.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-09 09:33
+一匹夫
+<span data-post-id="14620161" class="post-view-count">阅读(222)</span> 
+<span data-post-id="14620161" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14620161" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14620161" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/04/06.html">2021年4月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14618142.html">
+    <span>
+        系统编程-网络-内容概要、整体介绍
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 内容概要 2. OSI模型和TCP/IP模型 OSI模型与TCP/IP模型的对应关系 3. TCP/IP协议簇 端口 4. 网络层协议 IP协议 IP地址 IP地址分类 5. 传输层协议 5.1 传输层之TCP协议 TCP是面向字节流的 TCP不像UDP一样那样一个个报文独立地传输，而是在不保        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14618142.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-06 07:55
+一匹夫
+<span data-post-id="14618142" class="post-view-count">阅读(88)</span> 
+<span data-post-id="14618142" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14618142" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14618142" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/04/05.html">2021年4月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14617425.html">
+    <span>
+        系统编程-信号-信号发送kill、raise、alarm
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：信号发送 kill 和 raise函数 kill函数参数详解： 实验1 raise和kill 的使用 #include &lt;stdio.h&gt; #include &lt;signal.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;sys/wait.h        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14617425.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-05 11:16
+一匹夫
+<span data-post-id="14617425" class="post-view-count">阅读(39)</span> 
+<span data-post-id="14617425" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14617425" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14617425" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/04/04.html">2021年4月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14595308.html">
+    <span>
+        系统编程-信号-总体概述和signal基本使用
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：信号章节 -- 信号章节总体概要 信号基本概念 信号是异步事件，发送信号的线程可以继续向下执行而不阻塞。 信号无优先级。 1到31号信号是非实时信号，发送的信号可能会丢失，不支持信号排队。 31号信号到64是实时信号， 发送的信号都会被接收， 支持信号排队。 信号在Linux内核头文件中的宏定义 信        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14595308.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-04 22:30
+一匹夫
+<span data-post-id="14595308" class="post-view-count">阅读(284)</span> 
+<span data-post-id="14595308" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14595308" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14595308" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/29.html">2021年3月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14568376.html">
+    <span>
+        系统编程-进程-exec系列函数超级详解(带各种实操代码)
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我的相关博文： 系统编程-进程-close-on-exec机制 PART1 exec系列函数功能简介 exec系列函数登场 常规操作是先fork一个子进程，然后在子进程中调用exec系列函数执行新的目标程序， 虽然exec系列函数执行成功不返回，但是我们仍然i要使用wait或waitpid让父进程给        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14568376.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-29 08:45
+一匹夫
+<span data-post-id="14568376" class="post-view-count">阅读(40)</span> 
+<span data-post-id="14568376" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14568376" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14568376" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/16.html">2021年3月16日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14545629.html">
+    <span>
+        别只知道策略模式+简单工厂，试试更香的策略模式+抽象工厂！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我的相关博文 三种工厂模式详解 策略模式 在GOF的《设计模式:可复用面向对象软件的基础》一书中对策略模式是这样说的： 定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。该模式使得算法可独立于使用它的客户而变化。 策略模式为了适应不同的需求，只把变化点封装了，这个变化点就是实现不同需求的        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14545629.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-16 20:20
+一匹夫
+<span data-post-id="14545629" class="post-view-count">阅读(445)</span> 
+<span data-post-id="14545629" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14545629" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14545629" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/07.html">2021年3月7日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14496476.html">
+    <span>
+        系统编程-进程-wait、waitpid和WIFEXITED系列宏 超级详解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. wait、waitpid 函数简介 补充：对于waitpid,如果返回值为0，表示指定去等待的子进程尚未结束。 该系列宏的使用方法展示： PART1 实验思路： 使用wait系统调用让父进程给子进程收尸，并获取子进程的返回值。 同时，正常终止。 直接打印获取的返回值会与实际返回的值不一样，进而        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14496476.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-07 21:21
+一匹夫
+<span data-post-id="14496476" class="post-view-count">阅读(81)</span> 
+<span data-post-id="14496476" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14496476" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14496476" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14494976.html">
+    <span>
+        Linux下挂载SD卡，以及容易犯的误区
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1、插入SD卡 如果系统能够识别SD卡，则会打印一些信息： 2、查看系统给SD卡分配的设备名 命令如下： fdisk -l 说明：通常是根据SD卡的存储容量来确定的。 比如下面的信息： 3、挂载SD卡 命令如下： mount /dev/mmcblk1 /mnt 当显示如下信息时： 说明挂载失败，其m        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14494976.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-07 15:54
+一匹夫
+<span data-post-id="14494976" class="post-view-count">阅读(85)</span> 
+<span data-post-id="14494976" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14494976" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14494976" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/04.html">2021年3月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14478179.html">
+    <span>
+        系统编程-进程-守护进程、孤儿进程、僵尸进程
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 守护进程 2. 孤儿进程 父进程结束，子进程就成为了孤儿进程。孤儿进程由1号进程(init进程)领养。 2.1实验： 实验思路： 先产生一个孤儿进程，然后打印出该孤儿进程的父进程ID。 #include &lt;stdio.h&gt; #include &lt;sys/types.h&gt; #include &lt;sy        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14478179.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-04 08:52
+一匹夫
+<span data-post-id="14478179" class="post-view-count">阅读(65)</span> 
+<span data-post-id="14478179" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14478179" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14478179" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/03/03.html">2021年3月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14477518.html">
+    <span>
+        系统编程-进程-进程链、进程扇
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 进程链、进程扇 图示 所谓进程链就是父进程创建一个子进程，创建的子进程再次创建出一个属于自己的子进程，这样依次往下循环。 所谓的进程扇就是一个父进程创建出多个子进程。 2. 进程链 #include &lt;stdio.h&gt; #include &lt;sys/types.h&gt; #include &lt;sys/        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14477518.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-03 22:50
+一匹夫
+<span data-post-id="14477518" class="post-view-count">阅读(163)</span> 
+<span data-post-id="14477518" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14477518" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14477518" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/25.html">2021年2月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14447444.html">
+    <span>
+        系统编程-进程-当文件操作遇上fork
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我的关联博文： 系统编程-进程-fork深度理解、vfork简介 系统编程-进程-先后fork或open一个文件的区别 test1: lseek基本使用 #include &lt;stdio.h&gt; #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include         <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14447444.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-25 16:01
+一匹夫
+<span data-post-id="14447444" class="post-view-count">阅读(50)</span> 
+<span data-post-id="14447444" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14447444" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14447444" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/24.html">2021年2月24日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14440552.html">
+    <span>
+        系统编程-进程-探究父子进程的数据区、堆、栈空间/ 当带缓存的C库函数遇上fork
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. test1 #include &lt;stdio.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; /******全局变量位于数据区， 用于数据区测试*******/ int globvar = 6; char buf[] = &quot;a write to stdout        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14440552.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-24 11:55
+一匹夫
+<span data-post-id="14440552" class="post-view-count">阅读(63)</span> 
+<span data-post-id="14440552" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14440552" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14440552" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/07.html">2021年2月7日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14385663.html">
+    <span>
+        函数模板实践
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：做了4个试验，test5没做，但是给了结论。 直接贴实践过的代码 #include &lt;iostream&gt; #include &lt;string&gt; template&lt;typename T&gt; void swapval(T&amp; val1, T&amp; val2){ T vector = val1; val1 = va        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14385663.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-07 16:19
+一匹夫
+<span data-post-id="14385663" class="post-view-count">阅读(22)</span> 
+<span data-post-id="14385663" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14385663" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14385663" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/05.html">2021年2月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14378690.html">
+    <span>
+        单片机-XIP-外部闪存就地执行代码
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：声明：此博文所述我未实践，目的是知识整理。 1. 常说的 &quot;单片机的norflash上可以执行代码 “ 这句话该如何理解？ CPU做取指、译码、执行。 常说的哪些介质可以执行程序，实际上指的是CPU可以从那里取指，以供后续译码和执行。 2. 单片机一般在内部norfalsh上执行代码 Soc读取内部        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14378690.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-05 16:52
+一匹夫
+<span data-post-id="14378690" class="post-view-count">阅读(150)</span> 
+<span data-post-id="14378690" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14378690" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14378690" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/04.html">2021年2月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14371301.html">
+    <span>
+        实用技巧：根据menuconfig定位一个驱动涉及到的源文件
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：根据menuconfig定位一个驱动涉及到的源文件，这个是很常用的，因为有时候你需要参考别人的驱动代码。新手不知道如何定位驱动相关源码，这篇文章将告之。 假设我手头有一块开发板，现在我想要获取板载ov7725摄像头的驱动代码。如何查看？ 1. menuconfig内定位到ov7725 2. 在第一步        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14371301.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-04 10:44
+一匹夫
+<span data-post-id="14371301" class="post-view-count">阅读(75)</span> 
+<span data-post-id="14371301" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14371301" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14371301" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/02/01.html">2021年2月1日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14358601.html">
+    <span>
+        系统编程-进程-fork深度理解、vfork简介
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. fork基本使用 #include &lt;unistd.h&gt; #include &lt;stdio.h&gt; int main(){ pid_t pid = fork(); if(pid &lt; 0){ perror(&quot;fork error&quot;); }else if(pid &gt; 0){ printf(&quot;I am         <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14358601.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-02-01 19:31
+一匹夫
+<span data-post-id="14358601" class="post-view-count">阅读(28)</span> 
+<span data-post-id="14358601" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14358601" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14358601" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/01/30.html">2021年1月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14349843.html">
+    <span>
+        九鼎S5PV210开发板的SD卡启动、uboot tftp升级内核镜像
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Note: 我的S5PV210板子的磁盘是emmc版本，不是nandflash版本。 1. SD卡内烧录uboot镜像，然后作为启动盘来启动emmc中的内核镜像和根文件系统。 只要破坏emmc内的uboot镜像，就可以使其从sd2启动 (因为emmc内没了完整的uboot，自然就无法启动内核) 然后        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14349843.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-30 17:48
+一匹夫
+<span data-post-id="14349843" class="post-view-count">阅读(128)</span> 
+<span data-post-id="14349843" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14349843" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14349843" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14348989.html">
+    <span>
+        jiffies相关时间比较函数time_after、time_before详解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. jiffies简介 首先，操作系统有个系统专用定时器(system timer)，俗称滴答定时器，或者系统心跳。 全局变量jiffies取值为自操作系统启动以来的时钟滴答的数目，数据类型为 unsigned long volatile (32位无符号长整型)，最大取值是2^32-1。 2. j        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14348989.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-30 14:39
+一匹夫
+<span data-post-id="14348989" class="post-view-count">阅读(200)</span> 
+<span data-post-id="14348989" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14348989" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14348989" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/01/28.html">2021年1月28日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14339695.html">
+    <span>
+        为什么我觉得需要熟悉vim使用，难道仅仅是为了耍酷？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：实例说话： 使用vscode保存，有报提示信息，可以以超级用户身份重试，于是我授权root给vscode软件，却还提示失败！ 而实际上，我使用cat命令发现已经写入成功了 终端内使用cat这条shell命令，很长，很辛苦。 这是我第一次亲身体会感受到，需要vim! 需要vim! 需要vim! 超强编        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14339695.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-28 14:37
+一匹夫
+<span data-post-id="14339695" class="post-view-count">阅读(85)</span> 
+<span data-post-id="14339695" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14339695" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14339695" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/01/21.html">2021年1月21日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14306145.html">
+    <span>
+        --待完善--系统编程-进程-
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 进程标识 待添加 用户和用户组相关 https://www.cnblogs.com/ddz-linux/p/10467106.html 用户组 进程组 2. 实验，待添加 chmod u+s file : 修改黏着位，可以使得其他用户操作该文件时临时转变为该文件拥有者用户，这就是有效用户的含义        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14306145.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-21 08:42
+一匹夫
+<span data-post-id="14306145" class="post-view-count">阅读(43)</span> 
+<span data-post-id="14306145" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14306145" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14306145" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/happybirthdaytoyou/archive/2021/01/20.html">2021年1月20日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14304512.html">
+    <span>
+        系统编程-进程-ps命令、进程调度、优先级翻转、进程状态
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. ps详解 ps : 只列出当前用户的进程 ps -ef : e表示有效， f 表示全面， 所以是列出后台的所有有效进程。 ps -ef | more : 列出后台所有的有效进程，并且分屏显示 ps -aux | more : 可以查看进程占用CPU 和 内存的百分比 、 进程状态 详细参数参考        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14304512.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-20 19:00
+一匹夫
+<span data-post-id="14304512" class="post-view-count">阅读(59)</span> 
+<span data-post-id="14304512" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14304512" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14304512" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/happybirthdaytoyou/p/14301058.html">
+    <span>
+        搭建本地nginx-rtmp服务，初体验rtmp推流、拉流
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：实验环境说明： ubuntu 16.04 进行本实验的前提：需要在ubuntu上搭建好ffmpeg环境，参考我的另一篇博文 ffmpeg编译过程经历的99八十一难 下面开始本文内容 PART1 编译安装带Nginx-rtmp-module的Nginx服务器 1&#160;下载Nginx (Nginx从官网下载        <a href="https://www.cnblogs.com/happybirthdaytoyou/p/14301058.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-20 08:39
+一匹夫
+<span data-post-id="14301058" class="post-view-count">阅读(263)</span> 
+<span data-post-id="14301058" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14301058" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14301058" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/happybirthdaytoyou/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 一匹夫
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsRMXxBsDmKN1_ByPOOlS1z_bUwcNMiS_xUSwVu4wSy23eAjnnz3_PV5nJLe8JT23jYjtFTo7aZ_jvapjgZ7Cu3fZGmZFj4O17MrGVIvnsx1f8MSqtYbzNUQkdSnNQ0_KU" />
+</body>
+</html>

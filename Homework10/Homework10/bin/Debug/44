@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="在本地构建基于Docker的编程环境是一个兼容性和可用性非常强的解决方案，这里我们介绍了一个使用Dockerfile来构建Docker容器镜像的简单实例。同时也用谷歌所主导的开源线性规划求解器orto" />
+    <meta property="og:description" content="在本地构建基于Docker的编程环境是一个兼容性和可用性非常强的解决方案，这里我们介绍了一个使用Dockerfile来构建Docker容器镜像的简单实例。同时也用谷歌所主导的开源线性规划求解器orto" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>创建ortools的Dockerfile - 陆言君 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=uknaX_hejnSu-njQgx4Hj1R0JiPLwUhFPUlwWNmWyB4" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/dechinphy/custom.css?v=U3QQD7r4GRlwHtt5EmOA5hd9jFo=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dechinphy/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dechinphy/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dechinphy/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 657846;
+        var currentBlogApp = 'dechinphy';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-03-29 07:42';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/dechinphy/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dechinphy/">陆言君的博客</a>
+</h1>
+<h2>研究兴趣：量子计算、python编程、深度学习</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dechinphy/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%99%86%E8%A8%80%E5%90%9B">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dechinphy/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dechinphy/p/ortools.html">
+    <span>创建ortools的Dockerfile</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        在本地构建基于Docker的编程环境是一个兼容性和可用性非常强的解决方案，这里我们介绍了一个使用Dockerfile来构建Docker容器镜像的简单实例。同时也用谷歌所主导的开源线性规划求解器ortools来测试这个容器化的编程环境解决方案，最终我们用ortools成功的求解了一个单背包问题，并且跟前面一篇博客中所介绍的IBM主导的cplex一样都得到了问题的最优解。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="技术背景">技术背景</h1>
+<p>基于已有的Docker容器镜像，去创建一个本地的镜像，有两种方法：一种是在之前的<a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">博客</a>中提到过的，使用<code>docker commit</code>的方案，也就是先进去基础系统镜像内部完成所需的修改，然后commit到一个新的容器内部;还有另外一种也非常常用的方法，就是写一个Dockerfile，在本文中会作简单介绍。</p>
+<p>另外我们在上一篇<a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">博客</a>中介绍了如何部署与使用IBM主导的Cplex线性规划求解器的一些基本使用方法。在本文中我们会介绍另外一套由Google主导的开源线性规划求解器ortools的部署与基本使用方法。</p>
+<h1 id="dockerfile的创建">Dockerfile的创建</h1>
+<p>对于简单的场景而言，尤其是别人已经把基础容器镜像做的比较完善的情况下，使得我们减少了大量的工作量。比如这里我们直接使用一个别人做好的python3.7的基础镜像，而获得该镜像的方法在上一篇<a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">博客</a>中也作了介绍。那么我们在dockerfile里面只需要安装好我们所需要的ortools的python包即可：</p>
+<pre><code class="language-bash">[dechin-root ortools]# cat Dockerfile 
+FROM rackspacedot/python37
+RUN python3 -m pip install pip --upgrade \
+        &amp;&amp; python3 -m pip install ortools
+</code></pre>
+<p>这里<code>FROM</code>后面所跟随的基础镜像是必须在本地所具备的，可以在<code>docker images</code>里面看到的才行。最好也在本地通过运行<code>docker run your_iamge</code>来测试一下这个容器镜像是否正常工作，因为有些容器镜像必须要跟随版本号才能正常使用。在上述dockerfile中我们先对<code>pip</code>管理工具做了一个升级，然后才安装<code>ortools</code>工具包。有一个需要注意的点是，我们也可以选择使用多次的RUN来制作一个dockerfile，但是这会导致添加了多层的镜像，因此最好我们是可以用命令拼接的方式一次性完成所有的任务，这样只会增加一层镜像（截图来自于参考链接2）：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2277440/202103/2277440-20210329190523824-1981099693.png" alt="" loading="lazy"></p>
+<p>按照上述流程编写好dockerfile之后，我们就可以使用<code>docker build</code>来构建一个本地的容器镜像：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker build -t dechin/ortools:v1 .
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM rackspacedot/python37
+ ---&gt; ab7083b6c7c4
+Step 2/2 : RUN python3 -m pip install pip --upgrade     &amp;&amp; python3 -m pip install ortools
+ ---&gt; Running in ff6b1971bdc9
+Requirement already satisfied: pip in /usr/local/lib/python3.7/site-packages (20.3.1)
+Collecting pip
+  Downloading pip-21.0.1-py3-none-any.whl (1.5 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 20.3.1
+    Uninstalling pip-20.3.1:
+      Successfully uninstalled pip-20.3.1
+Successfully installed pip-21.0.1
+Collecting ortools
+  Downloading ortools-8.2.8710-cp37-cp37m-manylinux1_x86_64.whl (14.2 MB)
+Collecting protobuf&gt;=3.14.0
+  Downloading protobuf-3.15.6-cp37-cp37m-manylinux1_x86_64.whl (1.0 MB)
+Collecting absl-py&gt;=0.11
+  Downloading absl_py-0.12.0-py3-none-any.whl (129 kB)
+Requirement already satisfied: six in /usr/local/lib/python3.7/site-packages (from absl-py&gt;=0.11-&gt;ortools) (1.15.0)
+Installing collected packages: protobuf, absl-py, ortools
+Successfully installed absl-py-0.12.0 ortools-8.2.8710 protobuf-3.15.6
+Removing intermediate container ff6b1971bdc9
+ ---&gt; b9ff988385a5
+Successfully built b9ff988385a5
+Successfully tagged dechin/ortools:v1
+</code></pre>
+<p>我们可以看到2条dockerfile的指令的运行结果都在屏幕上输出，显示是成功安装了的。在执行完build之后，我们可以在本地的images仓库里面看到这个新的容器镜像：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker images
+REPOSITORY                                                 TAG       IMAGE ID       CREATED          SIZE
+dechin/ortools                                             v1        b9ff988385a5   35 seconds ago   1.09GB
+</code></pre>
+<p>我们也可以测试一下这个容器镜像的功能是否正常：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker run -it dechin/ortools:v1 /bin/bash
+root@198255eacb30:/# python3
+Python 3.7.9 (default, Nov 18 2020, 14:29:12) 
+[GCC 6.3.0 20170516] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import ortools
+&gt;&gt;&gt; 
+</code></pre>
+<p>通过执行一个简单的python指令我们可以看到<code>ortools</code>这个工具已经被成功的部署在容器镜像内，在下一个章节中我们会介绍如何使用<code>ortools</code>来解决一个实际问题。当然，上述测试方案也有一个更加简单的方法，使用<code>-c</code>标签来运行代码：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker run dechin/ortools:v1 python3 -c "import ortools;print('hello')"
+hello
+</code></pre>
+<p>这里再补充介绍一下在docker中如何删除一个容器镜像的方法，那就是使用<code>rmi</code>和<code>rm</code>指令。这两个指令也容易区分，如果是在<code>docker images</code>指令下找到的容器镜像，那就用<code>rmi</code>来进行删除，如果是在<code>docker ps</code>里面看到的容器，那就用<code>rm</code>来删除，以下是两个示例：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker rmi cplex-py37
+Error response from daemon: conflict: unable to remove repository reference "cplex-py37" (must force) - container 7ce9dbee3e55 is using its referenced image 34e272969701
+[dechin-root ortools]# docker rmi -f cplex-py37
+Untagged: cplex-py37:latest
+Deleted: sha256:34e2729697010b1320c2f7dbfd1fc45004e9ffae6a1d26ffb8748b5627cb2224
+</code></pre>
+<p>上面这个用例是表示我们在<code>docker images</code>中有一个名为<code>cplex-py37</code>的容器镜像，其实也是在上一篇<a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">博客</a>中制作的产物。假如我们需要删除这个镜像，就用删除的<code>rmi</code>指令。当我们第一次尝试删除的时候，我们收到一个提示，关于一些冲突的提示。假如我们认定了这个冲突并不影响我们的操作，那么我们可以强制删除，也就是加上<code>-f</code>指令。</p>
+<p>另外也展示一下<code>rm</code>指令的使用场景。假如我们使用<code>docker ps -n 5</code>查看过去执行的最近5条指令，并且需要删除第一条镜像id为<code>2df3</code>的容器：</p>
+<pre><code class="language-bash">[dechin-root ortools]# docker ps -n 5
+CONTAINER ID   IMAGE                   COMMAND       CREATED        STATUS                      PORTS     NAMES
+2df3fcc803e0   34e272969701            "/bin/bash"   20 hours ago   Exited (0) 20 hours ago               bold_colden
+c766ed62d149   rackspacedot/python37   "/bin/bash"   20 hours ago   Exited (0) 20 hours ago               xenodochial_ardinghelli
+af037db88540   cplex                   "/bin/bash"   21 hours ago   Exited (0) 12 minutes ago             magical_cori
+e8c49c211039   cplex                   "/bin/bash"   21 hours ago   Exited (0) 21 hours ago               gracious_babbage
+1e053a1b6330   cplex                   "/bin/bash"   21 hours ago   Exited (0) 21 hours ago               suspicious_ride
+[dechin-root ortools]# docker rm 2df3
+2df3
+[dechin-root ortools]# docker ps -n 5
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS                      PORTS     NAMES
+c766ed62d149   rackspacedot/python37   "/bin/bash"              20 hours ago   Exited (0) 20 hours ago               xenodochial_ardinghelli
+af037db88540   cplex                   "/bin/bash"              21 hours ago   Exited (0) 12 minutes ago             magical_cori
+e8c49c211039   cplex                   "/bin/bash"              21 hours ago   Exited (0) 21 hours ago               gracious_babbage
+1e053a1b6330   cplex                   "/bin/bash"              21 hours ago   Exited (0) 21 hours ago               suspicious_ride
+de7f22ac259b   cplex                   "python3 -m pip inst…"   21 hours ago   Exited (0) 21 hours ago               hardcore_meitner
+</code></pre>
+<p>可以看到用<code>rm</code>删除之后就不会在最新的结果查询中出现这个容器，这也方便我们释放不需要的容器资源给本地环境。</p>
+<h1 id="ortools案例">ortools案例</h1>
+<p>这里我们还是使用上一篇<a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">博客</a>中所提到的<code>单背包问题（Knapsack Problem）</code>来进行测试。相关问题的定义如下：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202103/2277440-20210329193208718-1923918071.png" alt="" loading="lazy"><br>
+当然在ortools的案例中我们不需要写lp文件，只是借用这个lp文件来展示一下我们的约束条件和目标函数。这个问题的含义也在上一篇博客中介绍过了，这里我们直接截图引用：<br>
+<img src="https://img2020.cnblogs.com/blog/2277440/202103/2277440-20210329193331977-1295939402.png" alt="" loading="lazy"></p>
+<h2 id="ortools求解器的使用">ortools求解器的使用</h2>
+<p>在了解清楚问题的背景之后，现在我们就可以开始写测试代码了，首先我们也是从进入docker容器开始，然后出于方便我们直接在python指令中执行相关的测试（这里的测试代码我们参考了官方文档，也就是本文的参考链接1）：</p>
+<pre><code class="language-python">[dechin-root ortools]# docker run -it dechin/ortools:v1 /bin/bash
+root@3882b83959c8:/# python3
+Python 3.7.9 (default, Nov 18 2020, 14:29:12) 
+[GCC 6.3.0 20170516] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; from ortools.linear_solver import pywraplp
+&gt;&gt;&gt; solver = pywraplp.Solver.CreateSolver('SCIP') # 这里使用了第三方后端SCIP
+&gt;&gt;&gt; x1 = solver.IntVar(0.0, 1.0, 'x1')
+&gt;&gt;&gt; x2 = solver.IntVar(0.0, 1.0, 'x2')
+&gt;&gt;&gt; x3 = solver.IntVar(0.0, 1.0, 'x3')
+&gt;&gt;&gt; print ('Number of variables = ', solver.NumVariables()) # 参数数量
+Number of variables =  3
+&gt;&gt;&gt; solver.Add(3 * x1 + 4 * x2 + 5 * x3 &lt;= 8)
+&lt;ortools.linear_solver.pywraplp.Constraint; proxy of &lt;Swig Object of type 'operations_research::MPConstraint *' at 0x7f9013411de0&gt; &gt;
+&gt;&gt;&gt; solver.Maximize(2 * x1 + 3 * x2 + 4 * x3)
+&gt;&gt;&gt; status = solver.Solve()
+&gt;&gt;&gt; print('Number of constraints =', solver.NumConstraints()) # 约束条件数量
+Number of constraints = 1
+&gt;&gt;&gt; print('Objective value =', solver.Objective().Value()) # 最终解的函数值
+Objective value = 6.0
+&gt;&gt;&gt; print('x1 =', x1.solution_value())
+x1 = 1.0
+&gt;&gt;&gt; print('x2 =', x2.solution_value())
+x2 = 0.0
+&gt;&gt;&gt; print('x3 =', x3.solution_value())
+x3 = 1.0
+&gt;&gt;&gt; print (status == pywraplp.Solver.OPTIMAL) # 是否最优解？
+True
+</code></pre>
+<p>在这个案例中我们使用了一个第三方的求解器后端来进行计算，叫<code>SCIP</code>。我们得到的最终解已经达到了最优解，这个我们在上一篇博客中也分析过了。到这里为止，我们就成功的使用ortools提供的框架求解了一个实际的背包问题。</p>
+<h1 id="总结概要">总结概要</h1>
+<p>在本地构建基于Docker的编程环境是一个兼容性和可用性非常强的解决方案，这里我们介绍了一个使用Dockerfile来构建Docker容器镜像的简单实例。同时也用谷歌所主导的开源线性规划求解器ortools来测试这个容器化的编程环境解决方案，最终我们用ortools成功的求解了一个单背包问题，并且跟前面一篇博客中所介绍的IBM主导的cplex一样都得到了问题的最优解。</p>
+<h1 id="版权声明">版权声明</h1>
+<p>本文首发链接为：<a href="https://www.cnblogs.com/dechinphy/p/ortools.html" target="_blank">https://www.cnblogs.com/dechinphy/p/ortools.html</a><br>
+作者ID：DechinPhy<br>
+更多原著文章请参考：<a href="https://www.cnblogs.com/dechinphy/" target="_blank">https://www.cnblogs.com/dechinphy/</a></p>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="https://developers.google.cn/optimization/mip/integer_opt?hl=zh-cn" target="_blank">https://developers.google.cn/optimization/mip/integer_opt?hl=zh-cn</a></li>
+<li><a href="https://www.runoob.com/docker/docker-dockerfile.html" target="_blank">https://www.runoob.com/docker/docker-dockerfile.html</a></li>
+<li><a href="https://www.cnblogs.com/dechinphy/p/cplex.html#" target="_blank">https://www.cnblogs.com/dechinphy/p/cplex.html#</a></li>
+</ol>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-03-29 19:42</span>&nbsp;
+<a href="https://www.cnblogs.com/dechinphy/">陆言君</a>&nbsp;
+阅读(<span id="post_view_count">162</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14593723" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14593723);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 657846, cb_blogApp = 'dechinphy', cb_blogUserGuid = '1cf551f5-d20b-40f7-a88d-08d8ae5f7194';
+    var cb_entryId = 14593723, cb_entryCreatedDate = '2021-03-29 19:42', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 陆言君
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+// 生成目录索引列表
+// ref: http://www.cnblogs.com/wangqiguo/p/4355032.html
+// modified by: zzq
+function GenerateContentList()
+{
+    var mainContent = $('#cnblogs_post_body');
+    var h1_list = $('#cnblogs_post_body h1');//如果你的章节标题不是h2,只需要将这里的h2换掉即可
+
+    if(mainContent.length < 1)
+        return;
+ 
+    if(h1_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content += '<div id="navCategory" style="color:#152e97;">';
+        content += '<p style="font-size:18px;"><b>目录</b></p>';
+        content += '<ul>';
+        for(var i=0; i<h1_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right;"><a href="#_labelTop" style="color:#f68a33">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(h1_list[i]).before(go_to_top);
+            
+            var h2_list = $(h1_list[i]).nextAll("h2");
+            var li2_content = '';
+            for(var j=0; j<h2_list.length; j++)
+            {
+                var tmp = $(h2_list[j]).prevAll('h1').first();
+                if(!tmp.is(h1_list[i]))
+                    break;
+                var li2_anchor = '<a name="_label' + i + '_' + j + '"></a>';
+                $(h2_list[j]).before(li2_anchor);
+                li2_content += '<li><a href="#_label' + i + '_' + j + '">' + $(h2_list[j]).text() + '</a></li>';
+            }
+            
+            var li1_content = '';
+            if(li2_content.length > 0)
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a><ul>' + li2_content + '</ul></li>';
+            else
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a></li>';
+            content += li1_content;
+        }
+        content += '</ul>';
+        content += '</div><p>&nbsp;</p>';
+        content += '<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }   
+}
+
+GenerateContentList();
+</script>
+
+
+
+
+
+
+
+
+
+<link href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/atelier-lakeside-dark.min.css" rel="stylesheet"/>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsiHj4xrUxPi126WGmToHKP0I3-Eoek1DIQvBspQtah5MW0AsWTzwDT5Qd2Vivms1YM-ABdPYCkoSQY_2EExmB1MVTjbI2HyhpvxH7V7d_p5oojespuMYc2JFEI_ripxpc" />
+</body>
+</html>
