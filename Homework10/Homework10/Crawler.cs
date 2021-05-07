@@ -15,14 +15,14 @@ namespace Homework10
 {
     class Crawler
     {
-        public event Action<Crawler> CrawlerStopped;
-        public event Action<Crawler, int, string, string> PageDownloaded;
+        public event Action<Crawler> CrawlerStop;
+        public event Action<Crawler, int, string, string> HtmlDownload;
 
         //所有已下载和待下载URL，key是URL，value表示是否下载成功
         private ConcurrentDictionary<string, bool> urls = new ConcurrentDictionary<string, bool>();
 
         //待下载队列
-        private ConcurrentQueue<string> pending = new ConcurrentQueue<string>();
+        private ConcurrentQueue<string> cquene = new ConcurrentQueue<string>();
 
         //URL检测表达式，用于在HTML文本中查找URL
         private readonly string urlDetectRegex = @"(href|HREF)\s*=\s*[""'](?<url>[^""'#>]+)[""']";
@@ -44,14 +44,14 @@ namespace Homework10
         public void Start()
         {
             urls.Clear();
-            pending.Enqueue(StartURL);
+            cquene.Enqueue(StartURL);
             List<Task> tasks = new List<Task>();
             int completedCount = 0;
-            PageDownloaded += (crawler, index, url, status) => { completedCount++; };
+            HtmlDownload += (crawler, index, url, status) => { completedCount++; };
 
             while (tasks.Count < MaxPage)
             {
-                if(!pending.TryDequeue(out string url))
+                if (!cquene.TryDequeue(out string url))
                 {
                     if (completedCount < MaxPage)
                     {
@@ -64,26 +64,11 @@ namespace Homework10
                 }
 
                 int index = tasks.Count;
-                Task task = Task.Run(() => DownLoadAndParse(url, index));
+                Task task = Task.Run(() => DoCrawler(url, index));
                 tasks.Add(task);
             }
             Task.WaitAll(tasks.ToArray());
-            CrawlerStopped(this);
-        }
-
-        private void DownLoadAndParse(string url,int index)
-        {
-            try
-            {
-                string html = DownLoad(url);
-                urls[url] = true;
-                Parse(html, url);
-                PageDownloaded(this, index, url, "success");
-            }
-            catch(Exception e)
-            {
-                PageDownloaded(this, index, url, "Error:" + e.Message);
-            }
+            CrawlerStop(this);
         }
 
         private string DownLoad(string url)
@@ -115,7 +100,7 @@ namespace Homework10
                 if (Regex.IsMatch(host, HostFilter) && Regex.IsMatch(file, FileFilter)
                   && !urls.ContainsKey(linkUrl))
                 {
-                    pending.Enqueue(linkUrl);
+                    cquene.Enqueue(linkUrl);
                     urls.TryAdd(linkUrl, false);
                 }
             }
@@ -154,6 +139,20 @@ namespace Homework10
 
             int end = baseUrl.LastIndexOf("/");
             return baseUrl.Substring(0, end) + "/" + url;
+        }
+        private void DoCrawler(string url, int index)            //new method
+        {
+            try
+            {
+                string html = DownLoad(url);
+                urls[url] = true;
+                Parse(html, url);
+                HtmlDownload(this, index, url, "success");
+            }
+            catch (Exception e)
+            {
+                HtmlDownload(this, index, url, "Error:" + e.Message);
+            }
         }
     }
 }

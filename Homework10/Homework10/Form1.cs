@@ -21,8 +21,8 @@ namespace Homework10
         {
             InitializeComponent();
             DataGridView.DataSource = bindingsource;
-            crawler.PageDownloaded += Crawler_PageDownloaded;
-            crawler.CrawlerStopped += Crawler_CrawlerStopped;
+            crawler.HtmlDownload += Crawler_PageDownloaded;
+            crawler.CrawlerStop += Crawler_CrawlerStopped;
         }
 
         private void Crawler_CrawlerStopped(Crawler crawler)

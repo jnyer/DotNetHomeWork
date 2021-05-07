@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Lachlan_Yang - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/LaChlanYang/custom.css?v=cansC9ZJJ6jGQM8W4CZ4cif/byI=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/LaChlanYang/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/LaChlanYang/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/LaChlanYang/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 644375;
+        var currentBlogApp = 'LaChlanYang';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/LaChlanYang/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/LaChlanYang/">Lachlan_Yang</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/LaChlanYang/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Lachlan_Yang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/LaChlanYang/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/04/25.html">2021年4月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14698834.html">
+    <span>
+            <span>[置顶]</span>
+        SpringIOC框架简单实现（注解实现）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SpringIOC框架简单实现（注解实现） 前情回顾 SpringIOE简单介绍 运用注解的方式来实现IOC 首先，让我们来创建一个Dog类 @Component(&amp;quot;dog&amp;quot;)//唯一标识名称 public class Dog implements Pet{ @Autowired @Value(&amp;quot;大        <a href="https://www.cnblogs.com/LaChlanYang/p/14698834.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-25 00:57
+Lachlan_Yang
+<span data-post-id="14698834" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14698834" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14698834" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14698834" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/03/14.html">2021年3月14日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14528347.html">
+    <span>
+            <span>[置顶]</span>
+        Spring前瞻----Java反射机制
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：导言： java反射机制核心是一种在程序运行时动态加载类并获取详细信息，从而操作类的对象的属性和方法。 一、什么是反射 从专业角度来说： Java反射说的是在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性遂行调用。我们杷这种动念获取对象        <a href="https://www.cnblogs.com/LaChlanYang/p/14528347.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-14 20:16
+Lachlan_Yang
+<span data-post-id="14528347" class="post-view-count">阅读(10)</span> 
+<span data-post-id="14528347" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14528347" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14528347" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14736950.html">
+    <span>
+        SpringAOP_构造注入实现
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SpringAOP_构造注入实现 AOP_面向切面编程初步了解 让我们先想象一个场景，你正在编写一个项目，在开发过程中的多个模块都有某段重复的代码，于是你选择将其抽象成一个方法，然后在需要的地方调用这个方法，当需要修改这段代码时只需要修改这个方法就行。有一天，你的Boss给了新的需求，需要再抽象出一        <a href="https://www.cnblogs.com/LaChlanYang/p/14736950.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 21:25
+Lachlan_Yang
+<span data-post-id="14736950" class="post-view-count">阅读(88)</span> 
+<span data-post-id="14736950" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14736950" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736950" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/05/05.html">2021年5月5日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14733301.html">
+    <span>
+        SpringAOP_设置注入实现
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SpringAOP_设置注入实现 AOP_面向切面编程初步了解 让我们先想象一个场景，你正在编写一个项目，在开发过程中的多个模块都有某段重复的代码，于是你选择将其抽象成一个方法，然后在需要的地方调用这个方法，当需要修改这段代码时只需要修改这个方法就行。有一天，你的Boss给了新的需求，需要再抽象出一        <a href="https://www.cnblogs.com/LaChlanYang/p/14733301.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-05 23:10
+Lachlan_Yang
+<span data-post-id="14733301" class="post-view-count">阅读(156)</span> 
+<span data-post-id="14733301" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14733301" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14733301" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/04/25.html">2021年4月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14698834.html">
+    <span>
+        SpringIOC框架简单实现（注解实现）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SpringIOC框架简单实现（注解实现） 前情回顾 SpringIOE简单介绍 运用注解的方式来实现IOC 首先，让我们来创建一个Dog类 @Component(&amp;quot;dog&amp;quot;)//唯一标识名称 public class Dog implements Pet{ @Autowired @Value(&amp;quot;大        <a href="https://www.cnblogs.com/LaChlanYang/p/14698834.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-25 00:57
+Lachlan_Yang
+<span data-post-id="14698834" class="post-view-count">阅读(12)</span> 
+<span data-post-id="14698834" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14698834" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14698834" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/04/22.html">2021年4月22日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14690344.html">
+    <span>
+        SpringIOC-设置注入实现
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：SpringIOC框架简单实现 简单介绍 依赖注入( Dependency Injection ，简称 DI) 与控制反转 (IoC) 的含义相同，只不过这两个称呼是从两个角度描述的同一个概念，具体如下： 依赖：bean对象的创建依赖于容器。 注入：bean对象中的所有属性，由容器来注入。 控制反转        <a href="https://www.cnblogs.com/LaChlanYang/p/14690344.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-22 16:39
+Lachlan_Yang
+<span data-post-id="14690344" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14690344" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14690344" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14690344" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/03/14.html">2021年3月14日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14528347.html">
+    <span>
+        Spring前瞻----Java反射机制
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：导言： java反射机制核心是一种在程序运行时动态加载类并获取详细信息，从而操作类的对象的属性和方法。 一、什么是反射 从专业角度来说： Java反射说的是在运行状态中，对于任何一个类，我们都能够知道这个类有哪些方法和属性。对于任何一个对象，我们都能够对它的方法和属性遂行调用。我们杷这种动念获取对象        <a href="https://www.cnblogs.com/LaChlanYang/p/14528347.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-14 20:16
+Lachlan_Yang
+<span data-post-id="14528347" class="post-view-count">阅读(10)</span> 
+<span data-post-id="14528347" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14528347" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14528347" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/03/13.html">2021年3月13日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14527751.html">
+    <span>
+        IDEA一些常用快捷键
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：IDEA是一款很方便的编译程序，其中的快捷键更是可以提高编译的效率，拿小本本记下来，忘记了可以方便查找。 编写代码 Ctrl+Shift + Enter，语句完成。 “！”，否定完成，输入表达式时按 “！”键。 Ctrl+E，最近的文件。 Ctrl+Shift+E，最近更改的文件。 Shift+Cl        <a href="https://www.cnblogs.com/LaChlanYang/p/14527751.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-13 10:24
+Lachlan_Yang
+<span data-post-id="14527751" class="post-view-count">阅读(21)</span> 
+<span data-post-id="14527751" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14527751" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14527751" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2021/01/25.html">2021年1月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14326251.html">
+    <span>
+        第一章计算机网络概述 
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：计算机网络初入门 计算机网络概述 计算机网络的概念： 一些互联，自治的计算机的集合 计算机网络的组成： 物理组成 硬件：主机，显示器等 软件：方便用户使用的软件 协议：数据在链路上运输的规则 工作方式组成 边缘部分（主机） 核心部分（路由器，网络） 功能组成 通信子网：传输介质，通信设备和网络协议，        <a href="https://www.cnblogs.com/LaChlanYang/p/14326251.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-25 17:11
+Lachlan_Yang
+<span data-post-id="14326251" class="post-view-count">阅读(18)</span> 
+<span data-post-id="14326251" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14326251" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14326251" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2020/12/14.html">2020年12月14日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14136314.html">
+    <span>
+        第二大章--数据链路层思维导图
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：关于数据链路层知识点的思维导图        <a href="https://www.cnblogs.com/LaChlanYang/p/14136314.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-12-14 23:19
+Lachlan_Yang
+<span data-post-id="14136314" class="post-view-count">阅读(42)</span> 
+<span data-post-id="14136314" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14136314" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14136314" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/LaChlanYang/archive/2020/11/30.html">2020年11月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14063643.html">
+    <span>
+        第一大章--1.2标准化工作
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：闲聊一下~ 俗话说，无规矩不成方圆，设想一下，每一个网络开发公司都只是使用自己创造的协议，那不难想象，你的电脑可能只能与几个人，几十个人通信，没有办法像现在这样来自世界各地的人们互相通信，因此，一个标准的规则必不可少。 接下来进入主题。 标准化工作能干什么？ 实现不同厂商硬件软件的相互连通(制定统一        <a href="https://www.cnblogs.com/LaChlanYang/p/14063643.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-30 20:50
+Lachlan_Yang
+<span data-post-id="14063643" class="post-view-count">阅读(46)</span> 
+<span data-post-id="14063643" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14063643" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14063643" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/LaChlanYang/p/14063624.html">
+    <span>
+        第一大章--1.1概论
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：是什么？ 每个计算机都看作一个个体，把他们用通讯设备与线路联系起来，用软件实现资源共享和信息传递的系统 能干嘛？ 数据通信（重点）：将A计算机文件发送给B计算机 资源共享（重点）：硬件，软件，数据共享 分布式处理：类比于一辆车，每台计算机都是一个部件比如引擎，各自负责各自的工作。 提高可靠性 谁组成        <a href="https://www.cnblogs.com/LaChlanYang/p/14063624.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-30 20:48
+Lachlan_Yang
+<span data-post-id="14063624" class="post-view-count">阅读(31)</span> 
+<span data-post-id="14063624" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14063624" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14063624" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/LaChlanYang/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Lachlan_Yang
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        
+<!--live2d-->
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/autoload.js"></script>
+<!--live2dend-->
+
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!--鼠标特效-->
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/mouse-click.js"></script>
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<!--鼠标特效 end-->
+
+
+
+
+
+<!--雪花特效1&12月自动添加-->
+
+<div class="Snow">
+    <canvas id="Snow"></canvas>
+</div>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/xue.js"></script>
+
+
+<!--顶部加载条-->
+<link rel="stylesheet" href="https://blog-static.cnblogs.com/files/zouwangblog/nprogress.css">
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/nprogress.js"></script>
+<script>
+NProgress.start();
+NProgress.done();
+</script>
+
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuq1Kpq7xjpim--QszOlBRcVc_zg0Fq9S4xSTVxWVHL6hgYqcwS5lYWqVH5hUOb06ck0W73aCONzX-0l3lDbf6Vu52-egydtBPgN3DVKfjOcTUwnWqe9AakL-M_wHtON7Y" />
+</body>
+</html>

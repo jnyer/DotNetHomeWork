@@ -9,28 +9,28 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>2020 年 3月 30 日 随笔档案 - AZRNG - 博客园</title>
+    <title>拓荒者 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
+    <link id="MainCss" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001.min.css?v=9x2ZP2K8SSBJowZA6xv0D5FvOmlvd5g21u0NBEAEwfQ" />
     
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001-mobile.min.css?v=xFiYH0_zTHqf_pk9Nf2PvR4VdQ1qJnJcRVcot-VdM-8" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/azrng/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/azrng/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/azrng/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dstang2000/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dstang2000/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dstang2000/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 418143;
-        var currentBlogApp = 'azrng';
+        var currentBlogId = 9986;
+        var currentBlogApp = 'dstang2000';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'CodingLife';
+        var skinName = 'AnotherEon001';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -89,81 +89,44 @@
         </nav>
     </div>
 
-    <div id="page_begin_html">
-        <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/kousak/waifu.css">   
- <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/kousak/waifu.css">
- 
-  <div class="waifu" id="waifu"> <div class="waifu-tips" style="opacity: 1"></div>  <div class="waifu-tool"> <span class="fui-home"></span> <span class="fui-chat"></span> <span class="fui-eye"></span> <span class="fui-user"></span> <span class="fui-photo"></span> <span class="fui-info-circle"></span> <span class="fui-cross"></span> </div> </div> 
-   <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/yjlblog/flat-ui.min.css">
-    </div>
-    <!--done-->
-<div id="home">
+    
+    <div id="wrapper">
 <div id="header">
-	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/azrng/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
-		
-<!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/azrng/">AZRNG</a>
+
+<div id="top">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dstang2000/">拓荒者 dstang2000 <a href="http://www.dstang.com"><font size=-1 color=red>http://www.dstang.com</font></a>
 </h1>
-<h2></h2>
+<div id="subtitle">KISS：Keeping things that work，Improve systems procedures styles，Start things of value，Stop things of no value </div>
+</div>
+<div id="sub"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></div>
+
+
+
+
+</div>
+<div id="main_container">
+<div id="main_content">
+<div id="content">
+	
+
 
 
 
 
 		
-	</div><!--end: blogTitle 博客的标题和副标题 -->
-	<div id="navigator">
-		
-<ul id="navList">
-<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
-博客园</a>
-</li>
-<li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/azrng/">
-首页</a>
-</li>
-<li>
+<p class="date">
+	<span>		  
+	<a href="https://www.cnblogs.com/dstang2000/archive/2010/11/02.html">2010年11月2日</a>
+	</span>
+</p>
 
-<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-新随笔</a>
-</li>
-<li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/AZRNG">
-联系</a></li>
-<li>
-
-<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
-<li>
-<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
-管理</a>
-</li>
-</ul>
-
-
-		<div class="blogStats">
-			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-		</div><!--end: blogStats -->
-	</div><!--end: navigator 博客导航栏 -->
-</div><!--end: header 头部 -->
-<div id="main">
-	<div id="mainContent">
-	<div class="forFlow">
-		
-        <!--done-->
-
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a>2020年3月30日</a>
-    </div>
-
-        <div class="postTitle">
+    <div class="post">
+        <h2>
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/12597605.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dstang2000/archive/2010/11/02/1867406.html">
     <span>
-        HttpContext访问的正确姿势
+        实测:xml与json速度约差4倍
     </span>
     
 
@@ -171,60 +134,260 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
+        </h2>
+        <div class="postbody">
+            
 
     <div class="c_b_p_desc">
-摘要：本文章转发自：https://www.cnblogs.com/tianqing/p/12570801.html 使用HttpContext的具体场景： 1. 在Controller层访问HttpContext 2. 在中间件中使用HttpContext 3. 在数据访问层使用HttpContext         <a href="https://www.cnblogs.com/azrng/p/12597605.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：xml与json在javascript中解析并使用，速度大约相差4倍。（在IE中测试的结果）。其中主要不在于eval,与xml parse的时间差别，主要在于属性访问上的差别：xml中使用这样的方式 markers[i].getAttribute("info") 与json中使用这样的方式 var info = markers[i].info;相比， xml要慢不少。以下为测试的详情：代码Code...        <a href="https://www.cnblogs.com/dstang2000/archive/2010/11/02/1867406.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-03-30 11:51
-AZRNG
-<span data-post-id="12597605" class="post-view-count">阅读(453)</span> 
-<span data-post-id="12597605" class="post-comment-count">评论(0)</span> 
-<span data-post-id="12597605" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12597605" rel="nofollow">
+
+        </div>
+        <p class="postfoot">
+            posted @ 2010-11-02 17:43
+拓荒者
+<span data-post-id="1867406" class="post-view-count">阅读(976)</span> 
+<span data-post-id="1867406" class="post-comment-count">评论(0)</span> 
+<span data-post-id="1867406" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=1867406" rel="nofollow">
     编辑
 </a>
+
+        </p>
+    </div>
+
+
+		
+<p class="date">
+	<span>		  
+	<a href="https://www.cnblogs.com/dstang2000/archive/2005/10/08.html">2005年10月8日</a>
+	</span>
+</p>
+
+    <div class="post">
+        <h2>
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dstang2000/archive/2005/10/08/250188.html">
+    <span>
+        使用 NDoc 对 asp.net (Web) 项目产生文档的方法
+    </span>
+    
+
+
+
+</a>
+
+        </h2>
+        <div class="postbody">
+            
+
+    <div class="c_b_p_desc">
+摘要：NDoc是一个非常好的文档生成工具，现在还出了一些不错的中文版，如破宝的http://www.percyboy.com/w/ndoc/。但是由于NDoc现在的版本1.3 不支持Web项目，也不支持中文文件名，下面提出一个临时性的解决办法1. 解决不认识http://的Web项目的问题方法： （1）将.csproj文件复制一份，其中将项目类型由&#8220;Web&#8221;改为&#8220;Lo...        <a href="https://www.cnblogs.com/dstang2000/archive/2005/10/08/250188.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <p class="postfoot">
+            posted @ 2005-10-08 12:12
+拓荒者
+<span data-post-id="250188" class="post-view-count">阅读(1195)</span> 
+<span data-post-id="250188" class="post-comment-count">评论(3)</span> 
+<span data-post-id="250188" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=250188" rel="nofollow">
+    编辑
+</a>
+
+        </p>
+    </div>
+
+
+		
+<p class="date">
+	<span>		  
+	<a href="https://www.cnblogs.com/dstang2000/archive/2005/03/06.html">2005年3月6日</a>
+	</span>
+</p>
+
+    <div class="post">
+        <h2>
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dstang2000/archive/2005/03/06/113761.html">
+    <span>
+        小工具RssInIE： 在IE中点右键，可以直接查看RSS
+    </span>
+    
+
+
+
+</a>
+
+        </h2>
+        <div class="postbody">
+            
+
+    <div class="c_b_p_desc">
+摘要：最近RSS越来越流行，一般都需要专用的软件，有时候，在IE中看见的只是xml文件，很不方便。 我这里做了一个小工具，作为IE的插件，使得点右键&#8220;选Rss In IE&#8221;时，可以直接查看RSS。 程序的原理是使用xslt将RSS的xml转成为链接，放到窗口左边，而右边用一个iframe来放内容。 （由于iframe使用得不太好，欢迎提出改进意见）。 下载RssInIE：RssI...        <a href="https://www.cnblogs.com/dstang2000/archive/2005/03/06/113761.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <p class="postfoot">
+            posted @ 2005-03-06 00:56
+拓荒者
+<span data-post-id="113761" class="post-view-count">阅读(1580)</span> 
+<span data-post-id="113761" class="post-comment-count">评论(5)</span> 
+<span data-post-id="113761" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=113761" rel="nofollow">
+    编辑
+</a>
+
+        </p>
+    </div>
+
+
+		
+<p class="date">
+	<span>		  
+	<a href="https://www.cnblogs.com/dstang2000/archive/2005/03/05.html">2005年3月5日</a>
+	</span>
+</p>
+
+    <div class="post">
+        <h2>
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dstang2000/archive/2005/03/05/113513.html">
+    <span>
+        分不清正数负数，是我错了，还是VS.NET错了
+    </span>
+    
+
+
+
+</a>
+
+        </h2>
+        <div class="postbody">
+            
+
+    <div class="c_b_p_desc">
+摘要：三年前做的一个ASP.NET的项目（www.SurveyStar.net），一直运行好好的， 前几天，客户打电话来说，出了问题。 反复跟踪，发现是一个正数、负数的判断与ToString()的问题。 将问题简化后，源程序可表示为只有4句的程序，如下： class&#160;Test { &#160;&#160;&#160;&#160;static&#160;void&#160;Main() &#16...        <a href="https://www.cnblogs.com/dstang2000/archive/2005/03/05/113513.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <p class="postfoot">
+            posted @ 2005-03-05 14:45
+拓荒者
+<span data-post-id="113513" class="post-view-count">阅读(2657)</span> 
+<span data-post-id="113513" class="post-comment-count">评论(5)</span> 
+<span data-post-id="113513" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=113513" rel="nofollow">
+    编辑
+</a>
+
+        </p>
+    </div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    
+
+    </div>    
 </div>
-        <div class="clear"></div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
 </div>
+</div>
+<div id="leftmenu">
 
 
+<h3>导航</h3>
+<ul>
+    <li>
+        <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dstang2000/">
+首页</a>
+
+    </li>
+    <li>
+        
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%8B%93%E8%8D%92%E8%80%85">
+联系</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dstang2000/rss/">
+订阅</a>
+        
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/dstang2000/rss/">
+    <img src="/skins/anothereon001/images/xml.gif" alt="订阅" />
+</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+    </li>
+</ul>
 
 
-	</div><!--end: forFlow -->
-	</div><!--end: mainContent 主体内容容器-->
-	<div id="sideBar">
-		<div id="sideBarMain">
-			<div id="sidebar_news" class="newsItem">
+<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
-			<div id="leftcontentcontainer">
-				<div id="blog-sidecolumn"></div>
+<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-			</div>			
-		</div><!--end: sideBarMain -->
-	</div><!--end: sideBar 侧边栏容器 -->
-	<div class="clear"></div>
-	</div><!--end: main -->
-	<div class="clear"></div>
-	<div id="footer">
-		<!--done-->
-Copyright &copy; 2021 AZRNG
+
+</div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
+	<br />
+	Copyright &copy; 2021 拓荒者
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
+</p>
 
 
-	</div><!--end: footer -->
-</div><!--end: home 自定义的最大容器 -->
+</div>
+</div>
 
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvciN87dHQhDzRc-HEP1vrScQOiAEgBwpc0U7lkoUOcq6DS0w789lZ8YEhKUhFE7Sqgt9hQlaH4-gPY5u82cbtt3rQzUt4dx-mQlG-TVwSLvhdxSpaIF3iRR02-zo_5ISQ" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtCAopnecKB7qwhKthb5uJX1X3CN7jaTJRO3Am9XDX6Fgz0m7bhARLEqyxkDOzAlX9dh_ZMJzvRywUPTsfdLELFz6Sa9I-uYcaKe7M1V614q8pVm5DxlsE-53Gbe-4qjCQ" />
 </body>
 </html>

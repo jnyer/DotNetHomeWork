@@ -3,41 +3,44 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="origin-when-crossorigin" />
-    
-    
+    <meta name="referrer" content="never" />
+    <meta name="description" content="三年前做的一个ASP.NET的项目（www.SurveyStar.net），一直运行好好的， 前几天，客户打电话来说，出了问题。 反复跟踪，发现是一个正数、负数的判断与ToString()的问题。 将" />
+    <meta property="og:description" content="三年前做的一个ASP.NET的项目（www.SurveyStar.net），一直运行好好的， 前几天，客户打电话来说，出了问题。 反复跟踪，发现是一个正数、负数的判断与ToString()的问题。 将" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>2021 年 5月 6 日 随笔档案 - JohnBeBee - 博客园</title>
+    <title>分不清正数负数，是我错了，还是VS.NET错了 - 拓荒者 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001.min.css?v=9x2ZP2K8SSBJowZA6xv0D5FvOmlvd5g21u0NBEAEwfQ" />
     
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/johnbebee/custom.css?v=cansC9ZJJ6jGQM8W4CZ4cif/byI=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001-mobile.min.css?v=xFiYH0_zTHqf_pk9Nf2PvR4VdQ1qJnJcRVcot-VdM-8" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/johnbebee/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/johnbebee/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/johnbebee/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dstang2000/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dstang2000/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dstang2000/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 680867;
-        var currentBlogApp = 'johnbebee';
+        var currentBlogId = 9986;
+        var currentBlogApp = 'dstang2000';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'SimpleMemory';
+        var skinName = 'AnotherEon001';
         var visitorUserId = '';
     </script>
+        <script>
+            var currentPostDateAdded = '2005-03-05 02:45';
+        </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -90,154 +93,324 @@
     </div>
 
     
-    <!--done-->
-<div id="home">
+    <div id="wrapper">
 <div id="header">
-	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/johnbebee/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
-		
-<!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/johnbebee/">JohnBeBee</a>
+
+<div id="top">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dstang2000/">拓荒者 dstang2000 <a href="http://www.dstang.com"><font size=-1 color=red>http://www.dstang.com</font></a>
 </h1>
-<h2></h2>
+<div id="subtitle">KISS：Keeping things that work，Improve systems procedures styles，Start things of value，Stop things of no value </div>
+</div>
+<div id="sub"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></div>
 
 
 
 
-		
-	</div><!--end: blogTitle 博客的标题和副标题 -->
-	<div id="navigator">
-		
-<ul id="navList">
-<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
-博客园</a>
-</li>
-<li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/johnbebee/">
-首页</a>
-</li>
-<li>
-
-<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-新随笔</a>
-</li>
-<li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/JohnBeBee">
-联系</a></li>
-<li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/johnbebee/rss/">
-订阅</a>
-<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
-<li>
-<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
-管理</a>
-</li>
-</ul>
-
-
-		<div class="blogStats">
-			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-		</div><!--end: blogStats -->
-	</div><!--end: navigator 博客导航栏 -->
-</div><!--end: header 头部 -->
-<div id="main">
-	<div id="mainContent">
-	<div class="forFlow">
-		
-        <!--done-->
-
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a>2021年5月6日</a>
-    </div>
-
-        <div class="postTitle">
+</div>
+<div id="main_container">
+<div id="main_content">
+<div id="content">
+	<div id="post_detail">
+    <div class="post">
+        <h2>
             
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/johnbebee/p/14715093.html">
-    <span>
-        【小白向】基于Docker使用Gogs,Drone以及drone-runner-docker的自动化部署
-    </span>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dstang2000/archive/2005/03/05/113513.html">
+    <span>分不清正数负数，是我错了，还是VS.NET错了</span>
     
 
 
 
 </a>
 
+        </h2>
+        <div class="postbody">
+            <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>三年前做的一个ASP.NET的项目（<a href="http://www.surveystar.net/">www.SurveyStar.net</a>），一直运行好好的， 
+<br>前几天，客户打电话来说，出了问题。 
+<br>反复跟踪，发现是一个正数、负数的判断与ToString()的问题。 
+<br>将问题简化后，源程序可表示为只有4句的程序，如下： 
+<br>
+</p>
+<div style="border: 0.5pt solid rgba(0, 0, 0, 1); padding: 4px 5.4pt; background: rgba(230, 230, 230, 1); width: 98%; word-break: break-all">
+   <div><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;Test 
+<br><img id="Codehighlighter1_11_257_Open_Image" height="16" src="/Images/OutliningIndicators/ExpandedBlockStart.gif" width="11" align="top"><img id="Codehighlighter1_11_257_Closed_Image" height="16" src="/Images/OutliningIndicators/ContractedBlock.gif" width="11" align="top" style="display: none"></span><span id="Codehighlighter1_11_257_Closed_Text" style="border: 1px solid rgba(128, 128, 128, 1); display: none; background-color: rgba(255, 255, 255, 1)"><img height="20" src="/Images/dot.gif" width="15"></span><span id="Codehighlighter1_11_257_Open_Text"><span style="color: rgba(0, 0, 0, 1)">{ 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;Main() 
+<br><img id="Codehighlighter1_34_255_Open_Image" height="16" src="/Images/OutliningIndicators/ExpandedSubBlockStart.gif" width="11" align="top" style="display: inline"><img id="Codehighlighter1_34_255_Closed_Image" height="16" src="/Images/OutliningIndicators/ContractedSubBlock.gif" width="11" align="top" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="Codehighlighter1_34_255_Closed_Text" style="border: 1px solid rgba(128, 128, 128, 1); display: none; background-color: rgba(255, 255, 255, 1)"><img height="20" src="/Images/dot.gif" width="15"></span><span id="Codehighlighter1_34_255_Open_Text" style="display: inline"><span style="color: rgba(0, 0, 0, 1)">{ 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;a&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">=</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x79de61c0</span><span style="color: rgba(0, 0, 0, 1)">;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">2044617152;</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">+=</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x12345678</span><span style="color: rgba(0, 0, 0, 1)">;&nbsp;&nbsp;&nbsp;&nbsp; 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">a&nbsp;应为&nbsp;0x8c12b838;&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">-1944930248</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(&nbsp;a</span><span style="color: rgba(0, 0, 0, 1)">&lt;</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;)&nbsp;a&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">=</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">-</span><span style="color: rgba(0, 0, 0, 1)">a; 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">string&nbsp;str1&nbsp;=&nbsp;a.ToString();</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine(&nbsp;a&nbsp;); 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">string&nbsp;str2&nbsp;=&nbsp;a.ToString();</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;&nbsp;&nbsp;}</span></span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/ExpandedBlockEnd.gif" width="11" align="top">}</span></span> 
+   </div>
+</div>
+<br>按理说，这里的<span><span class="Highlight"><span>if(a&lt;0) a=-a</span></span> 应当将之转成了正数，但是问题来了： 
+<br>如果在前面加上了str1一句，或者后面加上了str2一句，或者前后都加上， 
+<br><span class="Highlight">显示的a居然是负数 -1944930248。</span>这真是一个奇怪的问题。 
+<br>是我错了，还是微软错了？ 
+<br>
+<br>我查看了IL代码，没有找到问题，不知有无高人能指出其中的原因。 
+<br>附：IL代码1： 
+<table cellspacing="0" cellpadding="3" border="1" style="width: 721px; border-collapse: collapse">
+   <tbody>
+       <tr>
+           <td>
+              <div style="border: 0.5pt solid rgba(0, 0, 0, 1); padding: 4px 5.4pt; background: rgba(230, 230, 230, 1); width: 98%; word-break: break-all">
+                  <div><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"><span style="color: rgba(0, 0, 0, 1)">#regin&nbsp;不加str1及str2 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top">.method&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;hidebysig&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;Main()&nbsp;cil&nbsp;managed 
+<br><img id="Codehighlighter1_77_545_Open_Image" height="16" src="/Images/OutliningIndicators/ExpandedBlockStart.gif" width="11" align="top" style="display: none"><img id="Codehighlighter1_77_545_Closed_Image" height="16" src="/Images/OutliningIndicators/ContractedBlock.gif" width="11" align="top" style="display: inline"></span><span id="Codehighlighter1_77_545_Closed_Text" style="border: 1px solid rgba(128, 128, 128, 1); display: inline; background-color: rgba(255, 255, 255, 1)"><img height="20" src="/Images/dot.gif" width="15"></span><span id="Codehighlighter1_77_545_Open_Text" style="display: none"><span style="color: rgba(0, 0, 0, 1)">{ 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;.entrypoint 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;Code&nbsp;size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28&nbsp;(0x1c)</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;.maxstack&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">2</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;.locals&nbsp;init&nbsp;(int32&nbsp;V_0) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0000:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x79de61c0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0005:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0006:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0007:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x12345678</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000c:&nbsp;&nbsp;add 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000d:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000e:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000f:&nbsp;&nbsp;ldc.i4.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0010:&nbsp;&nbsp;bge.s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IL_0015 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0012:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0013:&nbsp;&nbsp;neg 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0014:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0015:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0016:&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;[mscorlib]System.Console::WriteLine(int32) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001b:&nbsp;&nbsp;ret 
+<br><img height="16" src="/Images/OutliningIndicators/ExpandedBlockEnd.gif" width="11" align="top">}</span></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;end&nbsp;of&nbsp;method&nbsp;Test::Main</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 255, 1)">#endregion</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span> 
+                  </div>
+              </div>
+           </td>
+           <td>
+              <div style="border: 0.5pt solid rgba(0, 0, 0, 1); padding: 4px 5.4pt; background: rgba(230, 230, 230, 1); width: 98%; word-break: break-all">
+                  <div><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"><span style="color: rgba(0, 0, 0, 1)">#regin&nbsp;加上str1 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top">.method&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;hidebysig&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;Main()&nbsp;cil&nbsp;managed 
+<br><img id="Codehighlighter1_72_684_Open_Image" height="16" src="/Images/OutliningIndicators/ExpandedBlockStart.gif" width="11" align="top" style="display: none"><img id="Codehighlighter1_72_684_Closed_Image" height="16" src="/Images/OutliningIndicators/ContractedBlock.gif" width="11" align="top" style="display: inline"></span><span id="Codehighlighter1_72_684_Closed_Text" style="border: 1px solid rgba(128, 128, 128, 1); display: inline; background-color: rgba(255, 255, 255, 1)"><img height="20" src="/Images/dot.gif" width="15"></span><span id="Codehighlighter1_72_684_Open_Text" style="display: none"><span style="color: rgba(0, 0, 0, 1)">{ 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;.entrypoint 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;Code&nbsp;size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36&nbsp;(0x24)</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;.maxstack&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">2</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;.locals&nbsp;init&nbsp;(int32&nbsp;V_0, 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;V_1) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0000:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x79de61c0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0005:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0006:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0007:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x12345678</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000c:&nbsp;&nbsp;add 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000d:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000e:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000f:&nbsp;&nbsp;ldc.i4.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0010:&nbsp;&nbsp;bge.s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IL_0015 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0012:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0013:&nbsp;&nbsp;neg 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0014:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0015:&nbsp;&nbsp;ldloca.s&nbsp;&nbsp;&nbsp;V_0 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0017:&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;[mscorlib]System.Int32::ToString() 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001c:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001d:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001e:&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;[mscorlib]System.Console::WriteLine(int32) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0023:&nbsp;&nbsp;ret 
+<br><img height="16" src="/Images/OutliningIndicators/ExpandedBlockEnd.gif" width="11" align="top">}</span></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;end&nbsp;of&nbsp;method&nbsp;Test::Main</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 255, 1)">#endregion</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span> 
+                  </div>
+              </div>
+           </td>
+           <td>
+              <div style="border: 0.5pt solid rgba(0, 0, 0, 1); padding: 4px 5.4pt; background: rgba(230, 230, 230, 1); width: 98%; word-break: break-all">
+                  <div><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"><span style="color: rgba(0, 0, 0, 1)">#regin&nbsp;加上str2 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top">.method&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;hidebysig&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;Main()&nbsp;cil&nbsp;managed 
+<br><img id="Codehighlighter1_72_683_Open_Image" height="16" src="/Images/OutliningIndicators/ExpandedBlockStart.gif" width="11" align="top" style="display: none"><img id="Codehighlighter1_72_683_Closed_Image" height="16" src="/Images/OutliningIndicators/ContractedBlock.gif" width="11" align="top" style="display: inline"></span><span id="Codehighlighter1_72_683_Closed_Text" style="border: 1px solid rgba(128, 128, 128, 1); display: inline; background-color: rgba(255, 255, 255, 1)"><img height="20" src="/Images/dot.gif" width="15"></span><span id="Codehighlighter1_72_683_Open_Text" style="display: none"><span style="color: rgba(0, 0, 0, 1)">{ 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;.entrypoint 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;Code&nbsp;size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36&nbsp;(0x24)</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;&nbsp;.maxstack&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">2</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;.locals&nbsp;init&nbsp;(int32&nbsp;V_0, 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;V_1) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0000:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x79de61c0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0005:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0006:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0007:&nbsp;&nbsp;ldc.i4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 0, 1)">0x12345678</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000c:&nbsp;&nbsp;add 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000d:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000e:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_000f:&nbsp;&nbsp;ldc.i4.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0010:&nbsp;&nbsp;bge.s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IL_0015 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0012:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0013:&nbsp;&nbsp;neg 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0014:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0015:&nbsp;&nbsp;ldloc.</span><span style="color: rgba(0, 0, 0, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0016:&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;[mscorlib]System.Console::WriteLine(int32) 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001b:&nbsp;&nbsp;ldloca.s&nbsp;&nbsp;&nbsp;V_0 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_001d:&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance&nbsp;</span><span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">&nbsp;[mscorlib]System.Int32::ToString() 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0022:&nbsp;&nbsp;stloc.</span><span style="color: rgba(0, 0, 0, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/InBlock.gif" width="11" align="top">&nbsp;&nbsp;IL_0023:&nbsp;&nbsp;ret 
+<br><img height="16" src="/Images/OutliningIndicators/ExpandedBlockEnd.gif" width="11" align="top">}</span></span><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">&nbsp;end&nbsp;of&nbsp;method&nbsp;Test::Main</span><span style="color: rgba(0, 128, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span><span style="color: rgba(0, 0, 255, 1)">#endregion</span><span style="color: rgba(0, 0, 0, 1)"> 
+<br><img height="16" src="/Images/OutliningIndicators/None.gif" width="11" align="top"></span> 
+                  </div>
+              </div>
+           </td>
+       </tr>
+   </tbody>
+</table>
+<br>
+<br>
+<br></span>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
         </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：###Gogs是基于Go语言编写的可以替代gitlab的代码托管平台，它没有gitlab那么庞大且不需要占用大量资源，对小型服务器相对于比较友好，我们甚至可以使用树莓派搭建。 ###服务器配置： * 操作系统：CentOS 7.6 64bit * 服务器规格：CPU【1核】 内存【2GB】 * 磁盘        <a href="https://www.cnblogs.com/johnbebee/p/14715093.html" class="c_b_p_desc_readmore">阅读全文</a>
+        <p class="postfoot">
+            posted on 
+<span id="post-date">2005-03-05 14:45</span>&nbsp;
+<a href="https://www.cnblogs.com/dstang2000/">拓荒者</a>&nbsp;
+阅读(<span id="post_view_count">2655</span>)&nbsp;
+评论(<span id="post_comment_count">5</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=113513" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(113513);return false;">收藏</a>
+        </p>
     </div>
 </div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-06 17:55
-JohnBeBee
-<span data-post-id="14715093" class="post-view-count">阅读(52)</span> 
-<span data-post-id="14715093" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14715093" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14715093" rel="nofollow">
-    编辑
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 9986, cb_blogApp = 'dstang2000', cb_blogUserGuid = 'd796310b-63cf-dd11-9e4d-001cf0cd104b';
+    var cb_entryId = 113513, cb_entryCreatedDate = '2005-03-05 14:45', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+
+
+</div>
+</div>
+<div id="leftmenu">
+
+
+<h3>导航</h3>
+<ul>
+    <li>
+        <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dstang2000/">
+首页</a>
+
+    </li>
+    <li>
+        
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+
+    </li>
+    <li>
+        
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%8B%93%E8%8D%92%E8%80%85">
+联系</a>
+    </li>
+    <li>
+        
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dstang2000/rss/">
+订阅</a>
+        
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/dstang2000/rss/">
+    <img src="/skins/anothereon001/images/xml.gif" alt="订阅" />
 </a>
-</div>
-        <div class="clear"></div>
-</div>
+    </li>
+    <li>
+        
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+    </li>
+</ul>
 
 
-
-
-	</div><!--end: forFlow -->
-	</div><!--end: mainContent 主体内容容器-->
-	<div id="sideBar">
-		<div id="sideBarMain">
-			<div id="sidebar_news" class="newsItem">
+<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
-			<div id="leftcontentcontainer">
-				<div id="blog-sidecolumn"></div>
+<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-			</div>			
-		</div><!--end: sideBarMain -->
-	</div><!--end: sideBar 侧边栏容器 -->
-	<div class="clear"></div>
-	</div><!--end: main -->
-	<div class="clear"></div>
-	<div id="footer">
-		<!--done-->
-Copyright &copy; 2021 JohnBeBee
+
+</div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
+	<br />
+	Copyright &copy; 2021 拓荒者
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
+</p>
 
 
-	</div><!--end: footer -->
-</div><!--end: home 自定义的最大容器 -->
+</div>
+</div>
 
 
-    <div id="page_end_html">
-        <!-- 音乐播放器 -->
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<meting-js
-	server="netease"
-	type="playlist"
-	id="496447823"  
-    mini="true" 
-    autoplay="true" 
-    auto="netease"
-    list-folded="false"
-    fixed="true"  theme="#0a0e12"
-    list-max-height="340px">
-</meting-js>
-    </div>
+    
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsexI-Q6ucfnZ-DklXbdlD8sxRqIwBckPX0rSdj7sPoznS8wjZRi2gXGAoZjcPpUgyXlzT5fVDdMX4HqKVrlZ2AIEhGGHoZg7WYpRR_d97htIdc8ziKKCifk6bpTJBpspQ" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuC6Qao8GO9uhbZ-zK1o9qM4i_IWiiC-l31uHeXzEaquhYPpGWWgvEIvkyH1F1PqBqvUnY8vOlYNvyibAJUqPmKa-rPQjXazIWFGD9rN-XVO2QQffeSaBxVEqpC7pKf-Tc" />
 </body>
 </html>

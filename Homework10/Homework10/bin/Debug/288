@@ -9,35 +9,35 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>白泽来了 - 博客园</title>
+    <title>AZRNG - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/sea/bundle-sea.min.css?v=oF2SvRIFQNTLcLgn66nPy-bOeZ-5NDS8tPrc0Kt42ys" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/YLTFY1998/custom.css?v=b/indDXbz9z26FICFYNAZ&#x2B;&#x2B;b6p4=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/sea/bundle-sea-mobile.min.css?v=t5pWHm7Zavhfg65859uF8OmEaotpCjyYSbKN5RbMv6E" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/YLTFY1998/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/YLTFY1998/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/YLTFY1998/wlwmanifest.xml" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/azrng/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/azrng/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/azrng/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 530342;
-        var currentBlogApp = 'YLTFY1998';
+        var currentBlogId = 418143;
+        var currentBlogApp = 'azrng';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'sea';
+        var skinName = 'CodingLife';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -89,57 +89,66 @@
         </nav>
     </div>
 
-    
+    <div id="page_begin_html">
+        <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/kousak/waifu.css">   
+ <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/kousak/waifu.css">
+ 
+  <div class="waifu" id="waifu"> <div class="waifu-tips" style="opacity: 1"></div>  <div class="waifu-tool"> <span class="fui-home"></span> <span class="fui-chat"></span> <span class="fui-eye"></span> <span class="fui-user"></span> <span class="fui-photo"></span> <span class="fui-info-circle"></span> <span class="fui-cross"></span> </div> </div> 
+   <link rel="stylesheet" type="text/css" href="https://files.cnblogs.com/files/yjlblog/flat-ui.min.css">
+    </div>
     <!--done-->
+<div id="home">
 <div id="header">
-	
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/azrng/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
 <!--done-->
-<div class="header">
-	<div class="headerText">
-		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/YLTFY1998/">白泽来了</a>
-<br>
-		学生党，尚在追求技术的道路上努力
-	</div>
-</div>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/azrng/">AZRNG</a>
+</h1>
+<h2></h2>
 
 
-</div>
 
-<div id="mytopmenu">
-	
-		<div id="mylinks">
-<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
- &nbsp;
-
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/YLTFY1998/">
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/azrng/">
 首页</a>
- &nbsp;
-
+</li>
+<li>
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
- &nbsp;
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/AZRNG">
+联系</a></li>
+<li>
 
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%99%BD%E6%B3%BD%E6%9D%A5%E4%BA%86">
-联系</a> &nbsp;
-
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/YLTFY1998/rss/">
-订阅</a>
-<a id="blog_nav_rss_image" href="https://www.cnblogs.com/YLTFY1998/rss/">
-    <img src="/skins/sea/images/xml.gif" alt="订阅" />
-</a>&nbsp;
-
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
+</li>
+</ul>
 
 
-</div>
-		<DIV id="mystats"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></DIV>
-	
-</div>
-<div id="centercontent">
-	
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
 
 
 
@@ -149,21 +158,16 @@
 
 
 <div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/06.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年5月6日		  
-	</div>
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/azrng/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
 
-	
-			<div class="postTitle">
-				
+        <div class="postTitle">
+            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14735497.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14736061.html">
     <span>
-        Spring Security极简入门三部曲（中篇）
+        .Net缓存之MemoryCahe
     </span>
     
 
@@ -171,23 +175,152 @@
 
 </a>
 
-			</div>
-			
+        </div>
+        <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：大家好，我是白泽。通过上篇的学习，我们实现了一个简单的基于角色验证的小demo，但是不足之处在于用户和角色的信息我们写死在了内存中，而实际项目中必然是写在数据库里的，但是在将数据存入数据库之前，为了让你更深入理解Spring Security授权的验证流程，我需要为你介绍一些关键的接口和类（很遗憾这一部分无法完全避免），**如果你只想继续学习Spring Security的使用，直接跳到demo时刻部分吧！**        <a href="https://www.cnblogs.com/YLTFY1998/p/14735497.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：1. MemoryCahe NetCore中的缓存和System.Runtime.Caching很相似，但是在功能上做了增强，缓存的key支持object类型；提供了泛型支持；可以读缓存和单个缓存项的大小做限定，可以设置缓存的压缩比例。 通过实现微软官方的Microsoft.Extensions.C        <a href="https://www.cnblogs.com/azrng/p/14736061.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-			<div class="postDesc">posted @ 2021-05-06 15:51
-白泽来了
-<span data-post-id="14735497" class="post-view-count">阅读(75)</span> 
-<span data-post-id="14735497" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14735497" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735497" rel="nofollow">
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 17:22
+AZRNG
+<span data-post-id="14736061" class="post-view-count">阅读(3)</span> 
+<span data-post-id="14736061" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14736061" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736061" rel="nofollow">
     编辑
 </a>
 </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
 
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14736039.html">
+    <span>
+        Linux安装Docker教程
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：介绍 Docker利用Linux核心中的资源分脱机制，例如cgroups，以及Linux核心名字空间（name space），来创建独立的软件容器（containers）。可以在单一Linux实体下运作，避免启动一个虚拟机造成的额外负担。Linux核心对名字空间的支持完全隔离了工作环境中应用程序的视        <a href="https://www.cnblogs.com/azrng/p/14736039.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 17:18
+AZRNG
+<span data-post-id="14736039" class="post-view-count">阅读(1)</span> 
+<span data-post-id="14736039" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14736039" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736039" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14735996.html">
+    <span>
+        C# 特性[Attribute]
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：开篇语 本文开始之前，首先我想问下大家对于属性和特性知道多少？属性和特性又有何区别？ 对于该单词，我更想把它称之为：特性。对于属性和特性就是名称上有纠葛(不知道你们迷不迷，反正我写本文之前我是迷了)，什么是属性？属性是面向对象编程的基本概念，提供了对私有字段的访问封装，在C#中以get和set访问器        <a href="https://www.cnblogs.com/azrng/p/14735996.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 17:10
+AZRNG
+<span data-post-id="14735996" class="post-view-count">阅读(223)</span> 
+<span data-post-id="14735996" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14735996" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735996" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14735960.html">
+    <span>
+        .Net之配置文件自定义
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前文讲获取配置文件内容的时候，是获取默认的appsettings.json配置文件的配置，下面说明下如何进行自定义配置文件获取 1. Json Provider 1.1 构建独立的IConfiguration 编写方法 public static IConfigurationRoot LoadSet        <a href="https://www.cnblogs.com/azrng/p/14735960.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 17:04
+AZRNG
+<span data-post-id="14735960" class="post-view-count">阅读(7)</span> 
+<span data-post-id="14735960" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14735960" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735960" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14735952.html">
+    <span>
+        .Net之配置文件
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 说明 默认情况下读取配置Configuration的默认优先级：ConfigureAppConfiguration(自定义读取)&amp;gt;CommandLine(命令行参数)&amp;gt;Environment(环境变量)&amp;gt;appsetting.json(默认配置文件)&amp;gt;UseSetting的顺序 原因：读取配置        <a href="https://www.cnblogs.com/azrng/p/14735952.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-06 17:02
+AZRNG
+<span data-post-id="14735952" class="post-view-count">阅读(4)</span> 
+<span data-post-id="14735952" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14735952" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735952" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
 </div>
 
 
@@ -195,21 +328,16 @@
 
 
 <div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/05.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年5月5日		  
-	</div>
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/azrng/archive/2021/05/04.html">2021年5月4日</a>
+    </div>
 
-	
-			<div class="postTitle">
-				
+        <div class="postTitle">
+            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14731735.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14730149.html">
     <span>
-        Spring Security极简入门三部曲（上篇）
+        .Net之Docker部署详细流程
     </span>
     
 
@@ -217,23 +345,88 @@
 
 </a>
 
-			</div>
-			
+        </div>
+        <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：大家好，这里是白泽。最近学校里一个Spring Boot项目要用到Spring Security做安全相关的工作，好，没用过，那我先学一下吧。查阅了不少文章，上来就是一堆接口，实现类，过滤器链，超级高水平，我看不懂。摸索了两天终于有点感觉了，就写一篇两天前的我希望看到的博客吧        <a href="https://www.cnblogs.com/YLTFY1998/p/14731735.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：开篇语 自己从头开始走一遍docker部署.net的流程，作为一种学习总结，以及后续会写一些在该基础之上的文章。 本次示例环境：vs2019、net5、docker、postman 创建项目 本次事例代码是用过vs2019创建的ASP.NET Core Web API项目 image.png 目标框        <a href="https://www.cnblogs.com/azrng/p/14730149.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-			<div class="postDesc">posted @ 2021-05-05 14:46
-白泽来了
-<span data-post-id="14731735" class="post-view-count">阅读(134)</span> 
-<span data-post-id="14731735" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14731735" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14731735" rel="nofollow">
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-04 19:53
+AZRNG
+<span data-post-id="14730149" class="post-view-count">阅读(837)</span> 
+<span data-post-id="14730149" class="post-comment-count">评论(9)</span> 
+<span data-post-id="14730149" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14730149" rel="nofollow">
     编辑
 </a>
 </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
 
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14729035.html">
+    <span>
+        .Net之配置文件
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：1. 说明 默认情况下读取配置Configuration的默认优先级：ConfigureAppConfiguration(自定义读取)&amp;gt;CommandLine(命令行参数)&amp;gt;Environment(环境变量)&amp;gt;appsetting.json(默认配置文件)&amp;gt;UseSetting的顺序 原因：读取配置        <a href="https://www.cnblogs.com/azrng/p/14729035.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-04 10:36
+AZRNG
+<span data-post-id="14729035" class="post-view-count">阅读(22)</span> 
+<span data-post-id="14729035" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14729035" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14729035" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/14729014.html">
+    <span>
+        .Net之静态资源
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：介绍 静态文件都存储在Core Web根目录中。默认目录是&amp;lt;content_root&amp;gt;/wwwroot，但可通过 UseWebRoot方法更改访问目录。而content_root是指web项目的所有文件夹，包括bin和wwwroot文件夹。 操作 简单配置 在Configure方法中设置 app.U        <a href="https://www.cnblogs.com/azrng/p/14729014.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-04 10:29
+AZRNG
+<span data-post-id="14729014" class="post-view-count">阅读(31)</span> 
+<span data-post-id="14729014" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14729014" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14729014" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
 </div>
 
 
@@ -241,21 +434,16 @@
 
 
 <div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/04/30.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年4月30日		  
-	</div>
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/azrng/archive/2020/04/15.html">2020年4月15日</a>
+    </div>
 
-	
-			<div class="postTitle">
-				
+        <div class="postTitle">
+            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14721422.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/12705082.html">
     <span>
-        使用IDEA模拟git命令使用的常见场景
+        netcore获取配置文件的内容
     </span>
     
 
@@ -263,23 +451,24 @@
 
 </a>
 
-			</div>
-			
+        </div>
+        <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：大家好，最近白泽第一次开始参与小组合作开发，以前都是自己用git保存自己的代码，自己维护，用git的场景也比较单一，没有遇到过拉取代码合并出现冲突的问题。但是小组开发拉取远程仓库的代码时，遇到他人所提交代码与自己的本地代码出现冲突在所难免，所以白泽特意去学习了一下git的冲突处理，接下来用一个小demo复现一下我学习的过程        <a href="https://www.cnblogs.com/YLTFY1998/p/14721422.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：结合了好几个哥们的写法，最终我使用了这个版本，现在把我这个版本的写出来，如果该版本和您的版本类似或者一样，那可能是借鉴您的 using Microsoft.AspNetCore.Hosting; using Microsoft.Extensions.Configuration; using Micr        <a href="https://www.cnblogs.com/azrng/p/12705082.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-			<div class="postDesc">posted @ 2021-04-30 11:37
-白泽来了
-<span data-post-id="14721422" class="post-view-count">阅读(266)</span> 
-<span data-post-id="14721422" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14721422" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14721422" rel="nofollow">
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-04-15 14:30
+AZRNG
+<span data-post-id="12705082" class="post-view-count">阅读(343)</span> 
+<span data-post-id="12705082" class="post-comment-count">评论(0)</span> 
+<span data-post-id="12705082" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12705082" rel="nofollow">
     编辑
 </a>
 </div>
-
+        <div class="clear"></div>
 </div>
 
 
@@ -287,21 +476,16 @@
 
 
 <div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/26.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月26日		  
-	</div>
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/azrng/archive/2020/03/30.html">2020年3月30日</a>
+    </div>
 
-	
-			<div class="postTitle">
-				
+        <div class="postTitle">
+            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14331825.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/azrng/p/12597605.html">
     <span>
-        Java单例模式的几种常见实现方式
+        HttpContext访问的正确姿势
     </span>
     
 
@@ -309,299 +493,24 @@
 
 </a>
 
-			</div>
-			
+        </div>
+        <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：Java单例模式的几种常见实现方式 懒汉or饿汉？ 懒汉：单例模式延迟加载方式，一开始不给你new对象，你要new再给你new 饿汉：上来就给你new好一个对象，你可以直接用(吃)，你也没法new 饿汉：不加锁，线程安全，用起来方便，容易产生垃圾对象 public class SingletonTe        <a href="https://www.cnblogs.com/YLTFY1998/p/14331825.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：本文章转发自：https://www.cnblogs.com/tianqing/p/12570801.html 使用HttpContext的具体场景： 1. 在Controller层访问HttpContext 2. 在中间件中使用HttpContext 3. 在数据访问层使用HttpContext         <a href="https://www.cnblogs.com/azrng/p/12597605.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-			<div class="postDesc">posted @ 2021-01-26 18:14
-白泽来了
-<span data-post-id="14331825" class="post-view-count">阅读(70)</span> 
-<span data-post-id="14331825" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14331825" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14331825" rel="nofollow">
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-03-30 11:51
+AZRNG
+<span data-post-id="12597605" class="post-view-count">阅读(454)</span> 
+<span data-post-id="12597605" class="post-comment-count">评论(0)</span> 
+<span data-post-id="12597605" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12597605" rel="nofollow">
     编辑
 </a>
 </div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/24.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月24日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14321884.html">
-    <span>
-        Java优先队列PriorityQueue的各种打开方式以及一些你不知道的细节
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：Java优先队列PriorityQueue的各种打开方式以及一些你不知道的细节 未经作者允许，不可转载，如有错误，欢迎指正o(￣▽￣)o 首先我们知道用PriorityQueue这个类创建的对象是一个集合，然后调用api可以将一个个对象添加入集合，然后再通过api遍历时，插入的元素就从小到大排序输出        <a href="https://www.cnblogs.com/YLTFY1998/p/14321884.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-24 18:59
-白泽来了
-<span data-post-id="14321884" class="post-view-count">阅读(243)</span> 
-<span data-post-id="14321884" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14321884" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14321884" rel="nofollow">
-    编辑
-</a>
-</div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/23.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月23日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14318339.html">
-    <span>
-        一些JavaSE学习过程中的思路整理(四)（主观性强，持续更新中...）
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：一些JavaSE学习过程中的思路整理(四)（主观性强，持续更新中...） 未经作者允许，不可转载，如有错误，欢迎指正o(￣▽￣)o 多线程编程：资源类&amp;amp;任务&amp;amp;运行机制的解耦合 一下是《Java核心技术卷一》中的一个样例，用多线程并发模拟银行账户的转账过程，该样例还未使用上锁机制，是一个有问题的样例，        <a href="https://www.cnblogs.com/YLTFY1998/p/14318339.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-23 17:36
-白泽来了
-<span data-post-id="14318339" class="post-view-count">阅读(58)</span> 
-<span data-post-id="14318339" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14318339" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14318339" rel="nofollow">
-    编辑
-</a>
-</div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/21.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月21日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14307577.html">
-    <span>
-        一些JavaSE学习过程中的思路整理(三)（主观性强，持续更新中...）
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：一些JavaSE学习过程中的思路整理(三)（主观性强，持续更新中...） 未经作者允许，不可转载，如有错误，欢迎指正o(￣▽￣)o，安利一位b站的up：楠哥教你学Java，干货比较多 Java线程同步的几种常见情况分析 同步问题针对的是多个线程所共享的资源，下面分几步假设了一个思考的过程： 1.多个        <a href="https://www.cnblogs.com/YLTFY1998/p/14307577.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-21 13:51
-白泽来了
-<span data-post-id="14307577" class="post-view-count">阅读(60)</span> 
-<span data-post-id="14307577" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14307577" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14307577" rel="nofollow">
-    编辑
-</a>
-</div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/19.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月19日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14300019.html">
-    <span>
-        一些JavaSE学习过程中的思路整理(二)（主观性强，持续更新中...）
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：一些JavaSE学习过程中的思路整理(二)（主观性强，持续更新中...） 未经作者允许，不可转载，如有错误，欢迎指正o(￣▽￣)o 将一个子类的引用对象赋值给超类的对象(多态) 赋予了子类对象的超类对象只能调用超类中定义的public成员变量和方法 如果子类重写了超类中的方法，就会调用子类中的方法（        <a href="https://www.cnblogs.com/YLTFY1998/p/14300019.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-19 21:00
-白泽来了
-<span data-post-id="14300019" class="post-view-count">阅读(61)</span> 
-<span data-post-id="14300019" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14300019" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14300019" rel="nofollow">
-    编辑
-</a>
-</div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/17.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月17日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14288918.html">
-    <span>
-        LeetCode 947. 移除最多的同行或同列石头 并查集
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：传送门 思路 干货太干就不太好理解了，以下会有点话痨(￣▽￣)&amp;quot; 首先题目给了一个二维stones数组，存储每个石子的坐标，因为在同行或者同列的石子最终可以被取到只剩下一个，那么我们将同行同列的石子归属于一个集合，开始套用并查集的思想求一下有几个集合似乎就搞定了？想到这是我看到题目的想法，但是为了实        <a href="https://www.cnblogs.com/YLTFY1998/p/14288918.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-17 14:38
-白泽来了
-<span data-post-id="14288918" class="post-view-count">阅读(67)</span> 
-<span data-post-id="14288918" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14288918" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14288918" rel="nofollow">
-    编辑
-</a>
-</div>
-
-</div>
-
-
-		
-
-
-<div class="day">
-	<div class="dayTitle">
-        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/15.html">
-            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
-        </a>
-		&nbsp;
-		2021年1月15日		  
-	</div>
-
-	
-			<div class="postTitle">
-				
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14282750.html">
-    <span>
-        一些JavaSE学习过程中的思路整理(一)（主观性强，持续更新中...）
-    </span>
-    
-
-
-
-</a>
-
-			</div>
-			
-
-    <div class="c_b_p_desc">
-摘要：一些JavaSE学习过程中的思路整理(一)（主观性强，持续更新中...） 未经作者允许，不可转载，如有错误，欢迎指正o(￣▽￣)o Java书写规范 类名大驼峰，标识符小驼峰，关键字、右括号、右花括号后加空格。方法与方法之间加一个空行。 IDEA的一些常用快捷键 ctrl + shift + f10        <a href="https://www.cnblogs.com/YLTFY1998/p/14282750.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-			<div class="postDesc">posted @ 2021-01-15 16:26
-白泽来了
-<span data-post-id="14282750" class="post-view-count">阅读(106)</span> 
-<span data-post-id="14282750" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14282750" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14282750" rel="nofollow">
-    编辑
-</a>
-</div>
-
+        <div class="clear"></div>
 </div>
 
 
@@ -609,7 +518,7 @@
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/YLTFY1998/default.html?page=2">
+    <a href="https://www.cnblogs.com/azrng/default.html?page=2">
         下一页
     </a>
 
@@ -628,35 +537,37 @@
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-</div>
-<div id="leftcontent">
-	
-		<DIV id="leftcontentcontainer">
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
 			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-			<div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
-                    <script>loadBlogDefaultCalendar();</script><br>
-			<div id="blog-sidecolumn"></div>
-                    <script>loadBlogSideColumn();</script></DIV>
-	
-</div>
-<!--done-->
-<div class="footer">
-	Powered by: <a href="http://www.cnblogs.com">博客园</a>
-	Copyright &copy; 2021 白泽来了
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 AZRNG
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
-</div>
 
 
-
-
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
 
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtwpofEUd7T6zCPjKmzXXxpl77W1vXbou67KXJrIrCbuZiVeLtiuLwVn0Oex6Cv_pmGjtkz7mrgCMTP9ZWv6MtYMnayhxIPl4StVOgpK3gGWeGOZ2KHSm6lGsQBFMG9xeY" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjs0kH0WHLwm79JyD3cJ-usiKN47ef_m5KeW-kaqQIAh2jvYNsLsljy3ZY-RJr2QSkRM7y02RwXUtMIQsciJE6pjkO5rseDtfcCPf703lFg2cKgRm7Tb3o2f3CFzmETIsNs" />
 </body>
 </html>

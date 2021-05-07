@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-crossorigin" />
-    <meta name="description" content="悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，上次光临时间是 3-30 8:48，这次是 4-28 9:41。这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU" />
-    <meta property="og:description" content="悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，上次光临时间是 3-30 8:48，这次是 4-28 9:41。这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU" />
+    <meta name="description" content="热点随笔： &amp;#183;&amp;#160;[翻译]正式宣布 Visual Studio 2022&amp;#160;(Rwing)&amp;#183;&amp;#160;一次失败的创业经历&amp;#160;(茶底世界)&amp;#183;&amp;#1" />
+    <meta property="og:description" content="热点随笔： &amp;#183;&amp;#160;[翻译]正式宣布 Visual Studio 2022&amp;#160;(Rwing)&amp;#183;&amp;#160;一次失败的创业经历&amp;#160;(茶底世界)&amp;#183;&amp;#1" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>【故障公告】数据库服务器 CPU 100% 引发网站故障 - 博客园团队 - 博客园</title>
+    <title>上周热点回顾（4.19-4.25） - 博客园团队 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
@@ -30,7 +30,7 @@
         var visitorUserId = '';
     </script>
         <script>
-            var currentPostDateAdded = '2021-04-28 12:07';
+            var currentPostDateAdded = '2021-04-26 09:52';
         </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
     <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
@@ -152,8 +152,8 @@
         <div class="post">
             <h1 class="postTitle">
                 
-<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14713510.html">
-    <span>【故障公告】数据库服务器 CPU 100% 引发网站故障</span>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14703333.html">
+    <span>上周热点回顾（4.19-4.25）</span>
     
 
 
@@ -163,25 +163,11 @@
             </h1>
             <div class="clear"></div>
             <div class="postBody">
-                    <div id="cnblogs_post_description" style="display: none">
-        悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，上次光临时间是 3-30 8:48，这次是 4-28 9:41。这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU 很快恢复正常。但是，这次来的“真”是时候（访问高峰），虽然数据库 CPU 恢复正常，但高并发的博客站点在数据库恢复后来不及建缓存，大量请求503或者访问缓慢，估计今天整个上午都扛不住。
-    </div>
-<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
-<p>悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，<a href="https://www.cnblogs.com/cmt/p/14595262.html" target="_blank">上次</a>光临时间是 3-30 8:48，这次是 4-28 9:41。</p>
-<p>这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU 很快恢复正常。</p>
-<img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428110202026-397004595.png" style="width: 600px">
-<p>但是，这次来的“真”是时候（访问高峰），虽然数据库 CPU 恢复正常，但高并发下的博客站点在数据库恢复后来不及建缓存，大量请求503或者访问缓慢，估计今天整个上午都扛不住。</p>
-<p>幸运的是，我们估计错了，10:15左竟然抗住了，博客站点开始恢复正常。</p>
-<p>但是，就在我们准备发布故障公告时，这位不速之客竟然来了个回马枪，10:19 它又来了。。。</p>
-<img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428110715945-2039708605.png" style="width: 600px">
-<p>切换后的备库服务器又 CPU 100%，赶紧再次进行主备切换，切换回原来的数据库服务器，CPU 恢复正常。</p>
-<p>但是，二次光临“更”是时候，是更高的访问高峰，估计今天上午博客站点肯定是扛不住了，只能干等熬过访问高峰。</p>
-<p>幸运的是，我们再次估计错了，11:10左右竟然扛住了，博客站点恢复了正常。</p>
-<p>非常非常抱歉，今天上午的2次故障给大家带来了很大的麻烦，请大家谅解。</p>
-<p>对于这位数据库 CPU 100% 的不速之客为什么会光临园子，我们不知道来由，准备留待以后排查，目前我们要集中力量审核博文与开发新的审核系统（详见<a href="https://www.cnblogs.com/cmt/p/14585828.html" target="_blank">检讨书</a>）。</p>
-<p>这段时间，我们已经从开发者的服务者堕落为开发者的麻烦制作者，再次请大家谅解。</p>
-<p>身处园子的这段黑暗岁月，我们没有丝毫的退缩，在审核过程中，我们读到了一篇鼓舞我们的博文 —— <a href="https://www.cnblogs.com/focean/p/focean888.html" target="_blank">浅谈“艰难困苦，玉汝于成”</a>。</p>
-
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>热点随笔：</p>
+<p>·&nbsp;<a href="https://www.cnblogs.com/Rwing/archive/2021/04/20/visual-studio-2022.html" target="_blank">[翻译]正式宣布 Visual Studio 2022</a>&nbsp;(<a href="https://www.cnblogs.com/Rwing/" target="_blank">Rwing</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/yuanqinnan/archive/2021/04/22/14691667.html" target="_blank">一次失败的创业经历</a>&nbsp;(<a href="https://www.cnblogs.com/yuanqinnan/" target="_blank">茶底世界</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/jiekzou/archive/2021/04/25/14661969.html" target="_blank">再见，深圳~长沙，我又来啦</a>&nbsp;(<a href="https://www.cnblogs.com/jiekzou/" target="_blank">邹琼俊</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/huangxincheng/archive/2021/04/19/14675547.html" target="_blank">又一起.NET程序挂死, 用 Windbg 抽丝剥茧式的真实案例分析</a>&nbsp;(<a href="https://www.cnblogs.com/huangxincheng/" target="_blank">一线码农</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/siyuanwai/archive/2021/04/20/14680592.html" target="_blank">我很久没写代码了，但我是个好架构师</a>&nbsp;(<a href="https://www.cnblogs.com/siyuanwai/" target="_blank">四猿外</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/huangxincheng/archive/2021/04/21/14683890.html" target="_blank">记一次 .NET游戏站程序的 CPU 爆高分析</a>&nbsp;(<a href="https://www.cnblogs.com/huangxincheng/" target="_blank">一线码农</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/powertoolsteam/archive/2021/04/21/14684664.html" target="_blank">前端框架之争丨除了Vue、Angular和React还有谁与之争锋</a>&nbsp;(<a href="https://www.cnblogs.com/powertoolsteam/" target="_blank">葡萄城技术团队</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/20/14679727.html" target="_blank">从键盘按下一个6，到显示出来，计算机发生了什么？</a>&nbsp;(<a href="https://www.cnblogs.com/xuanyuan/" target="_blank">轩辕之风</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/hunternet/archive/2021/04/19/14675348.html" target="_blank">新入职一家公司如何快速进入工作状态</a>&nbsp;(<a href="https://www.cnblogs.com/hunternet/" target="_blank">Mr于</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/poloyy/archive/2021/04/23/14593841.html" target="_blank">毕业两年，我要跳槽去阿里巴巴了，做个阶段总结，开启新的人生</a>&nbsp;(<a href="https://www.cnblogs.com/poloyy/" target="_blank">小菠萝测试笔记</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/chenqiAaron/archive/2021/04/22/14688371.html" target="_blank">2021年IT行业八大趋势预测</a>&nbsp;(<a href="https://www.cnblogs.com/chenqiAaron/" target="_blank">陈琦聊测试</a>)<br>·&nbsp;<a href="https://www.cnblogs.com/coderw/archive/2021/04/19/14676343.html" target="_blank">一个诡异的MySQL查询超时问题，居然隐藏着存在了两年的BUG</a>&nbsp;(<a href="https://www.cnblogs.com/coderw/" target="_blank">CoderW喜欢写博客</a>)</p>
+<p>热点新闻：</p>
+<p>·&nbsp;<a href="https://news.cnblogs.com/n/691382/" target="_blank">苹果春季发布会最全汇总：iPhone 12、iPad Pro、iMac 和 AirTag，真正的科技「春晚」</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691343/" target="_blank">姚班大神胡渊鸣回国创业！超一半员工为清华校友，团队人均竞赛金牌数≥2</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691625/" target="_blank">美国权威调查报告：特斯拉246起“刹车失灵”均是因踏板使用错误</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691488/" target="_blank">重磅！清华大学成立“芯片学院”：集成电路专业学院来了</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691282/" target="_blank">董明珠回应对小米造车的看法：我们早就造了，比小米更早</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691296/" target="_blank">达摩院用128张GPU烧出“中文版GPT-3”，我们处于好奇试了一下…</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691298/" target="_blank">人类直升机首次成功在火星上空飞行！一文了解本次试飞的方方面面</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691638/" target="_blank">人脸识别国家标准制定中：不得强制刷脸、验完应删除</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691466/" target="_blank">比特币崩盘了？过山车行情的背后发生了什么</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691494/" target="_blank">价值超3亿！被盗的新MacBook Pro设计图纸曝光</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691663/" target="_blank">曹光彪名下全部财产捐赠清华：110周年校庆一份厚重礼物</a><br>·&nbsp;<a href="https://news.cnblogs.com/n/691537/" target="_blank">中国首次完成商业航天天地激光通信：速度可达百兆</a></p>
 </div>
 <div id="MySignature"></div>
 <div class="clear"></div>
@@ -192,18 +178,18 @@
 </div>
             </div>
             <div class="postDesc">posted @ 
-<span id="post-date">2021-04-28 12:07</span>&nbsp;
+<span id="post-date">2021-04-26 09:52</span>&nbsp;
 <a href="https://www.cnblogs.com/cmt/">博客园团队</a>&nbsp;
-阅读(<span id="post_view_count">5215</span>)&nbsp;
-评论(<span id="post_comment_count">58</span>)&nbsp;
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713510" rel="nofollow">编辑</a>&nbsp;
-<a href="javascript:void(0)" onclick="AddToWz(14713510);return false;">收藏</a></div>
+阅读(<span id="post_view_count">1465</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14703333" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14703333);return false;">收藏</a></div>
         </div>
         <script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
 <script>markdown_highlight();</script>
 <script>
     var allowComments = true, cb_blogId = 39258, cb_blogApp = 'cmt', cb_blogUserGuid = 'bd42420b-63cf-dd11-9e4d-001cf0cd104b';
-    var cb_entryId = 14713510, cb_entryCreatedDate = '2021-04-28 12:07', cb_postType = 1;
+    var cb_entryId = 14703333, cb_entryCreatedDate = '2021-04-26 09:52', cb_postType = 1;
     updatePostStats(
         [cb_entryId],
         function(id, count) { $("#post_view_count").text(count) },
@@ -279,6 +265,6 @@ Copyright &copy; 2021 博客园团队
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtOohEJZbrADXMtN2A2BFMnTZKBI6KmlhKerMlyfNPYn4l_PXEV6WTrzx-nqJT4TsXog6KjVfOuYh1WwFz3bPeeNoQESXhEOKX4z04peCDGRWcF2_O2mjwGgiRqC1WpxSA" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuqg7pClfshPeBhS98JJ9pgM0mzEP_NyV-wmGExJ48hp10V6Zn57YAfuA_wgiwNCbCre3Pi-oe8L9yFd3HwhD2K9XcZR3ouNkf7t30elr4emphwHS845J1s9gUHtTXG4_0" />
 </body>
 </html>
