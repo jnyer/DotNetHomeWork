@@ -1,101 +1,117 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Homework8
 {
     public class OrderService
     {
-        public List<Order> Order = new List<Order>();
-        public List<Order> MyOrder => Order;
 
-        public OrderService() { }
-        public OrderService(List<Order> order)
+        //the order list
+        private List<Order> orders;
+
+
+        public OrderService()
         {
-            this.Order = order;
+            orders = new List<Order>();
         }
-        public void add(Order ord)                                      //增加订单
+
+        public List<Order> Orders
         {
-            Order.Add(ord);
+            get => orders;
         }
-        public void delete(int ordernumber)                              //删除某个订单
+
+        public Order GetOrder(int id)
         {
-            bool found = false;
-            try
+            return orders.Where(o => o.OrderId == id).FirstOrDefault();
+        }
+
+        public void AddOrder(Order order)
+        {
+            if (orders.Contains(order))
+                throw new ApplicationException($"添加错误: 订单{order.OrderId} 已经存在了!");
+            orders.Add(order);
+        }
+
+        public void RemoveOrder(int orderId)
+        {
+            Order order = GetOrder(orderId);
+            if (order != null)
             {
-                for (int i = 0; i < Order.Count; i++)
+                orders.Remove(order);
+            }
+        }
+
+        public List<Order> QueryOrdersByGoodsName(string goodsName)
+        {
+            var query = orders
+                    .Where(order => order.Details.Exists(item => item.GoodsName == goodsName))
+                    .OrderBy(o => o.TotalPrice);
+            return query.ToList();
+        }
+
+        public List<Order> QueryOrdersByCustomerName(string customerName)
+        {
+            return orders
+                .Where(order => order.CustomerName == customerName)
+                .OrderBy(o => o.TotalPrice)
+                .ToList();
+        }
+
+        public void UpdateOrder(Order newOrder)
+        {
+            Order oldOrder = GetOrder(newOrder.OrderId);
+            if (oldOrder == null)
+                throw new ApplicationException($"修改错误：订单 {newOrder.OrderId} 不存在!");
+            orders.Remove(oldOrder);
+            orders.Add(newOrder);
+        }
+
+        public void Sort()
+        {
+            orders.Sort();
+        }
+
+        public void Sort(Func<Order, Order, int> func)
+        {
+            Orders.Sort((o1, o2) => func(o1, o2));
+        }
+
+        public void Export(String fileName)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream(fileName, FileMode.Create))
+            {
+                xs.Serialize(fs, Orders);
+            }
+        }
+
+        public void Import(string path)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                List<Order> temp = (List<Order>)xs.Deserialize(fs);
+                temp.ForEach(order =>
                 {
-                    if (Order[i].OrderId == ordernumber)
+                    if (!orders.Contains(order))
                     {
-                        Order.RemoveAt(i);
-                        found = true;
+                        orders.Add(order);
                     }
-                }
+                });
+            }
+        }
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            if (found == false) throw new Exception("未找到订单");
-        }
-        public void sort()                                                //排序
+        public object QueryByTotalAmount(float amout)
         {
-            Order.Sort((p1, p2) => p1.OrderId - p2.OrderId);
+            return orders
+               .Where(order => order.TotalPrice >= amout)
+               .OrderByDescending(o => o.TotalPrice)
+               .ToList();
         }
-        public Order getByNumber(int number)                              //按照订单编号查询
-        {
-            var query = from o in Order
-                        where o.OrderId == number
-                        select o;
-            if (query == null) throw new Exception("未找到订单");
-            List<Order> list = query.ToList();
-            Order ord = (Order)list[0];
-            return ord;
-        }
-        public Order getByGoodsName(string name)                          //按照商品名称查询
-        {
-            Order destiorder = null;
-            foreach (Order ord in Order)
-            {
-                IEnumerable<OrderDetails> query = null;
-                query = from o in ord.OrderDetails
-                        where o.GoodsName == name
-                        select o;
-                if (query != null) destiorder = ord;
-            }
-            Order order = (Order)destiorder;
-            return order;
-        }
-        public Order getByClient(string name)                              //按照客户名查询
-        {
-            var query = from o in Order
-                        where o.OrderClient == name
-                        select o;
-            if (query == null) throw new Exception("未找到订单");
-            Order order = (Order)query;
-            return order;
-        }
-        public Order getByOrderPrice(int price)                           //按照订单价格查询
-        {
-            var query = from o in Order
-                        where o.OrderSumPrice == price
-                        select o;
-            if (query == null) throw new Exception("未找到订单");
-            Order order = (Order)query;
-            return order;
-        }
-        public override string ToString()
-        {
-            string orderid = null;
-            for(int i = 0; i < Order.Count; i++)
-            {
-                orderid += Order[i].OrderId;
-            }
-            return orderid;
-        }
-        
     }
 }

@@ -4,46 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-crossorigin" />
-    
-    
+    <meta name="description" content="题外话 我很早就对人工智能是非常感兴趣的。记得我大学的毕业论文，就是使用遗传算法解决了一个经典的寻路问题。 我一直对人类经典的思想是非常敬畏和崇拜的，比如传统的计算机数据结构算法问题，例如经典的排序算" />
+    <meta property="og:description" content="题外话 我很早就对人工智能是非常感兴趣的。记得我大学的毕业论文，就是使用遗传算法解决了一个经典的寻路问题。 我一直对人类经典的思想是非常敬畏和崇拜的，比如传统的计算机数据结构算法问题，例如经典的排序算" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>博客园团队 - 博客园</title>
+    <title>机器学习初探-线性回归 - 凹凸实验室 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright.min.css?v=00nt3ajQUVX0gvFynxRY-4TOqQaW32yFChuBOrvOqLk" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/cmt/custom.css?v=2GOft7v8/khW8DYnIqoYHSMrSyc=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright-mobile.min.css?v=cSBXSFXCBG9KdnF2sdUs-Rwu75GHG2_Gs50OCy_ecGg" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=QgnRqPZd0AFqBojTDaexyiNRMaV3YDud6PKtl7URQ4M" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/cmt/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/cmt/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/cmt/wlwmanifest.xml" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/o2team/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/o2team/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/o2team/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 39258;
-        var currentBlogApp = 'cmt';
-        var cb_enable_mathjax = true;
+        var currentBlogId = 593883;
+        var currentBlogApp = 'o2team';
+        var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'LessIsMoreRight';
+        var skinName = 'BlueSky';
         var visitorUserId = '';
     </script>
+        <script>
+            var currentPostDateAdded = '2021-05-20 07:22';
+        </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
-        TeX: {
-        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
-        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
-        Macros: {bm: "\\boldsymbol"}
-        },
-        'HTML-CSS': { linebreaks: { automatic: true } },
-        SVG: { linebreaks: { automatic: true } }
-        });
-    </script>
-    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
+    
+    
     
 </head>
 <body class="has-navbar">
@@ -101,539 +93,291 @@
     </div>
 
     
-    <div id="home">
-    <div id="header">
-        <div id="blogTitle">
-            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/cmt/">博客园官方博客</a>
-</div>
-<div class="subtitle">代码改变世界</div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/o2team/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/o2team/">凹凸实验室</a>
+</h1>
+<h2></h2>
 
-        </div>
-        <div id="navigator">
-            
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
 <ul id="navList">
-    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
 </li>
-    <li id="nav_myhome">
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/cmt/">
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/o2team/">
 首页</a>
 </li>
-    <li id="nav_newpost">
+<li>
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
 </li>
-    <li id="nav_contact">
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%9B%A2%E9%98%9F">
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%87%B9%E5%87%B8%E5%AE%9E%E9%AA%8C%E5%AE%A4">
 联系</a></li>
-    <li id="nav_rss">
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/cmt/rss/">
-订阅</a></li>
-    <li id="nav_admin">
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/o2team/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
 </li>
 </ul>
 
-            <div class="blogStats">
-                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-            </div>
-        </div>
-    </div>
-    <div id="main">
-        <div id="mainContent">
-            <div class="forFlow">
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
                 
-
-
-
-
-
-
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/05/03.html">2021年5月3日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14727025.html">
-    <span>
-        上周热点回顾（4.26-5.2）
-    </span>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/o2team/p/14791176.html">
+    <span>机器学习初探-线性回归</span>
     
 
 
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h3 id="题外话">题外话</h3>
+<p>我很早就对人工智能是非常感兴趣的。记得我大学的毕业论文，就是使用遗传算法解决了一个经典的寻路问题。<br>
+我一直对人类经典的思想是非常敬畏和崇拜的，比如传统的计算机数据结构算法问题，例如经典的排序算法或者动态规划思想，把一些看似<br>
+复杂的问题竟然用短短十几行甚至一个 for 循环就能解决，这令我感受到了一种美学，也同时对人类的伟大思想而赞叹。<br>
+但传统的计算机算法其实还是通过，人来编写代码，人来通过完整的、解决问题的思路来解决问题。但如果机器能有自己的思想，如果它自己就能“学习”到解决问题的方法，岂不是非常 cool 的一件事。但以我目前的认知来看，现在的人工智能是更像是一种工具，一种“数学工具”，一种“统计学工具”，<br>
+它是从大量数据里总结出了一种“规律”，用来解决实际问题。它离电脑真正有思想还相距甚远，甚至以目前来看，二者可能并不是一回事。可能让机器具有思维，还需要在其他学科上进行突破比如人的认知机制，脑科学进行突破。哈哈扯远了。</p>
+<p>先来介绍自己的一些简单认识。</p>
+<h3 id="线性">线性</h3>
+<ol>
+<li>什么是线性？</li>
+</ol>
+<p>有一类几何对象，比如直线、平面、立方体，看上去都是有棱有角的，都是“直”的，在数学中称为线性<br>
+<img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192210250-1861590991.svg" alt="avatar" loading="lazy"></p>
+<p>要处理它们相关的问题就非常简单。比如在高中就学过，两根直线可以用两个线性方程来表示，想求它们交点的话：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192210458-407530171.svg" alt="avator" loading="lazy"></p>
+<p>联立出两者的方程组，求出该方程组的解就可以得到交点</p>
+<ol start="2">
+<li>为什么要研究线性</li>
+</ol>
+<p>（1）我们所处的世界、宇宙太复杂了，很多现象都无法理解，更谈不上用数学去描述；</p>
+<p>（2）有一些符合特定条件的复杂问题，可以转化为简单的线性问题。线性问题就可以完全被理解，完全可以被数学所描述</p>
+<h3 id="回归">回归</h3>
+<p>以我目前的认知来看，机器学习主要的任务有两类。<br>
+第一就是分类任务，比如</p>
+<ul>
+<li>判断一张图片里的是猫还是狗 （二分类，因为我<strong>定义</strong>目标结论有两种，即猫或者狗）</li>
+<li>判断一个股票明天是涨还是跌</li>
+<li>判断一个图片中的数字是几（多分类。因为我<strong>定义</strong>目标结论有 10 种，0 到 9）</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192210811-1424479164.png" alt="avator" loading="lazy"></p>
+<p>也就是说，分类的结果是，<strong>人为</strong>预先定义的结果范围里的一种</p>
+<p>而第二类任务就是回归任务，而它得出的结果是一个连续数字的值，而非类别。<br>
+例如</p>
+<ul>
+<li>预测房屋价格</li>
+<li>预测股票价格</li>
+</ul>
+<h3 id="什么是机器学习">什么是机器学习</h3>
+<p>这是我目前的浅显理解。机器学习目前我觉得是一种数学工具。通过喂给机器大量的学习资料，然后机器运行一个机器学习算法，训练出了一个模型。然后再向机器丢入问题，机器通过这个模型运算得出结果。</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192212805-2056678986.png" alt="avator" loading="lazy"></p>
+<h3 id="线性回归的初步感性理解">线性回归的初步感性理解</h3>
+<p>比如我收集到了有 x, y 的两组数据（比如年龄和身高），我想要知道这两组变量是否有线性关系。那么我先以一个变量为 x 轴，另一个变量为 y 轴画出这样一副散点图。</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192213193-570856118.png" alt="avator" loading="lazy"></p>
+<p>那么我就可以找出这样的一条直线。这条直线的特征是：尽可能的离所有离散点最近，也可以表述成，每个离散点离直线距离的差值之和最小。<br>
+那么我就可以很好的根据我算出的这条直线，由已知的 x 值，来预测的未知的 y 值。<br>
+假如说 x, y 有线性关系的话，那么预测的效果还是很不错的。所以线性回归的主要任务是，找出这条直线。</p>
+<h3 id="单变量线性回归">单变量线性回归</h3>
+<p>我们先从单变量线性回归开始理解，即假设 x 只有一个特征（比如一氧化氮浓度），y 是房价。<br>
+根据前文提到的感性理解，我们的目标就是找到最佳的直线方程：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192213420-2043544737.png" alt="avator" loading="lazy"></p>
+<p>其实就是求参数 a 和 b 的过程。<br>
+那其实我们的目标就是，使得根据每一个 x 点,使得</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192213640-2140236647.png" alt="avator" loading="lazy"></p>
+<p>最小。这个方程叫做损失函数。<br>
+你可能想问为什么是差的平方和最小？而不是差的绝对值和最小或者差的 3 或者 4 次方最小？<br>
+差的平方和最小在数学中叫做最小二乘法，这里给出一个链接<br>
+<a href="https://www.zhihu.com/question/24095027" target="_blank">https://www.zhihu.com/question/24095027</a>，这里不再细究。</p>
+<p>所以一类机器学习算法的基本思路是： 通过确定问题的损失函数，然后最优化损失函数，来获得机器学习的模型。<br>
+怎么求得这个损失函数的最小值，即求 a 和 b 的值。则需要对 a 和 b 分别进行求导。导数为 0 的点则为极值点。<br>
+现在我们对 a 进行求导(复合函数的链式求导法则)：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192213865-2130232688.png" alt="avator" loading="lazy"></p>
+<p>化简一下：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192214145-672003845.png" alt="avator" loading="lazy"></p>
+<p>根据同样的过程得出 a,化简过程省略：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192214394-914885180.png" alt="avator" loading="lazy"></p>
+<p>然后 python 实现一下：<br>
+简单来说我需要定义两个方法。</p>
+<ul>
+<li>fit 拟合方法。或者我们常说的训练方法。通过将训练数据作为参数传入这个方法，得出模型的各个参数。</li>
+<li>predict 预测方法。将 x 值带入这个方法，得出预测值</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192215478-1241072643.png" alt="avator" loading="lazy"></p>
+<p>这里需要注意一下：这里采用了向量化代替了循环去求 a。 我们看到，a 的分子分母实际上用循环也可以求，<br>
+但是实际上，a 的分子分母其实可以看成向量的点乘（即向量 a 里的每一个分量乘以向量 b 里的每一个分量）。<br>
+这样做有两个好处：</p>
+<ul>
+<li>代码更清晰</li>
+<li>向量是并行运算。（调用 GPU 流处理器进行并行运算）远快于 cpu 里进行循环</li>
+</ul>
+<p>当把这个 a 和 b 的参数求出之后，我们就得出了一个模型（在这个例子中是 y=ax+b），然后我们就可以进行预测了，把 x 带入这个方程中，就可以得出预测后的这个 y 值。</p>
+<h3 id="多元线性回归">多元线性回归</h3>
+<p>理解了单变量线性回归之后，我们就开始需要解决，当特征为多个的时候，怎么进行预测？<br>
+也就是多元线性回归。<br>
+我们可以理解一下，多元线性回归实际要求的是这样的一个方程</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192215781-1949247482.png" alt="avator" loading="lazy"></p>
+<p>即每一个特征前面都有一个常数系数，再加一个常数（截距）。<br>
+这里我们把这些系数整理成一个（列）向量</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192215978-715723471.png" alt="avator" loading="lazy"></p>
+<p>然后我们为了方便起见，设置一个 x0, x0 恒等于 1，那么我们最终就化简成了下面两个向量的点乘</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192216241-1948188400.png" alt="avator" loading="lazy"></p>
+<p>然后把所有的 x 向量（样本）组合成一个矩阵，将 theta 整理成一个列向量。那么 y(向量)就是所有 x 向量的预测值。这里用到了矩阵和向量的乘法（哈哈忘了的话得复习一下线性代数）。</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192217652-1809049168.png" alt="avator" loading="lazy"></p>
+<p>那么根据最小二乘法，我们的目标就是使得 <img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192218058-419921199.png" alt="avator" loading="lazy"></p>
+<p>最小。也就是要对整个矩阵进行求导，具体推导过程省略，这里给出最终 theta 的解：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192218324-1486373610.png" alt="avator" loading="lazy"></p>
+<p>也就是我们通过数学推导，直接求出了参数的数学解，然而一般而言，能够直接得出参数数学解的机器学习方法还是比较少的，有可能还需要借助其他方法比如梯度下降才能够求出参数。</p>
+<h4 id="多元线性回归的实现">多元线性回归的实现</h4>
+<p>接下来根据这个数学解进行实现。</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192218835-1820095612.png" alt="avator" loading="lazy"></p>
+<h3 id="简单线性回归实战（波士顿房价预测）">简单线性回归实战（波士顿房价预测）</h3>
+<p>这个波士顿房价数据集是 sklearn(一个机器学习框架)自带的数据集</p>
+<p>其实我看到这个数据集时也懵了，这个例子是带我们预测房价吗？预测明天深圳的房价？<br>
+我觉得是可以这样理解，通过收集一些特征（学习资料）如下图和波士顿某些地区的平均房价（目标结论），来推测出你或者房地产商卖房子时应该怎么定价比较划算。或者说通过这个数据集来理解，哪个因素对于房价影响更大。</p>
+<h4 id="数据介绍">数据介绍</h4>
+<p>该数据集包含马萨诸塞州波士顿郊区的房屋信息数据，来自 UCI 机器学习知识库（数据集已下线），于 1978 年开始统计，包括 506 个样本，每个样本包括 12 个特征变量和该地区的平均房价。</p>
+<h4 id="字段含义">字段含义</h4>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192220544-32807625.png" alt="avator" loading="lazy"></p>
+<p>可以看到，研究者希望找出影响房价的重要因素，比如环境因素（一氧化氮浓度），位置因素（到波士顿 5 个中心区域的加权距离）等等（不过我相信影响中国房价因素要比这复杂的多）</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192222610-1016455799.png" alt="avator" loading="lazy"></p>
+<p>经过求解得出了（或者说学习到了）各个参数的值，然后如果地产商想要定价的话，可以收集这些特征，然后使用模型的 predict 方法可以得出一个房价的参考值。</p>
+<p>然后我们也可以看到，哪些因素对于房价是正相关的，哪些是负相关的。然后参数越大，越影响房价，这就是线性回归法对于结果的可解释性（有些机器学习方法是不支持的）。</p>
+<hr>
+<p>欢迎关注凹凸实验室博客：<a href="https://aotu.io/" target="_blank">aotu.io</a></p>
+<p>或者关注凹凸实验室公众号（AOTULabs），不定时推送文章：</p>
+<p><img src="https://img2020.cnblogs.com/other/1992869/202105/1992869-20210520192223879-1888274610.jpg" alt="欢迎关注凹凸实验室公众号" loading="lazy"></p>
 
-    <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;【故障公告】数据库服务器 CPU 100% 引发网站故障&#160;(博客园团队)&#183;&#160;同事写了一个疯狂的类构造器，我要疯了，Builder 模式都不会么？！&#160;(Java技术栈)&#183;&#160;老爷子这代码，看跪了！&#160;(why技术)&#183;&#160;这款能够生成文档的接口测试软件，为什么越来越受欢迎？&#160;(奔四少年)&#183;&#160;.        <a href="https://www.cnblogs.com/cmt/p/14727025.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-05-03 09:32
-博客园团队
-<span data-post-id="14727025" class="post-view-count">阅读(657)</span> 
-<span data-post-id="14727025" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14727025" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727025" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/05/01.html">2021年5月1日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14724749.html">
-    <span>
-        【故障公告】数据库服务器再次 CPU 100% 引发全站故障
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：今天五一劳动节的一大早 4:50-6:30 期间，我们使用的阿里云 RDS SQL Server 数据库实例再次出现 CPU 100% 问题，引发全站故障，由此给您带来麻烦，请您谅解。 我们发现故障后立即进行主备切换，与上次故障不同的是，这次主备切换没有成功，再次切换，依然没有成功，后来尝试重启实例        <a href="https://www.cnblogs.com/cmt/p/14724749.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-05-01 20:53
-博客园团队
-<span data-post-id="14724749" class="post-view-count">阅读(1358)</span> 
-<span data-post-id="14724749" class="post-comment-count">评论(15)</span> 
-<span data-post-id="14724749" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724749" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
 </div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/28.html">2021年4月28日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14713510.html">
-    <span>
-        【故障公告】数据库服务器 CPU 100% 引发网站故障
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，上次光临时间是 3-30 8:48，这次是 4-28 9:41。这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU 很快恢复正常。但是，这次来的“真”是时候（访问高峰），虽然数据库 CPU 恢复正常，但高并发的博客站点在数据库恢复后来不及建缓存，大量请求503或者访问缓慢，估计今天整个上午都扛不住。        <a href="https://www.cnblogs.com/cmt/p/14713510.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-28 12:07
-博客园团队
-<span data-post-id="14713510" class="post-view-count">阅读(5187)</span> 
-<span data-post-id="14713510" class="post-comment-count">评论(58)</span> 
-<span data-post-id="14713510" class="post-digg-count">推荐(14)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713510" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/26.html">2021年4月26日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14703333.html">
-    <span>
-        上周热点回顾（4.19-4.25）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;[翻译]正式宣布 Visual Studio 2022&#160;(Rwing)&#183;&#160;一次失败的创业经历&#160;(茶底世界)&#183;&#160;再见，深圳~长沙，我又来啦&#160;(邹琼俊)&#183;&#160;又一起.NET程序挂死, 用 Windbg 抽丝剥茧式的真实案例分析&#160;(一线码农)&#183;&#160;我很久没写代码了，但我是个好架构师&#160;(四猿外)        <a href="https://www.cnblogs.com/cmt/p/14703333.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-26 09:52
-博客园团队
-<span data-post-id="14703333" class="post-view-count">阅读(1458)</span> 
-<span data-post-id="14703333" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14703333" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14703333" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/19.html">2021年4月19日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14675578.html">
-    <span>
-        上周热点回顾（4.12-4.18）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;一个技术总监的忠告：你精通那么多技术，为何还是做不好一个项目？&#160;(四猿外)&#183;&#160;上周热点回顾（4.5-4.11）&#160;(博客园团队)&#183;&#160;我成为 Microsofti Azure MVP 啦！（ps：不是美国职业篮球）&#160;(Grant_Allen)&#183;&#160;如何从 dump 文件中提取出 C# 源代        <a href="https://www.cnblogs.com/cmt/p/14675578.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-19 09:43
-博客园团队
-<span data-post-id="14675578" class="post-view-count">阅读(2534)</span> 
-<span data-post-id="14675578" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14675578" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14675578" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/12.html">2021年4月12日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14646662.html">
-    <span>
-        上周热点回顾（4.5-4.11）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;博客园，你肿么了？&#160;(悟空聊架构)&#183;&#160;我，第一次做项目经理，干赔了&#160;(四猿外)&#183;&#160;上周热点回顾（3.29-4.4）&#160;(博客园团队)&#183;&#160;技术从业者的未来（2）&#160;(lex-wu)&#183;&#160;.NET 6 Preview 3 发布&#160;(hez2010)&#183;&#160;假如易立竞吐槽程序员。。。&#160;(码农小说家)&#183;        <a href="https://www.cnblogs.com/cmt/p/14646662.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-12 09:45
-博客园团队
-<span data-post-id="14646662" class="post-view-count">阅读(5129)</span> 
-<span data-post-id="14646662" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14646662" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14646662" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/06.html">2021年4月6日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14620499.html">
-    <span>
-        上周热点回顾（3.29-4.4）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;【故障公告】阿里云 RDS SQL Server 数据库实例 CPU 100% 引发全站故障&#160;(博客园团队)&#183;&#160;历史性突破：.net core 客服系统单客户日处理消息量超过 1.7 万条&#160;(sheng.chao)&#183;&#160;卧槽，线上数据删错了，差点被老板开除&#160;(苏三说技术)&#183;&#160;关于园子以        <a href="https://www.cnblogs.com/cmt/p/14620499.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-06 09:54
-博客园团队
-<span data-post-id="14620499" class="post-view-count">阅读(9330)</span> 
-<span data-post-id="14620499" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14620499" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14620499" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/30.html">2021年3月30日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14595262.html">
-    <span>
-        【故障公告】阿里云 RDS SQL Server 数据库实例 CPU 100% 引发全站故障
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：非常抱歉，今天 8:48 开始我们使用的阿里云 RDS SQL Server 数据库实例突然出现 CPU 100%  问题，引发全站故障，由此给您带来麻烦，请您谅解。发现故障后立即进行主备切换，和往常一样，第1次主备切换失败，第2次主备切换完成后恢复正常。上次同样故障发生在 2020-11-03 13:35        <a href="https://www.cnblogs.com/cmt/p/14595262.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-30 09:29
-博客园团队
-<span data-post-id="14595262" class="post-view-count">阅读(70714)</span> 
-<span data-post-id="14595262" class="post-comment-count">评论(92)</span> 
-<span data-post-id="14595262" class="post-digg-count">推荐(30)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14595262" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/27.html">2021年3月27日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14585828.html">
-    <span>
-        致园友们的一封检讨书：都是我们的错
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：尊敬的园友： 非常非常对不起，我们没有照顾好园子，让园子出了一个巨大的bug。 7天还17年欠下的债（网站运营工作），四两拨万斤，我们的任何努力都是杯水车薪。 园子的一片狼藉，是我们根本来不及。 园子的一团混乱，是我们已手忙码乱。 博文只能推荐不能反对，不是我们不讲武德；博客后台无法保存草稿，不是我        <a href="https://www.cnblogs.com/cmt/p/14585828.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-27 18:19
-博客园团队
-<span data-post-id="14585828" class="post-view-count">阅读(385670)</span> 
-<span data-post-id="14585828" class="post-comment-count">评论(1483)</span> 
-<span data-post-id="14585828" class="post-digg-count">推荐(831)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14585828" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/26.html">2021年3月26日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14580194.html">
-    <span>
-        非常抱歉，全站内容审核中...
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：为了更加合法合规运营网站，我们正在对全站内容进行审核，之前的内容审核通过后才能访问。 由于审核工作量巨大，完成审核还需要时间，我们正在想方设法提高审核速度，由此给您带来麻烦，请您谅解。 如果您访问园子时跳转到这篇博文，说明当前访问的内容还在审核列表中，如果您急需访问，麻烦您将对应的网址反馈给我们，我        <a href="https://www.cnblogs.com/cmt/p/14580194.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-26 07:59
-博客园团队
-<span data-post-id="14580194" class="post-view-count">阅读(35363380)</span> 
-<span data-post-id="14580194" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14580194" class="post-digg-count">推荐(218)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14580194" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-
-<div class="topicListFooter">
-    <div id="nav_next_page">
-        
-    <a href="https://www.cnblogs.com/cmt/default.html?page=2">
-        下一页
-    </a>
-
-    </div>    
-</div>
-
-
-
-
-<script>
-    updatePostStats(
-        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
-        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
-        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
-        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
-</script>
             </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-20 19:22</span>&nbsp;
+<a href="https://www.cnblogs.com/o2team/">凹凸实验室</a>&nbsp;
+阅读(<span id="post_view_count">8</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14791176" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14791176);return false;">收藏</a></div>
         </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 593883, cb_blogApp = 'o2team', cb_blogUserGuid = '9d8e2aa6-9be8-4a37-a699-08d7d2f044e4';
+    var cb_entryId = 14791176, cb_entryCreatedDate = '2021-05-20 19:22', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
 
-        <div id="sideBar">
-            <div id="sideBarMain">
-                <div id="sidebar_news" class="newsItem">
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
-                <script>loadBlogDefaultCalendar();</script>
-                <div id="leftcontentcontainer">
-                    <!-- begin:SingleColumn -->
-                    <div id="blog-sidecolumn"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-                    <!-- end:  SingleColumn -->
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-    <div id="footer">
-        <!--done-->
-Copyright &copy; 2021 博客园团队
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 凹凸实验室
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
-    </div>
-</div>
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt767Nk7_cMhHsNPpxE7Vl9nVJ5wtGz24bXh6LFs4zEfbFW88VzoZPANSWGCgdaWKxBaN55Pyr6KiyZexTFMIanVn5R3vOWM7YB5Mkwk87gpaTxpUEKhr69KUPoG5aQCs8" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtVnaXapr63v2l49NtdMSsH4_ZpJgPwgTAWTqg3uHrdwnIrMlyw6pkGlrNY87cbuJ6Gh3h17CsYf7LZiI7kvTnUonVrogDLu04L4EHQ-0LuV5lVu-LogXESj2JRVP-KUpE" />
 </body>
 </html>

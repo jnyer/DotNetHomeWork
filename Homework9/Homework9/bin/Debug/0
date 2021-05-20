@@ -12,7 +12,7 @@
     <title>拓荒者 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
     <link id="MainCss" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001.min.css?v=9x2ZP2K8SSBJowZA6xv0D5FvOmlvd5g21u0NBEAEwfQ" />
     
     <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001-mobile.min.css?v=xFiYH0_zTHqf_pk9Nf2PvR4VdQ1qJnJcRVcot-VdM-8" />
@@ -30,7 +30,7 @@
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -146,7 +146,7 @@
         <p class="postfoot">
             posted @ 2010-11-02 17:43
 拓荒者
-<span data-post-id="1867406" class="post-view-count">阅读(971)</span> 
+<span data-post-id="1867406" class="post-view-count">阅读(1003)</span> 
 <span data-post-id="1867406" class="post-comment-count">评论(0)</span> 
 <span data-post-id="1867406" class="post-digg-count">推荐(0)</span> 
 <a href="https://i.cnblogs.com/EditPosts.aspx?postid=1867406" rel="nofollow">
@@ -190,7 +190,7 @@
         <p class="postfoot">
             posted @ 2005-10-08 12:12
 拓荒者
-<span data-post-id="250188" class="post-view-count">阅读(1194)</span> 
+<span data-post-id="250188" class="post-view-count">阅读(1200)</span> 
 <span data-post-id="250188" class="post-comment-count">评论(3)</span> 
 <span data-post-id="250188" class="post-digg-count">推荐(0)</span> 
 <a href="https://i.cnblogs.com/EditPosts.aspx?postid=250188" rel="nofollow">
@@ -234,7 +234,7 @@
         <p class="postfoot">
             posted @ 2005-03-06 00:56
 拓荒者
-<span data-post-id="113761" class="post-view-count">阅读(1580)</span> 
+<span data-post-id="113761" class="post-view-count">阅读(1588)</span> 
 <span data-post-id="113761" class="post-comment-count">评论(5)</span> 
 <span data-post-id="113761" class="post-digg-count">推荐(0)</span> 
 <a href="https://i.cnblogs.com/EditPosts.aspx?postid=113761" rel="nofollow">
@@ -278,7 +278,7 @@
         <p class="postfoot">
             posted @ 2005-03-05 14:45
 拓荒者
-<span data-post-id="113513" class="post-view-count">阅读(2656)</span> 
+<span data-post-id="113513" class="post-view-count">阅读(2659)</span> 
 <span data-post-id="113513" class="post-comment-count">评论(5)</span> 
 <span data-post-id="113513" class="post-digg-count">推荐(1)</span> 
 <a href="https://i.cnblogs.com/EditPosts.aspx?postid=113513" rel="nofollow">
@@ -388,6 +388,6 @@
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt9WDYiYfR4eu6jLqTd-eY2GuT9f_pZopzLt4lEcdaI6Snl17S_0fdFH8RxKRSmroD4jZLsDqDnRMVnz5KIICef4uHw8TDJVFHq9_cjg0fTSMKzNrLC5xtN0yWw_o4FLJs" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtfBlqq_uIKOetKs5o3diMu08VsbRdYpHR9xAKirWJmbk5cNskb2XTPtih9dGwGA-9PY5Dak7A-kA2ogV_dyRyd5rKHhTF01sRIg38h9EdOe97GOYGmvQAzfhgDsgC8aj4" />
 </body>
 </html>

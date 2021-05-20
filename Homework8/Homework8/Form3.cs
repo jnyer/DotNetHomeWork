@@ -12,9 +12,9 @@ namespace Homework8
 {
     public partial class Form3 : Form
     {
-        OrderDetails orderdetails = new OrderDetails();
-        List<OrderDetails> orderdetailss = new List<OrderDetails>();
-        public Form3(OrderDetails orderdetail,int index,OrderDetails orderdetails)
+        OrderDetail orderdetails = new OrderDetail();
+        List<OrderDetail> orderdetailss = new List<OrderDetail>();
+        public Form3(OrderDetail orderdetail,int index,OrderDetail orderdetails)
         {
             InitializeComponent();
             goodsId.Text = index.ToString();
@@ -29,7 +29,7 @@ namespace Homework8
 
         private void confirm_btn_Click(object sender, EventArgs e)
         {
-            orderdetails = new OrderDetails(goodsName.Text, int.Parse(goodsQuantity.Text), 
+            orderdetails = new OrderDetail(goodsName.Text, int.Parse(goodsQuantity.Text), 
                 int.Parse(goodsPrice.Text), int.Parse(goodsId.Text));
         }
     }

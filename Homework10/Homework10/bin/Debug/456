@@ -9,28 +9,28 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>阿里巴巴云原生 - 博客园</title>
+    <title>bigsai - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright.min.css?v=00nt3ajQUVX0gvFynxRY-4TOqQaW32yFChuBOrvOqLk" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
     
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright-mobile.min.css?v=cSBXSFXCBG9KdnF2sdUs-Rwu75GHG2_Gs50OCy_ecGg" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/alisystemsoftware/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/alisystemsoftware/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/alisystemsoftware/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/bigsai/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/bigsai/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/bigsai/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 435351;
-        var currentBlogApp = 'alisystemsoftware';
+        var currentBlogId = 528115;
+        var currentBlogApp = 'bigsai';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'LessIsMoreRight';
+        var skinName = 'BlackLowKey';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -89,149 +89,84 @@
         </nav>
     </div>
 
-    
-    <div id="home">
-    <div id="header">
-        <div id="blogTitle">
-            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/alisystemsoftware/">阿里系统软件技术</a>
-</div>
-<div class="subtitle"></div>
+    <div id="page_begin_html">
+        个人公众号交流：bigsai
 
-        </div>
-        <div id="navigator">
-            
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/bigsai/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/bigsai/">bigsai</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
 <ul id="navList">
-    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
 </li>
-    <li id="nav_myhome">
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/alisystemsoftware/">
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/bigsai/">
 首页</a>
 </li>
-    <li id="nav_newpost">
+<li>
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
 </li>
-    <li id="nav_contact">
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E4%BA%91%E5%8E%9F%E7%94%9F">
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/bigsai">
 联系</a></li>
-    <li id="nav_rss">
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/alisystemsoftware/rss/">
-订阅</a></li>
-    <li id="nav_admin">
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/bigsai/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
 </li>
 </ul>
 
-            <div class="blogStats">
-                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-            </div>
-        </div>
-    </div>
-    <div id="main">
-        <div id="mainContent">
-            <div class="forFlow">
-                
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
 
 
 
 
 
-
-    
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/alisystemsoftware/archive/2021/04/29.html">2021年4月29日</a>
-    </div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14718852.html">
-    <span>
-        seata-golang 一周年回顾
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：Seata 是一款简单易用，高性能、开源的一站式分布式事务解决方案。Seata 从2019 年 1 月开源后就受到了大家的追捧，目前已经有几百家企业在生产环境进行了技术的落地。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14718852.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-29 17:26
-阿里巴巴云原生
-<span data-post-id="14718852" class="post-view-count">阅读(17)</span> 
-<span data-post-id="14718852" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14718852" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14718852" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14718814.html">
-    <span>
-        WebAssembly + Dapr = 下一代云原生运行时？
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：云计算已经成为了支撑数字经济发展的关键基础设施。云计算基础设施也在持续进化，从 IaaS，到容器即服务（CaaS），再到 Serverless 容器和函数 PaaS (fPaaS 或者 FaaS)，新的计算形态相继出现。以容器和 Serverless 为代表的云原生技术正在重塑整个应用生命周期。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14718814.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-29 17:17
-阿里巴巴云原生
-<span data-post-id="14718814" class="post-view-count">阅读(18)</span> 
-<span data-post-id="14718814" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14718814" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14718814" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-</div>
-    
+		
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/alisystemsoftware/archive/2021/04/28.html">2021年4月28日</a>
+        <a href="https://www.cnblogs.com/bigsai/archive/2020/10/17.html">2020年10月17日</a>
     </div>
+
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14714249.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/13830096.html">
     <span>
-        Spring Cloud Stream 体系及原理介绍
+            <span>[置顶]</span>
+        博主介绍
     </span>
     
 
@@ -241,76 +176,40 @@
 
         </div>
         <div class="postCon">
-            
 
     <div class="c_b_p_desc">
-摘要：Spring Cloud Stream在 Spring Cloud 体系内用于构建高度可扩展的基于事件驱动的微服务，其目的是为了简化消息在 Spring Cloud 应用程序中的开发。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14714249.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：研一，热爱技术,主要学习java后端，数据结构与算法，偶尔捣鼓爬虫知识。 个人博客园&#160;https://www.cnblogs.com/bigsai/ 个人csdn&#160;https://bigsai.blog.csdn.net/ 个人掘金&#160;https://juejin.im/user/2612095359        <a href="https://www.cnblogs.com/bigsai/p/13830096.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
+</div>
         <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-28 15:17
-阿里巴巴云原生
-<span data-post-id="14714249" class="post-view-count">阅读(14)</span> 
-<span data-post-id="14714249" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14714249" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14714249" rel="nofollow">
+        <div class="postDesc">posted @ 2020-10-17 10:19
+bigsai
+<span data-post-id="13830096" class="post-view-count">阅读(102)</span> 
+<span data-post-id="13830096" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13830096" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13830096" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14714195.html">
-    <span>
-        边开飞机边换引擎？我们造了个新功能保障业务流量无损迁移
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：容器化部署应用可以降低企业成本，提升研发效率，解放运维人员。据 Gartner 预计，到 2022 年，将有 75％ 的企业将在生产中运行容器化应用程序。Kubernetes 是企业部署容器化应用的首选框架。由于 Kubernetes 部署及运维的复杂性，越来越多的客户选择将业务从 ECS 或者自建的 Kubernetes 迁移到阿里云托管版 Kubernetes —— ACK 中。但是，如何保证业务流量的平滑迁移成为一大挑战。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14714195.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-28 15:08
-阿里巴巴云原生
-<span data-post-id="14714195" class="post-view-count">阅读(15)</span> 
-<span data-post-id="14714195" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14714195" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14714195" rel="nofollow">
-    编辑
-</a>
-
-        </div>
+</div>
         <div class="clear"></div>
 </div>
-    
+
+
+		
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/alisystemsoftware/archive/2021/04/27.html">2021年4月27日</a>
+        <a href="https://www.cnblogs.com/bigsai/archive/2019/09/23.html">2019年9月23日</a>
     </div>
+
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14708173.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/11571715.html">
     <span>
-        云原生新边界——阿里云边缘计算云原生落地实践
+            <span>[置顶]</span>
+        我用数据结构花了一夜给女朋友写了个h5走迷宫小游戏
     </span>
     
 
@@ -320,40 +219,39 @@
 
         </div>
         <div class="postCon">
-            
 
     <div class="c_b_p_desc">
-摘要：日前，在由全球分布式云联盟主办的“Distributed Cloud | 2021 全球分布式云大会·云原生论坛”上，阿里云高级技术专家黄玉奇发表了题为《云原生新边界：阿里云边缘计算云原生落地实践》的主题演讲。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14708173.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：@ &quot;TOC&quot; 先看效果图(在线电脑尝试地址 &quot;http://biggsai.com/maze.html&quot; )： 起因 又到深夜了，我按照以往在 写着数据结构！这占用了我大量的时间！我的超越妹妹严重缺乏陪伴而 怨气满满！ 超越妹妹时常埋怨，认为数据结构这么抽象难懂的东西没啥作用，常会问道：天天写这玩        <a href="https://www.cnblogs.com/bigsai/p/11571715.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
+</div>
         <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-27 11:20
-阿里巴巴云原生
-<span data-post-id="14708173" class="post-view-count">阅读(17)</span> 
-<span data-post-id="14708173" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14708173" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14708173" rel="nofollow">
+        <div class="postDesc">posted @ 2019-09-23 12:42
+bigsai
+<span data-post-id="11571715" class="post-view-count">阅读(5733)</span> 
+<span data-post-id="11571715" class="post-comment-count">评论(30)</span> 
+<span data-post-id="11571715" class="post-digg-count">推荐(23)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=11571715" rel="nofollow">
     编辑
 </a>
-
-        </div>
+</div>
         <div class="clear"></div>
 </div>
-    
+
+
+		
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/alisystemsoftware/archive/2021/04/26.html">2021年4月26日</a>
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/05/20.html">2021年5月20日</a>
     </div>
+
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14704916.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14789414.html">
     <span>
-        连续三年入围 Gartner 容器竞争格局，阿里云容器服务新布局首次公开
+        520，花了一夜给女朋友写走迷宫游戏
     </span>
     
 
@@ -363,76 +261,39 @@
 
         </div>
         <div class="postCon">
-            
 
     <div class="c_b_p_desc">
-摘要：近日，国际知名信息技术咨询机构 Gartner 发布 2021 年容器竞争格局报告，阿里云成为国内唯一连续三年入选的中国企业，产品丰富度与成熟度持续保持全球领先水平。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14704916.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：起因 先看效果图(文末有动态图)(在线电脑尝试地址http://biggsai.com/maze.html)： 项目github地址：https://github.com/javasmall/mazegame： 作为程序猿，常常因为身务繁忙，经常忙于coding很少闲暇来顾及女朋友，也常被吐槽为渣男        <a href="https://www.cnblogs.com/bigsai/p/14789414.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
+</div>
         <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-26 15:39
-阿里巴巴云原生
-<span data-post-id="14704916" class="post-view-count">阅读(21)</span> 
-<span data-post-id="14704916" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14704916" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14704916" rel="nofollow">
+        <div class="postDesc">posted @ 2021-05-20 12:56
+bigsai
+<span data-post-id="14789414" class="post-view-count">阅读(907)</span> 
+<span data-post-id="14789414" class="post-comment-count">评论(12)</span> 
+<span data-post-id="14789414" class="post-digg-count">推荐(6)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14789414" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14704852.html">
-    <span>
-        6 张图带你彻底搞懂分布式事务 XA 模式
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：XA 协议是由 X/Open 组织提出的分布式事务处理规范，主要定义了事务管理器 TM 和局部资源管理器 RM 之间的接口。目前主流的数据库，比如 oracle、DB2 都是支持 XA 协议的。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14704852.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-26 15:30
-阿里巴巴云原生
-<span data-post-id="14704852" class="post-view-count">阅读(19)</span> 
-<span data-post-id="14704852" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14704852" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14704852" rel="nofollow">
-    编辑
-</a>
-
-        </div>
+</div>
         <div class="clear"></div>
 </div>
-    
+
+
+		
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/alisystemsoftware/archive/2021/04/25.html">2021年4月25日</a>
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/05/13.html">2021年5月13日</a>
     </div>
+
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14701065.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14764249.html">
     <span>
-        What&#39;s new in dubbo-go v1.5.6
+        数据结构：栈详解
     </span>
     
 
@@ -442,109 +303,373 @@
 
         </div>
         <div class="postCon">
-            
 
     <div class="c_b_p_desc">
-摘要：dubbogo 社区近期发布了 dubbogo v1.5.6。该版本和 dubbo 2.7.8 对齐，提供了命令行工具，并提供了多种加载配置的方式。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14701065.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：原创不易 还请一键三连支持 什么是栈 栈在我们日常编码中遇到的非常多，很多人对栈的接触可能仅仅局限在 递归使用的是栈 和 StackOverflowException，栈是一种后进先出的数据结构(可以想象生化金字塔的牢房和生化角斗场的狗洞)。 栈是这么定义的： 栈（stack）又名堆栈，它是一种运算        <a href="https://www.cnblogs.com/bigsai/p/14764249.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
+</div>
         <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-25 17:05
-阿里巴巴云原生
-<span data-post-id="14701065" class="post-view-count">阅读(16)</span> 
-<span data-post-id="14701065" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14701065" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14701065" rel="nofollow">
+        <div class="postDesc">posted @ 2021-05-13 13:51
+bigsai
+<span data-post-id="14764249" class="post-view-count">阅读(256)</span> 
+<span data-post-id="14764249" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14764249" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14764249" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14700981.html">
-    <span>
-        使用 rocketmq-spring-boot-starter 来配置、发送和消费 RocketMQ 消息
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：本文将 rocktmq-spring-boot 的设计实现做一个简单的介绍，读者可以通过本文了解将 RocketMQ Client 端集成为 spring-boot-starter 框架的开发细节，然后通过一个简单的示例来一步一步的讲解如何使用这个 spring-boot-starter 工具包来配置，发送和消费 RocketMQ 消息。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14700981.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-25 16:52
-阿里巴巴云原生
-<span data-post-id="14700981" class="post-view-count">阅读(27)</span> 
-<span data-post-id="14700981" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14700981" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14700981" rel="nofollow">
-    编辑
-</a>
-
-        </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alisystemsoftware/p/14700911.html">
-    <span>
-        面对大规模 K8s 集群，如何先于用户发现问题？
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-            
-
-    <div class="c_b_p_desc">
-摘要：怎样才能在复杂的大规模场景中，做到真正先于用户发现问题呢？下面我会带来我们在管理大规模 ASI 集群过程中对于快速发现问题的一些经验和实践，希望能对大家有所启发。        <a href="https://www.cnblogs.com/alisystemsoftware/p/14700911.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-25 16:38
-阿里巴巴云原生
-<span data-post-id="14700911" class="post-view-count">阅读(24)</span> 
-<span data-post-id="14700911" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14700911" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14700911" rel="nofollow">
-    编辑
-</a>
-
-        </div>
+</div>
         <div class="clear"></div>
 </div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/05/08.html">2021年5月8日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14744692.html">
+    <span>
+        数据结构与算法之线性表(顺序表、链表)详解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：原创公众号：bigsai 文章已收录在 全网都在关注的数据结构与算法学习仓库 欢迎star 前言 通过前面数据结构与算法基础知识我么知道了数据结构的一些概念和重要性，那么我们今天总结下线性表相关的内容。当然，我用自己的理解解分享给大家。 其实说实话，可能很多人依然分不清线性表，顺序表，和链表之间的区        <a href="https://www.cnblogs.com/bigsai/p/14744692.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-08 14:11
+bigsai
+<span data-post-id="14744692" class="post-view-count">阅读(65)</span> 
+<span data-post-id="14744692" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14744692" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14744692" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/04/21.html">2021年4月21日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14683746.html">
+    <span>
+        大学四年，总结一套适合小白的Java自学路线和方法
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言篇 大家好，我是bigsai 好久不见，甚是想念，文章同时收录在回车课堂(文底阅读原文可达)。 无论你是大学生还是在职人员，想学Java时，都会面临两个选择，自学或者报班。报班通常太费钱，时间又不自由；自学又不知道如何下手，担心自己坚持不下来。怎么办呢？ 本文将解答你自学Java的N种问题： 你        <a href="https://www.cnblogs.com/bigsai/p/14683746.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-21 09:05
+bigsai
+<span data-post-id="14683746" class="post-view-count">阅读(260)</span> 
+<span data-post-id="14683746" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14683746" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14683746" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/04/06.html">2021年4月6日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14623537.html">
+    <span>
+        一文搞定二叉排序(搜索)树
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 前面介绍学习的大多是线性表相关的内容，把指针搞懂后其实也没有什么难度，规则相对是简单的，后面会讲解一些比较常见的数据结构，用多图的方式让大家更容易吸收。 在数据结构与算法中，树是一个比较大的家族，家族中有很多厉害的成员，这些成员有二叉树和多叉树(例如B+树等)，而二叉树的大家族中，二叉搜索树(        <a href="https://www.cnblogs.com/bigsai/p/14623537.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-06 20:13
+bigsai
+<span data-post-id="14623537" class="post-view-count">阅读(354)</span> 
+<span data-post-id="14623537" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14623537" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14623537" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/04/02.html">2021年4月2日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14610003.html">
+    <span>
+        大数运算—大数加法、减法、乘法、除法详解
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：原创公众号：bigsai 原创不易，如果有收获请不要吝啬你的一键三连！ 前言 大家好，我是bigsai！最近，大数加减频频登上笔试的舞台，小伙伴们在群里也分享自己遇到面试官碰到大数运算的题目，想着这么重要而简单的知识点我还没写过，那得好好和大家一起总结一下。 各位有过分类刷题的小伙伴，可能看到很多人        <a href="https://www.cnblogs.com/bigsai/p/14610003.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-02 11:56
+bigsai
+<span data-post-id="14610003" class="post-view-count">阅读(405)</span> 
+<span data-post-id="14610003" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14610003" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14610003" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/03/29.html">2021年3月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14593196.html">
+    <span>
+        图解双链表(Java实现)
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：原创公众号：bigsai 文章已收录在 全网都在关注的数据结构与算法学习仓库 前言 前面有很详细的讲过线性表(顺序表和链表)，当时讲的链表以但链表为主，但实际上在实际应用中双链表的应用多一些就比如LinkedList。 双链表与单链表区别 逻辑上它们均是线性表的链式实现，主要的区别是节点结构上的构造        <a href="https://www.cnblogs.com/bigsai/p/14593196.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-29 17:01
+bigsai
+<span data-post-id="14593196" class="post-view-count">阅读(223)</span> 
+<span data-post-id="14593196" class="post-comment-count">评论(1)</span> 
+<span data-post-id="14593196" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14593196" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/03/11.html">2021年3月11日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14519004.html">
+    <span>
+        一文搞懂全排列、组合、子集问题
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：微信搜一搜：【bigsai】 获取更多肝货知识 春风十里，感谢有你 前言 Hello，大家好，我是bigsai，long time no see！在刷题和面试过程中，我们经常遇到一些排列组合类的问题，而全排列、组合、子集等问题更是非常经典问题。本篇文章就带你彻底搞懂全排列！ 求全排列？ 全排列即：n        <a href="https://www.cnblogs.com/bigsai/p/14519004.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-11 16:53
+bigsai
+<span data-post-id="14519004" class="post-view-count">阅读(300)</span> 
+<span data-post-id="14519004" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14519004" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14519004" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/03/10.html">2021年3月10日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14511634.html">
+    <span>
+        你好，我是程序员
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 最近大部分人都开工了，大部分人的假期已经结束，还剩下一些学生党依旧享受假期，就在这么一个日子随心分享一些。 过年，避不开走亲访友，我们在长辈的心中也从小小孩变成大小孩。 但是和以前不同的是，小时候长辈们只问多大啦上啥，我们的回答从小学、初中、高中到大学，但是大学毕业工作或者读研的时候，就会有很        <a href="https://www.cnblogs.com/bigsai/p/14511634.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-10 14:52
+bigsai
+<span data-post-id="14511634" class="post-view-count">阅读(580)</span> 
+<span data-post-id="14511634" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14511634" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14511634" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/bigsai/archive/2021/01/27.html">2021年1月27日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/bigsai/p/14334410.html">
+    <span>
+        面试官常问的位运算问题总结
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：原创公众号：bigsai 文章已收录在 全网都在关注的数据结构与算法学习仓库 欢迎star 前言 位运算隐藏在编程语言的角落中，其神秘而又强大，暗藏内力，有些人光听位运算的大名的心中忐忑，还有些人更是一看到位运算就远远离去，我之前也是。但狡猾的面试官往往喜欢搞偷袭，抓住我们的弱点搞我们，为了防患于未        <a href="https://www.cnblogs.com/bigsai/p/14334410.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-01-27 12:56
+bigsai
+<span data-post-id="14334410" class="post-view-count">阅读(274)</span> 
+<span data-post-id="14334410" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14334410" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14334410" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
 
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/alisystemsoftware/default.html?page=2">
+    <a href="https://www.cnblogs.com/bigsai/default.html?page=2">
         下一页
     </a>
 
     </div>    
 </div>
+
+
 
 
 
@@ -556,38 +681,40 @@
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-            </div>
-        </div>
-
-        <div id="sideBar">
-            <div id="sideBarMain">
-                <div id="sidebar_news" class="newsItem">
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
-                <script>loadBlogDefaultCalendar();</script>
-                <div id="leftcontentcontainer">
-                    <!-- begin:SingleColumn -->
-                    <div id="blog-sidecolumn"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-                    <!-- end:  SingleColumn -->
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-    <div id="footer">
-        <!--done-->
-Copyright &copy; 2021 阿里巴巴云原生
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 bigsai
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        个人公众号交流：bigsai
+
     </div>
-</div>
 
-    
-
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjviZd_3siCdn0IpyZ7GJfzwDi9k5lfIoLnhKqTtOwUZHq_Q3d-dVOk1V-ox9ZpFWYgXvkuo81j1niQ01K180_uyCa5W3cVsenW_gg_Eh23r_6ZUNTQcNlrRNLpJvE6xxxc" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvdLbCjW_yDqyyGAijtC0BHeWvZVqibqOZ_29jEm7Quo5d9At-38q0LwxAqxNa0_YD8LxImiWETdWsd4eKmjgbYUU4R-Lptg4Vs_WXfhFbzKNpxKVEgSU83SDtl0JuzIPg" />
 </body>
 </html>

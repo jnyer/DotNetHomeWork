@@ -14,7 +14,7 @@ namespace Homework8
     public partial class Form2 : Form
     {
         Order order = new Order();
-        OrderDetails od = new OrderDetails();
+        OrderDetail od = new OrderDetail();
         bool isAdd = false;
 
         public Form2()
@@ -22,7 +22,7 @@ namespace Homework8
             InitializeComponent();
             
         }
-        public Form2(Order order, OrderDetails od, bool isAdd)
+        public Form2(Order order, OrderDetail od, bool isAdd)
         {
             InitializeComponent();
             this.order = order;
@@ -40,7 +40,7 @@ namespace Homework8
         private void addDetail_btn_Click(object sender, EventArgs e)
         {
             int count = orderDetailDataGridView.Rows.Count;
-            Form3 form3 = new Form3(new OrderDetails(), count, od);
+            Form3 form3 = new Form3(new OrderDetail(), count, od);
 
             if (form3.ShowDialog() == DialogResult.OK)
             {

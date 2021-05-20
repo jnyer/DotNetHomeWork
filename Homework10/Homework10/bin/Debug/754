@@ -9,28 +9,28 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>coding途中 - 博客园</title>
+    <title>码农的笔记 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001.min.css?v=9x2ZP2K8SSBJowZA6xv0D5FvOmlvd5g21u0NBEAEwfQ" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair.min.css?v=2eeF5VFetkv0ebUrveBo_MjLCMmhO1B4PudZOUBLn1Y" />
     
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/anothereon001/bundle-anothereon001-mobile.min.css?v=xFiYH0_zTHqf_pk9Nf2PvR4VdQ1qJnJcRVcot-VdM-8" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair-mobile.min.css?v=YRGfW14H7zygWA_SxKeRyr-kyP2kOiJ7vj7-MC3lxPs" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/1ssqq1lxr/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/1ssqq1lxr/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/1ssqq1lxr/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dmqhjp/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dmqhjp/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dmqhjp/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 451911;
-        var currentBlogApp = '1ssqq1lxr';
+        var currentBlogId = 244880;
+        var currentBlogApp = 'dmqhjp';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'AnotherEon001';
+        var skinName = 'LoveIsIntheAir';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -90,44 +90,87 @@
     </div>
 
     
-    <div id="wrapper">
+    
+<!--done-->
+<center>
+<div id="home">
 <div id="header">
-
-<div id="top">
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/1ssqq1lxr/">陆陆起飞啦</a>
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/dmqhjp/"><img id="blogLogo" src="/skins/loveisintheair/images/logo.gif" alt="" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dmqhjp/">码农的笔记</a>
 </h1>
-<div id="subtitle"></div>
-</div>
-<div id="sub"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></div>
+<h2>我是码农</h2>
 
 
 
 
-</div>
-<div id="main_container">
-<div id="main_content">
-<div id="content">
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dmqhjp/">
+首页</a>
+</li>
+	<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%A0%81%E5%86%9C%E7%9A%84%E7%AC%94%E8%AE%B0">
+联系</a></li>
+	<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dmqhjp/rss/">
+订阅</a>
 	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/dmqhjp/rss/">
+    <img src="/skins/loveisintheair/images/xml.gif" alt="订阅" />
+</a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div class="clear"></div>
+	<div id="topicList">
+		
 
 
 
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/03/24.html">2021年3月24日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14572644.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/20.html">2021年5月20日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14790862.html">
     <span>
-            <span>[置顶]</span>
-        走进docker-machine
+        Delphi中String引用计数长度与占用内存
     </span>
     
 
@@ -135,44 +178,75 @@
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：什么是Docker-Machine？ Docker Machine是一种工具，可让您在虚拟主机上安装Docker Engine，并使用docker-machine命令管理主机。简单来说就是给你快速创建一个docker容器环境的，如果你要给100台物理机安装上docker，传统方式就是你一台一台ssh        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14572644.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：D7下 --String和Shortstring不一样！！！ vstr:string; vShort:Shortstring; vstr[0]这样写错误！;//vstr[1]才是第一个字符 vShort[0]这样写没问题！//vShort[0]保存的是vShort的长度：byte(vShort[0]        <a href="https://www.cnblogs.com/dmqhjp/p/14790862.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-03-24 11:01
-coding途中
-<span data-post-id="14572644" class="post-view-count">阅读(24)</span> 
-<span data-post-id="14572644" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14572644" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14572644" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-20 17:50
+码农的笔记
+<span data-post-id="14790862" class="post-view-count">阅读(0)</span> 
+<span data-post-id="14790862" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14790862" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14790862" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
+			<div class="postSeparator"></div>
+			<div class="postTitle">
+				
 
-        </p>
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14790021.html">
+    <span>
+        Delphi中密码字符校验（不允许中文等一些特殊字符）
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：--一个简单的密码非法字符校验，存在非法字符，就返回false; CheckPassWord(‘hhhhhh哈哈’)；//有中文，返回False function CheckPassWord(PassWord: string): boolean; //不允许（汉字和空格，双引号等）var wStr:        <a href="https://www.cnblogs.com/dmqhjp/p/14790021.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-20 15:33
+码农的笔记
+<span data-post-id="14790021" class="post-view-count">阅读(1)</span> 
+<span data-post-id="14790021" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14790021" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14790021" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/03/19.html">2021年3月19日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14557380.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/17.html">2021年5月17日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14776209.html">
     <span>
-            <span>[置顶]</span>
-        走进docker-compose
+        Delphi 中三种回调函数形式解析 
     </span>
     
 
@@ -180,44 +254,43 @@ coding途中
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：什么是Docker-Compose？ Docker-Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。比如我们发布一个系统可能包含多个服        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14557380.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：--[教程]Delphi 中三种回调函数形式解析 – QDAC数据访问组件网站 http://blog.qdac.cc/?p=4595 Delphi 支持三种形式的回调函数： 全局函数这种方式几乎是所有的语言都支持的，类的静态函数也可以归为此类，它保存的只是一个函数的代码起始地址指针（ Pointe        <a href="https://www.cnblogs.com/dmqhjp/p/14776209.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-03-19 11:13
-coding途中
-<span data-post-id="14557380" class="post-view-count">阅读(21)</span> 
-<span data-post-id="14557380" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14557380" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14557380" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-17 11:13
+码农的笔记
+<span data-post-id="14776209" class="post-view-count">阅读(3)</span> 
+<span data-post-id="14776209" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14776209" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14776209" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
 
-        </p>
-    </div>
+</div>
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/03/10.html">2021年3月10日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14510018.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/15.html">2021年5月15日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14772029.html">
     <span>
-            <span>[置顶]</span>
-        java新手学习路线
+        Delphi中回调函数的简单例子
     </span>
     
 
@@ -225,44 +298,75 @@ coding途中
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：1 JAVA基础 反射注解内部类泛型序列化基本数据类型异常处理 2 JAVA集合 接口继承关系 接口依赖 List源码 ArrayList（数组）Vector（数组、线程安全）Linklist（链表） Set源码 HashSet（Hash表）TreeSet（二叉树）LinkHashSet（Hash表        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14510018.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：开发环境：D7 这是一个简单的回调函数，再结合回调函数的相关资料(资料没有提供)，能快速的掌握回调函数; 回调函数定义在Unit2中 Unit1开始 unit Unit1; interface uses Windows, Messages, SysUtils, Variants, Classes,         <a href="https://www.cnblogs.com/dmqhjp/p/14772029.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-03-10 10:26
-coding途中
-<span data-post-id="14510018" class="post-view-count">阅读(60)</span> 
-<span data-post-id="14510018" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14510018" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14510018" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-15 17:16
+码农的笔记
+<span data-post-id="14772029" class="post-view-count">阅读(4)</span> 
+<span data-post-id="14772029" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14772029" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14772029" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
+			<div class="postSeparator"></div>
+			<div class="postTitle">
+				
 
-        </p>
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14771824.html">
+    <span>
+        Delphi中为事件赋值（把某个单元的过程赋值给事件）
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：--开发环境：D7 Unit1--开始 unit Unit1; interface uses Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls,TypInfo; t        <a href="https://www.cnblogs.com/dmqhjp/p/14771824.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-15 16:17
+码农的笔记
+<span data-post-id="14771824" class="post-view-count">阅读(3)</span> 
+<span data-post-id="14771824" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14771824" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14771824" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2019/01/21.html">2019年1月21日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/10301474.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/14.html">2021年5月14日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14769671.html">
     <span>
-            <span>[置顶]</span>
-        基于spring reactor3构建的即时通讯api。
+        dbgrideh 数据单元格显示不全 气泡提示 
     </span>
     
 
@@ -270,44 +374,75 @@ coding途中
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：欢迎阅读Rmessage文档 技术栈 Rmessage是采用Reactor3,基于reactor-netty项目构建的实时消息推送api。 什么是Reactor3? Reactor 是一个用于JVM的完全非阻塞的响应式编程框架，具备高效的需求管理（即对 “背压（backpressure）”的控制）能        <a href="https://www.cnblogs.com/1ssqq1lxr/p/10301474.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：dbgrideh 数据单元格显示不全 气泡提示_用户1374962962_新浪博客 http://blog.sina.com.cn/s/blog_51f445120102x9i4.html Step&#160;1:&#160;先將&#160;TDBGridEh&#160;的&#160;ShowHint TureStep&#160;2:&#160;在將&#160;TDBGridE        <a href="https://www.cnblogs.com/dmqhjp/p/14769671.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2019-01-21 23:03
-coding途中
-<span data-post-id="10301474" class="post-view-count">阅读(1256)</span> 
-<span data-post-id="10301474" class="post-comment-count">评论(0)</span> 
-<span data-post-id="10301474" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10301474" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-14 19:14
+码农的笔记
+<span data-post-id="14769671" class="post-view-count">阅读(5)</span> 
+<span data-post-id="14769671" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14769671" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14769671" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
+			<div class="postSeparator"></div>
+			<div class="postTitle">
+				
 
-        </p>
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14769670.html">
+    <span>
+        Office 2007 打开故障 The setup controller has encountered&amp;nbs
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Office 2007 打开故障 The setup controller has encountered a--Office 2007 打开故障 The setup controller has encountered&amp;nbs_mfg99_新浪博客 http://blog.sina.com.cn/        <a href="https://www.cnblogs.com/dmqhjp/p/14769670.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-14 19:13
+码农的笔记
+<span data-post-id="14769670" class="post-view-count">阅读(5)</span> 
+<span data-post-id="14769670" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14769670" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14769670" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2018/12/05.html">2018年12月5日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/10071762.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/13.html">2021年5月13日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14765447.html">
     <span>
-            <span>[置顶]</span>
-        k8s-高可用多主master配置
+        Delphi中Indy10的IdTcpClient和IdTcpServer数据通信
     </span>
     
 
@@ -315,44 +450,75 @@ coding途中
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：准备主机 centos7镜像 node1: 192.168.0.101 node2: 192.168.0.102 node3: 192.168.0.103 vip: 192.168.0.104 配置ssh免密&amp;#160;并修改/etc/hosts跟/etc/hostname 配置所有节点的kubelet #         <a href="https://www.cnblogs.com/1ssqq1lxr/p/10071762.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：例子是XE的 只是本人测试的，仅供学习！代码很乱！ 在一个程序中测试&#160;IdTcpClient和IdTcpServer有点坑， 测试的时候最好写Client和Server两个程序测试 Unit开始 unit Unit1; interface uses Windows, Messages, SysUti        <a href="https://www.cnblogs.com/dmqhjp/p/14765447.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2018-12-05 16:37
-coding途中
-<span data-post-id="10071762" class="post-view-count">阅读(10083)</span> 
-<span data-post-id="10071762" class="post-comment-count">评论(0)</span> 
-<span data-post-id="10071762" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10071762" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-13 17:26
+码农的笔记
+<span data-post-id="14765447" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14765447" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14765447" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14765447" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
+			<div class="postSeparator"></div>
+			<div class="postTitle">
+				
 
-        </p>
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14764483.html">
+    <span>
+        Delphi中TStringList的使用
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：资料来源：delphi TStringList 用法详解 http://www.delphitop.com/html/wenjian/3407.html /TStringList 常用方法与属性 :varList: TStringList;i: Integer;begin&#160;List := TStri        <a href="https://www.cnblogs.com/dmqhjp/p/14764483.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-13 14:39
+码农的笔记
+<span data-post-id="14764483" class="post-view-count">阅读(8)</span> 
+<span data-post-id="14764483" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14764483" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14764483" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
 
 
 		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2018/11/21.html">2018年11月21日</a>
-	</span>
-</p>
 
-    <div class="post">
-        <h2>
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/9994911.html">
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/dmqhjp/archive/2021/05/10.html">2021年5月10日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dmqhjp/p/14751640.html">
     <span>
-            <span>[置顶]</span>
-        微服务的脚手架Jhipster使用(一)
+        Inno Setup创建菜单里面卸载图标
     </span>
     
 
@@ -360,510 +526,33 @@ coding途中
 
 </a>
 
-        </h2>
-        <div class="postbody">
-            
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：随着微服务的普及以及docker容器的广泛应用，有传统的soa服务衍生出微服务的概念，微服务强调的是服务的独立性，屏蔽底层物理平台的差异，此时你会发现微服务跟容器技术完美契合。在此基础上衍生出的云原生以及DevOps的概念，废话不多说介绍一个非常牛叉的springCloud脚手架- -jhipste        <a href="https://www.cnblogs.com/1ssqq1lxr/p/9994911.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：来源：inno setup win10 创建菜单里面卸载图标 https://www.icode9.com/content-4-724671.html ; 脚本由 Inno Setup 脚本向导 生成！ ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！ #define MyAp        <a href="https://www.cnblogs.com/dmqhjp/p/14751640.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2018-11-21 14:37
-coding途中
-<span data-post-id="9994911" class="post-view-count">阅读(18579)</span> 
-<span data-post-id="9994911" class="post-comment-count">评论(0)</span> 
-<span data-post-id="9994911" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9994911" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-10 16:32
+码农的笔记
+<span data-post-id="14751640" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14751640" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14751640" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14751640" rel="nofollow">
     编辑
 </a>
+</div>
+			<div class="clear"></div>
 
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2018/11/20.html">2018年11月20日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/9989500.html">
-    <span>
-            <span>[置顶]</span>
-        ReentrantReadWriteLock源码分析
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：ReentrantReadWriteLock 内部维护了 ReadLock 跟 WriteLock类，state状态高16bit代表读锁状态 低16bit代表写锁状态，Sync内部封装了，WriteLock -&gt; acquire(1) -&gt;&#160;tryAcquire() ; ReadLock -&gt;&#160;ac        <a href="https://www.cnblogs.com/1ssqq1lxr/p/9989500.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2018-11-20 16:03
-coding途中
-<span data-post-id="9989500" class="post-view-count">阅读(132)</span> 
-<span data-post-id="9989500" class="post-comment-count">评论(0)</span> 
-<span data-post-id="9989500" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9989500" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/05/06.html">2021年5月6日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14736209.html">
-    <span>
-        非常好用的三款Java Stream API扩展库
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 在Java8中引入的流API可能仍然是Java在过去几年中包含的最重要的新特性。我认为每个Java开发人员在其职业生涯中都有机会使用JAVA STRAM API。或者我更愿意说，你可能每天都在使用它。但是，如果将函数式编程的内置特性与其他一些语言（例如Kotlin）进行比较，您会很快意识到st        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14736209.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-05-06 17:48
-coding途中
-<span data-post-id="14736209" class="post-view-count">阅读(4)</span> 
-<span data-post-id="14736209" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14736209" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736209" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/28.html">2021年4月28日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14713083.html">
-    <span>
-        一款轻量级的声明式http调用工具！
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前沿 项目中我们经常会使用HTTP工具向外部的REST接口发送请求，大家一般使用Okhttp,或者java的HttpClient发起，今天给大家介绍一款轻量级声明式的Http库（FeignClient），使用起来会使我们的项目代码更整洁，利于维护！ 快速开始 Feign是spring cloud中服        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14713083.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-28 10:32
-coding途中
-<span data-post-id="14713083" class="post-view-count">阅读(99)</span> 
-<span data-post-id="14713083" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14713083" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713083" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/26.html">2021年4月26日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14706297.html">
-    <span>
-        史上最全java范型讲解
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：什么是java的泛型？ Java泛型是在JDK 5.0中引入的，引入泛型的好处是安全简单。泛型的好处是在编译的时候检查类型安全，并且所有的强制转换都是自动和隐式的，提高代码的重用率。 泛型基础 让我们想象一个场景，我们想要在Java中创建一个列表来存储Integer；我们很容易写： List&amp;#160;lis        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14706297.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-26 20:12
-coding途中
-<span data-post-id="14706297" class="post-view-count">阅读(15)</span> 
-<span data-post-id="14706297" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14706297" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14706297" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/22.html">2021年4月22日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14690739.html">
-    <span>
-        springcloud面试题【第二期】
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：Ribbon和Feign区别 ①: 二者调用方式不同 Ribbon添加maven依赖 spring-starter-ribbon 使用@RibbonClient(value=“服务名称”) Ribbon需要自己构建http请求，模拟http请求然后使用RestTemplate发送给其他服务，步骤相当        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14690739.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-22 17:43
-coding途中
-<span data-post-id="14690739" class="post-view-count">阅读(9)</span> 
-<span data-post-id="14690739" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14690739" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14690739" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/20.html">2021年4月20日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14680663.html">
-    <span>
-        深入学习spring  cloud gateway 限流熔断
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 Spring Cloud Gateway 目前，Spring Cloud Gateway是仅次于Spring Cloud Netflix的第二个最受欢迎的Spring Cloud项目（就GitHub上的星级而言）。它是作为Spring Cloud系列中Zuul代理的继任者而创建的。该项目提供了        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14680663.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-20 13:36
-coding途中
-<span data-post-id="14680663" class="post-view-count">阅读(410)</span> 
-<span data-post-id="14680663" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14680663" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14680663" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14680660.html">
-    <span>
-        springcloud gateway 的限流重试机制
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 前面给大家介绍了Spring Cloud Gateway的入门教程，这篇给大家探讨下Spring Cloud Gateway的一些其他功能。 Spring Cloud Gateway中的重试 我们知道Spring Cloud Gateway中的大多数操作都是使用过滤器模式实现的，该模式是Spr        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14680660.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-20 13:35
-coding途中
-<span data-post-id="14680660" class="post-view-count">阅读(37)</span> 
-<span data-post-id="14680660" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14680660" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14680660" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/15.html">2021年4月15日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14661284.html">
-    <span>
-        快速入门Spring Cloud Gateway
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 在深入探讨Spring Cloud Gateway的细节之前，让我们了解有关反向代理和api网关模式的一些基础知识。 什么是反向代理？ 反向代理是代表其他事物进行请求的事物。它的行为更像是简单的路由。它可以增加基本的安全性和监视功能，但实际上不能做某些高级事情，例如中介或业务流程。NGINX是        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14661284.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-15 10:18
-coding途中
-<span data-post-id="14661284" class="post-view-count">阅读(48)</span> 
-<span data-post-id="14661284" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14661284" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14661284" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/14.html">2021年4月14日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14657613.html">
-    <span>
-        史上最全jdk新特性总结，涵盖jdk8到jdk15！
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 在本文中，我将描述自第8版以来Java最重要且对开发人员友好的功能。为什么会有这样的主意？在Web上，您可以找到许多文章，其中包含每种Java版本的新功能列表。但是，由于缺少文章，因此无法简要概述自第8版以来最重要的更改。好的，但是为什么是第8版？令人惊讶的是，它仍然是最常用的Java版本。即        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14657613.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-14 14:10
-coding途中
-<span data-post-id="14657613" class="post-view-count">阅读(874)</span> 
-<span data-post-id="14657613" class="post-comment-count">评论(3)</span> 
-<span data-post-id="14657613" class="post-digg-count">推荐(4)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14657613" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/13.html">2021年4月13日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14652942.html">
-    <span>
-        一文搞定zuul使用
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言 在深入探讨Spring Cloud Gateway的细节之前，让我们了解有关反向代理和api网关模式的一些基础知识。 什么是反向代理？ 反向代理是代表其他事物进行请求的事物。它的行为更像是简单的路由。它可以增加基本的安全性和监视功能，但实际上不能做某些高级事情，例如中介或业务流程。NGINX是        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14652942.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-13 14:06
-coding途中
-<span data-post-id="14652942" class="post-view-count">阅读(171)</span> 
-<span data-post-id="14652942" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14652942" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14652942" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
-
-
-		
-<p class="date">
-	<span>		  
-	<a href="https://www.cnblogs.com/1ssqq1lxr/archive/2021/04/08.html">2021年4月8日</a>
-	</span>
-</p>
-
-    <div class="post">
-        <h2>
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/1ssqq1lxr/p/14631032.html">
-    <span>
-        一文带大家彻底搞懂Hystrix！
-    </span>
-    
-
-
-
-</a>
-
-        </h2>
-        <div class="postbody">
-            
-
-    <div class="c_b_p_desc">
-摘要：前言？ Netflix Hystrix断路器是什么？ Netflix Hystrix是SOA/微服务架构中提供服务隔离、熔断、降级机制的工具/框架。Netflix Hystrix是断路器的一种实现，用于高微服务架构的可用性，是防止服务出现雪崩的利器。 为什么需要断路器 在分布式架构中，一个应用依赖多        <a href="https://www.cnblogs.com/1ssqq1lxr/p/14631032.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-
-        </div>
-        <p class="postfoot">
-            posted @ 2021-04-08 10:24
-coding途中
-<span data-post-id="14631032" class="post-view-count">阅读(285)</span> 
-<span data-post-id="14631032" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14631032" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14631032" rel="nofollow">
-    编辑
-</a>
-
-        </p>
-    </div>
+</div>
 
 
 
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/1ssqq1lxr/default.html?page=2">
+    <a href="https://www.cnblogs.com/dmqhjp/default.html?page=2">
         下一页
     </a>
 
@@ -882,84 +571,39 @@ coding途中
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-</div>
-</div>
-<div id="leftmenu">
+	</div><!--end: topicList 文章列表容器-->
 
-
-<h3>导航</h3>
-<ul>
-    <li>
-        <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
-博客园</a>
-
-    </li>
-    <li>
-        
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/1ssqq1lxr/">
-首页</a>
-
-    </li>
-    <li>
-        
-
-<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-新随笔</a>
-
-    </li>
-    <li>
-        
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/coding%E9%80%94%E4%B8%AD">
-联系</a>
-    </li>
-    <li>
-        
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/1ssqq1lxr/rss/">
-订阅</a>
-        
-<a id="blog_nav_rss_image" href="https://www.cnblogs.com/1ssqq1lxr/rss/">
-    <img src="/skins/anothereon001/images/xml.gif" alt="订阅" />
-</a>
-    </li>
-    <li>
-        
-<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
-管理</a>
-
-    </li>
-</ul>
-
-
-<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
-<div id="sidebar_news" class="newsItem">
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-<div id="blog-sidecolumn"></div>
+			<div id="calendar"><div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-
-</div>
-</div>
-<div class="clear"></div>
-<div id="footer">
-<p id="footer">
-	Powered by: 
-	<br />
-	
-	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
-	<br />
-	Copyright &copy; 2021 coding途中
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+		<div class="clear"></div>
+		<div id="footer">
+			<!--done-->
+Copyright &copy; 2021 码农的笔记
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
-</p>
 
 
-</div>
-</div>
+		</div><!--end: footer -->
+	</div><!--end: sideBar 侧边栏容器 -->
+</div><!--end: home 自定义的最大容器 -->
+</center>
 
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvteZCZ8FUXECPfW_OWKFCuVZZSrxWg8CCpYN6-piSomboRRYO9wKuJ0dyLn5AxctBHmFs_Iszmi3IiDQ2QdRkahRRcbk_Ocw0bXPcfPlKZt01iPLTlYm-_y5AWxAxlSEY" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvvcuKXwbIAW_bS9ShS0XN6VpEB69VWssQltbi5u5WyfEOgkKHVLTY3AES2UZQc3LLLPp3XxORSSPAun7M1svEgTEVKpSsfpNqkBpJTHYz1RRt3nwX3FNkEB6WQpExWypM" />
 </body>
 </html>

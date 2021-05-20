@@ -9,20 +9,20 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>轩辕之风 - 博客园</title>
+    <title>CODING_DevOps - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
     <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/xuanyuan/custom.css?v=1x/hOAF2DBc3F9SC1kmM7U6j8oc=" />
+    
     <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xuanyuan/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xuanyuan/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xuanyuan/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/codingdevops/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/codingdevops/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/codingdevops/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 193695;
-        var currentBlogApp = 'xuanyuan';
+        var currentBlogId = 490266;
+        var currentBlogApp = 'codingdevops';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
@@ -30,14 +30,14 @@
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -89,19 +89,18 @@
         </nav>
     </div>
 
-    <div id="page_begin_html">
-        <script>loadPageBeginHtml();</script>
-    </div>
+    
     <!--done-->
 <div id="home">
 <div id="header">
 	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xuanyuan/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/codingdevops/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
 		
 <!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xuanyuan/">轩辕之风</a>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/codingdevops/">DevOps 实践指南</a>
 </h1>
-<h2></h2>
+<h2>关注敏捷开发、DevOps、持续集成/部署、分布式架构等技术领域，
+持续分享输出优秀实践案例。</h2>
 
 
 
@@ -115,7 +114,7 @@
 博客园</a>
 </li>
 <li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xuanyuan/">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/codingdevops/">
 首页</a>
 </li>
 <li>
@@ -124,10 +123,10 @@
 新随笔</a>
 </li>
 <li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%BD%A9%E8%BE%95%E4%B9%8B%E9%A3%8E">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/CODING_DevOps">
 联系</a></li>
 <li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xuanyuan/rss/">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/codingdevops/rss/">
 订阅</a>
 <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
 <li>
@@ -156,15 +155,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/29.html">2021年4月29日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/15.html">2021年4月15日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14716733.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14663338.html">
     <span>
-        我是如何把计算机网络考了100分的？
+            <span>[置顶]</span>
+        API 文档简洁之美，只需三步开启
     </span>
     
 
@@ -176,16 +176,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：有读者问我：轩辕，你是怎么学计算机网络的？ 鸽了好久，今天得空聊聊这个话题。 轩辕是通信工程专业，计算机网络通信自然是必学内容。 我猜，绝大多数同学的计算机网络知识，估计都是在学生时代，抱着谢希仁那本厚厚的《计算机网络》课本，老师念着上个世纪就传承至今的教案PPT得来的。 如果运气好，老师讲的不错，        <a href="https://www.cnblogs.com/xuanyuan/p/14716733.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：连接世界，不能含糊 API 最初出现时通常被用作操作系统的库，而且几乎都在本地的系统中运行。到 2000 年代初，它们已脱离本地运行环境，成为远程交互数据的重要技术。现如今，API 不仅仅是一种技术连接，也成为了一种商业连接。通过开放 API，个人或者企业可以打开自由之门，向客户、合作伙伴提供数字化        <a href="https://www.cnblogs.com/codingdevops/p/14663338.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-29 09:41
-轩辕之风
-<span data-post-id="14716733" class="post-view-count">阅读(690)</span> 
-<span data-post-id="14716733" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14716733" class="post-digg-count">推荐(5)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14716733" rel="nofollow">
+        <div class="postDesc">posted @ 2021-04-15 17:01
+CODING_DevOps
+<span data-post-id="14663338" class="post-view-count">阅读(15)</span> 
+<span data-post-id="14663338" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14663338" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14663338" rel="nofollow">
     编辑
 </a>
 </div>
@@ -198,15 +198,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/28.html">2021年4月28日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/03/25.html">2021年3月25日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14711951.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14578760.html">
     <span>
-        大一那会，我用QQ远程帮同学考过计算机二级
+            <span>[置顶]</span>
+        专访 CNCF 大使王炜：让云原生开发回归原始而又简单
     </span>
     
 
@@ -218,16 +219,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：考证 大一那会儿流行考证，什么普通话、教师资格证、计算机、商务英语各种证五花八门的。 我们非计算机专业（我是通信工程）的基本上都会去考一个叫计算机二级的证书，说是找工作有用，大一新生，哪懂这些，一窝蜂的跟风就去考了。 稀里糊涂的去学了一个Visual FoxPro的数据库语言（简称VF），就是这个东        <a href="https://www.cnblogs.com/xuanyuan/p/14711951.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：近期，腾讯云 CODING DevOps 开源了云原生开发环境 - Nocalhost。 根据官方文档介绍，Nocalhost 来源于 No Localhost，其含义是开发者不再依赖本地计算机的编码、调试和测试过程。他是一个云原生开发环境，旨在解决云原生下开发难的问题。 例如，在 Kubernet        <a href="https://www.cnblogs.com/codingdevops/p/14578760.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-28 09:51
-轩辕之风
-<span data-post-id="14711951" class="post-view-count">阅读(1560)</span> 
-<span data-post-id="14711951" class="post-comment-count">评论(9)</span> 
-<span data-post-id="14711951" class="post-digg-count">推荐(9)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14711951" rel="nofollow">
+        <div class="postDesc">posted @ 2021-03-25 18:53
+CODING_DevOps
+<span data-post-id="14578760" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14578760" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14578760" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14578760" rel="nofollow">
     编辑
 </a>
 </div>
@@ -240,15 +241,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/20.html">2021年4月20日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/03/15.html">2021年3月15日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14679727.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14538916.html">
     <span>
-        从键盘按下一个6，到显示出来，计算机发生了什么？
+            <span>[置顶]</span>
+        CODING DevOps 高可用实践，保障服务稳定的“定海神针”
     </span>
     
 
@@ -260,16 +262,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：计算机领域有一个经典的问题：从你在浏览器中输入URL并按下回车，到网页渲染出来，这中间发生了什么？ 通过这个问题，可以考察候选人对计算机网络的理解程度，因此出现在数不清的面试场合。 毋庸置疑，这是一个好问题，我也看到不下100篇文章在探讨这个问题的答案。 而今天，我想跟大家探讨的是另外一个问题：从你        <a href="https://www.cnblogs.com/xuanyuan/p/14679727.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：对于软件研发团队而言，服务的稳定性是非常重要，它与生产经营、用户留存都密切相关。而 CODING 作为面向软件研发团队的研发协作管理平台，与客户的业务生产更是密不可分。如何为客户提供高可用、不间断的服务体验，如何多层面、多渠道来保障 CODING 本身的服务稳定性，成为了 CODING 发展道路上不        <a href="https://www.cnblogs.com/codingdevops/p/14538916.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-20 09:43
-轩辕之风
-<span data-post-id="14679727" class="post-view-count">阅读(3240)</span> 
-<span data-post-id="14679727" class="post-comment-count">评论(10)</span> 
-<span data-post-id="14679727" class="post-digg-count">推荐(30)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14679727" rel="nofollow">
+        <div class="postDesc">posted @ 2021-03-15 17:30
+CODING_DevOps
+<span data-post-id="14538916" class="post-view-count">阅读(33)</span> 
+<span data-post-id="14538916" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14538916" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14538916" rel="nofollow">
     编辑
 </a>
 </div>
@@ -282,15 +284,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/03/02.html">2021年3月2日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/03/09.html">2021年3月9日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14467387.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14504191.html">
     <span>
-        一个故事看懂内存条工作原理
+            <span>[置顶]</span>
+        腾讯全资子公司 CODING 2021 届春季校招补录全面启动！
     </span>
     
 
@@ -302,16 +305,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：我是内存条 我是一个内存条，刚刚从深圳的一个工厂里被生产出来，跟我一起的还有一批小伙伴，长得跟我一模一样，下了流水线后我们就被扔进了一处黑暗的角落。 “这是哪里啊，黑漆漆的”，一个小伙伴说到。 “这里是内存条仓库”，黑暗中有人在说话，声音中略有一丝沧桑，像是一个老头。 “谁？谁在那里” “别怕，我也        <a href="https://www.cnblogs.com/xuanyuan/p/14467387.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：![](https://img2020.cnblogs.com/blog/1594319/202103/1594319-20210309103418815-1715274197.png)        <a href="https://www.cnblogs.com/codingdevops/p/14504191.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-03-02 09:50
-轩辕之风
-<span data-post-id="14467387" class="post-view-count">阅读(3702)</span> 
-<span data-post-id="14467387" class="post-comment-count">评论(13)</span> 
-<span data-post-id="14467387" class="post-digg-count">推荐(43)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14467387" rel="nofollow">
+        <div class="postDesc">posted @ 2021-03-09 10:35
+CODING_DevOps
+<span data-post-id="14504191" class="post-view-count">阅读(19)</span> 
+<span data-post-id="14504191" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14504191" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14504191" rel="nofollow">
     编辑
 </a>
 </div>
@@ -324,15 +327,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/12/03.html">2020年12月3日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/02/05.html">2021年2月5日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14077758.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14378201.html">
     <span>
-        CPU：网卡老哥，你到底怎么工作的？
+            <span>[置顶]</span>
+        2020 企业远程研发总结 —— 回首抗疫一年
     </span>
     
 
@@ -344,16 +348,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：阿Q造访 我是一个网卡，居住在一个机箱内的主板上，负责整台计算机的网络通信，要是没有我，这里就成了一个信息孤岛了，那也太无聊了～ 上个周末，服务器断电维护了，这是我难得的休息时间，我准备打个盹儿眯一会儿。 这才刚合上眼，CPU一号车间的阿Q跑过来串门了。 “怎么是你小子，听说你背后说了我很多坏话啊！        <a href="https://www.cnblogs.com/xuanyuan/p/14077758.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：2020 CODING 感恩有你 2021 让我们继续携手前行        <a href="https://www.cnblogs.com/codingdevops/p/14378201.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-03 09:36
-轩辕之风
-<span data-post-id="14077758" class="post-view-count">阅读(2952)</span> 
-<span data-post-id="14077758" class="post-comment-count">评论(11)</span> 
-<span data-post-id="14077758" class="post-digg-count">推荐(25)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14077758" rel="nofollow">
+        <div class="postDesc">posted @ 2021-02-05 15:56
+CODING_DevOps
+<span data-post-id="14378201" class="post-view-count">阅读(11)</span> 
+<span data-post-id="14378201" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14378201" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14378201" rel="nofollow">
     编辑
 </a>
 </div>
@@ -366,15 +370,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/25.html">2020年11月25日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/02/04.html">2021年2月4日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14034187.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14372345.html">
     <span>
-        主板上来了一个新邻居，CPU慌了！
+            <span>[置顶]</span>
+        CODING X C-Life：云端 DevOps 加速企业数智化
     </span>
     
 
@@ -386,16 +391,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：大家好，我是CPU一号车间的那个阿Q，好久不见，我想死你们了～ 不认识我的请去这里这里补补课：完了！CPU一味求快出事儿了！ 主板上的新邻居 “阿Q，快别忙了，马上去一趟会议室，领导有重要事情开会”，一大早，咱们CPU厂里的总线主任就挨个到8个车间通知大家开会，神色有些凝重。 “什么事情，这么着急？        <a href="https://www.cnblogs.com/xuanyuan/p/14034187.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：数联天下，智造生活 数字化开始从抽象化、标准化走向智能化 2020 给全民普及了什么是线上化、数字化、智能化，也加速了企业的数字化转型。“全数字化”时代，已经不仅仅是简单粗放的数据采集、映射、抽象。数字化开始迈入高级阶段——数据驱动的智能化：基于云管端 + AIoT 等为代表的新技术群落开始大量涌现        <a href="https://www.cnblogs.com/codingdevops/p/14372345.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-25 09:50
-轩辕之风
-<span data-post-id="14034187" class="post-view-count">阅读(6327)</span> 
-<span data-post-id="14034187" class="post-comment-count">评论(17)</span> 
-<span data-post-id="14034187" class="post-digg-count">推荐(54)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14034187" rel="nofollow">
+        <div class="postDesc">posted @ 2021-02-04 14:14
+CODING_DevOps
+<span data-post-id="14372345" class="post-view-count">阅读(37)</span> 
+<span data-post-id="14372345" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14372345" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14372345" rel="nofollow">
     编辑
 </a>
 </div>
@@ -408,15 +413,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/19.html">2020年11月19日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/02/02.html">2021年2月2日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14003524.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14363252.html">
     <span>
-        还不懂Docker？一个故事安排的明明白白！
+            <span>[置顶]</span>
+        CODING 联合 TKE，让应用发布更便捷
     </span>
     
 
@@ -428,16 +434,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：程序员受苦久矣 多年前的一个夜晚，风雨大作，一个名叫Docker的年轻人来到Linux帝国拜见帝国的长老。 “Linux长老，天下程序员苦于应用部署久矣，我要改变这一现状，希望长老你能帮帮我” 长老回答：“哦，小小年纪，口气不小，先请入座，你有何所求，愿闻其详” Docker坐下后开始侃侃而谈：“当        <a href="https://www.cnblogs.com/xuanyuan/p/14003524.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：随着互联网服务的竞争进入红海，IT 服务的复杂性加大，用户对于软件工程的速度与质量有了更高的追求。在这样的大背景下，DevOps、容器、微服务逐步取代传统的开发模式成为云原生的关键组成部分，腾讯云更是凭借完备的产品矩阵、系统的布局和广泛的实践成为云原生领域的领跑者。 通过腾讯云生态体系的构建，其核心        <a href="https://www.cnblogs.com/codingdevops/p/14363252.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-19 09:24
-轩辕之风
-<span data-post-id="14003524" class="post-view-count">阅读(6485)</span> 
-<span data-post-id="14003524" class="post-comment-count">评论(43)</span> 
-<span data-post-id="14003524" class="post-digg-count">推荐(87)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14003524" rel="nofollow">
+        <div class="postDesc">posted @ 2021-02-02 17:29
+CODING_DevOps
+<span data-post-id="14363252" class="post-view-count">阅读(29)</span> 
+<span data-post-id="14363252" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14363252" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14363252" rel="nofollow">
     编辑
 </a>
 </div>
@@ -450,15 +456,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/13.html">2020年11月13日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/01/29.html">2021年1月29日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13967583.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14343327.html">
     <span>
-        五分钟看懂抓包神技：DPDK
+            <span>[置顶]</span>
+        CODING 再携手腾讯云 Serverless，让开发者跑步上云
     </span>
     
 
@@ -470,16 +477,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：我是一个网络监控软件，我被开发出来的使命就是监控网络中进进出出的所有通信流量。 一直以来，我的工作都非常的出色，但是随着我监控的网络越来越庞大，网络中的通信流量也变得越来越多，我开始有些忙不过来了，逐渐发生丢包的现象，而且最近这一现象越发的严重了。 万兆流量需求 一天晚上，程序员哥哥把我从硬盘上叫了        <a href="https://www.cnblogs.com/xuanyuan/p/13967583.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：近年来，腾讯云持续在云原生领域打磨和完善产品矩阵，致力于为开发者上云提供更好的产品和服务。继前段时间 CODING CI 助力腾讯云 Serverless 全新应用控制台、持续保障 Serverless 应用快速部署稳定性之后，CODING DevOps 和腾讯云 Serverless 产品进一步合        <a href="https://www.cnblogs.com/codingdevops/p/14343327.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-13 09:28
-轩辕之风
-<span data-post-id="13967583" class="post-view-count">阅读(1973)</span> 
-<span data-post-id="13967583" class="post-comment-count">评论(2)</span> 
-<span data-post-id="13967583" class="post-digg-count">推荐(3)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13967583" rel="nofollow">
+        <div class="postDesc">posted @ 2021-01-29 09:56
+CODING_DevOps
+<span data-post-id="14343327" class="post-view-count">阅读(62)</span> 
+<span data-post-id="14343327" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14343327" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14343327" rel="nofollow">
     编辑
 </a>
 </div>
@@ -492,15 +499,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/03.html">2020年11月3日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/01/26.html">2021年1月26日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13917844.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/CODING.html">
     <span>
-        假如把Redis服务器们拉到一个群，看看他们是怎么工作的？
+            <span>[置顶]</span>
+        代码托管从业者 Git 指南
     </span>
     
 
@@ -512,16 +520,16 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：我是Redis，一个叫Antirez的男人把我带到了这个世界上。 那天，Redis基友群里，许久未见的大白发来了一条消息&#183;&#183;&#183; 于是，大白拉了一个新的群 以后的日子中，咱们哥仨相互配合，日常工作中最多的就是数据同步了 如果主节点有数据写入、删除、修改命令，也会把这些命令挨个通知到从节点，我们把这叫做        <a href="https://www.cnblogs.com/xuanyuan/p/13917844.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：本文作者：李博文 - CODING 后端开发工程师 前言 六七年前，我机缘巧合进入了代码托管行业，做过基于 Git 支持 SVN 客户端接入、Git 代码托管平台分布式、Git 代码托管读写分离、Git 代码托管高可用等工作，所幸学到了一些知识，积累了一些经验，本次分享我的一点经验之谈，希望对即将进        <a href="https://www.cnblogs.com/codingdevops/p/CODING.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-03 09:51
-轩辕之风
-<span data-post-id="13917844" class="post-view-count">阅读(3209)</span> 
-<span data-post-id="13917844" class="post-comment-count">评论(30)</span> 
-<span data-post-id="13917844" class="post-digg-count">推荐(58)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13917844" rel="nofollow">
+        <div class="postDesc">posted @ 2021-01-26 15:42
+CODING_DevOps
+<span data-post-id="14330704" class="post-view-count">阅读(440)</span> 
+<span data-post-id="14330704" class="post-comment-count">评论(1)</span> 
+<span data-post-id="14330704" class="post-digg-count">推荐(4)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14330704" rel="nofollow">
     编辑
 </a>
 </div>
@@ -534,15 +542,16 @@
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/10/29.html">2020年10月29日</a>
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/11/30.html">2020年11月30日</a>
     </div>
 
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13894905.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14061513.html">
     <span>
-        从创建进程到进入main函数，发生了什么？
+            <span>[置顶]</span>
+        GitHub 访问不顺怎么办？在线等，急
     </span>
     
 
@@ -554,16 +563,813 @@
         <div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：前几天，读者群里有小伙伴提问：从进程创建后，到底是怎么进入我写的main函数的？ 今天这篇文章就来聊聊这个话题。 首先先划定一下这个问题的讨论范围：C/C++语言 这篇文章主要讨论的是操作系统层面上对于进程、线程的创建初始化等行为，而像Python、Java等基于解释器、虚拟机的语言，如何进入到ma        <a href="https://www.cnblogs.com/xuanyuan/p/13894905.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：在日常的工作生活学习中 经常会遇到无法访问 GitHub、访问不稳定等等突发情况 这不，今天群里的朋友们又双叒叕遇到了问题—— 为方便用户从 GitHub 快速备份开源仓库，稳定访问，CODING 现已支持导入 GitHub 仓库！ CODING 提供多种导入方式，无需繁琐步骤，只需简单两步操作即可        <a href="https://www.cnblogs.com/codingdevops/p/14061513.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-10-29 09:18
-轩辕之风
-<span data-post-id="13894905" class="post-view-count">阅读(978)</span> 
-<span data-post-id="13894905" class="post-comment-count">评论(0)</span> 
-<span data-post-id="13894905" class="post-digg-count">推荐(4)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13894905" rel="nofollow">
+        <div class="postDesc">posted @ 2020-11-30 15:20
+CODING_DevOps
+<span data-post-id="14061513" class="post-view-count">阅读(200)</span> 
+<span data-post-id="14061513" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14061513" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14061513" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/11/20.html">2020年11月20日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14012242.html">
+    <span>
+            <span>[置顶]</span>
+        深度解读最新版 Scrum 指南
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：本文作者：CODING - 敏杰小王子 11 月 18 日晚，Scrum 框架的创始人 Jeff Sutherland 和 Ken Schwaber 联手发布了最新版 Scrum 指南。作为 Scrum 的权威定义，《Scrum Guide》已经走过 25 个年头，在这二十多年间，Scrum 在国内        <a href="https://www.cnblogs.com/codingdevops/p/14012242.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-20 17:49
+CODING_DevOps
+<span data-post-id="14012242" class="post-view-count">阅读(277)</span> 
+<span data-post-id="14012242" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14012242" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14012242" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/11/12.html">2020年11月12日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13964932.html">
+    <span>
+            <span>[置顶]</span>
+        有奖体验 CODING 产品，iPad Pro、HHKB 键盘等超级礼包等你来！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：DevOps 研发效能升级、高效率研发工具已成为软件研发行业的热门话题，也是每个企业研发团队需要不断探索的命题。CODING 一站式软件研发管理工具平台旨在让开发团队低门槛使用 DevOps 工具，帮助每个团队找到最佳的 DevOps 实践路径。为此，CODING 推出了**「DevOps Work        <a href="https://www.cnblogs.com/codingdevops/p/13964932.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-12 17:09
+CODING_DevOps
+<span data-post-id="13964932" class="post-view-count">阅读(126)</span> 
+<span data-post-id="13964932" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13964932" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13964932" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/11/03.html">2020年11月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13921362.html">
+    <span>
+            <span>[置顶]</span>
+        腾讯全资子公司 CODING 2021 届校园招聘正式开启！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：![](https://i.loli.net/2020/11/03/DJe7Zthjf58zxXA.jpg)![](https://i.loli.net/2020/11/03/OUR23Fld8MZND5G.jpg)![](https://i.loli.net/2020/11/03/QXSKWBdgG2zywcV.jpg)![](https://i.loli.net/2020/11/03/LSeM...        <a href="https://www.cnblogs.com/codingdevops/p/13921362.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-03 17:13
+CODING_DevOps
+<span data-post-id="13921362" class="post-view-count">阅读(235)</span> 
+<span data-post-id="13921362" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13921362" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13921362" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/10/10.html">2020年10月10日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13793492.html">
+    <span>
+            <span>[置顶]</span>
+        3000 帧定格动画告诉你什么是 DevOps
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：CODING 历时 3 个月用 3000 帧制作的 DevOps 科普视频新鲜出炉啦～ 只需要 3 分钟，Dev 和 Ops 果农将带你走进 DevOps 的世界！ 点击 3000 帧定格动画告诉你什么是 DevOps 即可观看视频 以下为视频概述 什么是 DevOps？本视频对比了两个农场--传统        <a href="https://www.cnblogs.com/codingdevops/p/13793492.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-10-10 16:37
+CODING_DevOps
+<span data-post-id="13793492" class="post-view-count">阅读(154)</span> 
+<span data-post-id="13793492" class="post-comment-count">评论(1)</span> 
+<span data-post-id="13793492" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13793492" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/06/30.html">2020年6月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13215139.html">
+    <span>
+            <span>[置顶]</span>
+        Kubernetes 两步验证 - 使用 Serverless 实现动态准入控制
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：作者：CODING - 王炜 1. 背景 如果对 Kubernetes 集群安全特别关注，那么我们可能想要实现这些需求： 如何实现 Kubernetes 集群的两步验证，除了集群凭据，还需要提供一次性的 Token 校验？ 如何验证部署的镜像是否安全合规，使得仅允许部署公司内部镜像仓库的 Docke        <a href="https://www.cnblogs.com/codingdevops/p/13215139.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-30 17:53
+CODING_DevOps
+<span data-post-id="13215139" class="post-view-count">阅读(544)</span> 
+<span data-post-id="13215139" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13215139" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13215139" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/06/23.html">2020年6月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13182949.html">
+    <span>
+            <span>[置顶]</span>
+        一分钟开始持续集成之旅系列之：C 语言 + Makefile
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：作者：CODING - 朱增辉 前言 make 工具非常强大，配合 makefile 文件可以实现软件的自动化构建，但是执行 make 命令依然需要经历手动输入执行、等待编译完成、将目标文件转移到合适位置等过程，我们真正关心的是最终的输出，却在这些中间过程上浪费了很多时间。利用 CODING 持续集        <a href="https://www.cnblogs.com/codingdevops/p/13182949.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-23 16:47
+CODING_DevOps
+<span data-post-id="13182949" class="post-view-count">阅读(478)</span> 
+<span data-post-id="13182949" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13182949" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13182949" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13182605.html">
+    <span>
+            <span>[置顶]</span>
+         一分钟开始持续集成之旅系列之：Java + GWT
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：作者：CODING - 朱增辉 前言 Google Web Toolkit（GWT）是一个开源、免费的 Web 开发框架，通过该框架，您可以使用 Java 构建复杂、高性能的 JavaScript 应用程序。 持续集成指的是，频繁地（一天多次）将代码集成到主干。它的好处主要有两个：（1）快速发现错误        <a href="https://www.cnblogs.com/codingdevops/p/13182605.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-23 16:08
+CODING_DevOps
+<span data-post-id="13182605" class="post-view-count">阅读(395)</span> 
+<span data-post-id="13182605" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13182605" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13182605" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/06/15.html">2020年6月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13132208.html">
+    <span>
+            <span>[置顶]</span>
+        静态网站架构的演进和最佳实践
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：作者：CODING - 杨周 新冠肺炎期间，约翰霍普金斯大学开发的疫情地图网站单日 PV 达 10 亿次，查看源代码可以看出它是一个单页应用（single-page application，缩写 SPA），JS 调用后端 API 返回动态数据。 那么，部署一个 10 亿 PV 的静态网站需要购买几台        <a href="https://www.cnblogs.com/codingdevops/p/13132208.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-15 17:31
+CODING_DevOps
+<span data-post-id="13132208" class="post-view-count">阅读(275)</span> 
+<span data-post-id="13132208" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13132208" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13132208" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2020/06/03.html">2020年6月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/13038472.html">
+    <span>
+            <span>[置顶]</span>
+        DevOps - 从渐进式交付说起（含实践 Demo）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：作者：CODING - 王炜 1. 开篇 如果让你主导一款千万、甚至亿级用户产品的功能迭代，你会怎么做？你需要面对的挑战可能来自于： 商业战略的变化带来新的产品诉求，而产品的任何改动哪怕仅是界面调整，都将面临无数存量用户的挑战 这时候，作为产品负责人，你会选择稳定压倒一切？还是自我革新，继续追求用户        <a href="https://www.cnblogs.com/codingdevops/p/13038472.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-03 16:41
+CODING_DevOps
+<span data-post-id="13038472" class="post-view-count">阅读(547)</span> 
+<span data-post-id="13038472" class="post-comment-count">评论(1)</span> 
+<span data-post-id="13038472" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13038472" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/05/20.html">2021年5月20日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14790965.html">
+    <span>
+        推荐计划 | 推荐好友用 CODING，获高额返现奖励
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：感谢你选择并坚持使用 CODING！我们希望能和你一起影响更多研发团队，让他们在 CODING 获得更好的开发体验，提升研发效能。为此，我们推出了**「CODING 推荐计划」**，如向好友推荐 CODING 并且满足相应条件，CODING 将会给予你高额返现奖励。 如何参与 CODING 推荐计划        <a href="https://www.cnblogs.com/codingdevops/p/14790965.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-20 18:11
+CODING_DevOps
+<span data-post-id="14790965" class="post-view-count">阅读(3)</span> 
+<span data-post-id="14790965" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14790965" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14790965" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/05/08.html">2021年5月8日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14744982.html">
+    <span>
+        仰望天空，脚踏实地 —— CODING OKR 全新上线
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：工作中你是否也为此困扰 关键绩效与目标脱节，在执行中员工只埋头于自己的关键绩效，而忽略了目标本身，造成员工目光止于眼前，工作浮于表面。 目标的执行和完成情况总是模糊不清，争议不断，跨团队协作非常困难，部门墙林立。 目标执行进度难以追踪和把控，一旦业务繁杂，团队就开始手忙脚乱，难以聚焦重点、提前识别风        <a href="https://www.cnblogs.com/codingdevops/p/14744982.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-08 15:03
+CODING_DevOps
+<span data-post-id="14744982" class="post-view-count">阅读(8)</span> 
+<span data-post-id="14744982" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14744982" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14744982" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/28.html">2021年4月28日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14714729.html">
+    <span>
+        Kubernetes 普及系列：容器基础入门
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：随着云原生时代的来临，云以及分布式计算已经是时下最受欢迎的技术之一了。其中 Docker 作为最知名的容器平台，到底有着怎样的魅力来让其无人不知无人不晓？废话不多说，让我们开始逐层掀开容器技术的神秘面纱吧！ Docker 从传统 IT 到 IaaS 到 PaaS 的能力变迁 让时间回到 2013 年        <a href="https://www.cnblogs.com/codingdevops/p/14714729.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-28 16:39
+CODING_DevOps
+<span data-post-id="14714729" class="post-view-count">阅读(340)</span> 
+<span data-post-id="14714729" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14714729" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14714729" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/23.html">2021年4月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14694550.html">
+    <span>
+        2021 DevOpsDays 东京站完美收官 | CODING 专家受邀分享最新技术资讯
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：DevOpsDays 是一个全球知名的系列技术会议品牌，内容涵盖了软件开发、自动化、测试、安全、组织文化以及 IT 运营的社区会议等。DevOpsDays 由 DevOps 之父 Patrick Debois 先生创办，组织中汇聚了互联网、金融以及各行各业的 DevOps 实践者，通过分享、交流彼此        <a href="https://www.cnblogs.com/codingdevops/p/14694550.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-23 16:41
+CODING_DevOps
+<span data-post-id="14694550" class="post-view-count">阅读(43)</span> 
+<span data-post-id="14694550" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14694550" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14694550" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/22.html">2021年4月22日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14690049.html">
+    <span>
+        专访新腾数致研发总监金涛：新思想、新工具与新效率
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：采访背景介绍 您去政务服务窗口办理过业务吗？在过去，经常是怀抱一个满满的档案袋，排队几小时，结果被告知“资料不足”。而今足不出户，很多政务服务拿着手机或者电脑就可以网上办理，政务办理变得像“网购”一样便利。数字政务、数字民生、数字农业......数字化已经逐渐渗透到了产业动脉与生活点滴当中。这些实实        <a href="https://www.cnblogs.com/codingdevops/p/14690049.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-22 15:56
+CODING_DevOps
+<span data-post-id="14690049" class="post-view-count">阅读(20)</span> 
+<span data-post-id="14690049" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14690049" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14690049" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/16.html">2021年4月16日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14667375.html">
+    <span>
+        CODING 首届金融科技技术交流闭门会议顺利召开
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：近期，由腾讯云旗下一站式 DevOps 开发平台 CODING 和中国 DevOps 社区主办的深圳第十一届 Meetup 圆满结束，会上三位专家分享了自己独到的行业见解，腾讯云 CODING DevOps 产品经理陈信州，在会上发布了题为《WePack 产品团队测试实践探索》的精彩演讲。与往届不同        <a href="https://www.cnblogs.com/codingdevops/p/14667375.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-16 16:00
+CODING_DevOps
+<span data-post-id="14667375" class="post-view-count">阅读(14)</span> 
+<span data-post-id="14667375" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14667375" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14667375" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/15.html">2021年4月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14663338.html">
+    <span>
+        API 文档简洁之美，只需三步开启
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：连接世界，不能含糊 API 最初出现时通常被用作操作系统的库，而且几乎都在本地的系统中运行。到 2000 年代初，它们已脱离本地运行环境，成为远程交互数据的重要技术。现如今，API 不仅仅是一种技术连接，也成为了一种商业连接。通过开放 API，个人或者企业可以打开自由之门，向客户、合作伙伴提供数字化        <a href="https://www.cnblogs.com/codingdevops/p/14663338.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-15 17:01
+CODING_DevOps
+<span data-post-id="14663338" class="post-view-count">阅读(15)</span> 
+<span data-post-id="14663338" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14663338" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14663338" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/02.html">2021年4月2日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14611534.html">
+    <span>
+        CODING 增强安全漏洞扫描能力，助力团队“安全左移”
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：代码安全问题频现，防控迫在眉睫 2010 年，大型社交网站 rockyou.com 被曝存在 SQL 注入漏洞，黑客利用此漏洞获取到 3200 万用户记录；2015 年，英国电话和宽带供应商 TalkTalk 被一名 15 岁的黑客利用 SQL 注入漏洞进行攻击，泄露近 400 万客户资料；2018        <a href="https://www.cnblogs.com/codingdevops/p/14611534.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-02 16:59
+CODING_DevOps
+<span data-post-id="14611534" class="post-view-count">阅读(25)</span> 
+<span data-post-id="14611534" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14611534" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14611534" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/04/01.html">2021年4月1日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14607221.html">
+    <span>
+        CODING CD + Nginx Ingress 实现蓝绿发布
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：本文作者：杨浩佳 - CODING 后端开发工程师 全文约 4000+ 字，预计阅读时间 20 分钟 前言 本文将介绍如何通过 CODING CD 使用 Nginx Ingress 来实现蓝绿发布。 为什么要采用蓝绿发布？随着业务的快速发展，对开发团队的要求越来越高，一方面要求为用户提供稳定的服务，        <a href="https://www.cnblogs.com/codingdevops/p/14607221.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-01 17:11
+CODING_DevOps
+<span data-post-id="14607221" class="post-view-count">阅读(30)</span> 
+<span data-post-id="14607221" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14607221" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14607221" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/codingdevops/archive/2021/03/29.html">2021年3月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/codingdevops/p/14593773.html">
+    <span>
+        开发环境上云，打造五星级开发体验
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：本文作者：王振威 - CODING 研发总监 全文约 5000+ 字，预计阅读时间 20 分钟 云是从传统 IDC 机房演进而来，一开始云的定位只是为了解决数据中心的弹性计算，高可用等问题。可以说，公有云让成千上万家企业灵活地按需租用数据中心资源成为可能，同时在推动社会数字化发展上起到了关键作用。         <a href="https://www.cnblogs.com/codingdevops/p/14593773.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-29 18:56
+CODING_DevOps
+<span data-post-id="14593773" class="post-view-count">阅读(15)</span> 
+<span data-post-id="14593773" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14593773" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14593773" rel="nofollow">
     编辑
 </a>
 </div>
@@ -575,7 +1381,7 @@
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/xuanyuan/default.html?page=2">
+    <a href="https://www.cnblogs.com/codingdevops/default.html?page=2">
         下一页
     </a>
 
@@ -614,7 +1420,7 @@
 	<div class="clear"></div>
 	<div id="footer">
 		<!--done-->
-Copyright &copy; 2021 轩辕之风
+Copyright &copy; 2021 CODING_DevOps
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
@@ -625,6 +1431,6 @@ Copyright &copy; 2021 轩辕之风
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvh2JKYVFS115z49IuMJesj0wJdgvNoK48UWe6ddkDasAG64MHKkk0RoXnhvkEIr6oNbqnNCZCu8GTKszRja8jlHJDknvIFCmAYoTsa3nyROpWX_Dm9QCww8wBEZWS_p-E" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvIkNUqdsfvZDvjh9MYi4ltEoGGCJ4niFfu7yZ62YYvO6dVjiyWL1TxPyKLkKxnoDpU-vcxAyaMLgyPhkmh8McRiFo9KUnkj0lLYOwev1kzrv0SZfn1-p3Pk3JRX9ZdxDw" />
 </body>
 </html>

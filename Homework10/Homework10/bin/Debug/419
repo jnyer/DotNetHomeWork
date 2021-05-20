@@ -4,46 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-crossorigin" />
-    
-    
+    <meta name="description" content="✨Maven介绍 https://maven.apache.org/ Apache Maven is a software project management and comprehension t" />
+    <meta property="og:description" content="✨Maven介绍 https://maven.apache.org/ Apache Maven is a software project management and comprehension t" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>技术译民 - 博客园</title>
+    <title>【maven】macOS安装maven以及IDEA配置 - 双份浓缩馥芮白 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/ittranslator/custom.css?v=OKC7RrkX1B1ukVNwlwxopa67rNA=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/ittranslator/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/ittranslator/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/ittranslator/wlwmanifest.xml" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/Flat-White/custom.css?v=sBJTgfqJzGsdwz5ikEstQN9kevc=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/Flat-White/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/Flat-White/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/Flat-White/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 612247;
-        var currentBlogApp = 'ittranslator';
-        var cb_enable_mathjax = true;
+        var currentBlogId = 623289;
+        var currentBlogApp = 'Flat-White';
+        var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'CodingLife';
+        var skinName = 'SimpleMemory';
         var visitorUserId = '';
     </script>
+        <script>
+            var currentPostDateAdded = '2021-05-07 02:04';
+        </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
-        TeX: {
-        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
-        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
-        Macros: {bm: "\\boldsymbol"}
-        },
-        'HTML-CSS': { linebreaks: { automatic: true } },
-        SVG: { linebreaks: { automatic: true } }
-        });
-    </script>
-    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
+    
+    
     
 </head>
 <body class="no-navbar">
@@ -105,12 +97,12 @@
 <div id="home">
 <div id="header">
 	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/ittranslator/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/Flat-White/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
 		
 <!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/ittranslator/">『技术译站』</a>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/Flat-White/">双份浓缩馥芮白</a>
 </h1>
-<h2>一个技术“译”民的『技术译站』，翻译和分享一些 IT 技术文章，微信公众号：技术译站， 网站：https://ittranslator.cn/</h2>
+<h2></h2>
 
 
 
@@ -124,7 +116,7 @@
 博客园</a>
 </li>
 <li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/ittranslator/">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/Flat-White/">
 首页</a>
 </li>
 <li>
@@ -133,9 +125,10 @@
 新随笔</a>
 </li>
 <li>
-</li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%8F%8C%E4%BB%BD%E6%B5%93%E7%BC%A9%E9%A6%A5%E8%8A%AE%E7%99%BD">
+联系</a></li>
 <li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/ittranslator/rss/">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/Flat-White/rss/">
 订阅</a>
 <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
 <li>
@@ -153,961 +146,297 @@
 <div id="main">
 	<div id="mainContent">
 	<div class="forFlow">
-		
-
-
-
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/01/12.html">2021年1月12日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14260348.html">
-    <span>
-            <span>[置顶]</span>
-        C# 中的 null 包容运算符 “!” —— 概念、由来、用法和注意事项
-    </span>
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Flat-White/p/14737549.html">
+    <span>【maven】macOS安装maven以及IDEA配置</span>
     
 
 
 
 </a>
 
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="maven介绍">✨Maven介绍</h1>
+<p><a href="https://maven.apache.org/" target="_blank">https://maven.apache.org/</a></p>
+<p>Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.</p>
+<p>Apache Maven是一个软件项目管理和理解工具。基于项目对象模型（POM）的概念，Maven可以从一个中心信息块管理项目的构建、报告和文档。</p>
+<br>
+<h1 id="下载">✨下载</h1>
+<p>在 <a href="https://maven.apache.org/" target="_blank">maven官方页面</a> 点击download</p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507020030269-417893090.png" alt="" loading="lazy"></p>
+<p>下载bin压缩文件</p>
+<p>//如果不想下载最新版maven可以点击页面最下方的 <a href="https://archive.apache.org/dist/maven/maven-3/" target="_blank">archives</a> 下载旧版本</p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507015904524-353444126.png" alt="" loading="lazy"></p>
+<br>
+<p>之后解压zip放到合适的地方</p>
+<p>//例如<code>/Users/${username}/apache-maven-3.8.1</code></p>
+<p>之后进入maven目录下新建 <strong>repository</strong> 文件夹</p>
+<br>
+<h1 id="配置环境变量">✨配置环境变量</h1>
+<p>在Terminal输入以下命令以vim打开配置文件</p>
+<p>（bash与zsh命令不同）</p>
+<pre><code class="language-bash">vim ~/.bash_profile  # bash
+vim ~/.zshrc  # zsh
+</code></pre>
+<p>然后按 <strong>i</strong> 进入 <strong>INSERT</strong> 模式</p>
+<p>粘贴以下内容</p>
+<pre><code class="language-bash">export M2_HOME="/Users/${username}/apache-maven-3.8.1"
+export PATH="$M2_HOME/bin:$PATH"
+</code></pre>
+<p><strong>！M2_HOME是刚才解压zip后maven文件夹存放的目录 请根据实际情况自行替换</strong></p>
+<p>然后按 <strong>:</strong> 输入 <strong>wq</strong>（保存并退出）</p>
+<p>在Terminal输入以下命令使配置生效</p>
+<pre><code class="language-bash">source ~/.bash_profile  # bash
+source ~/.zshrc  # zsh
+</code></pre>
+<p>在Terminal输入以下命令确认环境变量配置是否成功</p>
+<pre><code class="language-bash">mvn -v
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507015932086-1843144343.png" alt="" loading="lazy"></p>
+<p>如图所示 环境变量配置成功</p>
+<br>
+<h1 id="maven-conf">✨maven conf</h1>
+<p>进入maven目录下的conf文件夹</p>
+<p>修改settings.xml</p>
+<p><strong>！请根据实际情况自行修改</strong></p>
+<p><localrepository>设置本地 <strong>repository</strong></localrepository></p>
+<pre><code class="language-xml">  &lt;!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
+  --&gt;
+&lt;localRepository&gt;/Users/saber/apache-maven-3.8.1/repository&lt;/localRepository&gt;
+</code></pre>
+<p><mirrors>设置镜像源</mirrors></p>
+<pre><code class="language-xml">&lt;mirrors&gt;
+    &lt;!-- mirror
+     | Specifies a repository mirror site to use instead of a given repository. The repository that
+     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
+     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
+     |
+    &lt;mirror&gt;
+      &lt;id&gt;mirrorId&lt;/id&gt;
+      &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;
+      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
+      &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;
+    &lt;/mirror&gt;
+     --&gt;
+    &lt;!-- &lt;mirror&gt;
+      &lt;id&gt;maven-default-http-blocker&lt;/id&gt;
+      &lt;mirrorOf&gt;external:http:*&lt;/mirrorOf&gt;
+      &lt;name&gt;Pseudo repository to mirror external repositories initially using HTTP.&lt;/name&gt;
+      &lt;url&gt;http://0.0.0.0/&lt;/url&gt;
+      &lt;blocked&gt;true&lt;/blocked&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt; --&gt;
+    &lt;mirror&gt;
+     &lt;id&gt;aliyunmaven&lt;/id&gt;
+     &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+     &lt;name&gt;阿里云公共仓库&lt;/name&gt;
+     &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt;
+    &lt;/mirror&gt;
+    &lt;mirror&gt;
+      &lt;id&gt;repo1&lt;/id&gt;
+      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+      &lt;name&gt;central repo&lt;/name&gt;
+      &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;
+    &lt;/mirror&gt;
+    &lt;mirror&gt;
+     &lt;id&gt;aliyunmaven&lt;/id&gt;
+     &lt;mirrorOf&gt;apache snapshots&lt;/mirrorOf&gt;
+     &lt;name&gt;阿里云阿帕奇仓库&lt;/name&gt;
+     &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+</code></pre>
+<p><profiles>设置如下</profiles></p>
+<pre><code class="language-xml">&lt;profiles&gt;
+    &lt;!-- profile
+     | Specifies a set of introductions to the build process, to be activated using one or more of the
+     | mechanisms described above. For inheritance purposes, and to activate profiles via &lt;activatedProfiles/&gt;
+     | or the command line, profiles have to have an ID that is unique.
+     |
+     | An encouraged best practice for profile identification is to use a consistent naming convention
+     | for profiles, such as 'env-dev', 'env-test', 'env-production', 'user-jdcasey', 'user-brett', etc.
+     | This will make it more intuitive to understand what the set of introduced profiles is attempting
+     | to accomplish, particularly when you only have a list of profile id's for debug.
+     |
+     | This profile example uses the JDK version to trigger activation, and provides a JDK-specific repo.
+    &lt;profile&gt;
+      &lt;id&gt;jdk-1.4&lt;/id&gt;
+
+      &lt;activation&gt;
+        &lt;jdk&gt;1.4&lt;/jdk&gt;
+      &lt;/activation&gt;
+
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;jdk14&lt;/id&gt;
+          &lt;name&gt;Repository for JDK 1.4 builds&lt;/name&gt;
+          &lt;url&gt;http://www.myhost.com/maven/jdk14&lt;/url&gt;
+          &lt;layout&gt;default&lt;/layout&gt;
+          &lt;snapshotPolicy&gt;always&lt;/snapshotPolicy&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+    &lt;/profile&gt;
+    --&gt;
+    &lt;profile&gt;  
+        &lt;repositories&gt;
+           &lt;repository&gt;
+                &lt;id&gt;aliyunmaven&lt;/id&gt;
+                &lt;name&gt;aliyunmaven&lt;/name&gt;
+                &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
+                &lt;layout&gt;default&lt;/layout&gt;
+                &lt;releases&gt;
+                        &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                        &lt;enabled&gt;true&lt;/enabled&gt;
+                &lt;/snapshots&gt;
+            &lt;/repository&gt;
+            &lt;repository&gt;
+                &lt;id&gt;MavenCentral&lt;/id&gt;
+                &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;
+            &lt;/repository&gt;
+            &lt;repository&gt;
+                &lt;id&gt;aliyunmavenApache&lt;/id&gt;
+                &lt;url&gt;https://maven.aliyun.com/repository/apache-snapshots&lt;/url&gt;
+            &lt;/repository&gt;
+        &lt;/repositories&gt;             
+     &lt;/profile&gt;
+   &lt;!--
+     | Here is another profile, activated by the system property 'target-env' with a value of 'dev',
+     | which provides a specific path to the Tomcat instance. To use this, your plugin configuration
+     | might hypothetically look like:
+     |
+     | ...
+     | &lt;plugin&gt;
+     |   &lt;groupId&gt;org.myco.myplugins&lt;/groupId&gt;
+     |   &lt;artifactId&gt;myplugin&lt;/artifactId&gt;
+     |
+     |   &lt;configuration&gt;
+     |     &lt;tomcatLocation&gt;${tomcatPath}&lt;/tomcatLocation&gt;
+     |   &lt;/configuration&gt;
+     | &lt;/plugin&gt;
+     | ...
+     |
+     | NOTE: If you just wanted to inject this configuration whenever someone set 'target-env' to
+     |       anything, you could just leave off the &lt;value/&gt; inside the activation-property.
+     |
+    &lt;profile&gt;
+      &lt;id&gt;env-dev&lt;/id&gt;
+
+      &lt;activation&gt;
+        &lt;property&gt;
+          &lt;name&gt;target-env&lt;/name&gt;
+          &lt;value&gt;dev&lt;/value&gt;
+        &lt;/property&gt;
+      &lt;/activation&gt;
+
+      &lt;properties&gt;
+        &lt;tomcatPath&gt;/path/to/tomcat/instance&lt;/tomcatPath&gt;
+      &lt;/properties&gt;
+    &lt;/profile&gt;
+    --&gt;
+  &lt;/profiles&gt;
+</code></pre>
+<br>
+<h1 id="idea配置">✨IDEA配置</h1>
+<p>在IDEA中按如下步骤修改 maven偏好设置</p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507020056815-1611061411.png" alt="" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507020104869-768620499.png" alt="" loading="lazy"></p>
+<p>修改 <strong>Maven 主路径</strong>  <strong>用户设置文件</strong>  <strong>本地存储库</strong></p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507020115758-484295361.png" alt="" loading="lazy"></p>
+<br>
+<p>如下图所示该项目的maven插件与依赖已配置完成</p>
+<p><img src="https://img2020.cnblogs.com/blog/2124073/202105/2124073-20210507020343583-61205417.png" alt="" loading="lazy"></p>
+<br>
+<h1 id="参考及引用">✨参考及引用</h1>
+<p><a href="https://www.cnblogs.com/zhuwf/p/11646617.html" target="_blank">https://www.cnblogs.com/zhuwf/p/11646617.html</a></p>
+<p><a href="https://www.cnblogs.com/diandianquanquan/p/10607095.html" target="_blank">https://www.cnblogs.com/diandianquanquan/p/10607095.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/71998219" target="_blank">https://zhuanlan.zhihu.com/p/71998219</a></p>
+<br>
+<h1 id="转载请注明出处">⭐转载请注明出处</h1>
+<p>本文作者：双份浓缩馥芮白</p>
+<p>原文链接：<a href="https://www.cnblogs.com/Flat-White/p/13501639.html" target="_blank">https://www.cnblogs.com/Flat-White/p/13501639.html</a></p>
+<p>版权所有，如需转载请注明出处。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-07 02:04</span>&nbsp;
+<a href="https://www.cnblogs.com/Flat-White/">双份浓缩馥芮白</a>&nbsp;
+阅读(<span id="post_view_count">2</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14737549" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14737549);return false;">收藏</a></div>
         </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：在 2020 年的最后一天，博客园发起了一个开源项目：基于 .NET 的博客引擎 fluss，我抽空把源码下载下来看了下，发现在属性的定义中，有很多地方都用到了 null!，如下图所示： 这是什么用法呢？之前没有在项目中用过，所以得空就研究了一下。 以前，! 运算符用来表示 “否”，比如不等于 !=        <a href="https://www.cnblogs.com/ittranslator/p/14260348.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-01-12 12:06
-技术译民
-<span data-post-id="14260348" class="post-view-count">阅读(2258)</span> 
-<span data-post-id="14260348" class="post-comment-count">评论(13)</span> 
-<span data-post-id="14260348" class="post-digg-count">推荐(12)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14260348" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/11/12.html">2020年11月12日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/13961608.html">
-    <span>
-            <span>[置顶]</span>
-        C# 9.0 正式发布了（C# 9.0 on the record）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：正式宣布：C# 9.0 发布了！ 要学习C# 9.0，看这篇就对了。对于 C# 的每一个新版本，我们都在努力让常见编码场景的实现变得更加清晰和简单，C# 9.0 也不例外。这次特别关注的是支持数据模型的简洁和不可变表示。翻译自 Mads Torgersen 2020年11月10日的博文《C# 9.0 on the record》，Mads Torgersen 是微软 C# 语言的首席设计师，也是微软 .NET 团队的项目群经理。        <a href="https://www.cnblogs.com/ittranslator/p/13961608.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-12 09:08
-技术译民
-<span data-post-id="13961608" class="post-view-count">阅读(4451)</span> 
-<span data-post-id="13961608" class="post-comment-count">评论(12)</span> 
-<span data-post-id="13961608" class="post-digg-count">推荐(35)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13961608" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/05/06.html">2021年5月6日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/what-are-dotnet-worker-services.html">
-    <span>
-        .NET 中的 Worker Service 入门介绍
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Steve Gordon 2020年3月30日的文章 《WHAT ARE .NET WORKER SERVICES?》 1 随着 .NET Core 3.0 的发布，ASP.NET 团队引入了一个新的 Worker Service 项目模板，该模板作为 .NET SDK 的一部分发布。在本文        <a href="https://www.cnblogs.com/ittranslator/p/what-are-dotnet-worker-services.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-06 13:25
-技术译民
-<span data-post-id="14733589" class="post-view-count">阅读(422)</span> 
-<span data-post-id="14733589" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14733589" class="post-digg-count">推荐(3)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14733589" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/04/26.html">2021年4月26日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/asp-net-core-service-lifetimes-infographic.html">
-    <span>
-        一图看懂 ASP.NET Core 中的服务生命周期
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Waqas Anwar 2020年11月8日的文章 《ASP.NET Core Service Lifetimes (Infographic)》 1 ASP.NET Core 支持依赖关系注入（DI）软件设计模式，该模式允许我们注册服务、控制如何实例化这些服务并将其注入到不同的组件中。一些服        <a href="https://www.cnblogs.com/ittranslator/p/asp-net-core-service-lifetimes-infographic.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-26 11:38
-技术译民
-<span data-post-id="14701689" class="post-view-count">阅读(523)</span> 
-<span data-post-id="14701689" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14701689" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14701689" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/04/19.html">2021年4月19日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/net-5-console-app-with-dependency-injection-serilog-logging-and-appsettings.html">
-    <span>
-        创建支持依赖注入、Serilog 日志和 AppSettings 的 .NET 5 控制台应用
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Mohamad Lawand 2021年3月24日的文章 《.NET 5 Console App with Dependency Injection, Serilog Logging, and AppSettings》 1 在本文中，我们将构建一个 .NET 5 控制台应用程序，该应用程序支        <a href="https://www.cnblogs.com/ittranslator/p/net-5-console-app-with-dependency-injection-serilog-logging-and-appsettings.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-19 12:27
-技术译民
-<span data-post-id="14675101" class="post-view-count">阅读(308)</span> 
-<span data-post-id="14675101" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14675101" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14675101" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/04/13.html">2021年4月13日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/refresh-jwt-with-refresh-tokens-in-asp-net-core-5-rest-api-step-by-step.html">
-    <span>
-        Asp.Net Core 5 REST API 使用 RefreshToken 刷新 JWT - Step by Step
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Mohamad Lawand 2021年1月25日的文章 《Refresh JWT with Refresh Tokens in Asp.Net Core 5 Rest API Step by Step》 1 在本文中，我将向您演示如何在 Asp.Net Core REST API 中将 R        <a href="https://www.cnblogs.com/ittranslator/p/refresh-jwt-with-refresh-tokens-in-asp-net-core-5-rest-api-step-by-step.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-13 11:52
-技术译民
-<span data-post-id="14646247" class="post-view-count">阅读(2393)</span> 
-<span data-post-id="14646247" class="post-comment-count">评论(33)</span> 
-<span data-post-id="14646247" class="post-digg-count">推荐(20)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14646247" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/04/12.html">2021年4月12日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/asp-net-core-5-rest-api-authentication-with-jwt-step-by-step.html">
-    <span>
-        Asp.Net Core 5 REST API 使用 JWT 身份验证 - Step by Step
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Mohamad Lawand 2021年1月22日的文章 《Asp Net Core 5 Rest API Authentication with JWT Step by Step》 1 在本文中，我将向您展示如何向我们的 Asp.Net Core REST API 添加 JWT 身份验证。        <a href="https://www.cnblogs.com/ittranslator/p/asp-net-core-5-rest-api-authentication-with-jwt-step-by-step.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-12 12:10
-技术译民
-<span data-post-id="14630400" class="post-view-count">阅读(996)</span> 
-<span data-post-id="14630400" class="post-comment-count">评论(1)</span> 
-<span data-post-id="14630400" class="post-digg-count">推荐(7)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14630400" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/04/08.html">2021年4月8日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/asp-net-core-5-rest-api-step-by-step.html">
-    <span>
-        Asp.Net Core 5 REST API - Step by Step
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Mohamad Lawand 2021年1月19日的文章 《Asp.Net Core 5 Rest API Step by Step》 1 在本文中，我们将创建一个简单的 Asp.Net Core REST API Todo 应用程序，在其中我们可以添加、编辑、删除和查看待办事项，并且将使用        <a href="https://www.cnblogs.com/ittranslator/p/asp-net-core-5-rest-api-step-by-step.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-08 13:15
-技术译民
-<span data-post-id="14619135" class="post-view-count">阅读(991)</span> 
-<span data-post-id="14619135" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14619135" class="post-digg-count">推荐(4)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14619135" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/03/30.html">2021年3月30日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14595165.html">
-    <span>
-        JWT 介绍 - Step by Step
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Mohamad Lawand 2021年3月11日的文章 《Intro to JWT - Step by Step》 1 在本文中，我将向您介绍 JWT2。 我们今天要讲的内容包含： JWT 是什么 我们应该在什么时候使用它 JWT 与 Session Id 比较 JWT 结构 JWT 签名        <a href="https://www.cnblogs.com/ittranslator/p/14595165.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-03-30 12:24
-技术译民
-<span data-post-id="14595165" class="post-view-count">阅读(246)</span> 
-<span data-post-id="14595165" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14595165" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14595165" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/03/25.html">2021年3月25日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14575773.html">
-    <span>
-        在 .NET Core 5 中集成 Create React app
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Camilo Reyes 2021年2月22日的文章 《Integrate Create React app with .NET Core 5》 1 Camilo Reyes 演示了如何将 Create React app 与 .NET Core 集成，以生成一个移除了几个依赖项的脚手架。         <a href="https://www.cnblogs.com/ittranslator/p/14575773.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-03-25 18:39
-技术译民
-<span data-post-id="14575773" class="post-view-count">阅读(311)</span> 
-<span data-post-id="14575773" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14575773" class="post-digg-count">推荐(3)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14575773" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/03/15.html">2021年3月15日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14530994.html">
-    <span>
-        在 .NET Core 中构建 REST API
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Camilo Reyes 2020年8月26日的文章 《Build a REST API in .NET Core》 1 REST API 可以使用简单的动词（如 POST、PUT、PATCH 等）将大型解决方案背后的复杂性隐藏起来。在本文中，Camilo Reyes 解释了如何在 .NET        <a href="https://www.cnblogs.com/ittranslator/p/14530994.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-03-15 14:09
-技术译民
-<span data-post-id="14530994" class="post-view-count">阅读(473)</span> 
-<span data-post-id="14530994" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14530994" class="post-digg-count">推荐(4)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14530994" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/01/21.html">2021年1月21日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14300852.html">
-    <span>
-        C# 中的动态类型
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Camilo Reyes 2018年10月15日的文章 《Working with the Dynamic Type in C#》 1 .NET 4 中引入了动态类型。动态对象使您可以处理诸如 JSON 文档之类的结构，这些结构的组成可能要到运行时才能知道。在本文中，Camilo Reyes        <a href="https://www.cnblogs.com/ittranslator/p/14300852.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-01-21 14:01
-技术译民
-<span data-post-id="14300852" class="post-view-count">阅读(710)</span> 
-<span data-post-id="14300852" class="post-comment-count">评论(3)</span> 
-<span data-post-id="14300852" class="post-digg-count">推荐(10)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14300852" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/01/12.html">2021年1月12日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14260348.html">
-    <span>
-        C# 中的 null 包容运算符 “!” —— 概念、由来、用法和注意事项
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：在 2020 年的最后一天，博客园发起了一个开源项目：基于 .NET 的博客引擎 fluss，我抽空把源码下载下来看了下，发现在属性的定义中，有很多地方都用到了 null!，如下图所示： 这是什么用法呢？之前没有在项目中用过，所以得空就研究了一下。 以前，! 运算符用来表示 “否”，比如不等于 !=        <a href="https://www.cnblogs.com/ittranslator/p/14260348.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-01-12 12:06
-技术译民
-<span data-post-id="14260348" class="post-view-count">阅读(2258)</span> 
-<span data-post-id="14260348" class="post-comment-count">评论(13)</span> 
-<span data-post-id="14260348" class="post-digg-count">推荐(12)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14260348" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2021/01/06.html">2021年1月6日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14233346.html">
-    <span>
-        如何禁用控制台窗口的关闭按钮？
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：这是一段古老的代码，也是我以前经常用到的代码。虽然现在和以后基本上都不会再用到它了，但是在特定的场景中，它很好用。 使用场景 有时候，我们需要编写一个具有一定处理逻辑的控制台程序，这比编写 Windows 服务要简单一些。但是，我们要防止不小心点击到控制台窗口右上角的关闭按钮而导致程序非正常退出。于        <a href="https://www.cnblogs.com/ittranslator/p/14233346.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-01-06 12:05
-技术译民
-<span data-post-id="14233346" class="post-view-count">阅读(655)</span> 
-<span data-post-id="14233346" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14233346" class="post-digg-count">推荐(5)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14233346" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/31.html">2020年12月31日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14214317.html">
-    <span>
-        Windows Terminal 新手入门
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Kayla Cinnamon 2020年12月17日的文章《Getting Started with Windows Terminal》 1 安装 Windows Terminal（Windows 终端）有两个不同的版本：Windows Terminal2 和 Windows Termina        <a href="https://www.cnblogs.com/ittranslator/p/14214317.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-31 12:10
-技术译民
-<span data-post-id="14214317" class="post-view-count">阅读(763)</span> 
-<span data-post-id="14214317" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14214317" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14214317" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/29.html">2020年12月29日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14198925.html">
-    <span>
-        在 WSL Ubuntu 上使用 .NET 进行跨平台开发新手入门
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：.NET 是一个开源软件框架，用于在 Linux、Windows 和 macOS 上构建跨平台应用程序。WSL 上的 Ubuntu 允许您同时为 Ubuntu 和 Windows 构建和测试应用程序。这篇博客将演示如何在 WSL 上安装 .NET 开发栈，并构建一个简单的操作系统感知应用，然后在 Linux 和 Windows 上测试它。        <a href="https://www.cnblogs.com/ittranslator/p/14198925.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-29 12:11
-技术译民
-<span data-post-id="14198925" class="post-view-count">阅读(512)</span> 
-<span data-post-id="14198925" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14198925" class="post-digg-count">推荐(3)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14198925" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/22.html">2020年12月22日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14161651.html">
-    <span>
-        C# 中 ConcurrentDictionary 一定线程安全吗？
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：根据 .NET 官方文档的定义：ConcurrentDictionary&amp;lt;TKey,TValue&amp;gt; Class 表示可由多个线程同时访问的线程安全的键/值对集合。这也是我们在并发任务中比较常用的一个类型，但它真的是绝对线程安全的吗？ 仔细阅读官方文档，我们会发现在文档的底部线程安全性小节里这样描述：        <a href="https://www.cnblogs.com/ittranslator/p/14161651.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-22 12:01
-技术译民
-<span data-post-id="14161651" class="post-view-count">阅读(2681)</span> 
-<span data-post-id="14161651" class="post-comment-count">评论(23)</span> 
-<span data-post-id="14161651" class="post-digg-count">推荐(31)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14161651" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/15.html">2020年12月15日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14128570.html">
-    <span>
-        如何在 Windows 10 上安装 WSL 2
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：如果您想在最新的 Windows 版本中尝试经过改进的 Windows 子系统 Linux 2 (即 WSL 2)，要怎么做呢？我们在本文中介绍了安装它所需要做的所有事情。WSL 2 是微软早在 2017 年推出的 WSL 的原始版本的重大升级。WSL 2 不仅仅是版本的升级。它更快、更通用，并且使用真正的 Linux 内核。未来的 Linux 内核更新甚至会以 Windows 10 软件更新的形式发布——想想看，这有点疯狂!        <a href="https://www.cnblogs.com/ittranslator/p/14128570.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-15 12:27
-技术译民
-<span data-post-id="14128570" class="post-view-count">阅读(4791)</span> 
-<span data-post-id="14128570" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14128570" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14128570" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/09.html">2020年12月9日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14106594.html">
-    <span>
-        连接数从异常到 300 到 5（RDS MySQL 的一个大坑•后记）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：在《记 RDS MySQL 的一个大坑》中，我提到遇到超出 max_user_connections 的异常，真正的原因在于：使用 MySQL 官方提供的 MySql.Data 作为驱动程序连接 MySQL 数据库的时候，默认使用了连接池，才引发了这个问题。        <a href="https://www.cnblogs.com/ittranslator/p/14106594.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-09 09:42
-技术译民
-<span data-post-id="14106594" class="post-view-count">阅读(590)</span> 
-<span data-post-id="14106594" class="post-comment-count">评论(12)</span> 
-<span data-post-id="14106594" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14106594" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/08.html">2020年12月8日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14094449.html">
-    <span>
-        连接数从异常到 300 到 5（记 RDS MySQL 的一个大坑）
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：花了一个下午的时间，终于把一个 RDS MySQL 的一个大坑填上了，解决方法令人匪夷所思，绝对会让各位看官感到大吃一惊！ 问题 最近应业务的需求，加了一个定时统计的任务，其中的算法很简单，只是需要大量的 CRUD 操作。 由于业务简单，且时效性要求不高，所以代码写起来若行云流水，一气呵成，本地测试        <a href="https://www.cnblogs.com/ittranslator/p/14094449.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-08 09:41
-技术译民
-<span data-post-id="14094449" class="post-view-count">阅读(1521)</span> 
-<span data-post-id="14094449" class="post-comment-count">评论(16)</span> 
-<span data-post-id="14094449" class="post-digg-count">推荐(5)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14094449" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/12/04.html">2020年12月4日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14076241.html">
-    <span>
-        Docker 与 Podman 容器管理的比较
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Paul Ferrill 2020年9月1日的文章《Compare Docker vs. Podman for container management》 1 Docker 和 Podman 在管理容器方面提供了类似的功能，但是 Docker 的安全漏洞可能使 Podman 对于某些管理员来        <a href="https://www.cnblogs.com/ittranslator/p/14076241.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-12-04 12:22
-技术译民
-<span data-post-id="14076241" class="post-view-count">阅读(2219)</span> 
-<span data-post-id="14076241" class="post-comment-count">评论(1)</span> 
-<span data-post-id="14076241" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14076241" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/ittranslator/archive/2020/11/30.html">2020年11月30日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ittranslator/p/14057822.html">
-    <span>
-        Docker Vs Podman
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：翻译自 Chetansingh 2020年4月24日的博文《Docker Vs Podman》 1 容器化的一场全新革命是从 Docker 开始的，Docker 的守护进程管理着所有的事情，并成为最受欢迎和广泛使用的容器管理系统之一。 但是，请稍等！您真的会假设 Docker 是唯一有效的容器化方式        <a href="https://www.cnblogs.com/ittranslator/p/14057822.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2020-11-30 12:07
-技术译民
-<span data-post-id="14057822" class="post-view-count">阅读(3286)</span> 
-<span data-post-id="14057822" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14057822" class="post-digg-count">推荐(4)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14057822" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-
-<div class="topicListFooter">
-    <div id="nav_next_page">
-        
-    <a href="https://www.cnblogs.com/ittranslator/default.html?page=2">
-        下一页
-    </a>
-
-    </div>    
-</div>
-
-
-
-
-
-
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
 <script>
+    var allowComments = true, cb_blogId = 623289, cb_blogApp = 'Flat-White', cb_blogUserGuid = 'e67ded98-e32e-40f5-f453-08d83ba20c85';
+    var cb_entryId = 14737549, cb_entryCreatedDate = '2021-05-07 02:04', cb_postType = 1;
     updatePostStats(
-        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
-        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
-        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
-        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
 </script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
 	</div><!--end: forFlow -->
 	</div><!--end: mainContent 主体内容容器-->
 	<div id="sideBar">
@@ -1128,7 +457,7 @@
 	<div class="clear"></div>
 	<div id="footer">
 		<!--done-->
-Copyright &copy; 2021 技术译民
+Copyright &copy; 2021 双份浓缩馥芮白
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
@@ -1137,8 +466,13 @@ Copyright &copy; 2021 技术译民
 </div><!--end: home 自定义的最大容器 -->
 
 
-    
+    <div id="page_end_html">
+        <!--鼠标特效-->
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/mouse-click.js"></script>
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<!--鼠标特效 end-->
+    </div>
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvb0rnDFw-_axFTaRovsktPD-tnwkKIRs5lmB5veSYFBPfOBp8g9oK-avoTv5cbJnW-FXeGodp7Y7dMXLLws68tq3-OAWNrwOsW3c89SGMBFDkDDGzRL8arRJ7yMHyASMA" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuSsIuIetWH-1lJuKibTIyrUMpg8DcEJBQLOXFDkMt6rsQKGbXbNxHFSqUK2QApMRPpxZHs3vA9Fm0YR92Quxfu_w3qOG2UBmeIVFVmVwsKMaQCWxrsxWcHg1rsfENHweU" />
 </body>
 </html>

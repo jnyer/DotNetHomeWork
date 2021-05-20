@@ -45,7 +45,7 @@ namespace Homework8
 
         private void delete_button_Click(object sender, EventArgs e)
         {
-            int orderId = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            int orderId = (int)dataGridViewOrderdetail.CurrentRow.Cells[0].Value;
             Order order = os.getByNumber(orderId);
             if(order != null)
             {
@@ -60,6 +60,11 @@ namespace Homework8
         }
 
         private void import_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonQuery_Click(object sender, EventArgs e)
         {
 
         }

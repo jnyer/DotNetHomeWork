@@ -9,35 +9,46 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>繁华似锦Fighting - 博客园</title>
+    <title>罗西的思考 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright.min.css?v=00nt3ajQUVX0gvFynxRY-4TOqQaW32yFChuBOrvOqLk" />
     
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/liuyuelinfighting/custom.css?v=HHbBCjbv1RTEmEibSvuNAB1IYv8=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright-mobile.min.css?v=cSBXSFXCBG9KdnF2sdUs-Rwu75GHG2_Gs50OCy_ecGg" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/liuyuelinfighting/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/liuyuelinfighting/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/liuyuelinfighting/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/rossiXYZ/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/rossiXYZ/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/rossiXYZ/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 271969;
-        var currentBlogApp = 'liuyuelinfighting';
-        var cb_enable_mathjax = false;
+        var currentBlogId = 556264;
+        var currentBlogApp = 'rossiXYZ';
+        var cb_enable_mathjax = true;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'SimpleMemory';
+        var skinName = 'LessIsMoreRight';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
-    
-    
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -90,81 +101,73 @@
     </div>
 
     <div id="page_begin_html">
-        <script>loadPageBeginHtml();</script>
+        
+
     </div>
-    <!--done-->
-<div id="home">
-<div id="header">
-	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/liuyuelinfighting/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
-		
-<!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/liuyuelinfighting/">繁华似锦Fighting</a>
-</h1>
-<h2>老子不老，庄子不装。</h2>
+    <div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/rossiXYZ/">罗西的思考</a>
+</div>
+<div class="subtitle">一手伸向技术，一手伸向生活</div>
 
-
-
-
-		
-	</div><!--end: blogTitle 博客的标题和副标题 -->
-	<div id="navigator">
-		
+        </div>
+        <div id="navigator">
+            
 <ul id="navList">
-<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
 </li>
-<li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/liuyuelinfighting/">
+    <li id="nav_myhome">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/rossiXYZ/">
 首页</a>
 </li>
-<li>
+    <li id="nav_newpost">
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
 </li>
-<li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%B9%81%E5%8D%8E%E4%BC%BC%E9%94%A6Fighting">
+    <li id="nav_contact">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%BD%97%E8%A5%BF%E7%9A%84%E6%80%9D%E8%80%83">
 联系</a></li>
-<li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/liuyuelinfighting/rss/">
-订阅</a>
-<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
-<li>
+    <li id="nav_rss">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/rossiXYZ/rss/">
+订阅</a></li>
+    <li id="nav_admin">
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
 </li>
 </ul>
 
-
-		<div class="blogStats">
-			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-		</div><!--end: blogStats -->
-	</div><!--end: navigator 博客导航栏 -->
-</div><!--end: header 头部 -->
-<div id="main">
-	<div id="mainContent">
-	<div class="forFlow">
-		
-
+            <div class="blogStats">
+                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                
 
 
 
 
-		
+
+
+    
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/liuyuelinfighting/archive/2021/05/06.html">2021年5月6日</a>
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/01.html">2021年4月1日</a>
     </div>
-
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14735616.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14563777.html">
     <span>
-        『政善治』Postman工具 — 3、补充：restful风格接口的项目说明
+            <span>[置顶]</span>
+        [源码解析] 并行分布式框架 Celery 之 worker 启动 (2)
     </span>
     
 
@@ -174,103 +177,41 @@
 
         </div>
         <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：（一）RESTful架构风格特点 1、统一接口风格 http://服务器地址:端口号[/项目名称/版本/资源] http://：为我们HTTP协议的访问头标准。 服务器地址：为我们项目服务器IP地址。 端口号：为我们服务器内项目访问的指定编号。 [/项目名称/版本] ：可选 。 资源：互联网-图片、        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14735616.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-06 16:06
-繁华似锦Fighting
-<span data-post-id="14735616" class="post-view-count">阅读(141)</span> 
-<span data-post-id="14735616" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14735616" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735616" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14735450.html">
-    <span>
-        『政善治』Postman工具 — 2、Postman主界面详细介绍
-    </span>
-    
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。Celery 是调用其Worker 组件来完成具体任务处理。前文讲了 Celery 启动过程的前半部分，本文继续后半部分的分析。        <a href="https://www.cnblogs.com/rossiXYZ/p/14563777.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
 
-
-
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-01 21:58
+罗西的思考
+<span data-post-id="14563777" class="post-view-count">阅读(71)</span> 
+<span data-post-id="14563777" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14563777" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14563777" rel="nofollow">
+    编辑
 </a>
 
         </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：进入Postman的主界面（如下图），我们接下来分别介绍一下Postman主界面的主要几个区域，以及每个区域的功能是什么。 1、Postman菜单栏 Postman顶部菜单栏，如下图所示： ###（1）File 菜单 New 选项：提供创建请求、集合、环境、文档、mock服务器和监控器的入口。 Ne        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14735450.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-06 15:44
-繁华似锦Fighting
-<span data-post-id="14735450" class="post-view-count">阅读(37)</span> 
-<span data-post-id="14735450" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14735450" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735450" rel="nofollow">
-    编辑
-</a>
 </div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14735210.html">
-    <span>
-        『政善治』Postman工具 — 1、Postman介绍与安装
-    </span>
     
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：一、Postman介绍 Postman是一款非常流行的HTTP接口测试工具，是Google开发的一款功能强大的网页调试与发送网页HTTP请求，并能运行测试用例的的Chrome插件。 Postman分为Postman native app和Postman Chrome app两个版本。 在2018年的        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14735210.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-06 14:58
-繁华似锦Fighting
-<span data-post-id="14735210" class="post-view-count">阅读(69)</span> 
-<span data-post-id="14735210" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14735210" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735210" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-		
 
 
 <div class="day">
     <div class="dayTitle">
-        <a href="https://www.cnblogs.com/liuyuelinfighting/archive/2021/05/05.html">2021年5月5日</a>
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/03/27.html">2021年3月27日</a>
     </div>
-
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732715.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14562310.html">
     <span>
-        『动善时』JMeter基础 — 5、JMeter主页面布局
+            <span>[置顶]</span>
+        [源码解析] 并行分布式框架 Celery 之架构 (2)
     </span>
     
 
@@ -280,29 +221,40 @@
 
         </div>
         <div class="postCon">
+            
 
     <div class="c_b_p_desc">
-摘要：在介绍JMeter主页面布局的菜单栏和图标之前，我们可以把语言切换为简体中文，如下图所示： JMeter的主界面布局分为标题栏、菜单栏、工具栏、树形标签栏和内容栏，如下图所示： 接下来我们来逐一说明。 1、标题栏 标题栏主要显示计划信息及JMeter版本。 （当我们打开某一个文件的时候，还会显示该文        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14732715.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。本系列将通过源码分析，和大家一起深入学习 Celery。本文是系列第二篇，继续探究 Celery 架构。        <a href="https://www.cnblogs.com/rossiXYZ/p/14562310.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
+
+        </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-05 21:01
-繁华似锦Fighting
-<span data-post-id="14732715" class="post-view-count">阅读(5)</span> 
-<span data-post-id="14732715" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14732715" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732715" rel="nofollow">
+        <div class="postDesc">
+            posted @ 2021-03-27 10:02
+罗西的思考
+<span data-post-id="14562310" class="post-view-count">阅读(357)</span> 
+<span data-post-id="14562310" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14562310" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14562310" rel="nofollow">
     编辑
 </a>
-</div>
+
+        </div>
         <div class="clear"></div>
-            <div class="postSeparator"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/05/06.html">2021年5月6日</a>
+    </div>
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732699.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14696580.html">
     <span>
-        『动善时』JMeter基础 — 4、JMeter常用目录介绍
+        [源码分析] 并行分布式任务队列 Celery  之 Timer &amp; Heartbeat
     </span>
     
 
@@ -312,29 +264,40 @@
 
         </div>
         <div class="postCon">
+            
 
     <div class="c_b_p_desc">
-摘要：在正式使用JMeter之前，建议大家还是先了解JMeter的常见的目录结构。了解一下这些东西以后，才能快速的找到需要的某些配置文件来进行修改。 我们之前下载的是JMeter5.0版本，解压后得到下面的目录结果，如下图： 1、bin目录 bin目录存放的是Jmeter的主jar包，启动脚本、配置文件、        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14732699.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。之前我们用了十几篇文章，介绍了 Kombu 和 Celery 的基础功能。从本文开始，我们介绍 Celery 的一些辅助功能（比如负载均衡，容错等等）。其实从某种意义上来说，这些辅助功能更加重要。本文我们介绍 Timer 和 Heart 这两个组件。        <a href="https://www.cnblogs.com/rossiXYZ/p/14696580.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
+
+        </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-05 20:40
-繁华似锦Fighting
-<span data-post-id="14732699" class="post-view-count">阅读(14)</span> 
-<span data-post-id="14732699" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14732699" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732699" rel="nofollow">
+        <div class="postDesc">
+            posted @ 2021-05-06 20:49
+罗西的思考
+<span data-post-id="14696580" class="post-view-count">阅读(102)</span> 
+<span data-post-id="14696580" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14696580" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14696580" rel="nofollow">
     编辑
 </a>
-</div>
+
+        </div>
         <div class="clear"></div>
-            <div class="postSeparator"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/25.html">2021年4月25日</a>
+    </div>
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732380.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14696573.html">
     <span>
-        『动善时』JMeter基础 — 3、JMeter插件管理
+        [源码分析]并行分布式任务队列 Celery 之 子进程处理消息
     </span>
     
 
@@ -344,29 +307,40 @@
 
         </div>
         <div class="postCon">
+            
 
     <div class="c_b_p_desc">
-摘要：JMeter是一个Java开发的开源软件，开源的软件有一个好处，就是会有很多第三方开发出来的插件，使得JMeter在处理某一些功能的时候更加的方便。并且这些插件拿过来就可以使用，完全免费的。 我们安装好的JMeter，自身会携带一些必须的组件，一般来说是符合我们平时工作需要的，但是有些功能或者组件，        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14732380.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。在前文中，我们介绍了Celery 多线程模型，本文介绍子进程如何处理消息。        <a href="https://www.cnblogs.com/rossiXYZ/p/14696573.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
+
+        </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-05 18:41
-繁华似锦Fighting
-<span data-post-id="14732380" class="post-view-count">阅读(116)</span> 
-<span data-post-id="14732380" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14732380" class="post-digg-count">推荐(1)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732380" rel="nofollow">
+        <div class="postDesc">
+            posted @ 2021-04-25 20:48
+罗西的思考
+<span data-post-id="14696573" class="post-view-count">阅读(70)</span> 
+<span data-post-id="14696573" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14696573" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14696573" rel="nofollow">
     编辑
 </a>
-</div>
+
+        </div>
         <div class="clear"></div>
-            <div class="postSeparator"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/22.html">2021年4月22日</a>
+    </div>
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732261.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14672168.html">
     <span>
-        『动善时』JMeter基础 — 2、JMeter的安装和启动
+        [源码分析] 分布式任务队列 Celery 多线程模型 之 子进程
     </span>
     
 
@@ -376,29 +350,40 @@
 
         </div>
         <div class="postCon">
+            
 
     <div class="c_b_p_desc">
-摘要：1、安装Java环境 由于JMeter是纯Java的桌面应用程序，因此它的运行环境需要Java环境，即需要安装JDK或JRE。（也就是安装JDK环境） 步骤简要说明： 下载并安装JDK 配置环境变量 详细说明可以参考之前的文章：https://blog.csdn.net/Liuyuelinjiayo        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14732261.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。在前文中，我们介绍了Celery 多线程模型，但是我们略过了子进程这一个阶段，本文看看子进程如何继续启动。        <a href="https://www.cnblogs.com/rossiXYZ/p/14672168.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
+
+        </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-05 17:58
-繁华似锦Fighting
-<span data-post-id="14732261" class="post-view-count">阅读(14)</span> 
-<span data-post-id="14732261" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14732261" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732261" rel="nofollow">
+        <div class="postDesc">
+            posted @ 2021-04-22 21:45
+罗西的思考
+<span data-post-id="14672168" class="post-view-count">阅读(87)</span> 
+<span data-post-id="14672168" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14672168" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14672168" rel="nofollow">
     编辑
 </a>
-</div>
+
+        </div>
         <div class="clear"></div>
-            <div class="postSeparator"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/19.html">2021年4月19日</a>
+    </div>
         <div class="postTitle">
             
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/liuyuelinfighting/p/14732180.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14672090.html">
     <span>
-        『动善时』JMeter基础 — 1、JMeter介绍
+        [源码分析] 分布式任务队列 Celery 之 发送Task &amp; AMQP
     </span>
     
 
@@ -408,35 +393,295 @@
 
         </div>
         <div class="postCon">
+            
 
     <div class="c_b_p_desc">
-摘要：1、什么是JMeter Apache JMeter是Apache组织开发的基于Java的压力测试工具，用于对软件做压力测试。它最初被设计用于Web应用测试，但后来扩展到其他测试领域。 （Apache JMeter是100%纯JAVA桌面应用程序） Apache JMeter可以用于对静态和动态资源（        <a href="https://www.cnblogs.com/liuyuelinfighting/p/14732180.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。在之前的文章中，我们看到了关于Task的分析，本文我们重点看看在客户端如何发送Task，以及 Celery 的amqp对象如何使用。        <a href="https://www.cnblogs.com/rossiXYZ/p/14672090.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-</div>
+
+        </div>
         <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-05-05 17:26
-繁华似锦Fighting
-<span data-post-id="14732180" class="post-view-count">阅读(24)</span> 
-<span data-post-id="14732180" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14732180" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14732180" rel="nofollow">
+        <div class="postDesc">
+            posted @ 2021-04-19 20:40
+罗西的思考
+<span data-post-id="14672090" class="post-view-count">阅读(137)</span> 
+<span data-post-id="14672090" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14672090" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14672090" rel="nofollow">
     编辑
 </a>
-</div>
+
+        </div>
         <div class="clear"></div>
 </div>
+    
 
 
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/15.html">2021年4月15日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14664004.html">
+    <span>
+        [源码解析] 并行分布式任务队列 Celery 之 多进程模型
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。因为 Celery 通过多进程来提高执行效率，所以本文将带领大家初步了解 Celery 之 多进程架构和模型。        <a href="https://www.cnblogs.com/rossiXYZ/p/14664004.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-15 19:04
+罗西的思考
+<span data-post-id="14664004" class="post-view-count">阅读(220)</span> 
+<span data-post-id="14664004" class="post-comment-count">评论(2)</span> 
+<span data-post-id="14664004" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14664004" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/12.html">2021年4月12日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14639556.html">
+    <span>
+        [源码解析] 并行分布式任务队列 Celery 之 消费动态流程
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。经过多篇文章之后，我们介绍了 Celery 如何启动，也介绍了 Task。本文我们就看看收到一个任务之后，Celery（包括 Kombu）内部的消费流程脉络（到多进程之前）。        <a href="https://www.cnblogs.com/rossiXYZ/p/14639556.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-12 21:11
+罗西的思考
+<span data-post-id="14639556" class="post-view-count">阅读(157)</span> 
+<span data-post-id="14639556" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14639556" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14639556" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/08.html">2021年4月8日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14613110.html">
+    <span>
+        [源码解析] 并行分布式任务队列 Celery 之 Task是什么
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。本文目的是看看 Celery 的 task 究竟是什么，以及 如果我们想从无到有实现一个 task 机制，有哪些地方需要注意，应该如何处理。        <a href="https://www.cnblogs.com/rossiXYZ/p/14613110.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-08 21:31
+罗西的思考
+<span data-post-id="14613110" class="post-view-count">阅读(277)</span> 
+<span data-post-id="14613110" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14613110" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14613110" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/05.html">2021年4月5日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14612853.html">
+    <span>
+        [源码解析] 分布式任务队列 Celery 之启动 Consumer
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。本文我们来说说Celery Worker Consumer 组件的启动。首先会概述启动过程，然后会选择Consumer的三个有特点的 子组件 进一步讲解其启动过程。这样大家就对 Consumer  的来龙去脉了解会更加深入。        <a href="https://www.cnblogs.com/rossiXYZ/p/14612853.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-05 09:46
+罗西的思考
+<span data-post-id="14612853" class="post-view-count">阅读(191)</span> 
+<span data-post-id="14612853" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14612853" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14612853" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/04/01.html">2021年4月1日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14563777.html">
+    <span>
+        [源码解析] 并行分布式框架 Celery 之 worker 启动 (2)
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。Celery 是调用其Worker 组件来完成具体任务处理。前文讲了 Celery 启动过程的前半部分，本文继续后半部分的分析。        <a href="https://www.cnblogs.com/rossiXYZ/p/14563777.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-01 21:58
+罗西的思考
+<span data-post-id="14563777" class="post-view-count">阅读(71)</span> 
+<span data-post-id="14563777" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14563777" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14563777" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/rossiXYZ/archive/2021/03/29.html">2021年3月29日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/rossiXYZ/p/14563763.html">
+    <span>
+        [源码解析] 并行分布式框架 Celery 之 worker 启动 (1)
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：Celery是一个简单、灵活且可靠的，处理大量消息的分布式系统，专注于实时处理的异步任务队列，同时也支持任务调度。Celery 是调用其Worker 组件来完成具体任务处理。本文我们讲解worker的启动过程。        <a href="https://www.cnblogs.com/rossiXYZ/p/14563763.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-03-29 21:27
+罗西的思考
+<span data-post-id="14563763" class="post-view-count">阅读(232)</span> 
+<span data-post-id="14563763" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14563763" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14563763" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
 
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    
+    <a href="https://www.cnblogs.com/rossiXYZ/default.html?page=2">
+        下一页
+    </a>
 
     </div>    
 </div>
-
-
 
 
 
@@ -448,40 +693,38 @@
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-	</div><!--end: forFlow -->
-	</div><!--end: mainContent 主体内容容器-->
-	<div id="sideBar">
-		<div id="sideBarMain">
-			<div id="sidebar_news" class="newsItem">
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+                <div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
-			<div id="leftcontentcontainer">
-				<div id="blog-sidecolumn"></div>
+                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                <script>loadBlogDefaultCalendar();</script>
+                <div id="leftcontentcontainer">
+                    <!-- begin:SingleColumn -->
+                    <div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-			</div>			
-		</div><!--end: sideBarMain -->
-	</div><!--end: sideBar 侧边栏容器 -->
-	<div class="clear"></div>
-	</div><!--end: main -->
-	<div class="clear"></div>
-	<div id="footer">
-		<!--done-->
-Copyright &copy; 2021 繁华似锦Fighting
+                    <!-- end:  SingleColumn -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright &copy; 2021 罗西的思考
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
-
-
-	</div><!--end: footer -->
-</div><!--end: home 自定义的最大容器 -->
-
-
-    <div id="page_end_html">
-        
-
     </div>
+</div>
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsxaL8eh9gs8Jx-leVH0cr8-wWr_em-L9z3fjY8m_cZEn5VQnIU2F97j3Mb7y9h0m0ZIFRzLO5RUvb9JT4gt96KWhpqP4WZuvb7AD03U9POwv4_uhTN_wmsLuznWliQuKQ" />
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAju5xtMx8yvtFKJ_59joFDgCxhi0n2uoEWwdJL6Ug1tJ3sv7V47Ur78FjUvkZU8ysUEu8xRPq74rrebU46mzezz6CbjIymnrYypFcBwnPgUPFM27ibmvPdQ5rq7GhNV342M" />
 </body>
 </html>

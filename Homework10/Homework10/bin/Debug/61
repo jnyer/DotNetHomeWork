@@ -4,40 +4,43 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin-when-crossorigin" />
-    
-    
+    <meta name="description" content="我第一次使用 Linux 服务器是漆黑的界面上只有一行白色字母，末尾还有一个孤独闪烁的光标。我小心翼翼地输入第一个命令 ls，然后重复输入了好几遍界面依旧是漆黑一片。这种感觉就像在漆黑的夜空，天上连一" />
+    <meta property="og:description" content="我第一次使用 Linux 服务器是漆黑的界面上只有一行白色字母，末尾还有一个孤独闪烁的光标。我小心翼翼地输入第一个命令 ls，然后重复输入了好几遍界面依旧是漆黑一片。这种感觉就像在漆黑的夜空，天上连一" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>2021 年 4月 20 日 随笔档案 - 狂盗一枝梅 - 博客园</title>
+    <title>如闪电划破雨夜，这些开源项目瞬间点亮了命令行 - 削微寒 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/xueweihan/custom.css?v=RRRtuZg9tgADpy&#x2B;UPLStdn026o0=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xueweihan/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xueweihan/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xueweihan/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 147792;
-        var currentBlogApp = 'kuangdaoyizhimei';
+        var currentBlogId = 228315;
+        var currentBlogApp = 'xueweihan';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'BlueSky';
+        var skinName = 'BlackLowKey';
         var visitorUserId = '';
     </script>
+        <script>
+            var currentPostDateAdded = '2021-05-20 08:42';
+        </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -90,60 +93,18 @@
     </div>
 
     <div id="page_begin_html">
-        <!-- ............自定义首部代码开始............ -->
-<!-- 自定义进度条 -->
-<div id="myProgressBar" style="display: none;"></div>
-
-<!-- 自定义导航条 -->
-<div id="mynavbar" style="margin-top: 0px;">
-    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
-    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
-<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
-
-    	</a>
-    	<div id="mynavbar_menu">
-	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
-	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
-	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
-	    	<a id="friendLink" href="#">友情链接</a>
-	    	<a href="https://www.cnblogs.com/">博客园</a>
-            <a href="https://i.cnblogs.com/posts">管理</a>
-	    	<a id="aboutMe" href="#">关于</a>
-	    </div>
-    </div>
-</div>
-
-<!-- 自定义头部锚点 -->
-<a name="mtop"></a>
-
-<!-- 自定义头部 -->
-<div id="myheader">
-	<!-- 背景图片 -->
-    <div id="myheader_bg"></div>
-    <!-- 遮罩层 -->
-    <div id="myheader_cover" title="点我点我">
-        <!-- 博客标题 -->
-        <div id="mypost_title">
-            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
-            <div id="mypost_title_f"></div>
-            <div id="mypost_title_e">
-                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
-            </div> 
-        </div>  
-    </div>
-</div>
-<!-- ............自定义首部代码结束............ -->
+        <a href="https://github.com/521xueweihan/HelloGitHub/"><img style="position: absolute; top: 0; right: 0; border: 0" src="https://images.cnblogs.com/cnblogs_com/xueweihan/859919/o_200129100904forkme_right_green_007200.png" alt="Fork me on GitHub" data-canonical-src="https://images.cnblogs.com/cnblogs_com/xueweihan/859919/o_200129100904forkme_right_green_007200.png"></a>
     </div>
     <!--done-->
 <div id="home">
 <div id="header">
 	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xueweihan/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
 		
 <!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xueweihan/">削微寒的程序员之路</a>
 </h1>
-<h2></h2>
+<h2>谦逊、专注，才能成长。</h2>
 
 
 
@@ -157,19 +118,17 @@
 博客园</a>
 </li>
 <li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xueweihan/">
 首页</a>
 </li>
 <li>
 
-<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-新随笔</a>
+
 </li>
 <li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
-联系</a></li>
+</li>
 <li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xueweihan/rss/">
 订阅</a>
 <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
 <li>
@@ -187,51 +146,220 @@
 <div id="main">
 	<div id="mainContent">
 	<div class="forFlow">
-		
-        <!--done-->
-
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a>2021年4月20日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14681033.html">
-    <span>
-        SpringBoot自定义配置以及IDEA配置提示
-    </span>
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xueweihan/p/14778730.html">
+    <span>如闪电划破雨夜，这些开源项目瞬间点亮了命令行</span>
     
 
 
 
 </a>
 
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202056730-1280455348.jpg" alt="" loading="lazy"></p>
+<p>我第一次使用 Linux 服务器是漆黑的界面上只有一行白色字母，末尾还有一个孤独闪烁的光标。我小心翼翼地输入第一个命令 <code>ls</code>，然后重复输入了好几遍界面依旧是漆黑一片。这种感觉就像在漆黑的夜空，天上连一颗星星都没有。伸手不见五指，感觉孤独和无力...后来在漫长学习命令行操作的过程中，遇到了一些让我相见恨晚的命令行工具。第一次相遇，它们就像雨夜的一道闪电，瞬间照亮了整个夜空（命令行），最后这些命令行开源项目变成了漆黑夜空中一颗颗闪耀的星星，一闪一闪亮晶晶...我差点唱出来✨</p>
+<p>下面我就逐一分享这些照亮漆黑命令行的开源项目，它们包含但不限于：<strong>增加色彩</strong>、<strong>代替系统自带命令</strong>、<strong>提高开发效率</strong>。</p>
+<h2 id="一、忘记那些-linux-命令吧">一、忘记那些 Linux 命令吧</h2>
+<p>那些年我们一起用过的 Linux 命令：cat、curl、top...忘记他们吧！</p>
+<h3 id="1、neofetch（代替-uname、hostname-等）">1、neofetch（代替 uname、hostname 等）</h3>
+<p><strong>Star 数</strong>：11.6k｜<strong>语言</strong>：Shell</p>
+<p>支持将近 150 种操作系统，展示操作系统信息的命令行工具。首先一条命令安装，然后一条命令启动。展示的信息包含：操作系统、发行版本、内核、Host、CPU、GPU 等。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202155606-104402819.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/dylanaraps/neofetch/wiki/Installation" target="_blank">https://github.com/dylanaraps/neofetch/wiki/Installation</a></p>
+<p>命令：neofetch</p>
+<p>地址：<a href="https://github.com/dylanaraps/neofetch" target="_blank">https://github.com/dylanaraps/neofetch</a></p>
+</blockquote>
+<h3 id="2、httpie（代替-curl）">2、httpie（代替 cURL）</h3>
+<p><strong>Star 数</strong>：50.8k｜<strong>语言</strong>：Python</p>
+<p>cURL 的替代者，一款非常人性化的 HTTP 命令行客户端。安装简单使用方便，返回的结果还是高亮显示提高了可读性。适用于调试接口、查看服务器返回的 HTTP 协议的信息。下面的是 cURL 和 httpie 的请求命令和结果对比图：</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202201570-1986418414.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/httpie/httpie#installation" target="_blank">https://github.com/httpie/httpie#installation</a></p>
+<p>命令：http [flags] [METHOD] URL [ITEM [ITEM]]</p>
+<p>地址：<a href="https://github.com/httpie/httpie" target="_blank">https://github.com/httpie/httpie</a></p>
+</blockquote>
+<h3 id="3、htop（代替-top）">3、htop（代替 top）</h3>
+<p><strong>Star 数</strong>：2.4k｜<strong>语言</strong>：C</p>
+<p>可代替 top 的交互式管理进程的命令行工具。就像这个项目名字一样，h 代表 for human，有了它就可以忘记 top 命令的各种参数了！</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202205784-2004694399.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://htop.dev/downloads.html" target="_blank">https://htop.dev/downloads.html</a></p>
+<p>命令：htop</p>
+<p>地址：<a href="https://github.com/htop-dev/htop" target="_blank">https://github.com/htop-dev/htop</a></p>
+</blockquote>
+<h3 id="4、bat（代替-cat）">4、bat（代替 cat）</h3>
+<p><strong>Star 数</strong>：27k｜<strong>语言</strong>：Rust</p>
+<p>替代 cat 的命令行工具。你还在命令行用 cat 查看文件吗？那你就 out 啦！今天推荐的 bat 它不仅支持语法高亮，还能展示 Git 的改动。macOS 下安装命令：<code>brew install bat</code> 相信你用过 bat 后就不会再想用回 cat 了。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202210308-513414680.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/sharkdp/bat#installation" target="_blank">https://github.com/sharkdp/bat#installation</a></p>
+<p>命令：bat README.md</p>
+<p>项目地址：<a href="https://github.com/sharkdp/bat" target="_blank">https://github.com/sharkdp/bat</a></p>
+</blockquote>
+<h3 id="5、fsql（代替-find）">5、fsql（代替 find）</h3>
+<p><strong>Star 数</strong>：3.8k｜<strong>语言</strong>：Go</p>
+<p>用 SQL 的语法搜索文件。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202222413-920818267.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/kashav/fsql#installation" target="_blank">https://github.com/kashav/fsql#installation</a></p>
+<p>命令：fsql [options] [query]</p>
+<p>地址：<a href="https://github.com/kashav/fsql" target="_blank">https://github.com/kashav/fsql</a></p>
+</blockquote>
+<h2 id="中部：利刃出鞘探囊取物">中部：利刃出鞘+探囊取物</h2>
+<p>优秀的工具可以让你事半功倍，一个命令犹如利剑出鞘：斩杀 BUG、查数据如探囊取物。</p>
+<h3 id="6、ctop">6、ctop</h3>
+<p><strong>Star 数</strong>：11.6k｜<strong>语言</strong>：Go</p>
+<p>实现了类 top 命令展示效果的 docker 容器监控工具。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202237163-748642572.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/bcicen/ctop#install" target="_blank">https://github.com/bcicen/ctop#install</a></p>
+<p>命令：ctop</p>
+<p>地址：<a href="https://github.com/bcicen/ctop" target="_blank">https://github.com/bcicen/ctop</a></p>
+</blockquote>
+<h3 id="7、mycli">7、mycli</h3>
+<p><strong>Star 数</strong>：9.6k｜<strong>语言</strong>：Python</p>
+<p>一个带语法高亮、自动补全的 MySQL 命令行客户端工具。用熟悉的命令，享受不一样的快感。另外还有：</p>
+<ul>
+<li>Postgres 数据库：项目名 pgcli</li>
+<li>Redis：项目名 iredis</li>
+<li>篇幅问题不赘述了，可以用 HelloGitHub 小程序搜这些项目名</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202247378-123384250.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/dbcli/mycli#detailed-install-instructions" target="_blank">https://github.com/dbcli/mycli#detailed-install-instructions</a></p>
+<p>命令：mycli [OPTIONS] [DATABASE]</p>
+<p>地址：<a href="https://github.com/dbcli/mycli" target="_blank">https://github.com/dbcli/mycli</a></p>
+</blockquote>
+<h3 id="8、gpustat">8、gpustat</h3>
+<p><strong>Star 数</strong>：2.4k｜<strong>语言</strong>：Python</p>
+<p>一个方便查询 GPU 状态的命令行工具。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202258594-1365971798.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：pip install gpustat</p>
+<p>命令：gpustat [OPTIONS]</p>
+<p>地址：<a href="https://github.com/wookayin/gpustat" target="_blank">https://github.com/wookayin/gpustat</a></p>
+</blockquote>
+<h3 id="9、lazydocker">9、lazydocker</h3>
+<p><strong>Star 数</strong>：17.7k｜<strong>语言</strong>：Go</p>
+<p>带命令行 UI 的 docker 命令行管理工具，可以通过点点点来管理 docker。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202307371-1865225901.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/jesseduffield/lazydocker#installation" target="_blank">https://github.com/jesseduffield/lazydocker#installation</a></p>
+<p>使用：<a href="https://github.com/jesseduffield/lazydocker#usage" target="_blank">https://github.com/jesseduffield/lazydocker#usage</a></p>
+<p>地址：<a href="https://github.com/jesseduffield/lazydocker" target="_blank">https://github.com/jesseduffield/lazydocker</a></p>
+</blockquote>
+<h3 id="10、ali">10、ali</h3>
+<p><strong>Star 数</strong>：2.5k｜<strong>语言</strong>：Go</p>
+<p>能够实时展示分析的压力测试工具。这款命令行的压测工具可以在终端实时展示压测耗时曲线，很动感很酷。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202336832-1032343418.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/nakabonne/ali#installation" target="_blank">https://github.com/nakabonne/ali#installation</a></p>
+<p>命令：ali 地址</p>
+<p>地址：<a href="https://github.com/nakabonne/ali" target="_blank">https://github.com/nakabonne/ali</a></p>
+</blockquote>
+<h3 id="11、lazygit">11、lazygit</h3>
+<p><strong>Star 数</strong>：19.9k｜<strong>语言</strong>：Go</p>
+<p>Git 命令行客户端。它充分的体现出了命令行工具的高效，在拥有相同功能的前提下启动速度比各种 GUI 客户端快 N 倍，再配上快捷键速度加倍。Ready？Go！</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202349541-531238272.gif" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/jesseduffield/lazygit#installation" target="_blank">https://github.com/jesseduffield/lazygit#installation</a></p>
+<p>命令：lazygit</p>
+<p>地址：<a href="https://github.com/jesseduffield/lazygit" target="_blank">https://github.com/jesseduffield/lazygit</a></p>
+</blockquote>
+<h2 id="下部：平地起惊雷">下部：平地起惊雷</h2>
+<p>有了它...世界貌似变得有一点点地不一样。</p>
+<p>不对...是很不一样。</p>
+<p>错...这明明是王炸！</p>
+<h3 id="12、ohmyzsh">12、ohmyzsh</h3>
+<p><strong>Star 数</strong>：128k｜<strong>语言</strong>：Shell</p>
+<p>史称“终极 Shell”——ZSH 的工具，让你发现命令行前所未有的好用。开箱即用、海量主题，一声真香永远不会迟到。。</p>
+<p><img src="https://img2020.cnblogs.com/blog/759200/202105/759200-20210517202354988-576656114.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>安装：<a href="https://github.com/ohmyzsh/ohmyzsh#basic-installation" target="_blank">https://github.com/ohmyzsh/ohmyzsh#basic-installation</a></p>
+<p>使用：<a href="https://github.com/ohmyzsh/ohmyzsh#using-oh-my-zsh" target="_blank">https://github.com/ohmyzsh/ohmyzsh#using-oh-my-zsh</a></p>
+<p>地址：<a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank">https://github.com/ohmyzsh/ohmyzsh</a></p>
+</blockquote>
+<h2 id="最后">最后</h2>
+<p>本期共推荐了 <strong>12 个命令行开源项目</strong>，它们加起来有 <strong>287300+ 星🌟</strong> 足以点亮漆黑的命令行。</p>
+<hr>
+<p>关注 <strong>HelloGitHub</strong> 公众号 第一时间收到更新。</p>
+<p>还有更多开源项目的介绍和宝藏项目等待你的发现。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-20 08:42</span>&nbsp;
+<a href="https://www.cnblogs.com/xueweihan/">削微寒</a>&nbsp;
+阅读(<span id="post_view_count">1121</span>)&nbsp;
+评论(<span id="post_comment_count">3</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14778730" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14778730);return false;">收藏</a></div>
         </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：本篇文章将会讲解在springboot项目中如何实现自定义配置以及在IDEA或者Eclipse中实现配置项提示，就像spring的配置提示一样        <a href="https://www.cnblogs.com/kuangdaoyizhimei/p/14681033.html" class="c_b_p_desc_readmore">阅读全文</a>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 228315, cb_blogApp = 'xueweihan', cb_blogUserGuid = '41673165-d8fd-e411-b908-9dcfd8948a71';
+    var cb_entryId = 14778730, cb_entryCreatedDate = '2021-05-20 08:42', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
     </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
 </div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-20 14:50
-狂盗一枝梅
-<span data-post-id="14681033" class="post-view-count">阅读(14)</span> 
-<span data-post-id="14681033" class="post-comment-count">评论(1)</span> 
-<span data-post-id="14681033" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14681033" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-</div>
-
-
-
 
 	</div><!--end: forFlow -->
 	</div><!--end: mainContent 主体内容容器-->
@@ -253,7 +381,7 @@
 	<div class="clear"></div>
 	<div id="footer">
 		<!--done-->
-Copyright &copy; 2021 狂盗一枝梅
+Copyright &copy; 2021 削微寒
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
@@ -262,316 +390,8 @@ Copyright &copy; 2021 狂盗一枝梅
 </div><!--end: home 自定义的最大容器 -->
 
 
-    <div id="page_end_html">
-        <!-- ............自定义尾部代码开始............ -->
-<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
-	<div class="bottom-bar-inner">
-		<!-- 左边 -->
-        <div class="bottom-bar-items social-share" style="float: left;">
-            <span class="bottom-bar-item bottom-bar-facebook">
-                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-twitter">
-                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-qrcode">
-                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
-            </span>
-        </div>
-        <!-- 右边 -->
-        <div class="bottom-bar-items right" style="float: right;">
-            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
-            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
-            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
-            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
-        </div>
-	</div> 
-</div>
-<a name="mfooter"></a>
+    
 
-<!-- 遮罩层（用于图片点击放大），
-    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
-<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
-    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
-    <img id="bigimg" style="height: auto;width: auto;border: 0; 
-        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
-</div>
-<!-- ............自定义尾部代码结束............ -->
-
-
-<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
-<script type="text/javascript">
-
-    //博主名称 可不改，默认取博客园提供的
-    var nickName = null;
-    //slogan
-    var slogan = '立德立言，无闻西东';
-    //icon
-    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
-    //默认博客背景图片
-    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
-    //icon(浏览器标题栏上的)
-    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
-    //友情链接地址
-    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
-    //关于地址
-    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
-    //Github地址,假如博客username与Github username相同，不用改。
-    //如 cnblogs.com/username github.com/username 这样就不用改
-    var myGayhubUrl = "https://github.com/kdyzm";
-</script>
-<script type="text/javascript">
-	/**
-		用来设置初始时需要执行的js
-	*/
-	$(document).ready(function(){
-
-        //获取博主名字
-        if (nickName == null){
-            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
-            nickName = footerOverTestArray[footerOverTestArray.length - 1];
-        }
-
-		//加载顶部进度条
-	    NProgress.start();
-	    NProgress.done();
-	    $("#myProgressBar").hide();
-
-	    //设置背景图片地址
-	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
-	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
-	    }else{
-    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
-	    }
-
-	    //设置标题
-        if($("#cb_post_title_url").html()){
-            $("#mypost_title_h").html($("#cb_post_title_url").html());
-        }else{
-            $("#mypost_title_h").html(nickName);
-        }
-
-	    //正文和标题淡入
-	    $("#mainContent").css("opacity","1");
-	    $("#mainContent").css("margin-top","0");
-	    $("#mypost_title").css("opacity","1");
-	    $("#mypost_title").css("top","75pt");
-
-        /* --根据个人配置修改页面 start-- */
-        //修改a链接
-        var ccList = $(".c-c");
-        for(var cc of ccList){
-            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
-        }
-        //设置Github链接
-        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
-        //设置友链的链接
-        $("#friendLink").attr("href",friendLink);
-        //设置关于的链接
-        $("#aboutMe").attr("href",aboutMe);
-        //设置两个iocn图标
-        $("#nv-icon").attr("src",icon);
-        var linkObject = document.createElement("link");
-        linkObject.rel = "shortcut icon";
-        linkObject.href = iconB;
-        document.getElementsByTagName("head")[0].appendChild(linkObject);
-        //设置底部栏按钮
-        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-            $("#bottom-d").html("友情链接");
-            $("#bottom-d").attr("href",friendLink);
-        }else{
-            var url = window.location.href;
-            var lastUrl = url.substring(url.lastIndexOf("/")+1);
-            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
-            $("#bottom-d").click(function(){
-                DiggIt(mpageId,cb_blogId,1);
-                green_channel_success(this,'谢谢推荐！');
-            })
-        }
-        /* --根据个人配置修改页面 end-- */
-	})
-
-	/**
-		设置ajax请求加载完所有数据时执行的js
-	*/
-	setTimeout(afterAjax,1000);
-	function afterAjax(){
-		//假如是首页
-		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
-		}else{
-		    var classification = null;
-		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
-		    	classification = $("#BlogPostCategory").html();
-		    	classification = classification.substring(3,classification.length);
-		    }else{
-		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
-		    }
-		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
-		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
-		    //设置副标题标题
-		    $("#mypost_title_f").html(ftitle);
-		    //设置标题分类按钮
-		    $("#mypost_title_e").html(classification);
-		    //设置底部导航条上一篇下一篇文章
-		    var pnp = $("#post_next_prev a");
-		    $("#mbottom-left").attr("href",pnp[1].href);
-		    if (pnp.length>2) {
-		    	$("#mbottom-right").attr("href",pnp[3].href);
-		    }
-		}
-		$("#myheader_bg").css("filter","blur(0px)");
-
-        //优化评论区样式
-        $("#comment_form_container p:last").hide();
-        $("#commentbox_opt a:last").hide();
-        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
-	}
-
-
-	/** 
-		自定义的js方法
-	*/
-	//设置底部导航条点击关注按钮事件
-	$("#bottom-g").click(function(){
-		$('#green_channel_follow').click()
-		return false
-	})
-	$("#bottom-s").click(function(){
-		AddToWz(cb_entryId);
-		return false;
-	})
-
-
-	//通过滚动条控制导航条的展现隐藏
-	var oldScrollNum = 0;
-	window.onscroll = function(){
-		var t = document.documentElement.scrollTop || document.body.scrollTop;
-		//下滑
-		if (t>oldScrollNum) {
-			if (t>120) {
-				$("#mynavbar").css("margin-top","-70px");//顶部导航
-				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
-			}
-			if (t>300) {
-				$("#right_meun").css("display","inline-block");//右侧导航
-			}
-		//上拉
-		}else{
-			//防止用a链接跳转也触发效果
-			if (oldScrollNum-t<20) {
-				$("#mynavbar").css("margin-top","0px");//顶部导航
-				$("#post-bottom-bar").css("bottom","0");//底部导航
-			}
-			if (t<=300) {
-				$("#right_meun").css("display","none");//右侧导航
-			}
-		}
-		oldScrollNum = t;
-	}
-
-	//背景大图点击模糊||清晰
-	$("#myheader_cover").click(function(){
-		if ($("#myheader_bg").css("filter") == "blur(3px)") {
-			$("#myheader_bg").css("filter","blur(0px)");
-		}else{
-			$("#myheader_bg").css("filter","blur(3px)");
-		}
-	})
-
-
-    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
-        $(this).fadeOut("fast");    
-    }); 
-
- </script>
-
- <script type="text/javascript">  
-    var setMyBlog = {
-        setCopyright: function() {
-            //设置版权信息，转载出处自动根据页面url生成
-            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
-                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
-                info = $(info_str),
-                info_a = info.find("a"),
-                url = window.location.href;
-            $(info_a[0]).attr("href","https://github.com/gzdaijie");
-            $(info_a[1]).attr("href",url).text(url);
-            $("#cnblogs_post_body").prepend(info);
-        },
-        setCodeRow: function(){
-            // 代码行号显示
-            var pre = $("pre.sourceCode"); //选中需要更改的部分
-            if(pre && pre.length){
-                pre.each(function() {
-                    var item = $(this);
-                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
-                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
-                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
-                    SyntaxHighlighter.all();
-                })
-            }
-        },
-        setAtarget: function() {
-            // 博客内的链接在新窗口打开
-            $("#cnblogs_post_body a").each(function(){
-                this.target = "_blank";
-            }) 
-        },
-        setContent: function() {
-            // 根据h2、h3标签自动生成目录
-            var captions_ori = $("#cnblogs_post_body h2"),
-            	captions_ori2 = $("#cnblogs_post_body h3"),
-                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
-                content = $("<ul id='right_meun'></ul>");
-            $("#cnblogs_post_body").prepend(content.append(captions));
-            var index = -1,index2 = -1;
-            captions.replaceWith(function(){
-                var self = this;
-                if(self.tagName == "H2" || self.tagName == "h2"){
-                    // 设置点击目录跳转
-                    index += 1;
-                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
-                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
-                } else {
-                	// add by summertime-wu 增加h3链接跳转
-                	index2 += 1;
-                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
-                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
-                    return ;
-                }
-            });
-        },
-        runAll: function() {
-            /* 运行所有方法
-             * setAtarget() 博客园内标签新窗口打开
-             * setContent() 设置目录
-             * setCopyright() 设置版权信息
-             * setCodeRow() 代码行号显示
-             */ 
-            this.setAtarget(); 
-            //假如为手机端不显示目录
-            if(document.body.clientWidth>=1000){
-                this.setContent();
-            }
-            // this.setCopyright();
-            this.setCodeRow();
-        }
-    }
-    setMyBlog.runAll();
-</script>
-
-<!-- 代码行号 -->
-<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initLineNumbersOnLoad();</script>
-    </div>
-
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjv3l3Xy12y3k-gNmiQ_fKTFxNWFRQJovzaMfu-1BFNDcJ5J6qt7-txRTcb8-wWxkojKvk69LOg50Q6oQvgzZ1D5NiWSlBRvZF6JibeyLfahu5EeWCTxokbTGM0s1fWRKtc" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt5rc5Zv1awUHsLf7B26nxdmQg0FYZNwTkJ8Psdd8JYSP8u4ztvaoPgby5xFN0Pu-2HYmoEW5w5KjRyUEeEzW_q8UpqVm9YaQN_jMqislct-2BiGkp6_WTiJ233LkeXOyU" />
 </body>
 </html>

@@ -3,41 +3,44 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="origin-when-crossorigin" />
-    
-    
+    <meta name="referrer" content="never" />
+    <meta name="description" content="前言 最近用 Python 写了几个简单的脚本来处理一些数据，因为只是简单功能所以我就直接使用 print 来打印日志。 任务运行时偶尔会出现一些异常： 因为我在不同地方都有打印日志，导致每次报错的地" />
+    <meta property="og:description" content="前言 最近用 Python 写了几个简单的脚本来处理一些数据，因为只是简单功能所以我就直接使用 print 来打印日志。 任务运行时偶尔会出现一些异常： 因为我在不同地方都有打印日志，导致每次报错的地" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>2021 年 4月 21 日 随笔档案 - 狂盗一枝梅 - 博客园</title>
+    <title>自带的 print 函数居然会报错？ - crossoverJie - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair.min.css?v=2eeF5VFetkv0ebUrveBo_MjLCMmhO1B4PudZOUBLn1Y" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/crossoverJie/custom.css?v=H/XiXITCicADmCaA3IlWnJkLhys=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair-mobile.min.css?v=YRGfW14H7zygWA_SxKeRyr-kyP2kOiJ7vj7-MC3lxPs" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/crossoverJie/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/crossoverJie/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/crossoverJie/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 147792;
-        var currentBlogApp = 'kuangdaoyizhimei';
+        var currentBlogId = 441144;
+        var currentBlogApp = 'crossoverJie';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'BlueSky';
+        var skinName = 'LoveIsIntheAir';
         var visitorUserId = '';
     </script>
+        <script>
+            var currentPostDateAdded = '2021-05-18 07:35';
+        </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
 </head>
-<body class="no-navbar">
+<body class="has-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc navbar-custom">
+    <div id="top_nav" class="navbar forpc">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -90,60 +93,20 @@
     </div>
 
     <div id="page_begin_html">
-        <!-- ............自定义首部代码开始............ -->
-<!-- 自定义进度条 -->
-<div id="myProgressBar" style="display: none;"></div>
-
-<!-- 自定义导航条 -->
-<div id="mynavbar" style="margin-top: 0px;">
-    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
-    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
-<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
-
-    	</a>
-    	<div id="mynavbar_menu">
-	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
-	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
-	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
-	    	<a id="friendLink" href="#">友情链接</a>
-	    	<a href="https://www.cnblogs.com/">博客园</a>
-            <a href="https://i.cnblogs.com/posts">管理</a>
-	    	<a id="aboutMe" href="#">关于</a>
-	    </div>
+        <a class="git-link" href="https://github.com/crossoverjie"></a>
     </div>
-</div>
-
-<!-- 自定义头部锚点 -->
-<a name="mtop"></a>
-
-<!-- 自定义头部 -->
-<div id="myheader">
-	<!-- 背景图片 -->
-    <div id="myheader_bg"></div>
-    <!-- 遮罩层 -->
-    <div id="myheader_cover" title="点我点我">
-        <!-- 博客标题 -->
-        <div id="mypost_title">
-            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
-            <div id="mypost_title_f"></div>
-            <div id="mypost_title_e">
-                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
-            </div> 
-        </div>  
-    </div>
-</div>
-<!-- ............自定义首部代码结束............ -->
-    </div>
-    <!--done-->
+    
+<!--done-->
+<center>
 <div id="home">
 <div id="header">
 	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+	<a href="https://www.cnblogs.com/crossoverJie/"><img id="blogLogo" src="/skins/loveisintheair/images/logo.gif" alt="" /></a>			
 		
 <!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/crossoverJie/">crossoverJie</a>
 </h1>
-<h2></h2>
+<h2>You never know what you can do till you try.</h2>
 
 
 
@@ -153,489 +116,276 @@
 	<div id="navigator">
 		
 <ul id="navList">
-<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
 </li>
-<li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/crossoverJie/">
 首页</a>
 </li>
-<li>
+	<li>
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
 </li>
-<li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/crossoverJie">
 联系</a></li>
-<li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
-订阅</a>
-<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
-<li>
+	<li>
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
 </li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/crossoverJie/rss/">
+订阅</a>
+	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/crossoverJie/rss/">
+    <img src="/skins/loveisintheair/images/xml.gif" alt="订阅" />
+</a></li>
 </ul>
 
 
 		<div class="blogStats">
+			
 			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+			
 		</div><!--end: blogStats -->
 	</div><!--end: navigator 博客导航栏 -->
 </div><!--end: header 头部 -->
-<div id="main">
-	<div id="mainContent">
-	<div class="forFlow">
-		
-        <!--done-->
 
-
-
-<div class="day">
-    <div class="dayTitle">
-        <a>2021年4月21日</a>
-    </div>
-
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html">
-    <span>
-        关于我
-    </span>
+<div class="clear"></div>
+	<div id="topicList">
+		<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class = "postTitle">
+			
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14782361.html">
+    <span>自带的 print 函数居然会报错？</span>
     
 
 
 
 </a>
 
-        </div>
-        <div class="postCon">
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gqduiqi5evj31o00u0n84.jpg" alt="" loading="lazy"></p>
+<h1 id="前言">前言</h1>
+<p>最近用 <code>Python</code> 写了几个简单的脚本来处理一些数据，因为只是简单功能所以我就直接使用 <code>print</code> 来打印日志。</p>
+<p>任务运行时偶尔会出现一些异常：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gqexrlit2ij316406mgpd.jpg" alt="" loading="lazy"></p>
+<p>因为我在不同地方都有打印日志，导致每次报错的地方都不太一样，从而导致程序运行结果非常诡异；有时候是这段代码没有运行，下一次就可能是另外一段代码没有触发。</p>
+<p>虽说当时有注意到 <code>Broken pipe</code> 这个关键异常，但没有特别在意，因为代码中也有一些发送 <code>http</code> 请求的地方，一直以为是网络 <code>IO</code> 出现了问题，压根没往 <code>print</code> 这个最基本的打印函数上思考🤔。</p>
+<p>直到这个问题反复出现我才认真看了这个异常，定睛一看 <code>print</code> 不也是 <code>IO</code> 操作嘛，难道真的是自带的  <code>print</code> 函数都出问题了？</p>
+<hr>
+<p>但在本地、测试环境我运行无数次也没能发现异常；于是我找运维拿到了线上的运行方式。</p>
+<p>原来为了方便维护大家提交上来的脚本任务，运维自己有维护一个统一的脚本，在这个脚本中使用：</p>
+<pre><code class="language-python">cmd = 'python /xxx/test.py'
+os.popen(cmd)
+</code></pre>
+<p>来触发任务，这也是与我在本地、开发环境的唯一区别。</p>
+<h1 id="popen-原理">popen 原理</h1>
+<p>为此我在开发环境模拟出了异常：</p>
+<p>test.py:</p>
+<pre><code class="language-python">import time
+if __name__ == '__main__':
+    time.sleep(20)
+    print '1000'*1024
+</code></pre>
+<p>task.py:</p>
+<pre><code class="language-python">import os
+import time
+if __name__ == '__main__':
+    start = int(time.time())
+    cmd = 'python test.py'
+    os.popen(cmd)
+    end = int(time.time())
+    print 'end****{}s'.format(end-start)
+</code></pre>
+<p>运行:</p>
+<pre><code class="language-python">python task.py
+</code></pre>
+<p>等待 20s 必然会复现这个异常：</p>
+<pre><code class="language-pytho">Traceback (most recent call last):
+  File "test.py", line 4, in &lt;module&gt;
+    print '1000'*1024
+IOError: [Errno 32] Broken pipe
+</code></pre>
+<p>为什么会出现这个异常呢？</p>
+<p>首先得了解 <code>os.popen(command[, mode[, bufsize]])</code> 这个函数的运行原理。<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqj4cfyd33j32j605iacq.jpg" alt="" loading="lazy"></p>
+<p>根据官方文档的解释，该函数会执行 <code>fork</code> 一个子进程执行 <code>command</code> 这个命令，同时将子进程的标准输出通过管道连接到父进程；</p>
+<p>也就该方法返回的文件描述符。</p>
+<p>这里画个图能更好地理解其中的原理：<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjc7gr4q8j314n0rsgot.jpg" alt="" loading="lazy"></p>
+<p>在这里的使用场景中并没有获取 <code>popen()</code> 的返回值，所以 <code>command</code> 的执行本质上是异步的；</p>
+<p>也就是说当 <code>task.py</code> 执行完毕后会自动关闭读取端的管道。<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjcct53t6j315l0rsdjw.jpg" alt="" loading="lazy"><br>
+如图所示，关闭之后子进程会向 <code>pipe</code> 中输出  <code>print '1000'*1024</code>，由于这里输出的内容较多会一下子填满管道的缓冲区；</p>
+<p>于是写入端会收到 <code>SIGPIPE</code> 信号，从而导致 <code>Broken pipe</code> 的异常。</p>
+<p>从维基百科中我们也可以看出这个异常产生的一些条件：<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjcgq0j2tj31s605gabf.jpg" alt="" loading="lazy"></p>
+<p>其中也提到了 <code>SIGPIPE</code> 信号。</p>
+<h1 id="解决办法">解决办法</h1>
+<p>既然知道了问题原因，那解决起来就比较简单了，主要有以下几个方案：</p>
+<ol>
+<li>使用 <code>read()</code> 函数读取管道中的数据，全部读取之后再关闭。</li>
+<li>如果不需要子进程中的输出时，也可以将 <code>command</code> 的标准输出重定向到 <code>/dev/null</code>。</li>
+<li>也可以使用 <code>Python3</code> 的 <code>subprocess.Popen</code> 模块来运行。</li>
+</ol>
+<p>这里使用第一种方案进行演示：</p>
+<pre><code class="language-python">import os
+import time
+if __name__ == '__main__':
+    start = int(time.time())
+    cmd = 'python test.py'
+    with os.popen(cmd) as p:
+        print p.read()
+    end = int(time.time())
+    print 'end****{}s'.format(end-start)
+</code></pre>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjcx5dfnlj30go08qwii.jpg" alt="" loading="lazy"></p>
+<p>运行 <code>task.py</code> 之后不会再抛异常，同时也将 <code>command</code> 的输出打印出来。</p>
+<p>线上修复时我没有采用这个方案，为了方便查看日志，还是使用标准的日志框架将日志输出到了 es 中，方便统一在 <code>kibana</code> 中进行查看。</p>
+<p>由于日志框架并没有使用到管道，所以自然也不会有这个问题。</p>
+<h1 id="更多内容">更多内容</h1>
+<p>问题虽然是解决了，其中还是涉及到了一些咱们平时不太注意的知识点，这次我们就来一起回顾一下。</p>
+<p>首先是父子进程的内容，这个在 <code>c/c++/python</code> 中比较常见，在 <code>Java/golang</code> 中直接使用多线程、协程会更多一些。</p>
+<p>比如这次提到的 <code>Python</code> 中的 <code>os.popen()</code> 就是创建了一个子进程，既然是子进程那肯定是需要和父进程进行通信才能达到协同工作的目的。</p>
+<p>很容易想到，父子进程之间可以通过上文提到的管道（匿名管道）来进行通信。</p>
+<p>还是以刚才的 Python 程序为例，当运行 task.py 后会生成两个进程：<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjewfzw7zj314w03ujvh.jpg" alt="" loading="lazy"></p>
+<p>分别进入这两个程序的<code> /proc/pid/fd</code> 目录可以看到这两个进程所打开的文件描述符。</p>
+<p>父进程：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjeyky8ozj30nu07adk0.jpg" alt="" loading="lazy"></p>
+<p>子进程：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjeywrrlxj30kw058gmw.jpg" alt="" loading="lazy"></p>
+<p>可以看到子进程的标准输出与父进程关联，也就是 <code>popen()</code> 所返回的那个文件描述符。</p>
+<blockquote>
+<p>这里的 <code>0 1 2</code> 分别对应一个进程的<code>stdin</code>(标准输入)/<code>stdout</code>(标准输出)/<code>stderr</code>(标准错误)。</p>
+</blockquote>
+<p>还有一点需要注意的是，当我们在父进程中打开的文件描述符，子进程也会继承过去；</p>
+<p>比如在 <code>task.py</code> 中新增一段代码：</p>
+<pre><code class="language-python">x = open("1.txt", "w")
+</code></pre>
+<p>之后查看文件描述符时会发现父子进程都会有这个文件：<br>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gqjftaylgtj30pg0lk482.jpg" alt="" loading="lazy"></p>
+<p>但相反的，子进程中打开的文件父进程是不会有的，这个应该很容易理解。</p>
+<h1 id="总结">总结</h1>
+<p>一些基础知识在排查一些诡异问题时显得尤为重要，比如本次涉及到的父子进程的管道通信，最后来总结一下：</p>
+<ol>
+<li><code>os.popen()</code> 函数是异步执行的，如果需要拿到子进程的输出，需要自行调用 <code>read()</code> 函数。</li>
+<li>父子进程是通过匿名管道进行通信的，当读取端关闭时，写入端输出到达管道最大缓存时会收到 <code>SIGPIPE</code> 信号，从而抛出 <code>Broken pipe</code> 异常。</li>
+<li>子进程会继承父进程的文件描述符。</li>
+</ol>
+<p><strong>你的点赞与分享是对我最大的支持</strong></p>
 
-    <div class="c_b_p_desc">
-摘要：关于我 网名：一枝梅、狂盗一枝梅 英文名：kdyzm 签名：色即是空，空即是色 标签：Java程序猿、（宅男、动画、漫画、小说、音乐、电影、电视）爱好者、技术懒人，就想葛优瘫到天荒地老 联系我 邮箱：kdyzm@foxmail.com Github：https://github.com/kdyzm         <a href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html" class="c_b_p_desc_readmore">阅读全文</a>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+		</div>
+		<div class="postDesc">posted @ 
+<span id="post-date">2021-05-18 19:35</span>&nbsp;
+<a href="https://www.cnblogs.com/crossoverJie/">crossoverJie</a>&nbsp;
+阅读(<span id="post_view_count">468</span>)&nbsp;
+评论(<span id="post_comment_count">4</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14782361" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14782361);return false;">收藏</a></div>
+	</div>
+	
+	
+</div><!--end: topics 文章、评论容器-->
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 441144, cb_blogApp = 'crossoverJie', cb_blogUserGuid = '48619d9a-ff90-4bde-9cd2-08d5d82bd790';
+    var cb_entryId = 14782361, cb_entryCreatedDate = '2021-05-18 19:35', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
     </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-21 15:27
-狂盗一枝梅
-<span data-post-id="14685428" class="post-view-count">阅读(16)</span> 
-<span data-post-id="14685428" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14685428" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14685428" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html">
-    <span>
-        友情链接
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：友情链接 夏日浅笑 一枝梅的技术收录 xkxf YJLAugus 春江花月夜丶 Eric.Shen 97年老油条 alan-hqy Areds Unixcs 绝技小嗨皮 ThreePwn 雨沐心田 wangenhui lj菌 AllenAlan 后青春期的Keats 小菠萝测试笔记 赵海宇 半月无霜        <a href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html" class="c_b_p_desc_readmore">阅读全文</a>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
     </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
 </div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-21 15:20
-狂盗一枝梅
-<span data-post-id="14685396" class="post-view-count">阅读(16)</span> 
-<span data-post-id="14685396" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14685396" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14685396" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
-            <div class="postSeparator"></div>
-        <div class="postTitle">
-            
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685276.html">
-    <span>
-        分布式任务调度系统：xxl-job
-    </span>
-    
-
-
-
-</a>
-
-        </div>
-        <div class="postCon">
-
-    <div class="c_b_p_desc">
-摘要：xxl-job一个分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。        <a href="https://www.cnblogs.com/kuangdaoyizhimei/p/14685276.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-</div>
-        <div class="clear"></div>
-        <div class="postDesc">posted @ 2021-04-21 15:02
-狂盗一枝梅
-<span data-post-id="14685276" class="post-view-count">阅读(48)</span> 
-<span data-post-id="14685276" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14685276" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14685276" rel="nofollow">
-    编辑
-</a>
-</div>
-        <div class="clear"></div>
 </div>
 
 
+	</div><!--end: topicList 文章列表容器-->
 
-
-	</div><!--end: forFlow -->
-	</div><!--end: mainContent 主体内容容器-->
 	<div id="sideBar">
 		<div id="sideBarMain">
 			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
-			<div id="leftcontentcontainer">
+			<div id="calendar"><div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
 				<div id="blog-sidecolumn"></div>
                     <script>loadBlogSideColumn();</script>
-			</div>			
+			</DIV>
+			
 		</div><!--end: sideBarMain -->
-	</div><!--end: sideBar 侧边栏容器 -->
-	<div class="clear"></div>
-	</div><!--end: main -->
-	<div class="clear"></div>
-	<div id="footer">
-		<!--done-->
-Copyright &copy; 2021 狂盗一枝梅
+		<div class="clear"></div>
+		<div id="footer">
+			<!--done-->
+Copyright &copy; 2021 crossoverJie
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
 
-	</div><!--end: footer -->
+		</div><!--end: footer -->
+	</div><!--end: sideBar 侧边栏容器 -->
 </div><!--end: home 自定义的最大容器 -->
+</center>
 
 
-    <div id="page_end_html">
-        <!-- ............自定义尾部代码开始............ -->
-<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
-	<div class="bottom-bar-inner">
-		<!-- 左边 -->
-        <div class="bottom-bar-items social-share" style="float: left;">
-            <span class="bottom-bar-item bottom-bar-facebook">
-                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-twitter">
-                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-qrcode">
-                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
-            </span>
-        </div>
-        <!-- 右边 -->
-        <div class="bottom-bar-items right" style="float: right;">
-            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
-            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
-            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
-            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
-        </div>
-	</div> 
-</div>
-<a name="mfooter"></a>
+    
 
-<!-- 遮罩层（用于图片点击放大），
-    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
-<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
-    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
-    <img id="bigimg" style="height: auto;width: auto;border: 0; 
-        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
-</div>
-<!-- ............自定义尾部代码结束............ -->
-
-
-<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
-<script type="text/javascript">
-
-    //博主名称 可不改，默认取博客园提供的
-    var nickName = null;
-    //slogan
-    var slogan = '立德立言，无闻西东';
-    //icon
-    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
-    //默认博客背景图片
-    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
-    //icon(浏览器标题栏上的)
-    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
-    //友情链接地址
-    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
-    //关于地址
-    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
-    //Github地址,假如博客username与Github username相同，不用改。
-    //如 cnblogs.com/username github.com/username 这样就不用改
-    var myGayhubUrl = "https://github.com/kdyzm";
-</script>
-<script type="text/javascript">
-	/**
-		用来设置初始时需要执行的js
-	*/
-	$(document).ready(function(){
-
-        //获取博主名字
-        if (nickName == null){
-            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
-            nickName = footerOverTestArray[footerOverTestArray.length - 1];
-        }
-
-		//加载顶部进度条
-	    NProgress.start();
-	    NProgress.done();
-	    $("#myProgressBar").hide();
-
-	    //设置背景图片地址
-	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
-	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
-	    }else{
-    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
-	    }
-
-	    //设置标题
-        if($("#cb_post_title_url").html()){
-            $("#mypost_title_h").html($("#cb_post_title_url").html());
-        }else{
-            $("#mypost_title_h").html(nickName);
-        }
-
-	    //正文和标题淡入
-	    $("#mainContent").css("opacity","1");
-	    $("#mainContent").css("margin-top","0");
-	    $("#mypost_title").css("opacity","1");
-	    $("#mypost_title").css("top","75pt");
-
-        /* --根据个人配置修改页面 start-- */
-        //修改a链接
-        var ccList = $(".c-c");
-        for(var cc of ccList){
-            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
-        }
-        //设置Github链接
-        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
-        //设置友链的链接
-        $("#friendLink").attr("href",friendLink);
-        //设置关于的链接
-        $("#aboutMe").attr("href",aboutMe);
-        //设置两个iocn图标
-        $("#nv-icon").attr("src",icon);
-        var linkObject = document.createElement("link");
-        linkObject.rel = "shortcut icon";
-        linkObject.href = iconB;
-        document.getElementsByTagName("head")[0].appendChild(linkObject);
-        //设置底部栏按钮
-        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-            $("#bottom-d").html("友情链接");
-            $("#bottom-d").attr("href",friendLink);
-        }else{
-            var url = window.location.href;
-            var lastUrl = url.substring(url.lastIndexOf("/")+1);
-            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
-            $("#bottom-d").click(function(){
-                DiggIt(mpageId,cb_blogId,1);
-                green_channel_success(this,'谢谢推荐！');
-            })
-        }
-        /* --根据个人配置修改页面 end-- */
-	})
-
-	/**
-		设置ajax请求加载完所有数据时执行的js
-	*/
-	setTimeout(afterAjax,1000);
-	function afterAjax(){
-		//假如是首页
-		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
-		}else{
-		    var classification = null;
-		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
-		    	classification = $("#BlogPostCategory").html();
-		    	classification = classification.substring(3,classification.length);
-		    }else{
-		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
-		    }
-		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
-		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
-		    //设置副标题标题
-		    $("#mypost_title_f").html(ftitle);
-		    //设置标题分类按钮
-		    $("#mypost_title_e").html(classification);
-		    //设置底部导航条上一篇下一篇文章
-		    var pnp = $("#post_next_prev a");
-		    $("#mbottom-left").attr("href",pnp[1].href);
-		    if (pnp.length>2) {
-		    	$("#mbottom-right").attr("href",pnp[3].href);
-		    }
-		}
-		$("#myheader_bg").css("filter","blur(0px)");
-
-        //优化评论区样式
-        $("#comment_form_container p:last").hide();
-        $("#commentbox_opt a:last").hide();
-        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
-	}
-
-
-	/** 
-		自定义的js方法
-	*/
-	//设置底部导航条点击关注按钮事件
-	$("#bottom-g").click(function(){
-		$('#green_channel_follow').click()
-		return false
-	})
-	$("#bottom-s").click(function(){
-		AddToWz(cb_entryId);
-		return false;
-	})
-
-
-	//通过滚动条控制导航条的展现隐藏
-	var oldScrollNum = 0;
-	window.onscroll = function(){
-		var t = document.documentElement.scrollTop || document.body.scrollTop;
-		//下滑
-		if (t>oldScrollNum) {
-			if (t>120) {
-				$("#mynavbar").css("margin-top","-70px");//顶部导航
-				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
-			}
-			if (t>300) {
-				$("#right_meun").css("display","inline-block");//右侧导航
-			}
-		//上拉
-		}else{
-			//防止用a链接跳转也触发效果
-			if (oldScrollNum-t<20) {
-				$("#mynavbar").css("margin-top","0px");//顶部导航
-				$("#post-bottom-bar").css("bottom","0");//底部导航
-			}
-			if (t<=300) {
-				$("#right_meun").css("display","none");//右侧导航
-			}
-		}
-		oldScrollNum = t;
-	}
-
-	//背景大图点击模糊||清晰
-	$("#myheader_cover").click(function(){
-		if ($("#myheader_bg").css("filter") == "blur(3px)") {
-			$("#myheader_bg").css("filter","blur(0px)");
-		}else{
-			$("#myheader_bg").css("filter","blur(3px)");
-		}
-	})
-
-
-    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
-        $(this).fadeOut("fast");    
-    }); 
-
- </script>
-
- <script type="text/javascript">  
-    var setMyBlog = {
-        setCopyright: function() {
-            //设置版权信息，转载出处自动根据页面url生成
-            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
-                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
-                info = $(info_str),
-                info_a = info.find("a"),
-                url = window.location.href;
-            $(info_a[0]).attr("href","https://github.com/gzdaijie");
-            $(info_a[1]).attr("href",url).text(url);
-            $("#cnblogs_post_body").prepend(info);
-        },
-        setCodeRow: function(){
-            // 代码行号显示
-            var pre = $("pre.sourceCode"); //选中需要更改的部分
-            if(pre && pre.length){
-                pre.each(function() {
-                    var item = $(this);
-                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
-                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
-                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
-                    SyntaxHighlighter.all();
-                })
-            }
-        },
-        setAtarget: function() {
-            // 博客内的链接在新窗口打开
-            $("#cnblogs_post_body a").each(function(){
-                this.target = "_blank";
-            }) 
-        },
-        setContent: function() {
-            // 根据h2、h3标签自动生成目录
-            var captions_ori = $("#cnblogs_post_body h2"),
-            	captions_ori2 = $("#cnblogs_post_body h3"),
-                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
-                content = $("<ul id='right_meun'></ul>");
-            $("#cnblogs_post_body").prepend(content.append(captions));
-            var index = -1,index2 = -1;
-            captions.replaceWith(function(){
-                var self = this;
-                if(self.tagName == "H2" || self.tagName == "h2"){
-                    // 设置点击目录跳转
-                    index += 1;
-                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
-                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
-                } else {
-                	// add by summertime-wu 增加h3链接跳转
-                	index2 += 1;
-                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
-                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
-                    return ;
-                }
-            });
-        },
-        runAll: function() {
-            /* 运行所有方法
-             * setAtarget() 博客园内标签新窗口打开
-             * setContent() 设置目录
-             * setCopyright() 设置版权信息
-             * setCodeRow() 代码行号显示
-             */ 
-            this.setAtarget(); 
-            //假如为手机端不显示目录
-            if(document.body.clientWidth>=1000){
-                this.setContent();
-            }
-            // this.setCopyright();
-            this.setCodeRow();
-        }
-    }
-    setMyBlog.runAll();
-</script>
-
-<!-- 代码行号 -->
-<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initLineNumbersOnLoad();</script>
-    </div>
-
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvQLN_daa0jTu8ytRUxDuYHI4xGuoQa354782SlTu5eEpOndFK_TV3q5GZfqtQjKBw9pn6t60fjGx0rIM9Ztxn7bdJgNqcjFnQaqMz30Qi3x3VEARxUnyZR_2u3-AnTg9A" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAju2NYZ735HawacHVH8bwhca9BDU7_ICO8xVVdFnTwifLdCS4WlzLZDkp9NVUcCd_8BQ3gdKY6NgSyw36E61OpTd3L5zhODJ0ZFGdFEO3qHIkkt4b5CV5wmFEJqFCiIqeK0" />
 </body>
 </html>

@@ -9,28 +9,28 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>黄文超 - 博客园</title>
+    <title>crossoverJie - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/watercolor/bundle-watercolor-blue.min.css?v=LkeR6Y-_zbmb0kuLHxQlhESmkv_cRorXpYVSPRsnVT0" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair.min.css?v=2eeF5VFetkv0ebUrveBo_MjLCMmhO1B4PudZOUBLn1Y" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/crossoverJie/custom.css?v=H/XiXITCicADmCaA3IlWnJkLhys=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/loveisintheair/bundle-loveisintheair-mobile.min.css?v=YRGfW14H7zygWA_SxKeRyr-kyP2kOiJ7vj7-MC3lxPs" />
     
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/watercolor/bundle-watercolor-blue-mobile.min.css?v=iPf_XHQsJ-ofZZ2RiaeMCHG0JEaMNLa9yhkUGK3xTSQ" />
-    
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/huangwenchao0821/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/huangwenchao0821/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/huangwenchao0821/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/crossoverJie/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/crossoverJie/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/crossoverJie/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 671397;
-        var currentBlogApp = 'huangwenchao0821';
+        var currentBlogId = 441144;
+        var currentBlogApp = 'crossoverJie';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'watercolor-blue';
+        var skinName = 'LoveIsIntheAir';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -89,466 +89,704 @@
         </nav>
     </div>
 
+    <div id="page_begin_html">
+        <a class="git-link" href="https://github.com/crossoverjie"></a>
+    </div>
     
-    <div id="maincontainer">
-	<div id="header">
+<!--done-->
+<center>
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/crossoverJie/"><img id="blogLogo" src="/skins/loveisintheair/images/logo.gif" alt="" /></a>			
 		
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/huangwenchao0821/">黄文超</a>
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/crossoverJie/">crossoverJie</a>
 </h1>
-<div id="tagline"></div>
-<div id="menubar">
-<div id="blogstats"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></div>
-<ul>
-    <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+<h2>You never know what you can do till you try.</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
 </li>
-    <li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%BB%84%E6%96%87%E8%B6%85">
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/crossoverJie/">
+首页</a>
+</li>
+	<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/crossoverJie">
 联系</a></li>
-    <li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/huangwenchao0821/rss/">
-订阅</a></li>
-    <li>
+	<li>
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
 </li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/crossoverJie/rss/">
+订阅</a>
+	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/crossoverJie/rss/">
+    <img src="/skins/loveisintheair/images/xml.gif" alt="订阅" />
+</a></li>
 </ul>
-<script>
-    $("#blog_nav_sitehome").removeClass("menu").addClass("home");
-    $("#blog_nav_contact").removeClass("menu").addClass("contact");
-    $("#blog_nav_contact").removeClass("menu").addClass("contact");
-    $("#blog_nav_admin").removeClass("menu").addClass("admin");
-</script>
-
-</div>
 
 
+		<div class="blogStats">
+			
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div class="clear"></div>
+	<div id="topicList">
+		
 
 
 
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2019/01/02.html">2019年1月2日</a>				  
 	</div>
-	<div id="content">
-		<div id="left">
-			<div id="sidebar_news" class="newsItem">
-            <script>loadBlogNews();</script>
-</div>
-<div id="sidebar_c3"></div>
-			<div id="blog-sidecolumn"></div>
-            <script>loadBlogSideColumn();</script>
-		</div>
-		<div id="right">
-			
 
+	
+			<div class="postTitle">
+				
 
-
-
-
-		
-
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/06.html" style="display:inline-block;border-width:0px;">
-2021年5月6日</a>
-	</h3>
-</div>
-<div class="containercontent">
-
-		<div class="post">
-			<h2>
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14736430.html">
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/10206724.html">
     <span>
-        【LeetCode每日一题】解码异或后的数组
+            <span>[置顶]</span>
+        为自己搭建一个分布式 IM(即时通讯) 系统
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：解码异或后的数组 1、题目描述 未知 整数数组 arr 由 n 个非负整数组成。 经编码后变为长度为 n - 1 的另一个整数数组 encoded ，其中 encoded[i] = arr[i] XOR arr[i + 1] 。例如，arr = [1,0,2,1] 经编码后得到 encoded =         <a href="https://www.cnblogs.com/huangwenchao0821/p/14736430.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：新的一年第一篇技术文章希望开个好头，所以元旦三天我也没怎么闲着，希望给大家带来一篇比较感兴趣的干货内容。
+
+老读者应该还记得我在去年国庆节前分享过一篇《设计一个百万级的消息推送系统》；虽然我在文中有贴一些伪代码，依然有些朋友希望能直接分享一些可以运行的源码；这么久了是时候把坑填上了。        <a href="https://www.cnblogs.com/crossoverJie/p/10206724.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-05-06 18:45
-黄文超
-<span data-post-id="14736430" class="post-view-count">阅读(4)</span> 
-<span data-post-id="14736430" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14736430" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14736430" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2019-01-02 08:03
+crossoverJie
+<span data-post-id="10206724" class="post-view-count">阅读(12624)</span> 
+<span data-post-id="10206724" class="post-comment-count">评论(29)</span> 
+<span data-post-id="10206724" class="post-digg-count">推荐(41)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10206724" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/05.html" style="display:inline-block;border-width:0px;">
-2021年5月5日</a>
-	</h3>
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2018/09/25.html">2018年9月25日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/9696674.html">
+    <span>
+            <span>[置顶]</span>
+        设计一个百万级的消息推送系统
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：首先迟到的祝大家中秋快乐。
+
+最近一周多没有更新了。其实我一直想憋一个大招，分享一些大家感兴趣的干货。
+
+鉴于最近我个人的工作内容，于是利用这三天小长假憋了一个出来（其实是玩了两天🤣）。        <a href="https://www.cnblogs.com/crossoverJie/p/9696674.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
 </div>
-<div class="containercontent">
-
-		<div class="post">
-			<h2>
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14731193.html">
-    <span>
-        Hive的安装
-    </span>
-    
-
-
-
-</a>
-</h2>
-			
-
-    <div class="c_b_p_desc">
-摘要：Hive的安装 1、首先明确 1、hive是一个数仓工具，只需要在一台服务器上安装就可以了，不需要在多台服务器上安装。 2、此处以服务器node03为例 2、安装hive 2.1、先决条件 1、node03上安装了mysql 2、node03在一个hadoop集群上，里面确定有hdfs服务和yarn        <a href="https://www.cnblogs.com/huangwenchao0821/p/14731193.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-			
-			<p class="postfoot">posted @ 2021-05-05 10:59
-黄文超
-<span data-post-id="14731193" class="post-view-count">阅读(14)</span> 
-<span data-post-id="14731193" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14731193" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14731193" rel="nofollow">
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2018-09-25 08:22
+crossoverJie
+<span data-post-id="9696674" class="post-view-count">阅读(10867)</span> 
+<span data-post-id="9696674" class="post-comment-count">评论(33)</span> 
+<span data-post-id="9696674" class="post-digg-count">推荐(28)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9696674" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
-		<div class="post">
-			<h2>
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14731104.html">
-    <span>
-        CentOS 7安装MySQL5.7版本
-    </span>
-    
-
-
-
-</a>
-</h2>
-			
-
-    <div class="c_b_p_desc">
-摘要：CentOS 7安装MySQL5.7版本 1、先卸载以前的mysql 如果以前安装过mysql，确保卸载干净后进行安装 卸载教程： https://www.cnblogs.com/huangwenchao0821/p/14730241.html 2、使用root用户安装mysql 2.1、下载并安装        <a href="https://www.cnblogs.com/huangwenchao0821/p/14731104.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-			
-			<p class="postfoot">posted @ 2021-05-05 10:18
-黄文超
-<span data-post-id="14731104" class="post-view-count">阅读(8)</span> 
-<span data-post-id="14731104" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14731104" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14731104" rel="nofollow">
-    编辑
-</a>
-</p>
-		</div>
-		<div class="post">
-			<h2>
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14731032.html">
-    <span>
-        【LeetCode每日一题】删除并获得点数
-    </span>
-    
-
-
-
-</a>
-</h2>
-			
-
-    <div class="c_b_p_desc">
-摘要：删除并获得点数 1、题目描述 给你一个整数数组&amp;#160;nums&amp;#160;，你可以对它进行一些操作。 每次操作中，选择任意一个&amp;#160;nums[i]&amp;#160;，删除它并获得&amp;#160;nums[i]&amp;#160;的点数。之后，你必须删除每个等于&amp;#160;nums[i] - 1&amp;#160;或&amp;#160;nums[i] + 1&amp;#160;的元素。 开始你拥有 0 个点数。返回你能通过这些操作        <a href="https://www.cnblogs.com/huangwenchao0821/p/14731032.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-			
-			<p class="postfoot">posted @ 2021-05-05 09:42
-黄文超
-<span data-post-id="14731032" class="post-view-count">阅读(17)</span> 
-<span data-post-id="14731032" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14731032" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14731032" rel="nofollow">
-    编辑
-</a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/04.html" style="display:inline-block;border-width:0px;">
-2021年5月4日</a>
-	</h3>
-</div>
-<div class="containercontent">
 
-		<div class="post">
-			<h2>
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2018/08/13.html">2018年8月13日</a>				  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14730241.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/9464911.html">
     <span>
-        mysql的卸载
+            <span>[置顶]</span>
+        如何成为一位「不那么差」的程序员
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：mysql的卸载 注意：mysql安装有问题的，才做此步骤 如果以后我们不需要mysql了，或者mysql安装失败了需要重新安装，那么我们需要将mysql卸载掉 使用root用户 1 停止mysql服务 [root@node03 hadoop]# systemctl stop mysqld.serv        <a href="https://www.cnblogs.com/huangwenchao0821/p/14730241.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：已经记不清有多少读者问过：
+
+博主，你是怎么学习的？像我这样的情况有啥好的建议嘛？
+
+也不知道啥时候我居然成人生导师了。当然我不排斥这些问题，和大家交流都是学习的过程。        <a href="https://www.cnblogs.com/crossoverJie/p/9464911.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-05-04 20:52
-黄文超
-<span data-post-id="14730241" class="post-view-count">阅读(11)</span> 
-<span data-post-id="14730241" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14730241" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14730241" rel="nofollow">
-    编辑
-</a>
-</p>
-		</div>
-		<div class="post">
-			<h2>
-
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14729057.html">
-    <span>
-        MapReduce on yarn的流程
-    </span>
-    
-
-
-
-</a>
-</h2>
-			
-
-    <div class="c_b_p_desc">
-摘要：MapReduce on yarn的流程 1、准备阶段 1、客户端执行写好的jar包程序 2、客户端通过RPC调用YarnRunnable.getNewJobID()得到新的job id 3、然后检查我们的输出路径是不是存在的（存在的话就会报错） 4、然后再计算分片，看是否可以计算出分片信息（都没问        <a href="https://www.cnblogs.com/huangwenchao0821/p/14729057.html" class="c_b_p_desc_readmore">阅读全文</a>
-    </div>
-			
-			<p class="postfoot">posted @ 2021-05-04 10:53
-黄文超
-<span data-post-id="14729057" class="post-view-count">阅读(8)</span> 
-<span data-post-id="14729057" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14729057" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14729057" rel="nofollow">
-    编辑
-</a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2018-08-13 08:05
+crossoverJie
+<span data-post-id="9464911" class="post-view-count">阅读(3234)</span> 
+<span data-post-id="9464911" class="post-comment-count">评论(16)</span> 
+<span data-post-id="9464911" class="post-digg-count">推荐(25)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9464911" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/03.html" style="display:inline-block;border-width:0px;">
-2021年5月3日</a>
-	</h3>
-</div>
-<div class="containercontent">
 
-		<div class="post">
-			<h2>
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2018/07/26.html">2018年7月26日</a>				  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14726956.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/9367833.html">
     <span>
-        【LeetCode每日一题】整数反转
+            <span>[置顶]</span>
+        秒杀架构实践
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：整数反转 1、题目描述 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。 如果反转后整数超过 32 位的有符号整数的范围&amp;#160;[−231, 231&amp;#160;− 1] ，就返回 0。 注意：假设环境不允许存储 64 位整数（有符号或无符号）。 示例1： 输入：x = 123 输出：32        <a href="https://www.cnblogs.com/huangwenchao0821/p/14726956.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：之前在 Java-Interview 中提到过秒杀架构的设计，这次基于其中的理论简单实现了一下。
+
+本次采用循序渐进的方式逐步提高性能达到并发秒杀的效果，文章较长请准备好瓜子板凳(liushuizhang😂)。        <a href="https://www.cnblogs.com/crossoverJie/p/9367833.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-05-03 08:26
-黄文超
-<span data-post-id="14726956" class="post-view-count">阅读(12)</span> 
-<span data-post-id="14726956" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14726956" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14726956" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2018-07-26 08:02
+crossoverJie
+<span data-post-id="9367833" class="post-view-count">阅读(2427)</span> 
+<span data-post-id="9367833" class="post-comment-count">评论(12)</span> 
+<span data-post-id="9367833" class="post-digg-count">推荐(14)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=9367833" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/02.html" style="display:inline-block;border-width:0px;">
-2021年5月2日</a>
-	</h3>
-</div>
-<div class="containercontent">
 
-		<div class="post">
-			<h2>
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/05/18.html">2021年5月18日</a>				  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14725244.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14782361.html">
     <span>
-        MapReduce的完整逻辑
+        自带的 print 函数居然会报错？
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：MapReduce的完整逻辑 1、读取文件，将文件解析成一个&amp;lt;k1,v1&amp;gt;对 这里面的k1主要指的是行数，v1指的是该该行数据 2、通过mapTask任务将&amp;lt;k1,v1&amp;gt;转化为我们需要的&amp;lt;key,value&amp;gt;对 主要是对v1进行拆分 3、分区和分组，将&amp;lt;key,value&amp;gt;对进行哈希编码，主要对ke        <a href="https://www.cnblogs.com/huangwenchao0821/p/14725244.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：前言 最近用 Python 写了几个简单的脚本来处理一些数据，因为只是简单功能所以我就直接使用 print 来打印日志。 任务运行时偶尔会出现一些异常： 因为我在不同地方都有打印日志，导致每次报错的地方都不太一样，从而导致程序运行结果非常诡异；有时候是这段代码没有运行，下一次就可能是另外一段代码没有        <a href="https://www.cnblogs.com/crossoverJie/p/14782361.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-05-02 07:59
-黄文超
-<span data-post-id="14725244" class="post-view-count">阅读(17)</span> 
-<span data-post-id="14725244" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14725244" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14725244" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-05-18 19:35
+crossoverJie
+<span data-post-id="14782361" class="post-view-count">阅读(873)</span> 
+<span data-post-id="14782361" class="post-comment-count">评论(4)</span> 
+<span data-post-id="14782361" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14782361" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/05/01.html" style="display:inline-block;border-width:0px;">
-2021年5月1日</a>
-	</h3>
-</div>
-<div class="containercontent">
 
-		<div class="post">
-			<h2>
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/03/29.html">2021年3月29日</a>				  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14724129.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14591124.html">
     <span>
-        【LeetCode每日一题】员工的重要性
+        Github Actions 还能做这些事
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：员工的重要性 1、题目描述 给定一个保存员工信息的数据结构，它包含了员工 唯一的 id ，重要度&amp;#160;和 直系下属的 id 。 比如，员工 1 是员工 2 的领导，员工 2 是员工 3 的领导。他们相应的重要度为 15 , 10 , 5 。那么员工 1 的数据结构是 [1, 15, [2]] ，员工 2        <a href="https://www.cnblogs.com/huangwenchao0821/p/14724129.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：前言 最近公司内部项目的发布流程接入了 GitHub Actions，整个体验过程还是比较美好的；本文主要目的是对于没有还接触过 GitHub Actions的新手，能够利用它快速构建自动测试及打包推送 Docker 镜像等自动化流程。 创建项目 本文主要以 Go 语言为例，当然其他语言也是类似的，        <a href="https://www.cnblogs.com/crossoverJie/p/14591124.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-05-01 13:33
-黄文超
-<span data-post-id="14724129" class="post-view-count">阅读(16)</span> 
-<span data-post-id="14724129" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14724129" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724129" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-03-29 09:46
+crossoverJie
+<span data-post-id="14591124" class="post-view-count">阅读(239)</span> 
+<span data-post-id="14591124" class="post-comment-count">评论(3)</span> 
+<span data-post-id="14591124" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14591124" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
-
 </div>
-<div class="containerfooter"></div>
+			<div class="clear"></div>
+
 </div>
 
 
 		
 
-<div class="container">
-<div class="containerheader">
-	<h3>		  
-	<a href="https://www.cnblogs.com/huangwenchao0821/archive/2021/04/30.html" style="display:inline-block;border-width:0px;">
-2021年4月30日</a>
-	</h3>
-</div>
-<div class="containercontent">
 
-		<div class="post">
-			<h2>
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/03/17.html">2021年3月17日</a>				  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/huangwenchao0821/p/14721833.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14547776.html">
     <span>
-        【LeetCode每日一题】只出现一次字样的数组
+        写了一个 gorm 乐观锁插件
     </span>
     
 
 
 
 </a>
-</h2>
-			
+
+			</div>
+			<div class="postCon">
 
     <div class="c_b_p_desc">
-摘要：只出现一次字样的数组 1、题目描述 给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。 示例1： 输入：nums = [2,2,3,2] 输出：3 示例2： 输入：nums = [0,1,0,1,0,1,99] 输出：99         <a href="https://www.cnblogs.com/huangwenchao0821/p/14721833.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：前言 最近在用 Go 写业务的时碰到了并发更新数据的场景，由于该业务并发度不高，只是为了防止出现并发时数据异常。 所以自然就想到了乐观锁的解决方案。 实现 乐观锁的实现比较简单，相信大部分有数据库使用经验的都能想到。 UPDATE `table` SET `amount`=100,`version`        <a href="https://www.cnblogs.com/crossoverJie/p/14547776.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
-			
-			<p class="postfoot">posted @ 2021-04-30 14:16
-黄文超
-<span data-post-id="14721833" class="post-view-count">阅读(17)</span> 
-<span data-post-id="14721833" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14721833" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14721833" rel="nofollow">
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-03-17 10:09
+crossoverJie
+<span data-post-id="14547776" class="post-view-count">阅读(293)</span> 
+<span data-post-id="14547776" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14547776" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14547776" rel="nofollow">
     编辑
 </a>
-</p>
-		</div>
+</div>
+			<div class="clear"></div>
 
 </div>
-<div class="containerfooter"></div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/02/23.html">2021年2月23日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14437496.html">
+    <span>
+        Go 去找个对象吧
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 我的读者中应该大部分都是 Java 从业者，不知道写 Java 这些年是否真的有找到对象？ 没找到也没关系，总不能在一棵树上吊死，我们也可以来 Go 这边看看，说不定会有新发现。 开个玩笑，本文会以一个 Javaer 的角度来聊聊 Go 语言中的面向对象。 OOP 面向对象这一词来源于Obje        <a href="https://www.cnblogs.com/crossoverJie/p/14437496.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-02-23 18:20
+crossoverJie
+<span data-post-id="14437496" class="post-view-count">阅读(269)</span> 
+<span data-post-id="14437496" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14437496" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14437496" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/01/15.html">2021年1月15日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14283237.html">
+    <span>
+        Python 中的面向接口编程
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 ”面向接口编程“写 Java 的朋友耳朵已经可以听出干茧了吧，当然这个思想在 Java 中非常重要，甚至几乎所有的编程语言都需要，毕竟程序具有良好的扩展性、维护性谁都不能拒绝。 最近无意间看到了我刚开始写 Python 时的部分代码，当时实现的需求有个很明显的特点： 不同对象具有公共的行为能力        <a href="https://www.cnblogs.com/crossoverJie/p/14283237.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-01-15 17:26
+crossoverJie
+<span data-post-id="14283237" class="post-view-count">阅读(282)</span> 
+<span data-post-id="14283237" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14283237" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14283237" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2021/01/12.html">2021年1月12日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14268885.html">
+    <span>
+        一文搞懂参数传递原理
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 最近一年多的时间陆续接触了一些对我来说陌生的语言，主要就是 Python 和 Go，期间为了快速实现需求只是依葫芦画瓢的撸代码；并没有深究一些细节与原理。 就拿参数传递一事来说各个语言的实现细节各不相同，但又有类似之处；在许多新手入门时容易搞不清楚，导致犯一些低级错误。 Java 基本类型传递        <a href="https://www.cnblogs.com/crossoverJie/p/14268885.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2021-01-12 19:19
+crossoverJie
+<span data-post-id="14268885" class="post-view-count">阅读(293)</span> 
+<span data-post-id="14268885" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14268885" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14268885" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2020/12/09.html">2020年12月9日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/14109763.html">
+    <span>
+        一个小时学会用 Go 编写命令行工具
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 最近因为项目需要写了一段时间的 Go ，相对于 Java 来说语法简单同时又有着一些 Python 之类的语法糖，让人大呼”真香“。 但现阶段相对来说还是 Python 写的多一些，偶尔还得回炉写点 Java ；自然对 Go 也谈不上多熟悉。 于是便利用周末时间自己做个小项目来加深一些使用经验        <a href="https://www.cnblogs.com/crossoverJie/p/14109763.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2020-12-09 17:14
+crossoverJie
+<span data-post-id="14109763" class="post-view-count">阅读(495)</span> 
+<span data-post-id="14109763" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14109763" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14109763" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2020/10/10.html">2020年10月10日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/13783491.html">
+    <span>
+        不同语言对单例模式的不同实现
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 前段时间在用 Python 实现业务的时候发现一个坑，准确的来说是对于 Python 门外汉容易踩的坑； 大概代码如下： class Mom(object): name = &#39;&#39; sons = [] if __name__ == &#39;__main__&#39;: m1 = Mom() m1.name =        <a href="https://www.cnblogs.com/crossoverJie/p/13783491.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2020-10-10 11:16
+crossoverJie
+<span data-post-id="13783491" class="post-view-count">阅读(108)</span> 
+<span data-post-id="13783491" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13783491" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13783491" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2020/10/09.html">2020年10月9日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/13783463.html">
+    <span>
+        ElasticSearch 索引 VS MySQL 索引
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 这段时间在维护产品的搜索功能，每次在管理台看到 elasticsearch 这么高效的查询效率我都很好奇他是如何做到的。 这甚至比在我本地使用 MySQL 通过主键的查询速度还快。 为此我搜索了相关资料： 这类问题网上很多答案，大概意思呢如下： ES 是基于 Lucene 的全文检索引擎，它会        <a href="https://www.cnblogs.com/crossoverJie/p/13783463.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2020-10-09 01:11
+crossoverJie
+<span data-post-id="13783463" class="post-view-count">阅读(2635)</span> 
+<span data-post-id="13783463" class="post-comment-count">评论(6)</span> 
+<span data-post-id="13783463" class="post-digg-count">推荐(17)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13783463" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
+</div>
+
+
+		
+
+
+<div class="day">
+	<div class="dayTitle">
+		<a href="https://www.cnblogs.com/crossoverJie/archive/2020/07/30.html">2020年7月30日</a>				  
+	</div>
+
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/crossoverJie/p/13401740.html">
+    <span>
+        撸了一个 Feign 增强包
+    </span>
+    
+
+
+
+</a>
+
+			</div>
+			<div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 最近准备将公司的一个核心业务系统用 Java 进行重构，大半年没写 Java ，JDK 都更新到 14 了，考虑到稳定性等问题最终还是选择的 JDK11。 在整体架构选型时，由于是一个全新的系统，所以没有历史包袱，同时团队中也有多位大牛坐镇，因此我们的选项便大胆起来。 最终结果就是直接一把梭，        <a href="https://www.cnblogs.com/crossoverJie/p/13401740.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+			<div class="clear"></div>
+			<div class="postDesc">posted @ 2020-07-30 08:26
+crossoverJie
+<span data-post-id="13401740" class="post-view-count">阅读(622)</span> 
+<span data-post-id="13401740" class="post-comment-count">评论(5)</span> 
+<span data-post-id="13401740" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13401740" rel="nofollow">
+    编辑
+</a>
+</div>
+			<div class="clear"></div>
+
 </div>
 
 
@@ -556,7 +794,7 @@
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/huangwenchao0821/default.html?page=2">
+    <a href="https://www.cnblogs.com/crossoverJie/default.html?page=2">
         下一页
     </a>
 
@@ -575,23 +813,39 @@
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-		</div>
-	</div>
-	<div class="clearing">&nbsp;</div>
+	</div><!--end: topicList 文章列表容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
 </div>
-<div id="footer">
-	Powered by:<br />
-<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a><br />
-Copyright &copy; 2021 黄文超
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+		<div class="clear"></div>
+		<div id="footer">
+			<!--done-->
+Copyright &copy; 2021 crossoverJie
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
 
-</div>
+		</div><!--end: footer -->
+	</div><!--end: sideBar 侧边栏容器 -->
+</div><!--end: home 自定义的最大容器 -->
+</center>
 
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAju6cKtBupQYS2KSYVe-paGncD8tpL_VB4bbuDdEx8b1Bg8BIk01d8rBzJmgzrorMDzSzH6-PHFxm1IQrpoYAXu0A3gLPNWCpVpTfwf9L0iO0UPjMTXk_IP_hd9BqDfWbAM" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsHvJHL-f9XBLQ0LnotdTt0-90EM4UZGwhPVJkJT2nxuPaFr4Z7GOV5TSuxoyPMNh_TFUaoE6YLl8JjH7M1fLbEQ7_bhEhLIZvWyWZ6-p_acTtZ4mWQxJsNRZtyGhLvqeM" />
 </body>
 </html>

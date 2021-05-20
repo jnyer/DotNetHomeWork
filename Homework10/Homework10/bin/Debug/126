@@ -9,46 +9,35 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>博客园团队 - 博客园</title>
+    <title>白泽来了 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
-    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright.min.css?v=00nt3ajQUVX0gvFynxRY-4TOqQaW32yFChuBOrvOqLk" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/cmt/custom.css?v=2GOft7v8/khW8DYnIqoYHSMrSyc=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright-mobile.min.css?v=cSBXSFXCBG9KdnF2sdUs-Rwu75GHG2_Gs50OCy_ecGg" />
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=Y1yBNCRf3ODEjYGJn208vPUnnX-rIyYVsZ75AvRbzGM" />
+    <link id="MainCss" rel="stylesheet" href="/skins/sea/bundle-sea.min.css?v=oF2SvRIFQNTLcLgn66nPy-bOeZ-5NDS8tPrc0Kt42ys" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/YLTFY1998/custom.css?v=b/indDXbz9z26FICFYNAZ&#x2B;&#x2B;b6p4=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/sea/bundle-sea-mobile.min.css?v=t5pWHm7Zavhfg65859uF8OmEaotpCjyYSbKN5RbMv6E" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/cmt/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/cmt/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/cmt/wlwmanifest.xml" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/YLTFY1998/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/YLTFY1998/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/YLTFY1998/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 39258;
-        var currentBlogApp = 'cmt';
-        var cb_enable_mathjax = true;
+        var currentBlogId = 530342;
+        var currentBlogApp = 'YLTFY1998';
+        var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'LessIsMoreRight';
+        var skinName = 'sea';
         var visitorUserId = '';
     </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
-        TeX: {
-        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
-        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
-        Macros: {bm: "\\boldsymbol"}
-        },
-        'HTML-CSS': { linebreaks: { automatic: true } },
-        SVG: { linebreaks: { automatic: true } }
-        });
-    </script>
-    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
+    
+    
     
 </head>
-<body class="has-navbar">
+<body class="no-navbar">
     <a name="top"></a>
-    <div id="top_nav" class="navbar forpc">
+    <div id="top_nav" class="navbar forpc navbar-custom">
         <nav id="nav_main" class="navbar-main">
             <ul id="nav_left" class="navbar-list navbar-left">
                 <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
@@ -101,69 +90,80 @@
     </div>
 
     
-    <div id="home">
-    <div id="header">
-        <div id="blogTitle">
-            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/cmt/">博客园官方博客</a>
+    <!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/YLTFY1998/">白泽来了</a>
+<br>
+		学生党，尚在追求技术的道路上努力
+	</div>
 </div>
-<div class="subtitle">代码改变世界</div>
 
-        </div>
-        <div id="navigator">
-            
-<ul id="navList">
-    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+
+</div>
+
+<div id="mytopmenu">
+	
+		<div id="mylinks">
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
 博客园</a>
-</li>
-    <li id="nav_myhome">
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/cmt/">
+ &nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/YLTFY1998/">
 首页</a>
-</li>
-    <li id="nav_newpost">
+ &nbsp;
+
 
 <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
 新随笔</a>
-</li>
-    <li id="nav_contact">
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%9B%A2%E9%98%9F">
-联系</a></li>
-    <li id="nav_rss">
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/cmt/rss/">
-订阅</a></li>
-    <li id="nav_admin">
+ &nbsp;
+
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%99%BD%E6%B3%BD%E6%9D%A5%E4%BA%86">
+联系</a> &nbsp;
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/YLTFY1998/rss/">
+订阅</a>
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/YLTFY1998/rss/">
+    <img src="/skins/sea/images/xml.gif" alt="订阅" />
+</a>&nbsp;
+
 <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
 管理</a>
-</li>
-</ul>
 
-            <div class="blogStats">
-                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
-            </div>
-        </div>
-    </div>
-    <div id="main">
-        <div id="mainContent">
-            <div class="forFlow">
-                
+
+</div>
+		<DIV id="mystats"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></DIV>
+	
+</div>
+<div id="centercontent">
+	
 
 
 
 
 
-
-    
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/05/03.html">2021年5月3日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/20.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月20日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14727025.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14791133.html">
     <span>
-        上周热点回顾（4.26-5.2）
+        Redis数据持久化—RDB持久化与AOF持久化
     </span>
     
 
@@ -171,42 +171,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;【故障公告】数据库服务器 CPU 100% 引发网站故障&#160;(博客园团队)&#183;&#160;同事写了一个疯狂的类构造器，我要疯了，Builder 模式都不会么？！&#160;(Java技术栈)&#183;&#160;老爷子这代码，看跪了！&#160;(why技术)&#183;&#160;这款能够生成文档的接口测试软件，为什么越来越受欢迎？&#160;(奔四少年)&#183;&#160;.        <a href="https://www.cnblogs.com/cmt/p/14727025.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，我是白泽，今天讲一下Redis的持久化，大家都知道Redis数据库之所以快，很大的原因是因为它运行在服务器的内存中，但一旦服务器进程退出，服务器中的数据库状态也会消失，为了解决这个问题，Redis提供了两种数据持久化的机制：这俩本质上都是将数据库状态保存到磁盘里，然后下次取出来加载到内存中还原数据库，但是实现角度有所不同        <a href="https://www.cnblogs.com/YLTFY1998/p/14791133.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-05-03 09:32
-博客园团队
-<span data-post-id="14727025" class="post-view-count">阅读(657)</span> 
-<span data-post-id="14727025" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14727025" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727025" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-20 19:06
+白泽来了
+<span data-post-id="14791133" class="post-view-count">阅读(0)</span> 
+<span data-post-id="14791133" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14791133" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14791133" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/05/01.html">2021年5月1日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/16.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月16日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14724749.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14774033.html">
     <span>
-        【故障公告】数据库服务器再次 CPU 100% 引发全站故障
+        Redis数据结构—整数集合与压缩列表
     </span>
     
 
@@ -214,42 +217,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：今天五一劳动节的一大早 4:50-6:30 期间，我们使用的阿里云 RDS SQL Server 数据库实例再次出现 CPU 100% 问题，引发全站故障，由此给您带来麻烦，请您谅解。 我们发现故障后立即进行主备切换，与上次故障不同的是，这次主备切换没有成功，再次切换，依然没有成功，后来尝试重启实例        <a href="https://www.cnblogs.com/cmt/p/14724749.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，我是白泽。今天我们将学习Redis的整数集合与压缩列表这两个数据结构，且在本文中我将尽量只描述这两种结构中重要的部分，而非面面俱到，因为我学Redis数据结构的初衷是为了我能更好理解后面要讲到的Redis对象，而非真的去研究Redis深层的实现，不会过分深入，够用就好        <a href="https://www.cnblogs.com/YLTFY1998/p/14774033.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-05-01 20:53
-博客园团队
-<span data-post-id="14724749" class="post-view-count">阅读(1358)</span> 
-<span data-post-id="14724749" class="post-comment-count">评论(15)</span> 
-<span data-post-id="14724749" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724749" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-16 16:18
+白泽来了
+<span data-post-id="14774033" class="post-view-count">阅读(148)</span> 
+<span data-post-id="14774033" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14774033" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14774033" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/28.html">2021年4月28日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/15.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月15日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14713510.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14771977.html">
     <span>
-        【故障公告】数据库服务器 CPU 100% 引发网站故障
+        Redis数据结构—跳跃表
     </span>
     
 
@@ -257,42 +263,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：悄悄地它又突然来了 —— 数据库服务器 CPU 100% 问题，上次光临时间是 3-30 8:48，这次是 4-28 9:41。这次我们做出了快速反应，发现后立即进行主备切换，这次一次切换成功，CPU 很快恢复正常。但是，这次来的“真”是时候（访问高峰），虽然数据库 CPU 恢复正常，但高并发的博客站点在数据库恢复后来不及建缓存，大量请求503或者访问缓慢，估计今天整个上午都扛不住。        <a href="https://www.cnblogs.com/cmt/p/14713510.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，我是白泽，最近学校有点事Redis知识点的更新就放缓了，趁着周六赶紧补一补，我们开始吧~对于有序列表的查找来说，无法找到类似用在有序数组上的二分查找这样的查找算法，因此遍历的效率比较低，跳跃表的出现就是为了提高有序链表的遍历效率        <a href="https://www.cnblogs.com/YLTFY1998/p/14771977.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-28 12:07
-博客园团队
-<span data-post-id="14713510" class="post-view-count">阅读(5187)</span> 
-<span data-post-id="14713510" class="post-comment-count">评论(58)</span> 
-<span data-post-id="14713510" class="post-digg-count">推荐(14)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713510" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-15 17:00
+白泽来了
+<span data-post-id="14771977" class="post-view-count">阅读(176)</span> 
+<span data-post-id="14771977" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14771977" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14771977" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/26.html">2021年4月26日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/09.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月9日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14703333.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14748712.html">
     <span>
-        上周热点回顾（4.19-4.25）
+        Redis数据结构—链表与字典
     </span>
     
 
@@ -300,42 +309,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;[翻译]正式宣布 Visual Studio 2022&#160;(Rwing)&#183;&#160;一次失败的创业经历&#160;(茶底世界)&#183;&#160;再见，深圳~长沙，我又来啦&#160;(邹琼俊)&#183;&#160;又一起.NET程序挂死, 用 Windbg 抽丝剥茧式的真实案例分析&#160;(一线码农)&#183;&#160;我很久没写代码了，但我是个好架构师&#160;(四猿外)        <a href="https://www.cnblogs.com/cmt/p/14703333.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，我是白泽。今天我们来聊一聊Redis中的链表与字典，关于链表的基础概念其实你在学习Redis之前一定积累了不少，所以本文将默认你已经掌握了链表相关的基础知识，而Redis的链表其实也就是普通的链表~因为Redis是使用C语言编写的，因此Redis的数据结构的定义都是使用C语法定义的，你不需要完全理解下方C语言声明结构体的语法，但我认为依靠大家的Java知识也能理解这就像是在Java中定义了一个链表对象        <a href="https://www.cnblogs.com/YLTFY1998/p/14748712.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-26 09:52
-博客园团队
-<span data-post-id="14703333" class="post-view-count">阅读(1458)</span> 
-<span data-post-id="14703333" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14703333" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14703333" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-09 20:13
+白泽来了
+<span data-post-id="14748712" class="post-view-count">阅读(328)</span> 
+<span data-post-id="14748712" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14748712" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14748712" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/19.html">2021年4月19日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/08.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月8日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14675578.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14745632.html">
     <span>
-        上周热点回顾（4.12-4.18）
+        Redis数据结构—简单动态字符串（SDS）
     </span>
     
 
@@ -343,42 +355,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;一个技术总监的忠告：你精通那么多技术，为何还是做不好一个项目？&#160;(四猿外)&#183;&#160;上周热点回顾（4.5-4.11）&#160;(博客园团队)&#183;&#160;我成为 Microsofti Azure MVP 啦！（ps：不是美国职业篮球）&#160;(Grant_Allen)&#183;&#160;如何从 dump 文件中提取出 C# 源代        <a href="https://www.cnblogs.com/cmt/p/14675578.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：这两天我原本打算学习一下若依这个老生常谈的开源的后端管理系统（如果你没听过，在将来的某一天也会听说甚至用到），拿到这个系统的前后端分离版后，若依码云项目地址，一启动发现需要Redis服务，遂转战学习Redis（Redis也是老生常谈了~）        <a href="https://www.cnblogs.com/YLTFY1998/p/14745632.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-19 09:43
-博客园团队
-<span data-post-id="14675578" class="post-view-count">阅读(2534)</span> 
-<span data-post-id="14675578" class="post-comment-count">评论(2)</span> 
-<span data-post-id="14675578" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14675578" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-08 16:59
+白泽来了
+<span data-post-id="14745632" class="post-view-count">阅读(271)</span> 
+<span data-post-id="14745632" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14745632" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14745632" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/12.html">2021年4月12日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/07.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月7日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14646662.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14740193.html">
     <span>
-        上周热点回顾（4.5-4.11）
+        Spring Security极简入门三部曲（下篇）
     </span>
     
 
@@ -386,42 +401,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;博客园，你肿么了？&#160;(悟空聊架构)&#183;&#160;我，第一次做项目经理，干赔了&#160;(四猿外)&#183;&#160;上周热点回顾（3.29-4.4）&#160;(博客园团队)&#183;&#160;技术从业者的未来（2）&#160;(lex-wu)&#183;&#160;.NET 6 Preview 3 发布&#160;(hez2010)&#183;&#160;假如易立竞吐槽程序员。。。&#160;(码农小说家)&#183;        <a href="https://www.cnblogs.com/cmt/p/14646662.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：从这篇博客开始，我们将在demo2中加入数据库得到demo3，在保留demo2的功能的基础上，增加两个用户，user2，拥有USER权限，admin2，拥有USER、ADMIN权限，这些数据都将存入数据库中        <a href="https://www.cnblogs.com/YLTFY1998/p/14740193.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-12 09:45
-博客园团队
-<span data-post-id="14646662" class="post-view-count">阅读(5129)</span> 
-<span data-post-id="14646662" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14646662" class="post-digg-count">推荐(0)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14646662" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-07 15:06
+白泽来了
+<span data-post-id="14740193" class="post-view-count">阅读(275)</span> 
+<span data-post-id="14740193" class="post-comment-count">评论(1)</span> 
+<span data-post-id="14740193" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14740193" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/04/06.html">2021年4月6日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/06.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月6日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14620499.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14735497.html">
     <span>
-        上周热点回顾（3.29-4.4）
+        Spring Security极简入门三部曲（中篇）
     </span>
     
 
@@ -429,42 +447,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：热点随笔： &#183;&#160;【故障公告】阿里云 RDS SQL Server 数据库实例 CPU 100% 引发全站故障&#160;(博客园团队)&#183;&#160;历史性突破：.net core 客服系统单客户日处理消息量超过 1.7 万条&#160;(sheng.chao)&#183;&#160;卧槽，线上数据删错了，差点被老板开除&#160;(苏三说技术)&#183;&#160;关于园子以        <a href="https://www.cnblogs.com/cmt/p/14620499.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，我是白泽。通过上篇的学习，我们实现了一个简单的基于角色验证的小demo，但是不足之处在于用户和角色的信息我们写死在了内存中，而实际项目中必然是写在数据库里的，但是在将数据存入数据库之前，为了让你更深入理解Spring Security授权的验证流程，我需要为你介绍一些关键的接口和类（很遗憾这一部分无法完全避免），**如果你只想继续学习Spring Security的使用，直接跳到demo时刻部分吧！**        <a href="https://www.cnblogs.com/YLTFY1998/p/14735497.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-04-06 09:54
-博客园团队
-<span data-post-id="14620499" class="post-view-count">阅读(9330)</span> 
-<span data-post-id="14620499" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14620499" class="post-digg-count">推荐(2)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14620499" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-06 15:51
+白泽来了
+<span data-post-id="14735497" class="post-view-count">阅读(256)</span> 
+<span data-post-id="14735497" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14735497" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14735497" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/30.html">2021年3月30日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/05/05.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年5月5日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14595262.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14731735.html">
     <span>
-        【故障公告】阿里云 RDS SQL Server 数据库实例 CPU 100% 引发全站故障
+        Spring Security极简入门三部曲（上篇）
     </span>
     
 
@@ -472,42 +493,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：非常抱歉，今天 8:48 开始我们使用的阿里云 RDS SQL Server 数据库实例突然出现 CPU 100%  问题，引发全站故障，由此给您带来麻烦，请您谅解。发现故障后立即进行主备切换，和往常一样，第1次主备切换失败，第2次主备切换完成后恢复正常。上次同样故障发生在 2020-11-03 13:35        <a href="https://www.cnblogs.com/cmt/p/14595262.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，这里是白泽。最近学校里一个Spring Boot项目要用到Spring Security做安全相关的工作，好，没用过，那我先学一下吧。查阅了不少文章，上来就是一堆接口，实现类，过滤器链，超级高水平，我看不懂。摸索了两天终于有点感觉了，就写一篇两天前的我希望看到的博客吧        <a href="https://www.cnblogs.com/YLTFY1998/p/14731735.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-30 09:29
-博客园团队
-<span data-post-id="14595262" class="post-view-count">阅读(70714)</span> 
-<span data-post-id="14595262" class="post-comment-count">评论(92)</span> 
-<span data-post-id="14595262" class="post-digg-count">推荐(30)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14595262" rel="nofollow">
+			<div class="postDesc">posted @ 2021-05-05 14:46
+白泽来了
+<span data-post-id="14731735" class="post-view-count">阅读(266)</span> 
+<span data-post-id="14731735" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14731735" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14731735" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/27.html">2021年3月27日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/04/30.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年4月30日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14585828.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14721422.html">
     <span>
-        致园友们的一封检讨书：都是我们的错
+        使用IDEA模拟git命令使用的常见场景
     </span>
     
 
@@ -515,42 +539,45 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：尊敬的园友： 非常非常对不起，我们没有照顾好园子，让园子出了一个巨大的bug。 7天还17年欠下的债（网站运营工作），四两拨万斤，我们的任何努力都是杯水车薪。 园子的一片狼藉，是我们根本来不及。 园子的一团混乱，是我们已手忙码乱。 博文只能推荐不能反对，不是我们不讲武德；博客后台无法保存草稿，不是我        <a href="https://www.cnblogs.com/cmt/p/14585828.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：大家好，最近白泽第一次开始参与小组合作开发，以前都是自己用git保存自己的代码，自己维护，用git的场景也比较单一，没有遇到过拉取代码合并出现冲突的问题。但是小组开发拉取远程仓库的代码时，遇到他人所提交代码与自己的本地代码出现冲突在所难免，所以白泽特意去学习了一下git的冲突处理，接下来用一个小demo复现一下我学习的过程        <a href="https://www.cnblogs.com/YLTFY1998/p/14721422.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-27 18:19
-博客园团队
-<span data-post-id="14585828" class="post-view-count">阅读(385670)</span> 
-<span data-post-id="14585828" class="post-comment-count">评论(1483)</span> 
-<span data-post-id="14585828" class="post-digg-count">推荐(831)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14585828" rel="nofollow">
+			<div class="postDesc">posted @ 2021-04-30 11:37
+白泽来了
+<span data-post-id="14721422" class="post-view-count">阅读(292)</span> 
+<span data-post-id="14721422" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14721422" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14721422" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
-    
+
+</div>
+
+
+		
 
 
 <div class="day">
-    <div class="dayTitle">
-        <a href="https://www.cnblogs.com/cmt/archive/2021/03/26.html">2021年3月26日</a>
-    </div>
-        <div class="postTitle">
-            
+	<div class="dayTitle">
+        <a href="https://www.cnblogs.com/YLTFY1998/archive/2021/01/26.html">
+            <img src="/skins/sea/images/title_post.gif" border="0" align="absmiddle" />
+        </a>
+		&nbsp;
+		2021年1月26日		  
+	</div>
 
-<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/cmt/p/14580194.html">
+	
+			<div class="postTitle">
+				
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/YLTFY1998/p/14331825.html">
     <span>
-        非常抱歉，全站内容审核中...
+        Java单例模式的几种常见实现方式
     </span>
     
 
@@ -558,39 +585,38 @@
 
 </a>
 
-        </div>
-        <div class="postCon">
-            
+			</div>
+			
 
     <div class="c_b_p_desc">
-摘要：为了更加合法合规运营网站，我们正在对全站内容进行审核，之前的内容审核通过后才能访问。 由于审核工作量巨大，完成审核还需要时间，我们正在想方设法提高审核速度，由此给您带来麻烦，请您谅解。 如果您访问园子时跳转到这篇博文，说明当前访问的内容还在审核列表中，如果您急需访问，麻烦您将对应的网址反馈给我们，我        <a href="https://www.cnblogs.com/cmt/p/14580194.html" class="c_b_p_desc_readmore">阅读全文</a>
+摘要：Java单例模式的几种常见实现方式 懒汉or饿汉？ 懒汉：单例模式延迟加载方式，一开始不给你new对象，你要new再给你new 饿汉：上来就给你new好一个对象，你可以直接用(吃)，你也没法new 饿汉：不加锁，线程安全，用起来方便，容易产生垃圾对象 public class SingletonTe        <a href="https://www.cnblogs.com/YLTFY1998/p/14331825.html" class="c_b_p_desc_readmore">阅读全文</a>
     </div>
 
-        </div>
-        <div class="clear"></div>
-        <div class="postDesc">
-            posted @ 2021-03-26 07:59
-博客园团队
-<span data-post-id="14580194" class="post-view-count">阅读(35363380)</span> 
-<span data-post-id="14580194" class="post-comment-count">评论(0)</span> 
-<span data-post-id="14580194" class="post-digg-count">推荐(218)</span> 
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14580194" rel="nofollow">
+			<div class="postDesc">posted @ 2021-01-26 18:14
+白泽来了
+<span data-post-id="14331825" class="post-view-count">阅读(78)</span> 
+<span data-post-id="14331825" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14331825" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14331825" rel="nofollow">
     编辑
 </a>
-
-        </div>
-        <div class="clear"></div>
 </div>
+
+</div>
+
+
 
 <div class="topicListFooter">
     <div id="nav_next_page">
         
-    <a href="https://www.cnblogs.com/cmt/default.html?page=2">
+    <a href="https://www.cnblogs.com/YLTFY1998/default.html?page=2">
         下一页
     </a>
 
     </div>    
 </div>
+
+
 
 
 
@@ -602,38 +628,35 @@
         function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
         function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
 </script>
-            </div>
-        </div>
-
-        <div id="sideBar">
-            <div id="sideBarMain">
-                <div id="sidebar_news" class="newsItem">
+</div>
+<div id="leftcontent">
+	
+		<DIV id="leftcontentcontainer">
+			<div id="sidebar_news" class="newsItem">
             <script>loadBlogNews();</script>
 </div>
 <div id="sidebar_c3"></div>
-                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
-                <script>loadBlogDefaultCalendar();</script>
-                <div id="leftcontentcontainer">
-                    <!-- begin:SingleColumn -->
-                    <div id="blog-sidecolumn"></div>
-                    <script>loadBlogSideColumn();</script>
-                    <!-- end:  SingleColumn -->
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-    <div id="footer">
-        <!--done-->
-Copyright &copy; 2021 博客园团队
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script><br>
+			<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script></DIV>
+	
+</div>
+<!--done-->
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com">博客园</a>
+	Copyright &copy; 2021 白泽来了
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
-    </div>
 </div>
+
+
+
+
+
 
     
 
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsm9lux7LXgyn9_CecVs9tXIYvqygYgebznmEuEnw0KAXF_mbRmR_RzixbRhGF5YdkHZp9coVxUJqZsqlRThLKHIQ-lvZ_kfp5mfJXvqU0H06menoXJFCzP_KsDDOOQiRM" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjv87zwcjMrrxoYQF1H-hro8SRfy4BNJadWah3D0G11GypHdsDDbZEV9qF7ZfAvDkIUst4C1HEwy9sc9BzXceX9zSoxXaVTG-TO6Ug77HZI9ltW0pqflkFaDGDGeH4WHxyA" />
 </body>
 </html>

@@ -3,37 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="never" />
-    <meta name="description" content="本篇文章将会讲解集成jwt以及将客户端信息和授权码信息保存到数据库" />
-    <meta property="og:description" content="本篇文章将会讲解集成jwt以及将客户端信息和授权码信息保存到数据库" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="前言 相信大家在使用ASP.NET Core进行开发的时候，肯定会涉及到读取Request.Body的场景，毕竟我们大部分的POST请求都是将数据存放到Http的Body当中。因为笔者日常开发所使用的" />
+    <meta property="og:description" content="前言 相信大家在使用ASP.NET Core进行开发的时候，肯定会涉及到读取Request.Body的场景，毕竟我们大部分的POST请求都是将数据存放到Http的Body当中。因为笔者日常开发所使用的" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Spring Security OAuth2.0认证授权三：使用JWT令牌 - 狂盗一枝梅 - 博客园</title>
+    <title>深入探究ASP.NET Core读取Request.Body的正确方式 - yi念之间 - 博客园</title>
     <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
     
     <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
-    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
-    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/kuangdaoyizhimei/custom.css?v=tRPNC0STV2420eKosFf5BNi2g6U=" />
-    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
     
-    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/kuangdaoyizhimei/rss" />
-    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/kuangdaoyizhimei/rsd.xml" />
-    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/kuangdaoyizhimei/wlwmanifest.xml" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/wucy/custom.css?v=Jr&#x2B;luDHHhYQVZ/m1Tbw1HfGXOlI=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/custom/bundle-custom-mobile.min.css?v=OayYBbtUbH4FYkn_bTL4VVf4DsEOiTHSWhbl11KyY6Y" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/wucy/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/wucy/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/wucy/wlwmanifest.xml" />
     <script>
-        var currentBlogId = 147792;
-        var currentBlogApp = 'kuangdaoyizhimei';
+        var currentBlogId = 605020;
+        var currentBlogApp = 'wucy';
         var cb_enable_mathjax = false;
         var isLogined = false;
         var isBlogOwner = false;
-        var skinName = 'BlueSky';
+        var skinName = 'Custom';
         var visitorUserId = '';
     </script>
         <script>
-            var currentPostDateAdded = '2021-01-11 10:58';
+            var currentPostDateAdded = '2021-05-06 09:03';
         </script>
     <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
-    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script src="/js/blog-common.min.js?v=2Mic1VLeHXarpdzASbXqFMIMVLEBiWXNO5yiTHUcmhw"></script>
     
     
     
@@ -93,58 +93,21 @@
     </div>
 
     <div id="page_begin_html">
-        <!-- ............自定义首部代码开始............ -->
-<!-- 自定义进度条 -->
-<div id="myProgressBar" style="display: none;"></div>
-
-<!-- 自定义导航条 -->
-<div id="mynavbar" style="margin-top: 0px;">
-    <div style="position:relative;width:65pc;height:70px;margin:0 auto;">
-    	<a style="width: auto;height: 22px;margin-left: 25px;" class="c-c"  href="https://www.cnblogs.com/kuangdaoyizhimei">
-<img id="nv-icon" style="width: auto;height: 38px;outline: 0;margin-top: 12px;">
-
-    	</a>
-    	<div id="mynavbar_menu">
-	    	<a href="https://www.cnblogs.com/summertime-wu" class="c-c">首页</a>
-	    	<a href="https://msg.cnblogs.com/send/summertime-wu" class="c-c">联系</a>
-	    	<a id="myGayhubUrl" href="https://github.com/Summertime-Wu" class="c-c">Github</a>
-	    	<a id="friendLink" href="#">友情链接</a>
-	    	<a href="https://www.cnblogs.com/">博客园</a>
-            <a href="https://i.cnblogs.com/posts">管理</a>
-	    	<a id="aboutMe" href="#">关于</a>
-	    </div>
-    </div>
+        <div class="light-loading">
+  <div class="box">
+    <h2>加载中</h2>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
 </div>
-
-<!-- 自定义头部锚点 -->
-<a name="mtop"></a>
-
-<!-- 自定义头部 -->
-<div id="myheader">
-	<!-- 背景图片 -->
-    <div id="myheader_bg"></div>
-    <!-- 遮罩层 -->
-    <div id="myheader_cover" title="点我点我">
-        <!-- 博客标题 -->
-        <div id="mypost_title">
-            <div id="mypost_title_h" style="font-weight: 500;font-size: 21px;"></div>
-            <div id="mypost_title_f"></div>
-            <div id="mypost_title_e">
-                <a href="https://www.cnblogs.com/" class="c-c" style="">暂未分类</a>
-            </div> 
-        </div>  
-    </div>
-</div>
-<!-- ............自定义首部代码结束............ -->
     </div>
     <!--done-->
 <div id="home">
 <div id="header">
 	<div id="blogTitle">
-        <a id="lnkBlogLogo" href="https://www.cnblogs.com/kuangdaoyizhimei/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/wucy/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
 		
 <!--done-->
-<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wucy/">yi念之间</a>
 </h1>
 <h2></h2>
 
@@ -160,19 +123,18 @@
 博客园</a>
 </li>
 <li>
-<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/kuangdaoyizhimei/">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wucy/">
 首页</a>
 </li>
 <li>
 
-<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-新随笔</a>
+
 </li>
 <li>
-<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E7%8B%82%E7%9B%97%E4%B8%80%E6%9E%9D%E6%A2%85">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/yi%E5%BF%B5%E4%B9%8B%E9%97%B4">
 联系</a></li>
 <li>
-<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/kuangdaoyizhimei/rss/">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/wucy/rss/">
 订阅</a>
 <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
 <li>
@@ -196,8 +158,8 @@
         <div class="post">
             <h1 class = "postTitle">
                 
-<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/kuangdaoyizhimei/p/14264844.html">
-    <span>Spring Security OAuth2.0认证授权三：使用JWT令牌</span>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/wucy/p/14699717.html">
+    <span>深入探究ASP.NET Core读取Request.Body的正确方式</span>
     
 
 
@@ -207,218 +169,646 @@
             </h1>
             <div class="clear"></div>
             <div class="postBody">
-                    <div id="cnblogs_post_description" style="display: none">
-        本篇文章将会讲解集成jwt以及将客户端信息和授权码信息保存到数据库
-    </div>
-<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
-<p>Spring Security OAuth2.0系列文章：</p>
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h4 id="前言">前言</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;相信大家在使用ASP.NET Core进行开发的时候，肯定会涉及到读取Request.Body的场景，毕竟我们大部分的POST请求都是将数据存放到Http的Body当中。因为笔者日常开发所使用的主要也是ASP.NET Core所以笔者也遇到这这种场景，关于本篇文章所套路的内容，来自于在开发过程中我遇到的关于Request.Body的读取问题。在之前的使用的时候，基本上都是借助搜索引擎搜索的答案，并没有太关注这个，发现自己理解的和正确的使用之间存在很大的误区。故有感而发，便写下此文，以作记录。学无止境，愿与君共勉。</p>
+<h4 id="常用读取方式">常用读取方式</h4>
+<p>当我们要读取Request Body的时候，相信大家第一直觉和笔者是一样的，这有啥难的，直接几行代码写完，这里我们模拟在Filter中读取Request Body，在Action或Middleware或其他地方读取类似，有Request的地方就有Body，如下所示</p>
+<pre><code class="language-cs">public override void OnActionExecuting(ActionExecutingContext context)
+{
+    //在ASP.NET Core中Request Body是Stream的形式
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = stream.ReadToEnd();
+    _logger.LogDebug("body content:" + body);
+    base.OnActionExecuting(context);
+}
+</code></pre>
+<p>写完之后，也没多想，毕竟这么常规的操作，信心满满，运行起来调试一把，发现直接报一个这个错<code>System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.</code>大致的意思就是同步操作不被允许，请使用ReadAsync的方式或设置AllowSynchronousIO为true。虽然没说怎么设置AllowSynchronousIO，不过我们借助搜索引擎是我们最大的强项。</p>
+<h5 id="同步读取">同步读取</h5>
+<p>首先我们来看设置<code>AllowSynchronousIO</code>为<code>true</code>的方式，看名字也知道是允许同步IO，设置方式大致有两种，待会我们会通过源码来探究一下它们直接有何不同，我们先来看一下如何设置<code>AllowSynchronousIO</code>的值。第一种方式是在<code>ConfigureServices</code>中配置，操作如下</p>
+<pre><code class="language-cs">services.Configure&lt;KestrelServerOptions&gt;(options =&gt;
+{
+    options.AllowSynchronousIO = true;
+});
+</code></pre>
+<p>这种方式和在配置文件中配置Kestrel选项配置是一样的只是方式不同，设置完之后即可，运行不在报错。还有一种方式，可以不用在<code>ConfigureServices</code>中设置，通过<code>IHttpBodyControlFeature</code>的方式设置，具体如下</p>
+<pre><code class="language-cs">public override void OnActionExecuting(ActionExecutingContext context)
+{
+    var syncIOFeature = context.HttpContext.Features.Get&lt;IHttpBodyControlFeature&gt;();
+    if (syncIOFeature != null)
+    {
+        syncIOFeature.AllowSynchronousIO = true;
+    }
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = stream.ReadToEnd();
+    _logger.LogDebug("body content:" + body);
+    base.OnActionExecuting(context);
+}
+</code></pre>
+<p>这种方式同样有效，通过这种方式操作，不需要每次读取Body的时候都去设置，只要在准备读取Body之前设置一次即可。这两种方式都是去设置<code>AllowSynchronousIO</code>为<code>true</code>，但是我们需要思考一点，微软为何设置<code>AllowSynchronousIO</code>默认为<code>false</code>，说明微软并不希望我们去同步读取Body。通过查找资料得出了这么一个结论</p>
 <blockquote>
-<ul>
-<li><a href="https://blog.kdyzm.cn/post/24" target="_blank">Spring Security OAuth2.0认证授权一：框架搭建和认证测试</a></li>
-<li><a href="https://blog.kdyzm.cn/post/25" target="_blank">Spring Security OAuth2.0认证授权二：搭建资源服务</a></li>
-</ul>
+<p>Kestrel：默认情况下禁用 AllowSynchronousIO（同步IO），线程不足会导致应用崩溃，而同步I/O API（例如HttpRequest.Body.Read）是导致线程不足的常见原因。</p>
 </blockquote>
-<p>前面两篇文章详细讲解了如何基于spring boot + oath2.0搭建认证中心和资源中心，本篇文章将会讲解集成jwt以及将客户端信息和授权码信息保存到数据库。</p>
-<h2 id="一、-jwt">一、 JWT</h2>
-<h3 id="1-jwt简介">1. JWT简介</h3>
-<p>JSON Web Token（JWT）是一个开放的行业标准（RFC 7519），它定义了一种简介的、自包含的协议格式，用于在通信双方传递json对象，传递的信息经过数字签名可以被验证和信任。JWT可以使用HMAC算法或使用RSA的公钥/私钥对来签名，防止被篡改。</p>
-<p>官网：<a href="https://jwt.io/" target="_blank">https://jwt.io/</a></p>
-<p>标准： <a href="https://tools.ietf.org/html/rfc7519" target="_blank">https://tools.ietf.org/html/rfc7519</a></p>
-<p><strong>JWT令牌的优点：</strong></p>
-<p>1）jwt基于json，非常方便解析。</p>
-<p>2）可以在令牌中自定义丰富的内容，易扩展。</p>
-<p>3）通过非对称加密算法及数字签名技术，JWT防止篡改，安全性高。</p>
-<p>4）资源服务使用JWT可不依赖认证服务即可完成授权。</p>
-<p><strong>缺点：</strong></p>
-<p>1）JWT令牌较长，占存储空间比较大，这意味着会耗费一定的带宽资源</p>
-<p>2）JWT签名和验签都要耗费处理器资源</p>
-<h3 id="2-jwt令牌结构">2. JWT令牌结构</h3>
-<p>JWT令牌由三部分组成，每部分中间使用点（.）分隔，比如：xxxxx.yyyyy.zzzzz</p>
-<p><strong>2.1 Header</strong></p>
-<p>头部包括令牌的类型（即JWT）及使用的哈希算法（如HMAC SHA256或RSA）一个例子如下：</p>
-<p>下边是Header部分的内容</p>
-<pre><code class="language-json">{ 
-"alg": "HS256",
-"typ": "JWT"
+<p>由此可以知道，这种方式虽然能解决问题，但是性能并不是不好，微软也不建议这么操作，当程序流量比较大的时候，很容易导致程序不稳定甚至崩溃。</p>
+<h5 id="异步读取">异步读取</h5>
+<p>通过上面我们了解到微软并不希望我们通过设置<code>AllowSynchronousIO</code>的方式去操作，因为会影响性能。那我们可以使用异步的方式去读取，这里所说的异步方式其实就是使用Stream自带的异步方法去读取，如下所示</p>
+<pre><code class="language-cs">public override void OnActionExecuting(ActionExecutingContext context)
+{
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = stream.ReadToEndAsync().GetAwaiter().GetResult();
+    _logger.LogDebug("body content:" + body);
+    base.OnActionExecuting(context);
 }
 </code></pre>
-<p>将上边的内容使用Base64Url编码，得到一个字符串就是JWT令牌的第一部分。</p>
-<p><strong>2.2 Payload</strong></p>
-<p>第二部分是负载，内容也是一个json对象，它是存放有效信息的地方，它可以存放jwt提供的现成字段，比如：iss（签发者）,exp（过期时间戳）, sub（面向的用户）等，也可自定义字段。此部分不建议存放敏感信息，因为此部分可以解码还原原始内容。最后将第二部分负载使用Base64Url编码，得到一个字符串就是JWT令牌的第二部分。</p>
-<p>一个例子：</p>
-<pre><code class="language-json">{ 
-"sub": "1234567890",
-"name": "456",
-"admin": true
+<p>就这么简单，不需要额外设置其他的东西，仅仅通过<code>ReadToEndAsync</code>的异步方法去操作。ASP.NET Core中许多操作都是异步操作，甚至是过滤器或中间件都可以直接返回Task类型的方法，因此我们可以直接使用异步操作</p>
+<pre><code class="language-cs">public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+{
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = await stream.ReadToEndAsync();
+    _logger.LogDebug("body content:" + body);
+    await next();
 }
 </code></pre>
-<p><strong>2.3 Signature</strong></p>
-<p>第三部分是签名，此部分用于防止jwt内容被篡改。</p>
-<p>这个部分使用base64url将前两部分进行编码，编码后使用点（.）连接组成字符串，最后使用header中声明签名算法进行签名。</p>
-<p>一个例子：</p>
-<pre><code class="language-java">HMACSHA256( 
-base64UrlEncode(header) + "." +
-base64UrlEncode(payload),
-secret
-)
+<p>这两种方式的操作优点是不需要额外设置别的，只是通过异步方法读取即可，也是我们比较推荐的做法。比较神奇的是我们只是将<code>StreamReader</code>的<code>ReadToEnd</code>替换成<code>ReadToEndAsync</code>方法就皆大欢喜了，有没有感觉到比较神奇。当我们感到神奇的时候，是因为我们对它还不够了解，接下来我们就通过源码的方式，一步一步的揭开它神秘的面纱。</p>
+<h5 id="重复读取">重复读取</h5>
+<p>上面我们演示了使用同步方式和异步方式读取RequestBody，但是这样真的就可以了吗？其实并不行，这种方式每次请求只能读取一次正确的Body结果，如果继续对RequestBody这个Stream进行读取，将读取不到任何内容，首先来举个例子</p>
+<pre><code class="language-cs">public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+{
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = await stream.ReadToEndAsync();
+    _logger.LogDebug("body content:" + body);
+
+    StreamReader stream2 = new StreamReader(context.HttpContext.Request.Body);
+    string body2 = await stream2.ReadToEndAsync();
+    _logger.LogDebug("body2 content:" + body2);
+
+    await next();
+}
 </code></pre>
+<p>上面的例子中body里有正确的RequestBody的结果，但是body2中是空字符串。这个情况是比较糟糕的，为啥这么说呢？如果你是在Middleware中读取的RequestBody，而这个中间件的执行是在模型绑定之前，那么将会导致模型绑定失败，因为模型绑定有的时候也需要读取RequestBody获取http请求内容。至于为什么会这样相信大家也有了一定的了解，因为我们在读取完Stream之后，此时的Stream指针位置已经在Stream的结尾处，即Position此时不为0，而Stream读取正是依赖Position来标记外部读取Stream到啥位置，所以我们再次读取的时候会从结尾开始读，也就读取不到任何信息了。所以我们要想重复读取RequestBody那么就要再次读取之前重置RequestBody的Position为0，如下所示</p>
+<pre><code class="language-cs">public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+{
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = await stream.ReadToEndAsync();
+    _logger.LogDebug("body content:" + body);
+
+    //或者使用重置Position的方式 context.HttpContext.Request.Body.Position = 0;
+    //如果你确定上次读取完之后已经重置了Position那么这一句可以省略
+    context.HttpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+    StreamReader stream2 = new StreamReader(context.HttpContext.Request.Body);
+    string body2 = await stream2.ReadToEndAsync();
+    //用完了我们尽量也重置一下，自己的坑自己填
+    context.HttpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+    _logger.LogDebug("body2 content:" + body2);
+
+    await next();
+}
+</code></pre>
+<p>写完之后，开开心心的运行起来看一下效果，发现报了一个错<code>System.NotSupportedException: Specified method is not supported.at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.Seek(Int64 offset, SeekOrigin origin)</code>大致可以理解起来不支持这个操作，至于为啥，一会解析源码的时候咱们一起看一下。说了这么多，那到底该如何解决呢？也很简单，微软知道自己刨下了坑，自然给我们提供了解决办法，用起来也很简单就是加EnableBuffering</p>
+<pre><code class="language-cs">public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+{
+    //操作Request.Body之前加上EnableBuffering即可
+    context.HttpContext.Request.EnableBuffering();
+
+    StreamReader stream = new StreamReader(context.HttpContext.Request.Body);
+    string body = await stream.ReadToEndAsync();
+    _logger.LogDebug("body content:" + body);
+
+    context.HttpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+    StreamReader stream2 = new StreamReader(context.HttpContext.Request.Body);
+    //注意这里！！！我已经使用了同步读取的方式
+    string body2 = stream2.ReadToEnd();
+    context.HttpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+    _logger.LogDebug("body2 content:" + body2);
+
+    await next();
+}
+</code></pre>
+<p>通过添加<code>Request.EnableBuffering()</code>我们就可以重复的读取RequestBody了，看名字我们可以大概的猜出来，他是和缓存RequestBody有关，需要注意的是<code>Request.EnableBuffering()</code>要加在准备读取RequestBody之前才有效果，否则将无效，而且<code>每次请求只需要添加一次即可</code>。而且大家看到了我第二次读取Body的时候使用了同步的方式去读取的RequestBody，是不是很神奇，待会的时候我们会从源码的角度分析这个问题。</p>
+<h4 id="源码探究">源码探究</h4>
+<p>上面我们看到了通过<code>StreamReader</code>的<code>ReadToEnd</code>同步读取Request.Body需要设置<code>AllowSynchronousIO</code>为<code>true</code>才能操作，但是使用<code>StreamReader</code>的<code>ReadToEndAsync</code>方法却可以直接操作。</p>
+<h5 id="streamreader和stream的关系">StreamReader和Stream的关系</h5>
+<p>我们看到了都是通过操作<code>StreamReader</code>的方法即可，那关我Request.Body啥事，别急咱们先看一看这里的操作，首先来大致看下<code>ReadToEnd</code>的实现了解一下<code>StreamReader</code>到底和Stream有啥关联，找到ReadToEnd方法[<a href="https://github.com/dotnet/runtime/blob/v5.0.5/src/libraries/System.Private.CoreLib/src/System/IO/StreamReader.cs#L393" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">public override string ReadToEnd()
+{
+    ThrowIfDisposed();
+    CheckAsyncTaskInProgress();
+    // 调用ReadBuffer，然后从charBuffer中提取数据。 
+    StringBuilder sb = new StringBuilder(_charLen - _charPos);
+    do
+    {
+        //循环拼接读取内容
+        sb.Append(_charBuffer, _charPos, _charLen - _charPos);
+        _charPos = _charLen; 
+        //读取buffer，这是核心操作
+        ReadBuffer();
+    } while (_charLen &gt; 0);
+    //返回读取内容
+    return sb.ToString();
+}
+</code></pre>
+<p>通过这段源码我们了解到了这么个信息，一个是<code>StreamReader</code>的<code>ReadToEnd</code>其实本质是通过循环读取ReadBuffer然后通过StringBuilder去拼接读取的内容，核心是读取ReadBuffer方法，由于代码比较多，我们找到大致呈现一下核心操作[<a href="https://github.com/dotnet/runtime/blob/v5.0.5/src/libraries/System.Private.CoreLib/src/System/IO/StreamReader.cs#L576" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">if (_checkPreamble)
+{
+    //通过这里我们可以知道本质就是使用要读取的Stream里的Read方法
+    int len = _stream.Read(_byteBuffer, _bytePos, _byteBuffer.Length - _bytePos);
+    if (len == 0)
+    {
+        if (_byteLen &gt; 0)
+        {
+            _charLen += _decoder.GetChars(_byteBuffer, 0, _byteLen, _charBuffer, _charLen);
+            _bytePos = _byteLen = 0;
+        }
+        return _charLen;
+    }
+    _byteLen += len;
+}
+else
+{
+    //通过这里我们可以知道本质就是使用要读取的Stream里的Read方法
+    _byteLen = _stream.Read(_byteBuffer, 0, _byteBuffer.Length);
+    if (_byteLen == 0) 
+    {
+        return _charLen;
+    }
+}
+</code></pre>
+<p>通过上面的代码我们可以了解到<code>StreamReader</code>其实是工具类，只是封装了对Stream的原始操作，简化我们的代码<code>ReadToEnd</code>方法本质是读取<code>Stream的Read</code>方法。接下来我们看一下<code>ReadToEndAsync</code>方法的具体实现[<a href="https://github.com/dotnet/runtime/blob/v5.0.5/src/libraries/System.Private.CoreLib/src/System/IO/StreamReader.cs#L898" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">public override Task&lt;string&gt; ReadToEndAsync()
+{
+    if (GetType() != typeof(StreamReader))
+    {
+        return base.ReadToEndAsync();
+    }
+    ThrowIfDisposed();
+    CheckAsyncTaskInProgress();
+    //本质是ReadToEndAsyncInternal方法
+    Task&lt;string&gt; task = ReadToEndAsyncInternal();
+    _asyncReadTask = task;
+
+    return task;
+}
+
+private async Task&lt;string&gt; ReadToEndAsyncInternal()
+{
+    //也是循环拼接读取的内容
+    StringBuilder sb = new StringBuilder(_charLen - _charPos);
+    do
+    {
+        int tmpCharPos = _charPos;
+        sb.Append(_charBuffer, tmpCharPos, _charLen - tmpCharPos);
+        _charPos = _charLen; 
+        //核心操作是ReadBufferAsync方法
+        await ReadBufferAsync(CancellationToken.None).ConfigureAwait(false);
+    } while (_charLen &gt; 0);
+    return sb.ToString();
+}
+</code></pre>
+<p>通过这个我们可以看到核心操作是<code>ReadBufferAsync</code>方法，代码比较多我们同样看一下核心实现[<a href="https://github.com/dotnet/runtime/blob/v5.0.5/src/libraries/System.Private.CoreLib/src/System/IO/StreamReader.cs#L1222" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">byte[] tmpByteBuffer = _byteBuffer;
+//Stream赋值给tmpStream 
+Stream tmpStream = _stream;
+if (_checkPreamble)
+{
+    int tmpBytePos = _bytePos;
+    //本质是调用Stream的ReadAsync方法
+    int len = await tmpStream.ReadAsync(new Memory&lt;byte&gt;(tmpByteBuffer, tmpBytePos, tmpByteBuffer.Length - tmpBytePos), cancellationToken).ConfigureAwait(false);
+    if (len == 0)
+    {
+        if (_byteLen &gt; 0)
+        {
+            _charLen += _decoder.GetChars(tmpByteBuffer, 0, _byteLen, _charBuffer, _charLen);
+            _bytePos = 0; _byteLen = 0;
+        }
+        return _charLen;
+    }
+    _byteLen += len;
+}
+else
+{
+    //本质是调用Stream的ReadAsync方法
+    _byteLen = await tmpStream.ReadAsync(new Memory&lt;byte&gt;(tmpByteBuffer), cancellationToken).ConfigureAwait(false);
+    if (_byteLen == 0) 
+    {
+        return _charLen;
+    }
+}
+</code></pre>
+<p>通过上面代码我可以了解到StreamReader的本质就是读取Stream的包装，核心方法还是来自Stream本身。我们之所以大致介绍了StreamReader类，就是为了给大家呈现出StreamReader和Stream的关系，否则怕大家误解这波操作是StreamReader的里的实现，而不是Request.Body的问题，其实并不是这样的所有的一切都是指向Stream的<code>Request的Body就是Stream</code>这个大家可以自己查看一下，了解到这一步我们就可以继续了。</p>
+<h5 id="httprequest的body">HttpRequest的Body</h5>
+<p>上面我们说到了Request的Body本质就是Stream，Stream本身是抽象类，所以Request.Body是Stream的实现类。默认情况下Request.Body的是HttpRequestStream的实例[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpRequestStream.cs" target="_blank">点击查看源码👈</a>]，我们这里说了是默认，因为它是可以改变的，我们一会再说。我们从上面StreamReader的结论中得到ReadToEnd本质还是调用的Stream的Read方法，即这里的HttpRequestStream的Read方法，我们来看一下具体实现[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpRequestStream.cs#L55" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">public override int Read(byte[] buffer, int offset, int count)
+{
+    //知道同步读取Body为啥报错了吧
+    if (!_bodyControl.AllowSynchronousIO)
+    {
+        throw new InvalidOperationException(CoreStrings.SynchronousReadsDisallowed);
+    }
+    //本质是调用ReadAsync
+    return ReadAsync(buffer, offset, count).GetAwaiter().GetResult();
+}
+</code></pre>
+<p>通过这段代码我们就可以知道了为啥在不设置AllowSynchronousIO为true的情下读取Body会抛出异常了吧，这个是程序级别的控制，而且我们还了解到Read的本质还是在调用ReadAsync异步方法</p>
+<pre><code class="language-cs">public override ValueTask&lt;int&gt; ReadAsync(Memory&lt;byte&gt; destination, CancellationToken cancellationToken = default)
+{
+    return ReadAsyncWrapper(destination, cancellationToken);
+}
+</code></pre>
+<p>ReadAsync本身并无特殊限制，所以直接操作ReadAsync不会存在类似Read的异常。</p>
+<blockquote>
+<p>通过这个我们得出了结论Request.Body即HttpRequestStream的同步读取Read会抛出异常，而异步读取ReadAsync并不会抛出异常只和HttpRequestStream的Read方法本身存在判断AllowSynchronousIO的值有关系。</p>
+</blockquote>
+<h5 id="allowsynchronousio本质来源">AllowSynchronousIO本质来源</h5>
+<p>通过HttpRequestStream的Read方法我们可以知道AllowSynchronousIO控制了同步读取的方式。而且我们还了解到了AllowSynchronousIO有几种不同方式的去配置，接下来我们来大致看下几种方式的本质是哪一种。通过HttpRequestStream我们知道Read方法中的AllowSynchronousIO的属性是来自<code>IHttpBodyControlFeature</code>也就是我们上面介绍的第二种配置方式</p>
+<pre><code class="language-cs">private readonly HttpRequestPipeReader _pipeReader;
+private readonly IHttpBodyControlFeature _bodyControl;
+public HttpRequestStream(IHttpBodyControlFeature bodyControl, HttpRequestPipeReader pipeReader)
+{
+    _bodyControl = bodyControl;
+    _pipeReader = pipeReader;
+}
+</code></pre>
+<p>那么它和<code>KestrelServerOptions</code>肯定是有关系的，因为我们只配置KestrelServerOptions的是HttpRequestStream的Read是不报异常的，而HttpRequestStream的Read只依赖了IHttpBodyControlFeature的AllowSynchronousIO属性。Kestrel中HttpRequestStream初始化的地方在BodyControl[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Infrastructure/BodyControl.cs" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">private readonly HttpRequestStream _request;
+public BodyControl(IHttpBodyControlFeature bodyControl, IHttpResponseControl responseControl)
+{
+    _request = new HttpRequestStream(bodyControl, _requestReader);
+}
+</code></pre>
+<p>而初始化BodyControl的地方在HttpProtocol中,我们找到初始化BodyControl的InitializeBodyControl方法[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L315" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">public void InitializeBodyControl(MessageBody messageBody)
+{
+    if (_bodyControl == null)
+    {
+        //这里传递的是bodyControl传递的是this
+        _bodyControl = new BodyControl(bodyControl: this, this);
+    }
+    (RequestBody, ResponseBody, RequestBodyPipeReader, ResponseBodyPipeWriter) = _bodyControl.Start(messageBody);
+    _requestStreamInternal = RequestBody;
+    _responseStreamInternal = ResponseBody;
+}
+</code></pre>
+<p>这里我们可以看的到初始化IHttpBodyControlFeature既然传递的是this，也就是HttpProtocol当前实例。也就是说HttpProtocol是实现了IHttpBodyControlFeature接口，HttpProtocol本身是partial的，我们在其中一个分布类HttpProtocol.FeatureCollection中看到了实现关系<br>
+[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.FeatureCollection.cs" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">internal partial class HttpProtocol : IHttpRequestFeature, 
+ IHttpRequestBodyDetectionFeature, 
+ IHttpResponseFeature, 
+ IHttpResponseBodyFeature, 
+ IRequestBodyPipeFeature, 
+ IHttpUpgradeFeature, 
+ IHttpConnectionFeature, 
+ IHttpRequestLifetimeFeature, 
+ IHttpRequestIdentifierFeature, 
+ IHttpRequestTrailersFeature, 
+ IHttpBodyControlFeature, 
+ IHttpMaxRequestBodySizeFeature, 
+ IEndpointFeature, 
+ IRouteValuesFeature 
+ { 
+     bool IHttpBodyControlFeature.AllowSynchronousIO 
+     { 
+         get =&gt; AllowSynchronousIO; 
+         set =&gt; AllowSynchronousIO = value; 
+     } 
+ }
+</code></pre>
+<p>通过这个可以看出HttpProtocol确实实现了IHttpBodyControlFeature接口，接下来我们找到初始化AllowSynchronousIO的地方，找到了<code>AllowSynchronousIO = ServerOptions.AllowSynchronousIO;</code>这段代码说明来自于ServerOptions这个属性，找到初始化ServerOptions的地方[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L82" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">private HttpConnectionContext _context;
+//ServiceContext初始化来自HttpConnectionContext 
+public ServiceContext ServiceContext =&gt; _context.ServiceContext;
+protected KestrelServerOptions ServerOptions { get; set; } = default!;
+public void Initialize(HttpConnectionContext context)
+{
+    _context = context;
+    //来自ServiceContext
+    ServerOptions = ServiceContext.ServerOptions;
+    Reset();
+    HttpResponseControl = this;
+}
+</code></pre>
+<p>通过这个我们知道ServerOptions来自于ServiceContext的ServerOptions属性，我们找到给ServiceContext赋值的地方，在KestrelServerImpl的CreateServiceContext方法里[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/KestrelServerImpl.cs#L92" target="_blank">点击查看源码👈</a>]精简一下逻辑，抽出来核心内容大致实现如下</p>
+<pre><code class="language-cs">public KestrelServerImpl(
+   IOptions&lt;KestrelServerOptions&gt; options,
+   IEnumerable&lt;IConnectionListenerFactory&gt; transportFactories,
+   ILoggerFactory loggerFactory)     
+   //注入进来的IOptions&lt;KestrelServerOptions&gt;调用了CreateServiceContext
+   : this(transportFactories, null, CreateServiceContext(options, loggerFactory))
+{
+}
+
+private static ServiceContext CreateServiceContext(IOptions&lt;KestrelServerOptions&gt; options, ILoggerFactory loggerFactory)
+{
+    //值来自于IOptions&lt;KestrelServerOptions&gt; 
+    var serverOptions = options.Value ?? new KestrelServerOptions();
+    return new ServiceContext
+    {
+        Log = trace,
+        HttpParser = new HttpParser&lt;Http1ParsingHandler&gt;(trace.IsEnabled(LogLevel.Information)),
+        Scheduler = PipeScheduler.ThreadPool,
+        SystemClock = heartbeatManager,
+        DateHeaderValueManager = dateHeaderValueManager,
+        ConnectionManager = connectionManager,
+        Heartbeat = heartbeat,
+        //赋值操作
+        ServerOptions = serverOptions,
+    };
+}
+</code></pre>
+<p>通过上面的代码我们可以看到如果配置了KestrelServerOptions那么ServiceContext的ServerOptions属性就来自于KestrelServerOptions，即我们通过<code>services.Configure&lt;KestrelServerOptions&gt;()</code>配置的值，总之得到了这么一个结论</p>
+<blockquote>
+<p>如果配置了KestrelServerOptions即services.Configure<kestrelserveroptions>()，那么AllowSynchronousIO来自于KestrelServerOptions。即IHttpBodyControlFeature的AllowSynchronousIO属性来自于KestrelServerOptions。如果没有配置，那么直接通过修改IHttpBodyControlFeature实例的<br>
+AllowSynchronousIO属性能得到相同的效果，毕竟HttpRequestStream是直接依赖的IHttpBodyControlFeature实例。</kestrelserveroptions></p>
+</blockquote>
+<h5 id="enablebuffering神奇的背后">EnableBuffering神奇的背后</h5>
+<p>我们在上面的示例中看到了，如果不添加EnableBuffering的话直接设置RequestBody的Position会报NotSupportedException这么一个错误，而且加了它之后我居然可以直接使用同步的方式去读取RequestBody，首先我们来看一下为啥会报错，我们从上面的错误了解到错误来自于HttpRequestStream这个类[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Servers/Kestrel/Core/src/Internal/Http/HttpRequestStream.cs" target="_blank">点击查看源码👈</a>]，上面我们也说了这个类继承了Stream抽象类,通过源码我们可以看到如下相关代码</p>
+<pre><code class="language-cs">//不能使用Seek操作
+public override bool CanSeek =&gt; false;
+//允许读
+public override bool CanRead =&gt; true;
+//不允许写
+public override bool CanWrite =&gt; false;
+//不能获取长度
+public override long Length =&gt; throw new NotSupportedException();
+//不能读写Position
+public override long Position
+{
+    get =&gt; throw new NotSupportedException();
+    set =&gt; throw new NotSupportedException();
+}
+//不能使用Seek方法
+public override long Seek(long offset, SeekOrigin origin)
+{
+    throw new NotSupportedException();
+}
+</code></pre>
+<p>相信通过这些我们可以清楚的看到针对HttpRequestStream的设置或者写相关的操作是不被允许的，这也是为啥我们上面直接通过Seek设置Position的时候为啥会报错，还有一些其他操作的限制，总之默认是不希望我们对HttpRequestStream做过多的操作，特别是设置或者写相关的操作。但是我们使用EnableBuffering的时候却没有这些问题，究竟是为什么?接下来我们要揭开它的什么面纱了。首先我们从<code>Request.EnableBuffering()</code>这个方法入手，找到源码位置在HttpRequestRewindExtensions扩展类中[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/Http/src/Extensions/HttpRequestRewindExtensions.cs" target="_blank">点击查看源码👈</a>]，我们从最简单的无参方法开始看到如下定义</p>
+<pre><code class="language-cs">/// &lt;summary&gt;
+/// 确保Request.Body可以被多次读取
+/// &lt;/summary&gt;
+/// &lt;param name="request"&gt;&lt;/param&gt;
+public static void EnableBuffering(this HttpRequest request)
+{
+    BufferingHelper.EnableRewind(request);
+}
+</code></pre>
+<p>上面的方法是最简单的形式，还有一个EnableBuffering的扩展方法是参数最全的扩展方法，这个方法可以控制读取的大小和控制是否存储到磁盘的限定大小</p>
+<pre><code class="language-cs">/// &lt;summary&gt;
+/// 确保Request.Body可以被多次读取
+/// &lt;/summary&gt;
+/// &lt;param name="request"&gt;&lt;/param&gt;
+/// &lt;param name="bufferThreshold"&gt;内存中用于缓冲流的最大大小（字节）。较大的请求主体被写入磁盘。&lt;/param&gt;
+/// &lt;param name="bufferLimit"&gt;请求正文的最大大小（字节）。尝试读取超过此限制将导致异常&lt;/param&gt;
+public static void EnableBuffering(this HttpRequest request, int bufferThreshold, long bufferLimit)
+{
+    BufferingHelper.EnableRewind(request, bufferThreshold, bufferLimit);
+}
+</code></pre>
+<p>无论那种形式，最终都是在调用<code>BufferingHelper.EnableRewind</code>这个方法，话不多说直接找到BufferingHelper这个类，找到类的位置[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/Http/src/Internal/BufferingHelper.cs" target="_blank">点击查看源码👈</a>]代码不多而且比较简洁，咱们就把EnableRewind的实现粘贴出来</p>
+<pre><code class="language-cs">//默认内存中可缓存的大小为30K,超过这个大小将会被存储到磁盘
+internal const int DefaultBufferThreshold = 1024 * 30;
+
+/// &lt;summary&gt;
+/// 这个方法也是HttpRequest扩展方法
+/// &lt;/summary&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static HttpRequest EnableRewind(this HttpRequest request, int bufferThreshold = DefaultBufferThreshold, long? bufferLimit = null)
+{
+    if (request == null)
+    {
+        throw new ArgumentNullException(nameof(request));
+    }
+    //先获取Request Body
+    var body = request.Body;
+    //默认情况Body是HttpRequestStream这个类CanSeek是false所以肯定会执行到if逻辑里面
+    if (!body.CanSeek)
+    {
+        //实例化了FileBufferingReadStream这个类，看来这是关键所在
+        var fileStream = new FileBufferingReadStream(body, bufferThreshold,bufferLimit,AspNetCoreTempDirectory.TempDirectoryFactory);
+        //赋值给Body，也就是说开启了EnableBuffering之后Request.Body类型将会是FileBufferingReadStream
+        request.Body = fileStream;
+        //这里要把fileStream注册给Response便于释放
+        request.HttpContext.Response.RegisterForDispose(fileStream);
+    }
+    return request;
+}
+</code></pre>
+<p>从上面这段源码实现中我们可以大致得到两个结论</p>
 <ul>
-<li>base64UrlEncode(header)：jwt令牌的第一部分。</li>
-<li>base64UrlEncode(payload)：jwt令牌的第二部分。</li>
-<li>secret：签名所使用的密钥。</li>
+<li>BufferingHelper的EnableRewind方法也是HttpRequest的扩展方法，可以直接通过<code>Request.EnableRewind</code>的形式调用，效果等同于调用<code>Request.EnableBuffering</code>因为EnableBuffering也是调用的EnableRewind</li>
+<li>启用了EnableBuffering这个操作之后实际上会使用FileBufferingReadStream替换掉默认的HttpRequestStream，所以后续处理RequestBody的操作将会是FileBufferingReadStream实例</li>
 </ul>
-<h2 id="二、配置jwt">二、配置JWT</h2>
-<h3 id="1认证服务配置jwt">1.认证服务配置JWT</h3>
-<p>TokenConfig类的修改</p>
-<pre><code class="language-java">@Configuration
-public class TokenConfig {
-
-private static final String SIGNING_KEY = "auth123";
-
-@Bean
-public TokenStore tokenStore() {
-return new JwtTokenStore(accessTokenConverter());
-}
-
-@Bean
-public JwtAccessTokenConverter accessTokenConverter(){
-JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-jwtAccessTokenConverter.setSigningKey(SIGNING_KEY);//对称秘钥，资源服务器使用该秘钥来验证
-return jwtAccessTokenConverter;
-}
+<p>通过上面的分析我们也清楚的看到了，核心操作在于<code>FileBufferingReadStream</code>这个类，而且从名字也能看出来它肯定是也继承了Stream抽象类，那还等啥直接找到FileBufferingReadStream的实现[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/WebUtilities/src/FileBufferingReadStream.cs" target="_blank">点击查看源码👈</a>]，首先来看他类的定义</p>
+<pre><code class="language-cs">public class FileBufferingReadStream : Stream
+{
 }
 </code></pre>
-<p>AuthorizationServerTokenServices设置Token增强类</p>
-<pre><code class="language-java">@Autowired
-private JwtAccessTokenConverter jwtAccessTokenConverter;
-
-@Bean
-public AuthorizationServerTokenServices tokenServices(){
-DefaultTokenServices services = new DefaultTokenServices();
-services.setClientDetailsService(clientDetailsService);
-services.setSupportRefreshToken(true);
-services.setTokenStore(tokenStore);
-services.setAccessTokenValiditySeconds(7200);
-services.setRefreshTokenValiditySeconds(259200);
-
-TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-tokenEnhancerChain.setTokenEnhancers(Collections.singletonList(jwtAccessTokenConverter));
-services.setTokenEnhancer(tokenEnhancerChain);
-
-return services;
+<p>毋庸置疑确实是继承自Steam类，我们上面也看到了使用了Request.EnableBuffering之后就可以设置和重复读取RequestBody，说明进行了一些重写操作，具体我们来看一下</p>
+<pre><code class="language-cs">/// &lt;summary&gt;
+/// 允许读
+/// &lt;/summary&gt;
+public override bool CanRead
+{
+    get { return true; }
 }
-</code></pre>
-<p>然后就可以测试了：</p>
-<p>POST请求接口：<a href="http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123" target="_blank">http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123</a></p>
-<p>得到响应结果：</p>
-<pre><code class="language-json">{
-"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiLCJST0xFX0FQSSJdLCJleHAiOjE2MTAzNzI5MzUsImF1dGhvcml0aWVzIjpbInAxIiwicDIiXSwianRpIjoiOWQzMzRmZGMtOTcwZC00YmJkLWI2MmMtZDU4MDZkNTgzM2YwIiwiY2xpZW50X2lkIjoiYzEifQ.gZraRNeX-o_jKiH7XQgg3TlUQBpxUcXa2-qR_Treu8U",
-"token_type": "bearer",
-"refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiLCJST0xFX0FQSSJdLCJhdGkiOiI5ZDMzNGZkYy05NzBkLTRiYmQtYjYyYy1kNTgwNmQ1ODMzZjAiLCJleHAiOjE2MTA2MjQ5MzUsImF1dGhvcml0aWVzIjpbInAxIiwicDIiXSwianRpIjoiN2U1NzE0NTgtNmU2Zi00YjlmLTkxODQtOWUzZmVmZmQ1YTNjIiwiY2xpZW50X2lkIjoiYzEifQ.wyiS-z-xhBPZSODXZHQVDJCQ6dcmeJjAwBPWe2GhT94",
-"expires_in": 7199,
-"scope": "ROLE_ADMIN ROLE_USER ROLE_API",
-"jti": "9d334fdc-970d-4bbd-b62c-d5806d5833f0"
+/// &lt;summary&gt;
+/// 允许Seek
+/// &lt;/summary&gt;
+public override bool CanSeek
+{
+    get { return true; }
 }
-</code></pre>
-<p>会发现accessToken长了很多，这是因为token是jwt字符串，分为三部分，第二部分payload携带了很多信息，打开jwt.io网站，将上面的accessToken贴上去，可以看到Base64解码后的信息：</p>
-<p><img src="https://blog.kdyzm.cn/storage/thumbnails/_signature/2B8J8S7BH0UB15MRJNP45M1G6J.png" alt="2021-01-11_201526.png" loading="lazy"></p>
-<h3 id="2资源服务配置">2.资源服务配置</h3>
-<p>第一步，将认证服务中的TokenConfig直接拷贝到资源服务中</p>
-<p>第二步，修改ResouceServerConfig 类</p>
-<pre><code class="language-java">@Autowired
-private TokenStore tokenStore;
-
-@Override
-public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-resources
-.resourceId(RESOURCE_ID)
-// .tokenServices(resourceServerTokenServices)//令牌服务
-.tokenStore(tokenStore)
-.stateless(true);
+/// &lt;summary&gt;
+/// 不允许写
+/// &lt;/summary&gt;
+public override bool CanWrite
+{
+    get { return false; }
 }
-</code></pre>
-<p>即可完成资源服务集成jwt的功能。</p>
-<h3 id="3接口测试">3.接口测试</h3>
-<p>POST请求 <a href="http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123" target="_blank">http://127.0.0.1:30000/oauth/token?client_id=c1&amp;client_secret=secret&amp;grant_type=password&amp;username=zhangsan&amp;password=123</a> 获取令牌，获取到accessToken之后携带token GET 请求 <a href="http://127.0.0.1:30001/r1" target="_blank">http://127.0.0.1:30001/r1</a> ，得到响应结果：</p>
-<pre><code class="language-txt">访问资源r1
-</code></pre>
-<p>即可证明成功。</p>
-<h2 id="三、客户端信息保存到数据库">三、客户端信息保存到数据库</h2>
-<p>认证服务客户端信息还是保存在内存中，现在将其改造放到数据库中</p>
-<h3 id="1-新建表">1. 新建表</h3>
-<pre><code class="language-sql">DROP TABLE IF EXISTS `oauth_client_details`;
-
-CREATE TABLE `oauth_client_details` (
-`client_id` varchar(255) NOT NULL COMMENT '客户端标识',
-`resource_ids` varchar(255) DEFAULT NULL COMMENT '接入资源列表',
-`client_secret` varchar(255) DEFAULT NULL COMMENT '客户端秘钥',
-`scope` varchar(255) DEFAULT NULL,
-`authorized_grant_types` varchar(255) DEFAULT NULL,
-`web_server_redirect_uri` varchar(255) DEFAULT NULL,
-`authorities` varchar(255) DEFAULT NULL,
-`access_token_validity` int(11) DEFAULT NULL,
-`refresh_token_validity` int(11) DEFAULT NULL,
-`additional_information` longtext,
-`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-`archived` tinyint(4) DEFAULT NULL,
-`trusted` tinyint(4) DEFAULT NULL,
-`autoapprove` varchar(255) DEFAULT NULL,
-PRIMARY KEY (`client_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='接入客户端信息';
-
-/*Data for the table `oauth_client_details` */
-
-insert into `oauth_client_details`(`client_id`,`resource_ids`,`client_secret`,`scope`,`authorized_grant_types`,`web_server_redirect_uri`,`authorities`,`access_token_validity`,`refresh_token_validity`,`additional_information`,`create_time`,`archived`,`trusted`,`autoapprove`) values
-('c1','res1','$2a$10$X2xVwW.7cOEh2niPqHYAne9EnjRJFj7QI4TqfmnDou9fT/45sCFEm','ROLE_ADMIN,ROLE_USER,ROLE_API','client_credentials,password,authorization_code,implicit,refresh_token','https://www.baidu.com',NULL,7200,259200,NULL,'2021-01-11 09:09:53',0,0,'false'),
-('c2','res2','$2a$10$X2xVwW.7cOEh2niPqHYAne9EnjRJFj7QI4TqfmnDou9fT/45sCFEm','ROLE_API','client_credentials,password,authorization_code,implicit,refresh_token','https://www.baidu.com',NULL,31536000,2592000,NULL,'2021-01-11 09:09:56',0,0,'false');
-
-/*Table structure for table `oauth_code` */
-
-DROP TABLE IF EXISTS `oauth_code`;
-
-CREATE TABLE `oauth_code` (
-`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`code` varchar(255) DEFAULT NULL,
-`authentication` blob,
-KEY `code_index` (`code`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-</code></pre>
-<p>上述SQL新建了两张表<code>oauth_client_details</code>以及<code>oauth_code</code>分别用于存储客户端信息以及授权码信息，由于使用了jwt token（jwt token本身就存储了数据），所以不再保存数据库，两张表均为spring oauth2.0内置表，不需要写SQL，内置框架自动识别表。</p>
-<h3 id="2修改配置">2.修改配置</h3>
-<p>对应上述两张表，分别修改Bean对象的创建为jdbc类型的：</p>
-<pre><code class="language-java">@Bean
-public AuthorizationCodeServices authorizationCodeServices(DataSource dataSource){
-return new JdbcAuthorizationCodeServices(dataSource);
+/// &lt;summary&gt;
+/// 可以获取长度
+/// &lt;/summary&gt;
+public override long Length
+{
+    get { return _buffer.Length; }
+}
+/// &lt;summary&gt;
+/// 可以读写Position
+/// &lt;/summary&gt;
+public override long Position
+{
+    get { return _buffer.Position; }
+    set
+    {
+        ThrowIfDisposed();
+        _buffer.Position = value;
+    }
 }
 
-@Bean
-public ClientDetailsService clientDetailsService(DataSource dataSource) {
-JdbcClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
-clientDetailsService.setPasswordEncoder(passwordEncoder);
-return clientDetailsService;
+public override long Seek(long offset, SeekOrigin origin)
+{
+    //如果Body已释放则异常
+    ThrowIfDisposed();
+    //特殊情况抛出异常
+    //_completelyBuffered代表是否完全缓存一定是在原始的HttpRequestStream读取完成后才置为true
+    //出现没读取完成但是原始位置信息和当前位置信息不一致则直接抛出异常
+    if (!_completelyBuffered &amp;&amp; origin == SeekOrigin.End)
+    {
+        throw new NotSupportedException("The content has not been fully buffered yet.");
+    }
+    else if (!_completelyBuffered &amp;&amp; origin == SeekOrigin.Current &amp;&amp; offset + Position &gt; Length)
+    {
+        throw new NotSupportedException("The content has not been fully buffered yet.");
+    }
+    else if (!_completelyBuffered &amp;&amp; origin == SeekOrigin.Begin &amp;&amp; offset &gt; Length)
+    {
+        throw new NotSupportedException("The content has not been fully buffered yet.");
+    }
+    //充值buffer的Seek
+    return _buffer.Seek(offset, origin);
 }
 </code></pre>
-<p>之后修改客户端配置对象：</p>
-<pre><code class="language-java">@Override
-public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-clients.withClientDetails(clientDetailsService);
-// clients.inMemory()
-// .withClient("c1")
-// .secret(new BCryptPasswordEncoder().encode("secret"))//$2a$10$0uhIO.ADUFv7OQ/kuwsC1.o3JYvnevt5y3qX/ji0AUXs4KYGio3q6
-// .resourceIds("r1")
-// .authorizedGrantTypes("authorization_code", "password", "client_credentials", "implicit", "refresh_token")
-// .scopes("all")
-// .autoApprove(false)
-// .redirectUris("https://www.baidu.com");
+<p>因为重写了一些关键设置，所以我们可以设置一些流相关的操作。从Seek方法中我们看到了两个比较重要的参数<code>_completelyBuffered</code>和<code>_buffer</code>，_completelyBuffered用来判断原始的HttpRequestStream是否读取完成，因为FileBufferingReadStream归根结底还是先读取了HttpRequestStream的内容。_buffer正是承载从HttpRequestStream读取的内容,我们大致抽离一下逻辑看一下，切记这不是全部逻辑，是抽离出来的大致思想</p>
+<pre><code class="language-cs">private readonly ArrayPool&lt;byte&gt; _bytePool;
+private const int _maxRentedBufferSize = 1024 * 1024; //1MB
+private Stream _buffer;
+public FileBufferingReadStream(int memoryThreshold)
+{
+    //即使我们设置memoryThreshold那么它最大也不能超过1MB否则也会存储在磁盘上
+    if (memoryThreshold &lt;= _maxRentedBufferSize)
+    {
+        _rentedBuffer = bytePool.Rent(memoryThreshold);
+        _buffer = new MemoryStream(_rentedBuffer);
+        _buffer.SetLength(0);
+    }
+    else
+    {
+        //超过1M将缓存到磁盘所以仅仅初始化
+        _buffer = new MemoryStream();
+    }
 }
 </code></pre>
-<p>完成修改。</p>
-<h3 id="3接口测试-1">3.接口测试</h3>
-<p>GET请求：<a href="http://127.0.0.1:30000/oauth/authorize?client_id=c1&amp;response_type=code&amp;scope=ROLE_API&amp;redirect_uri=https://www.baidu.com" target="_blank">http://127.0.0.1:30000/oauth/authorize?client_id=c1&amp;response_type=code&amp;scope=ROLE_API&amp;redirect_uri=https://www.baidu.com</a> 获取授权码后，观察表oauth_code，里面应当已经有了授权码数据。</p>
-<h2 id="四、源码地址">四、源码地址</h2>
-<p>源码地址：<a href="https://gitee.com/kdyzm/spring-security-oauth-study/tree/v4.0.0" target="_blank">https://gitee.com/kdyzm/spring-security-oauth-study/tree/v4.0.0</a></p>
-<p>我的博客地址：<a href="https://blog.kdyzm.cn/" target="_blank">https://blog.kdyzm.cn/</a></p>
+<p>这些都是一些初始化的操作，核心操作当然还是在FileBufferingReadStream的Read方法里，因为真正读取的地方就在这，我们找到Read方法位置[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/WebUtilities/src/FileBufferingReadStream.cs#L212" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">private readonly Stream _inner;
+public FileBufferingReadStream(Stream inner)
+{
+    //接收原始的Request.Body
+    _inner = inner;
+}
+public override int Read(Span&lt;byte&gt; buffer)
+{
+    ThrowIfDisposed();
 
+    //如果读取完成过则直接在buffer中获取信息直接返回
+    if (_buffer.Position &lt; _buffer.Length || _completelyBuffered)
+    {
+        return _buffer.Read(buffer);
+    }
+
+    //未读取完成才会走到这里
+    //_inner正是接收的原始的RequestBody
+    //读取的RequestBody放入buffer中
+    var read = _inner.Read(buffer);
+    //超过设定的长度则会抛出异常
+    if (_bufferLimit.HasValue &amp;&amp; _bufferLimit - read &lt; _buffer.Length)
+    {
+        throw new IOException("Buffer limit exceeded.");
+    }
+    //如果设定存储在内存中并且Body长度大于设定的可存储在内存中的长度,则存储到磁盘中
+    if (_inMemory &amp;&amp; _memoryThreshold - read &lt; _buffer.Length)
+    {
+        _inMemory = false;
+        //缓存原始的Body流
+        var oldBuffer = _buffer;
+        //创建缓存文件
+        _buffer = CreateTempFile();
+        //超过内存存储限制，但是还未写入过临时文件
+        if (_rentedBuffer == null)
+        {
+            oldBuffer.Position = 0;
+            var rentedBuffer = _bytePool.Rent(Math.Min((int)oldBuffer.Length, _maxRentedBufferSize));
+            try
+            {
+                //将Body流读取到缓存文件流中
+                var copyRead = oldBuffer.Read(rentedBuffer);
+                //判断是否读取到结尾
+                while (copyRead &gt; 0)
+                {
+                    //将oldBuffer写入到缓存文件流_buffer当中
+                    _buffer.Write(rentedBuffer.AsSpan(0, copyRead));
+                    copyRead = oldBuffer.Read(rentedBuffer);
+                }
+            }
+            finally
+            {
+                //读取完成之后归还临时缓冲区到ArrayPool中
+                _bytePool.Return(rentedBuffer);
+            }
+        }
+        else
+        {
+            
+            _buffer.Write(_rentedBuffer.AsSpan(0, (int)oldBuffer.Length));
+            _bytePool.Return(_rentedBuffer);
+            _rentedBuffer = null;
+        }
+    }
+
+    //如果读取RequestBody未到结尾,则一直写入到缓存区
+    if (read &gt; 0)
+    {
+        _buffer.Write(buffer.Slice(0, read));
+    }
+    else
+    {
+        //如果已经读取RequestBody完毕，也就是写入到缓存完毕则更新_completelyBuffered
+        //标记为以全部读取RequestBody完成，后续在读取RequestBody则直接在_buffer中读取
+        _completelyBuffered = true;
+    }
+    //返回读取的byte个数用于外部StreamReader判断读取是否完成
+    return read;
+}
+</code></pre>
+<p>代码比较多看着也比较复杂，其实核心思路还是比较清晰的，我们来大致的总结一下</p>
+<ul>
+<li>首先判断是否完全的读取过原始的RequestBody,如果完全完整的读取过RequestBody则直接在缓冲区中获取返回</li>
+<li>如果RequestBody长度大于设定的内存存储限定，则将缓冲写入磁盘临时文件中</li>
+<li>如果是首次读取或为完全完整的读取完成RequestBody，那么将RequestBody的内容写入到缓冲区，知道读取完成</li>
+</ul>
+<p>其中CreateTempFile这是创建临时文件的操作流，目的是为了将RequestBody的信息写入到临时文件中。可以指定临时文件的地址，若如果不指定则使用系统默认目录，它的实现如下[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/WebUtilities/src/FileBufferingReadStream.cs#L198" target="_blank">点击查看源码👈</a>]</p>
+<pre><code class="language-cs">private Stream CreateTempFile()
+{
+    //判断是否制定过缓存目录，没有的话则使用系统临时文件目录
+    if (_tempFileDirectory == null)
+    {
+        Debug.Assert(_tempFileDirectoryAccessor != null);
+        _tempFileDirectory = _tempFileDirectoryAccessor();
+        Debug.Assert(_tempFileDirectory != null);
+    }
+    //临时文件的完整路径
+    _tempFileName = Path.Combine(_tempFileDirectory, "ASPNETCORE_" + Guid.NewGuid().ToString() + ".tmp");
+    //返回临时文件的操作流
+    return new FileStream(_tempFileName, FileMode.Create, FileAccess.ReadWrite, FileShare.Delete, 1024 * 16,
+        FileOptions.Asynchronous | FileOptions.DeleteOnClose | FileOptions.SequentialScan);
+}
+</code></pre>
+<p>我们上面分析了FileBufferingReadStream的Read方法这个方法是同步读取的方法可供StreamReader的ReadToEnd方法使用，当然它还存在一个异步读取方法ReadAsync供StreamReader的ReadToEndAsync方法使用。这两个方法的实现逻辑是完全一致的，只是读取和写入操作都是异步的操作，这里咱们就不介绍那个方法了，有兴趣的同学可以自行了解一下<code>ReadAsync</code>方法的实现[<a href="https://github.com/dotnet/aspnetcore/blob/v5.0.5/src/Http/WebUtilities/src/FileBufferingReadStream.cs#L285" target="_blank">点击查看源码👈</a>]</p>
+<blockquote>
+<p>当开启EnableBuffering的时候，无论首次读取是设置了AllowSynchronousIO为true的ReadToEnd同步读取方式，还是直接使用ReadToEndAsync的异步读取方式，那么再次使用ReadToEnd同步方式去读取Request.Body也便无需去设置AllowSynchronousIO为true。因为默认的Request.Body已经由HttpRequestStream实例替换为FileBufferingReadStream实例，而FileBufferingReadStream重写了Read和ReadAsync方法，并不存在不允许同步读取的限制。</p>
+</blockquote>
+<h4 id="总结">总结</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;本篇文章篇幅比较多，如果你想深入的研究相关逻辑，希望本文能给你带来一些阅读源码的指导。为了防止大家深入文章当中而忘记了具体的流程逻辑，在这里我们就大致的总结一下关于正确读取RequestBody的全部结论</p>
+<ul>
+<li>首先关于同步读取<code>Request.Body</code>由于默认的RequestBody的实现是HttpRequestStream，但是HttpRequestStream在重写Read方法的时候会判断是否开启AllowSynchronousIO，如果未开启则直接抛出异常。但是HttpRequestStream的ReadAsync方法并无这种限制，所以使用异步方式的读取RequestBody并无异常。</li>
+<li>虽然通过设置<code>AllowSynchronousIO</code>或使用<code>ReadAsync</code>的方式我们可以读取RequestBody，但是RequestBody无法重复读取，这是因为HttpRequestStream的Position和Seek都是不允许进行修改操作的，设置了会直接抛出异常。为了可以重复读取，我们引入了Request的扩展方法<code>EnableBuffering</code>通过这个方法我们可以重置读取位置来实现RequestBody的重复读取。</li>
+<li>关于开启<code>EnableBuffering</code>方法每次请求设置一次即可，即在准备读取RequestBody之前设置。其本质其实是使用<code>FileBufferingReadStream</code>代替默认RequestBody的默认类型HttpRequestStream，这样我们在一次Http请求中操作Body的时候其实是操作FileBufferingReadStream，这个类重写Stream的时候Position和Seek都是可以设置的，这样我们就实现了重复读取。</li>
+<li><code>FileBufferingReadStream</code>带给我们的不仅仅是可重复读取，还增加了对RequestBody的缓存功能，使得我们在一次请求中重复读取RequestBody的时候可以在Buffer里直接获取缓存内容而Buffer本身是一个MemoryStream。<font color="red">当然我们也可以自己实现一套逻辑来替换Body，只要我们重写的时候让这个Stream支持重置读取位置即可。</font></li>
+</ul>
+<p>以上就是本次笔者对关于如何更好的方式操作<code>Request.Body</code>的理解，关于讲解内容笔者深知自己能力有限，理解的不一定透彻，甚至理解的不一定对，还望大家多多谅解，也欢迎大家能够多多交流。<br>
+<br></p>
+<div align="center">
+  <span style="font-size: 15px">👇欢迎扫码关注我的公众号👇</span>
+  <img src="https://img2020.cnblogs.com/blog/2042116/202006/2042116-20200622133425514-1420050576.png">
+</div>
 </div>
 <div id="MySignature"></div>
 <div class="clear"></div>
@@ -429,12 +819,12 @@ clients.withClientDetails(clientDetailsService);
 </div>
             </div>
             <div class="postDesc">posted @ 
-<span id="post-date">2021-01-11 22:58</span>&nbsp;
-<a href="https://www.cnblogs.com/kuangdaoyizhimei/">狂盗一枝梅</a>&nbsp;
-阅读(<span id="post_view_count">366</span>)&nbsp;
-评论(<span id="post_comment_count">0</span>)&nbsp;
-<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14264844" rel="nofollow">编辑</a>&nbsp;
-<a href="javascript:void(0)" onclick="AddToWz(14264844);return false;">收藏</a></div>
+<span id="post-date">2021-05-06 09:03</span>&nbsp;
+<a href="https://www.cnblogs.com/wucy/">yi念之间</a>&nbsp;
+阅读(<span id="post_view_count">1908</span>)&nbsp;
+评论(<span id="post_comment_count">29</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14699717" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14699717);return false;">收藏</a></div>
         </div>
 	    
 	    
@@ -443,8 +833,8 @@ clients.withClientDetails(clientDetailsService);
 <script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
 <script>markdown_highlight();</script>
 <script>
-    var allowComments = true, cb_blogId = 147792, cb_blogApp = 'kuangdaoyizhimei', cb_blogUserGuid = 'bdaaad45-60a3-e211-82de-84c4f0333004';
-    var cb_entryId = 14264844, cb_entryCreatedDate = '2021-01-11 22:58', cb_postType = 1;
+    var allowComments = true, cb_blogId = 605020, cb_blogApp = 'wucy', cb_blogUserGuid = 'cbf13d4d-9981-4cce-33f2-08d7f668ab52';
+    var cb_entryId = 14699717, cb_entryCreatedDate = '2021-05-06 09:03', cb_postType = 1;
     updatePostStats(
         [cb_entryId],
         function(id, count) { $("#post_view_count").text(count) },
@@ -506,7 +896,7 @@ LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId
 	<div class="clear"></div>
 	<div id="footer">
 		<!--done-->
-Copyright &copy; 2021 狂盗一枝梅
+Copyright &copy; 2021 yi念之间
 <br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
 
 
@@ -515,316 +905,8 @@ Copyright &copy; 2021 狂盗一枝梅
 </div><!--end: home 自定义的最大容器 -->
 
 
-    <div id="page_end_html">
-        <!-- ............自定义尾部代码开始............ -->
-<div id="post-bottom-bar" class="post-bottom-bar" style="bottom: 0px;">
-	<div class="bottom-bar-inner">
-		<!-- 左边 -->
-        <div class="bottom-bar-items social-share" style="float: left;">
-            <span class="bottom-bar-item bottom-bar-facebook">
-                <a id="bottom-d" href="javascript:void(0)" target="_blank">好文要赞</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-twitter">
-                <a id="bottom-g" href="javascript:void(0)" target="_blank">关注我</a>
-            </span>
-            <span class="bottom-bar-item bottom-bar-qrcode">
-                <a id="bottom-s" href="javascript:void(0)" target="_blank">收藏该文</a>
-            </span>
-        </div>
-        <!-- 右边 -->
-        <div class="bottom-bar-items right" style="float: right;">
-            <span class="bottom-bar-item"><a id="mbottom-left" href="javascript:void(0);">←</a></span>
-            <span class="bottom-bar-item"><a id="mbottom-right" href="javascript:void(0);">→</a></span>
-            <span class="bottom-bar-item"><a href="#mfooter">↓</a></span>
-            <span class="bottom-bar-item"><a href="#mtop">↑</a></span>
-        </div>
-	</div> 
-</div>
-<a name="mfooter"></a>
+    
 
-<!-- 遮罩层（用于图片点击放大），
-    代码来自https://www.cnblogs.com/zhanxiaoyun/p/8259451.html-->
-<div id="outerdiv" style="text-align: center;position: fixed;z-index: 1000;top: 0;left: 0;
-    width: 100%;height: 100%;background-color: rgba(255,255,255,.9);display: none;">
-    <img id="bigimg" style="height: auto;width: auto;border: 0; 
-        margin: auto;position: absolute;top: 0;bottom: 0;left: 0;right: 0;">
-</div>
-<!-- ............自定义尾部代码结束............ -->
-
-
-<script type="text/javascript" src="https://blog-static.cnblogs.com/files/summertime-wu/nprogress.js"></script>
-<script type="text/javascript">
-
-    //博主名称 可不改，默认取博客园提供的
-    var nickName = null;
-    //slogan
-    var slogan = '立德立言，无闻西东';
-    //icon
-    var icon = "https://img2020.cnblogs.com/blog/516671/202104/516671-20210421182138882-1923189268.png";
-    //默认博客背景图片
-    var defaultPic="https://img2018.cnblogs.com/blog/1138447/201904/1138447-20190426121949417-1115592219.jpg";
-    //icon(浏览器标题栏上的)
-    var iconB="https://img2018.cnblogs.com/blog/1138447/201909/1138447-20190911161817172-1737762696.png";
-    //友情链接地址
-    var friendLink="https://www.cnblogs.com/kuangdaoyizhimei/p/14685396.html";
-    //关于地址
-    var aboutMe="https://www.cnblogs.com/kuangdaoyizhimei/p/14685428.html";
-    //Github地址,假如博客username与Github username相同，不用改。
-    //如 cnblogs.com/username github.com/username 这样就不用改
-    var myGayhubUrl = "https://github.com/kdyzm";
-</script>
-<script type="text/javascript">
-	/**
-		用来设置初始时需要执行的js
-	*/
-	$(document).ready(function(){
-
-        //获取博主名字
-        if (nickName == null){
-            var footerOverTestArray = $($("#footer")[0].childNodes[2]).text().trim().split(" ");
-            nickName = footerOverTestArray[footerOverTestArray.length - 1];
-        }
-
-		//加载顶部进度条
-	    NProgress.start();
-	    NProgress.done();
-	    $("#myProgressBar").hide();
-
-	    //设置背景图片地址
-	    if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
-	    	$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
-	    }else{
-    		$("#myheader_bg").css("background-image","url("+defaultPic+")");
-	    }
-
-	    //设置标题
-        if($("#cb_post_title_url").html()){
-            $("#mypost_title_h").html($("#cb_post_title_url").html());
-        }else{
-            $("#mypost_title_h").html(nickName);
-        }
-
-	    //正文和标题淡入
-	    $("#mainContent").css("opacity","1");
-	    $("#mainContent").css("margin-top","0");
-	    $("#mypost_title").css("opacity","1");
-	    $("#mypost_title").css("top","75pt");
-
-        /* --根据个人配置修改页面 start-- */
-        //修改a链接
-        var ccList = $(".c-c");
-        for(var cc of ccList){
-            $(cc).attr("href", $(cc).attr("href").replace("summertime-wu",currentBlogApp));
-        }
-        //设置Github链接
-        if (myGayhubUrl != null ){$("#myGayhubUrl").attr("href",myGayhubUrl)}
-        //设置友链的链接
-        $("#friendLink").attr("href",friendLink);
-        //设置关于的链接
-        $("#aboutMe").attr("href",aboutMe);
-        //设置两个iocn图标
-        $("#nv-icon").attr("src",icon);
-        var linkObject = document.createElement("link");
-        linkObject.rel = "shortcut icon";
-        linkObject.href = iconB;
-        document.getElementsByTagName("head")[0].appendChild(linkObject);
-        //设置底部栏按钮
-        if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-                window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-            $("#bottom-d").html("友情链接");
-            $("#bottom-d").attr("href",friendLink);
-        }else{
-            var url = window.location.href;
-            var lastUrl = url.substring(url.lastIndexOf("/")+1);
-            var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
-            $("#bottom-d").click(function(){
-                DiggIt(mpageId,cb_blogId,1);
-                green_channel_success(this,'谢谢推荐！');
-            })
-        }
-        /* --根据个人配置修改页面 end-- */
-	})
-
-	/**
-		设置ajax请求加载完所有数据时执行的js
-	*/
-	setTimeout(afterAjax,1000);
-	function afterAjax(){
-		//假如是首页
-		if (window.location.href == "https://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "https://www.cnblogs.com/"+currentBlogApp+"/"||
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp|| 
-			window.location.href == "http://www.cnblogs.com/"+currentBlogApp+"/") {
-			$("#mypost_title_e").html("<a href='https://cnblogs.com/"+currentBlogApp+"'>"+slogan+"</a>");
-		}else{
-		    var classification = null;
-		    if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
-		    	classification = $("#BlogPostCategory").html();
-		    	classification = classification.substring(3,classification.length);
-		    }else{
-		    	classification = "<a href='https://cnblogs.com/"+currentBlogApp+"'>暂未分类</a>";
-		    }
-		    var ftitle = "Published on "+ $("#post-date").html() + " in " +  classification
-		    + " with <a href='https://cnblogs.com/"+currentBlogApp+"'>"+nickName+"</a>";
-		    //设置副标题标题
-		    $("#mypost_title_f").html(ftitle);
-		    //设置标题分类按钮
-		    $("#mypost_title_e").html(classification);
-		    //设置底部导航条上一篇下一篇文章
-		    var pnp = $("#post_next_prev a");
-		    $("#mbottom-left").attr("href",pnp[1].href);
-		    if (pnp.length>2) {
-		    	$("#mbottom-right").attr("href",pnp[3].href);
-		    }
-		}
-		$("#myheader_bg").css("filter","blur(0px)");
-
-        //优化评论区样式
-        $("#comment_form_container p:last").hide();
-        $("#commentbox_opt a:last").hide();
-        $("#tbCommentBody").attr('placeholder','Your comment here. Be cool. ');
-	}
-
-
-	/** 
-		自定义的js方法
-	*/
-	//设置底部导航条点击关注按钮事件
-	$("#bottom-g").click(function(){
-		$('#green_channel_follow').click()
-		return false
-	})
-	$("#bottom-s").click(function(){
-		AddToWz(cb_entryId);
-		return false;
-	})
-
-
-	//通过滚动条控制导航条的展现隐藏
-	var oldScrollNum = 0;
-	window.onscroll = function(){
-		var t = document.documentElement.scrollTop || document.body.scrollTop;
-		//下滑
-		if (t>oldScrollNum) {
-			if (t>120) {
-				$("#mynavbar").css("margin-top","-70px");//顶部导航
-				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
-			}
-			if (t>300) {
-				$("#right_meun").css("display","inline-block");//右侧导航
-			}
-		//上拉
-		}else{
-			//防止用a链接跳转也触发效果
-			if (oldScrollNum-t<20) {
-				$("#mynavbar").css("margin-top","0px");//顶部导航
-				$("#post-bottom-bar").css("bottom","0");//底部导航
-			}
-			if (t<=300) {
-				$("#right_meun").css("display","none");//右侧导航
-			}
-		}
-		oldScrollNum = t;
-	}
-
-	//背景大图点击模糊||清晰
-	$("#myheader_cover").click(function(){
-		if ($("#myheader_bg").css("filter") == "blur(3px)") {
-			$("#myheader_bg").css("filter","blur(0px)");
-		}else{
-			$("#myheader_bg").css("filter","blur(3px)");
-		}
-	})
-
-
-    $("#outerdiv").click(function(){//再次点击淡出消失弹出层    
-        $(this).fadeOut("fast");    
-    }); 
-
- </script>
-
- <script type="text/javascript">  
-    var setMyBlog = {
-        setCopyright: function() {
-            //设置版权信息，转载出处自动根据页面url生成
-            var info_str = '<p>作者：<a target="_blank">@gzdaijie</a><br>'+
-                '本文为作者原创，转载请注明出处：<a class="uri"></a></p><hr></hr>', 
-                info = $(info_str),
-                info_a = info.find("a"),
-                url = window.location.href;
-            $(info_a[0]).attr("href","https://github.com/gzdaijie");
-            $(info_a[1]).attr("href",url).text(url);
-            $("#cnblogs_post_body").prepend(info);
-        },
-        setCodeRow: function(){
-            // 代码行号显示
-            var pre = $("pre.sourceCode"); //选中需要更改的部分
-            if(pre && pre.length){
-                pre.each(function() {
-                    var item = $(this);
-                    var lang = item.attr("class").split(" ")[1]; //判断高亮的语言
-                    item.html(item.html().replace(/<[^>]+>/g,"")); //将<pre>标签中的html标签去掉
-                    item.removeClass().addClass("brush: " + lang +";"); //根据语言添加笔刷
-                    SyntaxHighlighter.all();
-                })
-            }
-        },
-        setAtarget: function() {
-            // 博客内的链接在新窗口打开
-            $("#cnblogs_post_body a").each(function(){
-                this.target = "_blank";
-            }) 
-        },
-        setContent: function() {
-            // 根据h2、h3标签自动生成目录
-            var captions_ori = $("#cnblogs_post_body h2"),
-            	captions_ori2 = $("#cnblogs_post_body h3"),
-                captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
-                content = $("<ul id='right_meun'></ul>");
-            $("#cnblogs_post_body").prepend(content.append(captions));
-            var index = -1,index2 = -1;
-            captions.replaceWith(function(){
-                var self = this;
-                if(self.tagName == "H2" || self.tagName == "h2"){
-                    // 设置点击目录跳转
-                    index += 1;
-                    $('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
-                    return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
-                } else {
-                	// add by summertime-wu 增加h3链接跳转
-                	index2 += 1;
-                	$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
-                	$("#"+index+"li ul").append("<li><a href='#_caption" + index2 + "' style='color:#5f5f5f;'>" +self.innerHTML+"</a></li>");
-                    return ;
-                }
-            });
-        },
-        runAll: function() {
-            /* 运行所有方法
-             * setAtarget() 博客园内标签新窗口打开
-             * setContent() 设置目录
-             * setCopyright() 设置版权信息
-             * setCodeRow() 代码行号显示
-             */ 
-            this.setAtarget(); 
-            //假如为手机端不显示目录
-            if(document.body.clientWidth>=1000){
-                this.setContent();
-            }
-            // this.setCopyright();
-            this.setCodeRow();
-        }
-    }
-    setMyBlog.runAll();
-</script>
-
-<!-- 代码行号 -->
-<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initLineNumbersOnLoad();</script>
-    </div>
-
-    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuCfE7QJurvIHIL0Mq9hsSc8aM9MlxGXNNstBYWFAka8HWaSFUSEw6fQpGaVweSAOFri85JS23XyUDtJVnv74msmprlQp9X3rpc6aLF3ayi0IPgHv-Og87GOJJT4yIWg9g" />
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtKRthUKmmhZB7UBcXXSWlA-vkGwMC6cmL3X_2GRADVK_zHXJai_Rnq5Jk4twVDgIpVJ3knRKj7OmmtxbBiP9DCL6kxDKSPcdnvfF9gkEPzliOKTJzO2bnGeiT1Trhw9pY" />
 </body>
 </html>
