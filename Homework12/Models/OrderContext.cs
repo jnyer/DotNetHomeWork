@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OrderApi.Models
+namespace TodoApi.Models
 {
     public class OrderContext : DbContext
     {

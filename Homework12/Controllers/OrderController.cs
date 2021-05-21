@@ -5,28 +5,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using OrderApi.Models;
+using TodoApi.Models;
 
-namespace OrderApi.Controllers
+namespace TodoApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
 
-        private readonly OrderContext orderDb;
+        private readonly OrderContext DBOrder;
 
         //构造函数把OrerContext 作为参数，Asp.net core 框架可以自动注入OrderContext对象
         public OrderController(OrderContext context)
         {
-            this.orderDb = context;
+            this.DBOrder = context;
         }
 
         // GET: api/order/{id}  id为路径参数
         [HttpGet("{id}")]
         public ActionResult<Order> GetOrder(string id)
         {
-            var order = orderDb.Orders.FirstOrDefault(o =>o.Id  == id);
+            var order = DBOrder.Orders.FirstOrDefault(o =>o.Id  == id);
             if (order == null)
             {
                 return NotFound();
@@ -39,7 +39,7 @@ namespace OrderApi.Controllers
         [HttpGet]
         public ActionResult<List<Order>> GetOrders(string customerName)
         {
-            var query = orderDb.Orders.
+            var query = DBOrder.Orders.
                 Include("Customer").
                 Where(o => true);
             if (customerName != null)
@@ -54,8 +54,8 @@ namespace OrderApi.Controllers
         {
             try
             {
-                orderDb.Orders.Add(order);
-                orderDb.SaveChanges();
+                DBOrder.Orders.Add(order);
+                DBOrder.SaveChanges();
             }
             catch (Exception e)
             {
@@ -74,8 +74,8 @@ namespace OrderApi.Controllers
             }
             try
             {
-                orderDb.Entry(order).State = EntityState.Modified;
-                orderDb.SaveChanges();
+                DBOrder.Entry(order).State = EntityState.Modified;
+                DBOrder.SaveChanges();
             }
             catch (Exception e)
             {
@@ -92,11 +92,11 @@ namespace OrderApi.Controllers
         {
             try
             {
-                var order = orderDb.Orders.FirstOrDefault(t => t.Id == id);
+                var order = DBOrder.Orders.FirstOrDefault(t => t.Id == id);
                 if (order != null)
                 {
-                    orderDb.Remove(order);
-                    orderDb.SaveChanges();
+                    DBOrder.Remove(order);
+                    DBOrder.SaveChanges();
                 }
             }
             catch (Exception e)
